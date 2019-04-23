@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "610184857267",
+    "firebase_url": "https://cse110-6b013.firebaseio.com",
+    "project_id": "cse110-6b013",
+    "storage_bucket": "cse110-6b013.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:610184857267:android:13fd723912199915",
+        "android_client_info": {
+          "package_name": "com.example.rum8"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "610184857267-iubv0k9hm8te28gqqpr8np8eh8di172v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rum8",
+            "certificate_hash": "c233bb2fe74731be166fd1ba39d29c7150a3d05c"
+          }
+        },
+        {
+          "client_id": "610184857267-5e6bsri2ifabj538p1iarftd81mnlps3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rum8",
+            "certificate_hash": "1078b3eb074158220b6198bd7fbe3ae4b1ea7e89"
+          }
+        },
+        {
+          "client_id": "610184857267-9l72ej22co1h20bjintdejr8lo8iufhk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbTMNjA-kfpvnwSWDkBbLbnmU58cBOwg8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "610184857267-9l72ej22co1h20bjintdejr8lo8iufhk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
