@@ -41,15 +41,18 @@ public class RegistrationActivity extends AppCompatActivity {
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 // check the user not null then they can't register again
-                if(user != null) {
+                if (user != null) {
+
                     Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
-                    System.out.println("HIII");
+                    Toast.makeText(RegistrationActivity.this, "You have registered",
+                            Toast.LENGTH_SHORT).show();
                     return;
                 }
             }
         };
+
 
         // get the button, user email, password
         mRegister = (Button) findViewById(R.id.button_register);
@@ -63,24 +66,61 @@ public class RegistrationActivity extends AppCompatActivity {
 
                 final String email = mEmail.getText().toString();
                 final String password = mPassword.getText().toString();
+
+                if (email == null) {
+                    Toast.makeText(RegistrationActivity.this, "please use your " +
+                                    "ucsd official email: example: abc@ucsd.edu",
+                            Toast.LENGTH_SHORT).show();
+                }
+
+
+                // check for email length less than 9 chars
+                if (email.length() < 10) {
+                    Toast.makeText(RegistrationActivity.this, "please use your " +
+                                    "ucsd official email: example: abc@ucsd.edu",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+
+                    // get the last 8 chars of the email address
+                    String last9 = email.substring(email.length() - 9);
+
+                    // check for not ucsd email
+                    if (!last9.equals("@ucsd.edu")) {
+                        Toast.makeText(RegistrationActivity.this, "please use your " +
+                                        "ucsd official email: example: abc@ucsd.edu",
+                                Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
+
+                // check for password length less that 6 characters
+                if (mPassword.length() < 6) {
+                    Toast.makeText(RegistrationActivity.this, "Your password " +
+                                    "need to be more than 6 characters .",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener
                         (RegistrationActivity.this, new OnCompleteListener<AuthResult>() {
 
                             @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isSuccessful()) {
-                                        // Sign in success, update UI with the signed-in user's information
-                                        Log.d("Success", "createUserWithEmail:success");
-                                        FirebaseUser user = mAuth.getCurrentUser();
-                                    } else {
-                                        // If sign in fails, display a message to the user.
-                                        Log.w("Error:", "createUserWithEmail:failure", task.getException());
-                                        Toast.makeText(RegistrationActivity.this, "Authentication failed.",
-                                                Toast.LENGTH_SHORT).show();
-                                    }
-                            }
-                });
+                            public void onComplete(@NonNull Task<AuthResult> task) {
 
+                                if (task.isSuccessful()) {
+                                    // Sign in success, update UI with the signed-in user's information
+                                    Log.d("Success", "createUserWithEmail:success");
+                                    FirebaseUser user = mAuth.getCurrentUser();
+
+                                } else {
+                                    // If sign in fails, display a message to the user.
+                                    Log.w("Error:", "createUserWithEmail:failure", task.getException());
+                                    Toast.makeText(RegistrationActivity.this, "Authentication failed.",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
             }
         });
     }
