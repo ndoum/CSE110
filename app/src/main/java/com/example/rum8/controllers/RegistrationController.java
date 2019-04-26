@@ -28,7 +28,7 @@ public class RegistrationController {
         // Listener to check the status of registration
         authStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+            public void onAuthStateChanged(final @NonNull FirebaseAuth firebaseAuth) {
 
                 // Get the current user
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -38,7 +38,7 @@ public class RegistrationController {
                     controllerListener.onUserRegistered();
 
                     final String message = "You have registered";
-                    controllerListener.makeToast(message, Toast.LENGTH_SHORT);
+                    controllerListener.showToast(message, Toast.LENGTH_SHORT);
                 }
             }
         };
@@ -50,15 +50,15 @@ public class RegistrationController {
     public void onSubmit(final String email, final String password) {
         if (!isValidEmail(email)) {
             final String message = "Please use your UCSD email (i.e. abc@ucsd.edu)";
-            controllerListener.makeToast(message, Toast.LENGTH_SHORT);
+            controllerListener.showToast(message, Toast.LENGTH_SHORT);
         } else if (!isValidPassword(password)) {
             final String message = "Your password need to be more than 6 characters";
-            controllerListener.makeToast(message, Toast.LENGTH_SHORT);
+            controllerListener.showToast(message, Toast.LENGTH_SHORT);
         } else {
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener
                     ((Activity) context, new OnCompleteListener<AuthResult>() {
                         @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
+                        public void onComplete(final @NonNull Task<AuthResult> task) {
                             final String message;
                             if (task.isSuccessful()) {
                                 Log.d("Success", "createUserWithEmail:success");
@@ -68,7 +68,7 @@ public class RegistrationController {
                                 } else {
                                     message = "Authentication failed";
                                 }
-                                controllerListener.makeToast(message, Toast.LENGTH_SHORT);
+                                controllerListener.showToast(message, Toast.LENGTH_SHORT);
 
                                 Log.e("Error:", "createUserWithEmail:failure", task.getException());
                             }

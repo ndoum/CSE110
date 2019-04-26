@@ -4,6 +4,6 @@ public interface RegistrationControllerListener {
 
     void onUserRegistered();
 
-    void makeToast(final String message, final int toastLength);
+    void showToast(final String message, final int toastLength);
 
 }

@@ -40,8 +40,8 @@ public class RegistrationActivity extends AppCompatActivity
     }
 
     @Override
-    public void makeToast(final String message, final int toastLength) {
-        Toast.makeText(RegistrationActivity.this, message, Toast.LENGTH_SHORT).show();
+    public void showToast(final String message, final int toastLength) {
+        Toast.makeText(RegistrationActivity.this, message, toastLength).show();
     }
 
     private void initViews() {
