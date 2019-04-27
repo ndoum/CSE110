@@ -1,11 +1,11 @@
 # Rüm8
 
 ### General coding standards:
-- Create small and specific branches.
+- Create small and specific branches, preferably branched off of master.
 - Constantly pull your branch's base branch to stay up to date with other people's changes.
-- All code goes into the `dev` branch before going into `master`.
-  - We can test `dev` before merging it into `master`. This will prevent bugs from getting on `master`.
-  - If you want to merge your code into the `dev` branch, create a pull request (PR) and send it other group members to be reviewed.
+- Test your code on the `dev` branch before creating a pull request to merge your code into your branch's base branch.
+  - `dev` will constantly be pulling from `master`, so testing your code on `dev` should prevent bugs from getting on `master`.
+  - Once you have tested your code on the `dev` branch, create a pull request (PR) to merge your branch into its base branch and send it other group members to be reviewed.
     - Who and how many people you send it to should depend on the significance of your code.
     - You can send your PRs to other people through Slack.
   
