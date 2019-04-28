@@ -2,58 +2,61 @@ package com.example.rum8.activities;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.rum8.R;
+import com.example.rum8.controllers.PasswordRecoveryController;
+import com.example.rum8.listeners.PasswordRecoveryControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import android.support.v7.app.AppCompatActivity;
 
 
-public class PasswordRecoveryActivity extends AppCompatActivity implements View.OnClickListener{
+public class PasswordRecoveryActivity extends AppCompatActivity implements PasswordRecoveryControllerListener {
 
-    private EditText emailField;
-    private EditText passwordField;
+  private EditText emailField;
+  private EditText passwordField;
+  private Button button_resetPassword;
+  private PasswordRecoveryController controller;
 
-    // [START declare_auth]
-    private FirebaseAuth mAuth;
-    // [END declare_auth]
+  // [START declare_auth]
+  private FirebaseAuth mAuth;
+  // [END declare_auth]
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_password_recovery);
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_password_recovery);
+    initViews();
+    initController();
 
-        // views
-        emailField = findViewById(R.id.input_email);
-        passwordField = findViewById(R.id.input_password);
+    // views
+    emailField = (EditText) findViewById(R.id.user_email);
+    passwordField = (EditText) findViewById(R.id.user_password);
+    button_resetPassword = (Button) findViewById(R.id.button_reset_password);
 
-        //buttons
-        //TODO: should be forget password bottom
-        findViewById(R.id.button_register).setOnClickListener(this);
+    // [START initialize_auth]
+    // Initialize Firebase Auth
+    mAuth = FirebaseAuth.getInstance();
+    // [END initialize_auth]
 
-        // [START initialize_auth]
-        // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
-        // [END initialize_auth]
+  }
 
-    }
+  private void initViews() {
+  }
 
-    // [START on_start_check_user]
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        //TODO: update UI based on user status
-    }
-    // [END on_start_check_user]
+  private void initController() {
+    controller = new PasswordRecoveryController(this);
+  }
 
-    @Override
-    public void onClick(View v) {
-        //TODO: everthing: function call; implement functions etc.
+  // [START on_start_check_user]
+  @Override
+  public void onStart() {
+    super.onStart();
 
-    }
+  }
+  // [END on_start_check_user]
 
 }

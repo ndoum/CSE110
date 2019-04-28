@@ -30,12 +30,27 @@ public class MainActivity extends AppCompatActivity
         finish();
     }
 
+    @Override
+    public void goToLogin() {
+        final Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
     private void initViews() {
+
+
         final Button button_goToProfileSettings = findViewById(R.id.button_go_to_profile_settings);
         button_goToProfileSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 controller.onGoToProfileSettingsButtonClicked();
+            }
+        });
+        final Button button_goToLogin = findViewById(R.id.button_go_to_login);
+        button_goToLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                controller.onGoToLoginButtonClicked();
             }
         });
     }

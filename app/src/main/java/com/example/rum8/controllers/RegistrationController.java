@@ -33,13 +33,13 @@ public class RegistrationController {
                 // Get the current user
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-                // If the user exists
+                /*// If the user exists
                 if (user != null) {
                     controllerListener.onUserRegistered();
 
                     final String message = "You have registered";
                     controllerListener.showToast(message, Toast.LENGTH_SHORT);
-                }
+                }*/
             }
         };
 
@@ -61,6 +61,7 @@ public class RegistrationController {
                         public void onComplete(final @NonNull Task<AuthResult> task) {
                             final String message;
                             if (task.isSuccessful()) {
+                                controllerListener.onUserRegistered();
                                 Log.d("Success", "createUserWithEmail:success");
                             } else {
                                 if (task.getException() instanceof FirebaseAuthUserCollisionException) {
