@@ -14,4 +14,9 @@ public class MainController {
         controllerListener.goToProfileSettings();
     }
 
+    public void onGoToLoginButtonClicked() {
+        controllerListener.goToLogin();
+    }
+
+
 }

@@ -46,6 +46,18 @@
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:text="Log in" />
+        <Button
+            android:id="@+id/button_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="First time? Register here" />
+        <Button
+            android:id="@+id/button_password_recovery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="Forget your password?" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
