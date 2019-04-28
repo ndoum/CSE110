@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity
     }
     private void initViews() {
 
-
         final Button button_goToProfileSettings = findViewById(R.id.button_go_to_profile_settings);
         button_goToProfileSettings.setOnClickListener(new View.OnClickListener() {
             @Override

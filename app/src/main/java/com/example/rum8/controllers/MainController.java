@@ -13,8 +13,10 @@ public class MainController {
     public void onGoToProfileSettingsButtonClicked() {
         controllerListener.goToProfileSettings();
     }
+
     public void onGoToLoginButtonClicked() {
         controllerListener.goToLogin();
     }
+
 
 }
