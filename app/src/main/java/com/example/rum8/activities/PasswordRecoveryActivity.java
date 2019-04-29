@@ -11,7 +11,7 @@ import com.example.rum8.listeners.PasswordRecoveryControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class PasswordRecoveryActivity extends AppCompatActivity implements PasswordRecoveryControllerListener {

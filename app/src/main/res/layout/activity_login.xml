@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -22,14 +22,29 @@
             android:layout_weight="0"
             android:gravity="center_horizontal"
             android:text="Log in" />
-
+<!--
         <EditText
             android:id="@+id/user_email"
             android:layout_width="match_parent"
             android:layout_height="63dp"
             android:ems="10"
             android:hint="Enter your UCSD email here"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName" /> -->
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your UCSD email here"
+            android:textColorHint="@color/ucsd_navy_blue"
+            app:boxStrokeColor="@color/ucsd_navy_blue">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <EditText
             android:id="@+id/user_password"
@@ -60,4 +75,4 @@
             android:text="Forget your password?" />
 
     </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
