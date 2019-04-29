@@ -16,6 +16,7 @@ import com.example.rum8.controllers.LoginController;
 import com.example.rum8.listeners.LoginControllerListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,8 +26,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class LoginActivity extends AppCompatActivity implements LoginControllerListener {
 
   //member variables for text field
-  private EditText emailField;
-  private EditText passwordField;
+  private TextInputEditText emailField;
+  private TextInputEditText passwordField;
   private Button buttonLogin;
 
   // [START declare_auth]
@@ -44,8 +45,8 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
     initController();
 
     // views
-    emailField = (EditText) findViewById(R.id.user_email);
-    passwordField = (EditText) findViewById(R.id.user_password);
+    emailField = (TextInputEditText) findViewById(R.id.user_email);
+    passwordField = (TextInputEditText) findViewById(R.id.user_password);
     buttonLogin = (Button) findViewById(R.id.button_login);
 
     findViewById(R.id.button_login);

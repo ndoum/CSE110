@@ -33,6 +33,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/user_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter your UCSD email here"
@@ -46,14 +47,32 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
+      <!--  <EditText
             android:id="@+id/user_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:ems="10"
             android:hint="Enter your password"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName" /> -->
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/user_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your password"
+            android:textColorHint="@color/ucsd_navy_blue"
+            app:boxStrokeColor="@color/ucsd_navy_blue"
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/button_login"
