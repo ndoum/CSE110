@@ -27,7 +27,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class LoginActivity extends AppCompatActivity implements LoginControllerListener {
 
   //member variables for text field
-  private TextInputEditText emailField;   //IN THE MIDDLE OF CHANGING THIS
+  private TextInputEditText emailField;
   private TextInputEditText passwordField;
   private Button buttonLogin;
 
@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
     // Initialize Firebase Auth
     mAuth = FirebaseAuth.getInstance();
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_login);    //THIS MIGHT BE WHERE THE ERROR IS
+    setContentView(R.layout.activity_login);
     initViews();
     initController();
 

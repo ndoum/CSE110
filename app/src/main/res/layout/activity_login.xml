@@ -22,14 +22,6 @@
             android:layout_weight="0"
             android:gravity="center_horizontal"
             android:text="Log in" />
-<!--
-        <EditText
-            android:id="@+id/user_email"
-            android:layout_width="match_parent"
-            android:layout_height="63dp"
-            android:ems="10"
-            android:hint="Enter your UCSD email here"
-            android:inputType="textPersonName" /> -->
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -45,17 +37,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="1" />
-
         </com.google.android.material.textfield.TextInputLayout>
 
-      <!--  <EditText
-            android:id="@+id/user_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:ems="10"
-            android:hint="Enter your password"
-            android:inputType="textPersonName" /> -->
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
