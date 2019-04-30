@@ -8,4 +8,6 @@ public class PasswordRecoveryController {
   public PasswordRecoveryController(final PasswordRecoveryControllerListener controllerListener) {
     this.controllerListener = controllerListener;
   }
+
+  public void onGoBackToLoginButtonClicked(){ this.controllerListener.goBackToLogin();}
 }

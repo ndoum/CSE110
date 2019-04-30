@@ -1,5 +1,6 @@
 package com.example.rum8.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +21,7 @@ public class PasswordRecoveryActivity extends AppCompatActivity implements Passw
   private TextInputEditText emailField;
   private TextInputEditText passwordField;
   private Button button_resetPassword;
+  private Button button_goBackToLogin;
   private PasswordRecoveryController controller;
 
   // [START declare_auth]
@@ -30,13 +32,17 @@ public class PasswordRecoveryActivity extends AppCompatActivity implements Passw
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_password_recovery);
-    initViews();
-    initController();
 
     // views
     emailField = (TextInputEditText) findViewById(R.id.user_email);
     passwordField = (TextInputEditText) findViewById(R.id.user_password);
     button_resetPassword = (Button) findViewById(R.id.button_reset_password);
+    button_goBackToLogin = (Button) findViewById(R.id.button_go_back_to_login);
+
+    initViews();
+    initController();
+
+
 
     // [START initialize_auth]
     // Initialize Firebase Auth
@@ -46,6 +52,12 @@ public class PasswordRecoveryActivity extends AppCompatActivity implements Passw
   }
 
   private void initViews() {
+    button_goBackToLogin.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        controller.onGoBackToLoginButtonClicked();
+      }
+    });
   }
 
   private void initController() {
@@ -58,6 +70,14 @@ public class PasswordRecoveryActivity extends AppCompatActivity implements Passw
     super.onStart();
 
   }
-  // [END on_start_check_user]
+
+    @Override
+    public void goBackToLogin() {
+        //TODO go back to the login page
+        final Intent intent = new Intent(PasswordRecoveryActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
+    // [END on_start_check_user]
 
 }

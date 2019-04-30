@@ -96,4 +96,7 @@ public class RegistrationController {
         auth.removeAuthStateListener(authStateListener);
     }
 
+
+    public void onGoBackToLoginButtonClicked(){ this.controllerListener.goBackToLogin();}
+
 }
