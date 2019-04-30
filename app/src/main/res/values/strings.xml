@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">rum8</string>
     <string name="textview">TextView</string>
+
+    <!-- LOG IN ACTIVITY STRINGS -->
+    <string name="login_header">Log In</string>
+
 </resources>

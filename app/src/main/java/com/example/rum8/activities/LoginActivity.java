@@ -17,6 +17,7 @@ import com.example.rum8.listeners.LoginControllerListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,7 +27,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class LoginActivity extends AppCompatActivity implements LoginControllerListener {
 
   //member variables for text field
-  private TextInputEditText emailField;
+  private TextInputEditText emailField;   //IN THE MIDDLE OF CHANGING THIS
   private TextInputEditText passwordField;
   private Button buttonLogin;
 
@@ -40,7 +41,7 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
     // Initialize Firebase Auth
     mAuth = FirebaseAuth.getInstance();
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_login);
+    setContentView(R.layout.activity_login);    //THIS MIGHT BE WHERE THE ERROR IS
     initViews();
     initController();
 
