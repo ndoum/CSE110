@@ -44,6 +44,15 @@ public class RegistrationActivity extends AppCompatActivity
     Toast.makeText(RegistrationActivity.this, message, toastLength).show();
   }
 
+  @Override
+  public void goBackToLogin() {
+    final Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
+    startActivity(intent);
+    finish();
+
+  }
+
+
   private void initViews() {
     editText_email = (TextInputEditText) findViewById(R.id.input_email);
     editText_password = (TextInputEditText) findViewById(R.id.input_password);
@@ -55,6 +64,15 @@ public class RegistrationActivity extends AppCompatActivity
         final String email = editText_email.getText().toString();
         final String password = editText_password.getText().toString();
         controller.onSubmit(email, password);
+      }
+    });
+
+
+    final Button button_cancel = (Button) findViewById(R.id.button_registration_cancel);
+    button_cancel.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        controller.onGoBackToLoginButtonClicked();
       }
     });
   }

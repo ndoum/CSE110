@@ -6,4 +6,6 @@ public interface RegistrationControllerListener {
 
     void showToast(final String message, final int toastLength);
 
+    void goBackToLogin();
+
 }
