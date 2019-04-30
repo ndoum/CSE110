@@ -1,14 +1,13 @@
 package com.example.rum8.activities;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.rum8.R;
@@ -16,18 +15,17 @@ import com.example.rum8.controllers.LoginController;
 import com.example.rum8.listeners.LoginControllerListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.FirebaseApp;
 
-import android.support.v7.app.AppCompatActivity;
-
 public class LoginActivity extends AppCompatActivity implements LoginControllerListener {
 
   //member variables for text field
-  private EditText emailField;
-  private EditText passwordField;
+  private TextInputEditText emailField;
+  private TextInputEditText passwordField;
   private Button buttonLogin;
 
   // [START declare_auth]
@@ -45,8 +43,8 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
     initController();
 
     // views
-    emailField = (EditText) findViewById(R.id.user_email);
-    passwordField = (EditText) findViewById(R.id.user_password);
+    emailField = (TextInputEditText) findViewById(R.id.user_email);
+    passwordField = (TextInputEditText) findViewById(R.id.user_password);
     buttonLogin = (Button) findViewById(R.id.button_login);
 
     findViewById(R.id.button_login);

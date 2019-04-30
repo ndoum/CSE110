@@ -9,16 +9,17 @@ import android.widget.EditText;
 import com.example.rum8.R;
 import com.example.rum8.controllers.PasswordRecoveryController;
 import com.example.rum8.listeners.PasswordRecoveryControllerListener;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class PasswordRecoveryActivity extends AppCompatActivity implements PasswordRecoveryControllerListener {
 
-  private EditText emailField;
-  private EditText passwordField;
+  private TextInputEditText emailField;
+  private TextInputEditText passwordField;
   private Button button_resetPassword;
   private Button button_goBackToLogin;
   private PasswordRecoveryController controller;
@@ -33,8 +34,8 @@ public class PasswordRecoveryActivity extends AppCompatActivity implements Passw
     setContentView(R.layout.activity_password_recovery);
 
     // views
-    emailField = (EditText) findViewById(R.id.user_email);
-    passwordField = (EditText) findViewById(R.id.user_password);
+    emailField = (TextInputEditText) findViewById(R.id.user_email);
+    passwordField = (TextInputEditText) findViewById(R.id.user_password);
     button_resetPassword = (Button) findViewById(R.id.button_reset_password);
     button_goBackToLogin = (Button) findViewById(R.id.button_go_back_to_login);
 
