@@ -3,4 +3,11 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="ucsd_navy_blue">#182B49</color>
+    <color name="ucsd_dark_gold">#C69214</color>
+    <color name="ucsd_blue">#006A96</color>
+    <color name="ucsd_gold">#FFCD00</color>
+    <color name="ucsd_grey">#B6B1A9</color>
+
 </resources>
