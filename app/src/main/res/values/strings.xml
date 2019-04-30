@@ -2,7 +2,28 @@
     <string name="app_name">rum8</string>
     <string name="textview">TextView</string>
 
-    <!-- LOG IN ACTIVITY STRINGS -->
+    <!-- general strings -->
+    <string name="input_ucsd_email_hint">Enter your UCSD email here</string>
+    <string name="input_password_hint">Enter your password</string>
+    <string name="login_button">Log in</string>
+
+    <!-- activity_login -->
     <string name="login_header">Log In</string>
+    <string name="login_register_button">First time? Register here</string>
+    <string name="login_pr_button">Forgot password?</string>
+
+    <!-- activity_main -->
+    <string name="main_ps_button">Profile settings</string>
+
+    <!-- activity_password_recovery -->
+    <string name="pr_header">Password Recovery</string>
+    <string name="pr_reset_password_button">Send me an email to reset password</string>
+
+    <!-- activity_profile_settings -->
+    <string name="ps_placeholder_text">This is the profile settings page</string>
+
+    <!-- activity_registration -->
+    <string name="registration_header">Create an account</string>
+    <string name="register_button">Register</string>
 
 </resources>

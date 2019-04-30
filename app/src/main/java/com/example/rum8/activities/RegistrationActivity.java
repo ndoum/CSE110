@@ -2,10 +2,10 @@ package com.example.rum8.activities;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.textfield.TextInputEditText;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.rum8.R;
@@ -16,7 +16,7 @@ public class RegistrationActivity extends AppCompatActivity
         implements RegistrationControllerListener {
 
   private RegistrationController controller;
-  private EditText editText_email, editText_password;
+  private TextInputEditText editText_email, editText_password;
 
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
@@ -45,8 +45,8 @@ public class RegistrationActivity extends AppCompatActivity
   }
 
   private void initViews() {
-    editText_email = (EditText) findViewById(R.id.input_email);
-    editText_password = (EditText) findViewById(R.id.input_password);
+    editText_email = (TextInputEditText) findViewById(R.id.input_email);
+    editText_password = (TextInputEditText) findViewById(R.id.input_password);
     final Button button_register = (Button) findViewById(R.id.button_register);
 
     button_register.setOnClickListener(new View.OnClickListener() {
