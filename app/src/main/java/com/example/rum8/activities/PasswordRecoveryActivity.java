@@ -1,5 +1,6 @@
 package com.example.rum8.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -57,6 +58,14 @@ public class PasswordRecoveryActivity extends AppCompatActivity implements Passw
     super.onStart();
 
   }
-  // [END on_start_check_user]
+
+    @Override
+    public void goBackToLogin() {
+        //TODO go back to the login page
+        final Intent intent = new Intent(PasswordRecoveryActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
+    // [END on_start_check_user]
 
 }
