@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
+
     private void initController() {
         controller = new MainController(this);
     }
