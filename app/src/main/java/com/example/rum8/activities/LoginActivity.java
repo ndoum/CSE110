@@ -2,13 +2,12 @@ package com.example.rum8.activities;
 
 import android.content.Intent;
 import androidx.annotation.NonNull;
-//import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.rum8.R;
@@ -22,7 +21,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.FirebaseApp;
 
-import androidx.appcompat.app.AppCompatActivity;
 public class LoginActivity extends AppCompatActivity implements LoginControllerListener {
 
   //member variables for text field
