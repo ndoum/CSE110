@@ -4,5 +4,6 @@ public interface LoginControllerListener {
 
     void goToPasswordRecover();
     void goToRegistration();
+    void goToMainPage();
 
 }

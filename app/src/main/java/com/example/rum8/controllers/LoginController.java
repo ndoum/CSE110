@@ -16,4 +16,7 @@ public class LoginController {
     public void onGoToPasswordRecoverClicked() {
         controllerListener.goToPasswordRecover();
     }
+    public void onLoginSuccessful() {controllerListener.goToMainPage();}
+
 }
+

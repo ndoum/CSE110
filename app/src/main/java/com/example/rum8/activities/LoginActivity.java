@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
   // [END declare_auth]
   private LoginController controller;
 
+  private String message;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     // Initialize Firebase Auth
@@ -60,7 +61,7 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
       @Override
       public void onClick(View v) {
 
-        String email = emailField.getText().toString();
+        final String email = emailField.getText().toString();
         String pw = passwordField.getText().toString();
 
         // check empty emails
@@ -81,13 +82,28 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
                       // Sign in success, update UI with the signed-in user's information
                       Log.d("Success", "signInWithEmail:success");
                       FirebaseUser user = mAuth.getCurrentUser();
+
                       //TODO: updateUI
+                      controller.onLoginSuccessful();
+
                     } else {
+                      //TODO: updateUI
                       // If sign in fails, display a message to the user.
                       Log.w("Error:", "signInWithEmail:failure", task.getException());
                       Toast.makeText(LoginActivity.this, "Authentication failed.",
                               Toast.LENGTH_SHORT).show();
-                      //TODO: updateUI
+                      /*
+                      if (!checkIfRegistered(email)) {
+                        message = "Account does not exist! Please register first!";
+                      } else {
+                        message = "Wrong password!";
+                      }
+
+                      Log.w("Error:", "signInWithEmail:failure", task.getException());
+                      Toast.makeText(LoginActivity.this, message,
+                              Toast.LENGTH_SHORT).show();
+*/
+
                     }
                   }
                 });
@@ -95,6 +111,16 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
       }
     });
 
+  }
+
+  /*
+  * This function checks if the user email is already registered
+  * */
+  private boolean checkIfRegistered(String email){
+    if(mAuth.fetchSignInMethodsForEmail(email).getResult().getSignInMethods().isEmpty()){
+      return false;
+    }
+    return true;
   }
 
   @Override
@@ -107,6 +133,13 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
   @Override
   public void goToRegistration() {
     final Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+    startActivity(intent);
+    finish();
+  }
+
+  @Override
+  public void goToMainPage() {
+    final Intent intent = new Intent(LoginActivity.this, MainActivity.class);
     startActivity(intent);
     finish();
   }
