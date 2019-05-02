@@ -8,14 +8,13 @@ import com.example.rum8.R;
 import com.example.rum8.adapters.ProfileSettingsViewPagerAdapter;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
+import com.example.rum8.listeners.RegistrationControllerListener;
 
 public class ProfileSettingsActivity extends AppCompatActivity
                                      implements ProfileSettingsControllerListener {
 
     private ProfileSettingsController controller;
-
-    //putting viewpager into it
-    //does viewpager have the fragment in it??
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -24,14 +23,16 @@ public class ProfileSettingsActivity extends AppCompatActivity
         initViews();
         initController();
 
-        ViewPager viewPager = findViewById(R.id.profile_settings_view_pager);
-        viewPager.setAdapter(new ProfileSettingsViewPagerAdapter(getSupportFragmentManager()));
     }
 
     private void initViews() {
+        viewPager = findViewById(R.id.profile_settings_view_pager);
+        viewPager.setAdapter(new ProfileSettingsViewPagerAdapter(getSupportFragmentManager()));
+
     }
 
     private void initController() {
+        controller = new ProfileSettingsController(this);
     }
 
 }

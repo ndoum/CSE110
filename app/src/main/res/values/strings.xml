@@ -19,11 +19,21 @@
     <string name="pr_header">Password Recovery</string>
     <string name="pr_reset_password_button">Send me an email to reset password</string>
 
-    <!-- activity_profile_settings -->
-    <string name="ps_placeholder_text">This is the profile settings page</string>
-
     <!-- activity_registration -->
     <string name="registration_header">Create an account</string>
     <string name="register_button">Register</string>
+
+    <!-- activity_profile_settings -->
+    <string name="ps_general_info_header">General Info</string>
+    <string name="ps_general_info_first_name_label">First name</string>
+    <string name="ps_general_info_last_name_label">Last name</string>
+    <string name="ps_general_info_gender_label">Gender</string>
+    <string-array name="profile_settings_gender_items">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Prefer not to say</item>
+    </string-array>
+    <string name="ps_personality_logistics_header">Personality / Logistics</string>
+    <string name="ps_roommate_preferences_header">Roommate Preferences</string>
 
 </resources>
