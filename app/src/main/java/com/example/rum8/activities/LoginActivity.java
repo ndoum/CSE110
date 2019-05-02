@@ -20,6 +20,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.SignInMethodQueryResult;
 
 public class LoginActivity extends AppCompatActivity implements LoginControllerListener {
 
@@ -33,6 +34,8 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
   // [END declare_auth]
   private LoginController controller;
 
+  private String message;
+  private boolean isRegistered;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     // Initialize Firebase Auth
@@ -60,7 +63,7 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
       @Override
       public void onClick(View v) {
 
-        String email = emailField.getText().toString();
+        final String email = emailField.getText().toString();
         String pw = passwordField.getText().toString();
 
         // check empty emails
@@ -81,20 +84,49 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
                       // Sign in success, update UI with the signed-in user's information
                       Log.d("Success", "signInWithEmail:success");
                       FirebaseUser user = mAuth.getCurrentUser();
+
                       //TODO: updateUI
+                      controller.onLoginSuccessful();
+
                     } else {
-                      // If sign in fails, display a message to the user.
-                      Log.w("Error:", "signInWithEmail:failure", task.getException());
-                      Toast.makeText(LoginActivity.this, "Authentication failed.",
-                              Toast.LENGTH_SHORT).show();
                       //TODO: updateUI
+                      // If sign in fails, display a message to the user.
+
+                      passwordField.setText("");
+                      if (!checkIfRegistered(email)) {
+                        message = "Account does not exist! Please register first!";
+                        emailField.setText("");
+                        
+                      } else {
+                        message = "Wrong password!";
+                      }
+
+                      Log.w("Error:", "signInWithEmail:failure", task.getException());
+                      Toast.makeText(LoginActivity.this, message,
+                              Toast.LENGTH_SHORT).show();
                     }
                   }
                 });
-
       }
     });
+  }
 
+  /*
+  * This function checks if the user email is already registered
+  * */
+  private boolean checkIfRegistered(String email){
+    mAuth.fetchSignInMethodsForEmail(email).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<SignInMethodQueryResult>() {
+      @Override
+      public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
+        if(task.getResult().getSignInMethods().isEmpty()) {
+          isRegistered = false;
+        }
+        else{
+          isRegistered = true;
+        }
+      }
+    });
+    return isRegistered;
   }
 
   @Override
@@ -107,6 +139,13 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
   @Override
   public void goToRegistration() {
     final Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+    startActivity(intent);
+    finish();
+  }
+
+  @Override
+  public void goToMainPage() {
+    final Intent intent = new Intent(LoginActivity.this, MainActivity.class);
     startActivity(intent);
     finish();
   }
