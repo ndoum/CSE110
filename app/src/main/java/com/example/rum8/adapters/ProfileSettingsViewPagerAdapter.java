@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.rum8.fragments.ProfileSettingsGeneralInfoFragment;
 import com.example.rum8.fragments.ProfileSettingsPersonalityLogisticsFragment;
+import com.example.rum8.fragments.ProfileSettingsRoommatePrefFragment;
 
 public class ProfileSettingsViewPagerAdapter extends FragmentPagerAdapter {
     public ProfileSettingsViewPagerAdapter(FragmentManager fm){
@@ -21,6 +22,8 @@ public class ProfileSettingsViewPagerAdapter extends FragmentPagerAdapter {
                 return new ProfileSettingsGeneralInfoFragment();
             case 1:
                 return new ProfileSettingsPersonalityLogisticsFragment();
+            case 2:
+                return new ProfileSettingsRoommatePrefFragment();
         }
         return null;
     }
