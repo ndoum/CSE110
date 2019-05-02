@@ -28,6 +28,8 @@
     <string name="ps_general_info_first_name_label">First name</string>
     <string name="ps_general_info_last_name_label">Last name</string>
     <string name="ps_general_info_gender_label">Gender</string>
+    <string name="ps_general_info_academic_year_label">Academic year</string>
+    <string name="ps_general_info_college_label">College</string>
     <string-array name="profile_settings_gender_items">
         <item>Male</item>
         <item>Female</item>
