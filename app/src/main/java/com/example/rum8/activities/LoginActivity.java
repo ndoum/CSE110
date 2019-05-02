@@ -96,6 +96,7 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
                       if (!checkIfRegistered(email)) {
                         message = "Account does not exist! Please register first!";
                         emailField.setText("");
+                        
                       } else {
                         message = "Wrong password!";
                       }
