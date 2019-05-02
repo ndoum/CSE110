@@ -28,7 +28,6 @@ public class ProfileSettingsViewPagerAdapter extends FragmentPagerAdapter {
         return null;
     }
 
-
     @Override
     public int getCount() {
         return 3;
