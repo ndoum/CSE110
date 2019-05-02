@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
 
-public class Profile_settings_general_info_fragment extends Fragment {
+public class ProfileSettingsGeneralInfoFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class Profile_settings_general_info_fragment extends Fragment {
         buttonInFragment1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "button in fragment 1", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "button in General Info fragment", Toast.LENGTH_SHORT).show();
             }
         });
 

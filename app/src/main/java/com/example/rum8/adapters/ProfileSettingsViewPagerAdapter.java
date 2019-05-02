@@ -5,7 +5,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.rum8.fragments.Profile_settings_general_info_fragment;
+import com.example.rum8.fragments.ProfileSettingsGeneralInfoFragment;
+import com.example.rum8.fragments.ProfileSettingsPersonalityLogisticsFragment;
 
 public class ProfileSettingsViewPagerAdapter extends FragmentPagerAdapter {
     public ProfileSettingsViewPagerAdapter(FragmentManager fm){
@@ -17,7 +18,9 @@ public class ProfileSettingsViewPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return new Profile_settings_general_info_fragment();
+                return new ProfileSettingsGeneralInfoFragment();
+            case 1:
+                return new ProfileSettingsPersonalityLogisticsFragment();
         }
         return null;
     }
@@ -25,6 +28,6 @@ public class ProfileSettingsViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 1;
+        return 2;
     }
 }

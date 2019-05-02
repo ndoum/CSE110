@@ -5,10 +5,8 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/general_info_fragment_button"
+        android:id="@+id/personality_logistics_fragment_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="General Info Fragment"/>
-
-
+        android:text="Personality / Logistics Fragment"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
