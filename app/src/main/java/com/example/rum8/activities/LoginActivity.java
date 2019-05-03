@@ -17,6 +17,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class LoginActivity extends AppCompatActivity implements LoginControllerListener {
 
+
 	//member variables for text field
 	private TextInputEditText emailField;
 	private TextInputEditText passwordField;
