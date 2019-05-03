@@ -2,12 +2,9 @@ package com.example.rum8.activities;
 
 import android.content.Intent;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -15,14 +12,7 @@ import android.widget.Toast;
 import com.example.rum8.R;
 import com.example.rum8.controllers.LoginController;
 import com.example.rum8.listeners.LoginControllerListener;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.SignInMethodQueryResult;
 
 public class LoginActivity extends AppCompatActivity implements LoginControllerListener {
 
@@ -91,8 +81,6 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
         passwordField = (TextInputEditText) findViewById(R.id.user_password);
         buttonLogin = (Button) findViewById(R.id.button_login);
 
-        findViewById(R.id.button_login);
-
         // override onClick login button
         buttonLogin.setOnClickListener(new View.OnClickListener() {
 
@@ -104,6 +92,7 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
             }
         });
     }
+
     @Override
     protected void onStop() {
         super.onStop();
