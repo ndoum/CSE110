@@ -5,7 +5,7 @@ import com.example.rum8.listeners.ProfileSettingsControllerListener;
 public class ProfileSettingsController {
     private ProfileSettingsControllerListener controllerListener;
 
-    public ProfileSettingsController(final ProfileSettingsControllerListener controllerListener){
+    public ProfileSettingsController(final ProfileSettingsControllerListener controllerListener) {
         this.controllerListener = controllerListener;
     }
 }
