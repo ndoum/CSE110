@@ -16,7 +16,7 @@ import com.example.rum8.controllers.RegistrationController;
 import com.example.rum8.listeners.RegistrationControllerListener;
 
 public class RegistrationActivity extends AppCompatActivity
-		implements RegistrationControllerListener {
+	implements RegistrationControllerListener {
 
 	private RegistrationController controller;
 	private TextInputEditText editText_email, editText_password;

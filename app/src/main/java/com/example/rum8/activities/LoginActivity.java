@@ -1,20 +1,16 @@
 package com.example.rum8.activities;
 
 import android.content.Intent;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.example.rum8.R;
 import com.example.rum8.controllers.LoginController;
 import com.example.rum8.listeners.LoginControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
-
 
 public class LoginActivity extends AppCompatActivity implements LoginControllerListener {
 
