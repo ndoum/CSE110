@@ -29,11 +29,27 @@
     <string name="ps_general_info_last_name_label">Last name</string>
     <string name="ps_general_info_gender_label">Gender</string>
     <string name="ps_general_info_academic_year_label">Academic year</string>
+
     <string name="ps_general_info_college_label">College</string>
     <string-array name="profile_settings_gender_items">
         <item>Male</item>
         <item>Female</item>
         <item>Prefer not to say</item>
+    </string-array>
+    <string-array name="profile_settings_academic_year_items">
+        <item>First</item>
+        <item>Second</item>
+        <item>Third</item>
+        <item>Fourth</item>
+        <item>Others</item>
+    </string-array>
+    <string-array name="profile_settings_college_items">
+        <item>Revelle</item>
+        <item>Muir</item>
+        <item>Marshall</item>
+        <item>Warren</item>
+        <item>ERC</item>
+        <item>Sixth</item>
     </string-array>
     <string name="ps_personality_logistics_header">Personality / Logistics</string>
     <string name="ps_roommate_preferences_header">Roommate Preferences</string>
