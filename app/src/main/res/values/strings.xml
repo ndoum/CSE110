@@ -24,6 +24,7 @@
     <string name="register_button">Register</string>
 
     <!-- activity_profile_settings -->
+    <!-- general_info -->
     <string name="ps_general_info_header">General Info</string>
     <string name="ps_general_info_first_name_label">First name</string>
     <string name="ps_general_info_last_name_label">Last name</string>
@@ -51,7 +52,46 @@
         <item>ERC</item>
         <item>Sixth</item>
     </string-array>
+
+    <!-- personality_logistics -->
     <string name="ps_personality_logistics_header">Personality / Logistics</string>
+
+
+
+    <!-- roommate_preferences -->
     <string name="ps_roommate_preferences_header">Roommate Preferences</string>
+    <!-- roommate_preferences_questions-->
+    <string name="ps_roommate_preferences_gender">
+        I prefer my roommate to be the same gender as me.
+    </string>
+    <string name="ps_roommate_preferences_cleaness">
+        I prefer a roommate that always keeps their part of the room clean.
+    </string>
+    <string name="ps_roommate_preferences_reserved">
+        I prefer a reserved roommate.
+    </string>
+    <string name="ps_roommate_preference_comfortable_with_parties">
+        I prefer a roommate that  is comfortable with parties or gatherings.
+    </string>
+    <string name="ps_roommate_preference_comfortable_with_alcohol">
+        I prefer a roommate that is comfortable with alcohol.
+    </string>
+    <string name="ps_roommate_preference_comfortable_with_smoking">
+        I prefer that my roommate is comfortable with smoking.
+    </string>
+    <string name="ps_roommate_preference_sleep_late">
+        I prefer a roommate that goes to bed late on weekdays.
+    </string>
+    <string name="ps_roommate_preference_overnight_guests">
+        I prefer a roommate that is okay with overnight guests.
+    </string>
+    <string name="ps_roommate_preference_comfortable_with_pets">
+        I prefer a roommate that is comfortable with pets.
+    </string>
+    <!-- roommate_preferences_questions_options-->
+    <string name="ps_roommate_preferences_option_yes">Yes</string>
+    <string name="ps_roommate_preferences_option_no_pref">No Pref</string>
+    <string name="ps_roommate_preferences_option_no">No</string>
+
 
 </resources>

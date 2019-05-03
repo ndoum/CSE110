@@ -22,6 +22,7 @@
         android:columnCount="2"
         android:id="@+id/general_info_name_fields_grid"
         app:layout_constraintTop_toBottomOf="@id/profile_settings_general_info_header_text">
+
         <!-- NAME LABELS -->
         <TextView
             android:id="@+id/general_info_first_name_field_label"
