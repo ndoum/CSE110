@@ -18,10 +18,11 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:rowCount="5"
+        android:rowCount="6"
         android:columnCount="2"
         android:id="@+id/general_info_name_fields_grid"
         app:layout_constraintTop_toBottomOf="@id/profile_settings_general_info_header_text">
+
         <!-- NAME LABELS -->
         <TextView
             android:id="@+id/general_info_first_name_field_label"
@@ -131,6 +132,25 @@
             android:layout_row="4"
             android:layout_column="1"
             android:layout_columnWeight="1"></androidx.appcompat.widget.AppCompatSpinner>
+
+        <!-- PROFILE IMAGE -->
+        <Button
+            android:id="@+id/general_info_profile_image_upload_button"
+            android:layout_width="147dp"
+            android:layout_height="55dp"
+            android:layout_row="5"
+            android:layout_column="0"
+            android:layout_gravity="left"
+            android:text="Upload Picture"></Button>
+
+        <ImageView
+            android:id="@+id/general_info_profile_image_view"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_row="5"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_weight="1"></ImageView>
 
     </GridLayout>
 
