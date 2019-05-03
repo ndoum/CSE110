@@ -1,8 +1,11 @@
 package com.example.rum8.activities;
 
 import android.content.Intent;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.textfield.TextInputEditText;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,7 +37,7 @@ public class RegistrationActivity extends AppCompatActivity
 
     @Override
     public void onUserRegistered() {
-        final Intent intent = new Intent(RegistrationActivity.this, ProfileSettingsActivity.class);
+        final Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
     }
@@ -52,7 +55,6 @@ public class RegistrationActivity extends AppCompatActivity
 
     }
 
-
     private void initViews() {
         editText_email = (TextInputEditText) findViewById(R.id.input_email);
         editText_password = (TextInputEditText) findViewById(R.id.input_password);
@@ -66,7 +68,6 @@ public class RegistrationActivity extends AppCompatActivity
                 controller.onSubmit(email, password);
             }
         });
-
 
         final Button button_cancel = (Button) findViewById(R.id.button_registration_cancel);
         button_cancel.setOnClickListener(new View.OnClickListener() {
