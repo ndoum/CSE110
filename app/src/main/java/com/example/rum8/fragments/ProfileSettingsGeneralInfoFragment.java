@@ -17,6 +17,8 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment {
     private TextInputEditText firstNameField;
     private TextInputEditText lastNameField;
     private Spinner genderSpinner;
+    private Spinner academicYearSpinner;
+    private Spinner collegeSpinner;
 
     @Nullable
     @Override
@@ -36,8 +38,18 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment {
         genderSpinner.setAdapter(genderSpinnerAdapter);
 
         //FILLING THE ACADEMIC YEAR SPINNER
+        academicYearSpinner = (Spinner) rootView.findViewById(R.id.general_info_academic_year_spinner);
+        ArrayAdapter<CharSequence> academicYearAdapter = ArrayAdapter.createFromResource(this.getActivity(),
+                R.array.profile_settings_academic_year_items, android.R.layout.simple_spinner_item);
+        academicYearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        academicYearSpinner.setAdapter(academicYearAdapter);
 
         //FILLING THE COLLEGE SPINNER
+        collegeSpinner = (Spinner) rootView.findViewById(R.id.general_info_college_spinner);
+        ArrayAdapter<CharSequence> collegeAdapter = ArrayAdapter.createFromResource(this.getActivity(),
+                R.array.profile_settings_college_items, android.R.layout.simple_spinner_item);
+        collegeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        collegeSpinner.setAdapter(collegeAdapter);
 
         return rootView;
     }
