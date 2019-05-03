@@ -20,4 +20,6 @@
         <activity android:name=".activities.RegistrationActivity" />
         <activity android:name=".activities.ProfileSettingsActivity" />
     </application>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 </manifest>
