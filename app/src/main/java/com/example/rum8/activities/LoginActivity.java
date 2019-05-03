@@ -2,12 +2,12 @@ package com.example.rum8.activities;
 
 import android.content.Intent;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.rum8.R;
 import com.example.rum8.controllers.LoginController;
@@ -51,6 +51,7 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
         startActivity(intent);
         finish();
     }
+
     @Override
     public void showToast(final String message, final int toastLength) {
         Toast.makeText(LoginActivity.this, message, toastLength).show();

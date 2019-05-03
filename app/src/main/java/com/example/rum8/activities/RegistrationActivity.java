@@ -55,7 +55,6 @@ public class RegistrationActivity extends AppCompatActivity
 
     }
 
-
     private void initViews() {
         editText_email = (TextInputEditText) findViewById(R.id.input_email);
         editText_password = (TextInputEditText) findViewById(R.id.input_password);
@@ -69,7 +68,6 @@ public class RegistrationActivity extends AppCompatActivity
                 controller.onSubmit(email, password);
             }
         });
-
 
         final Button button_cancel = (Button) findViewById(R.id.button_registration_cancel);
         button_cancel.setOnClickListener(new View.OnClickListener() {
