@@ -83,5 +83,3 @@ public class RegistrationActivity extends AppCompatActivity
   private void initController() {
 	controller = new RegistrationController(this, this);
   }
-
-}
