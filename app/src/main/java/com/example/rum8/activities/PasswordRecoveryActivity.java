@@ -18,58 +18,58 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class PasswordRecoveryActivity extends AppCompatActivity implements PasswordRecoveryControllerListener {
 
-  private TextInputEditText emailField;
-  private TextInputEditText passwordField;
-  private Button button_resetPassword;
-  private Button button_goBackToLogin;
-  private PasswordRecoveryController controller;
+    private TextInputEditText emailField;
+    private TextInputEditText passwordField;
+    private Button button_resetPassword;
+    private Button button_goBackToLogin;
+    private PasswordRecoveryController controller;
 
-  // [START declare_auth]
-  private FirebaseAuth mAuth;
-  // [END declare_auth]
+    // [START declare_auth]
+    private FirebaseAuth mAuth;
+    // [END declare_auth]
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_password_recovery);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_password_recovery);
 
-    // views
-    emailField = (TextInputEditText) findViewById(R.id.user_email);
-    passwordField = (TextInputEditText) findViewById(R.id.user_password);
-    button_resetPassword = (Button) findViewById(R.id.button_reset_password);
-    button_goBackToLogin = (Button) findViewById(R.id.button_go_back_to_login);
+        // views
+        emailField = (TextInputEditText) findViewById(R.id.user_email);
+        passwordField = (TextInputEditText) findViewById(R.id.user_password);
+        button_resetPassword = (Button) findViewById(R.id.button_reset_password);
+        button_goBackToLogin = (Button) findViewById(R.id.button_go_back_to_login);
 
-    initViews();
-    initController();
+        initViews();
+        initController();
 
 
 
-    // [START initialize_auth]
-    // Initialize Firebase Auth
-    mAuth = FirebaseAuth.getInstance();
-    // [END initialize_auth]
+        // [START initialize_auth]
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+        // [END initialize_auth]
 
-  }
+    }
 
-  private void initViews() {
-    button_goBackToLogin.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        controller.onGoBackToLoginButtonClicked();
-      }
-    });
-  }
+    private void initViews() {
+        button_goBackToLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                controller.onGoBackToLoginButtonClicked();
+            }
+        });
+    }
 
-  private void initController() {
-    controller = new PasswordRecoveryController(this);
-  }
+    private void initController() {
+        controller = new PasswordRecoveryController(this);
+    }
 
-  // [START on_start_check_user]
-  @Override
-  public void onStart() {
-    super.onStart();
+    // [START on_start_check_user]
+    @Override
+    public void onStart() {
+        super.onStart();
 
-  }
+    }
 
     @Override
     public void goBackToLogin() {
