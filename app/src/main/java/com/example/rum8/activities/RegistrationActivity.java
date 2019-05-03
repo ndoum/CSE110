@@ -1,16 +1,11 @@
 package com.example.rum8.activities;
-
 import android.content.Intent;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.material.textfield.TextInputEditText;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.example.rum8.R;
 import com.example.rum8.controllers.RegistrationController;
 import com.example.rum8.listeners.RegistrationControllerListener;
