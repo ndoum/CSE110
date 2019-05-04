@@ -70,12 +70,13 @@ public class RegistrationController {
                 emailVerify(email);
                 controllerListener.onUserRegistered();
                 Log.d("Success", "createUserWithEmail:success");
-                // create a doc in user collections on firestore
-
                 // Create a new user with email when registration is complete
+
+                // set email feild with user email
                 Map<String, Object> user = new HashMap<>();
                 user.put("email", email);
 
+                // add doc to firestore
                 db.collection("users")
                         .add(user)
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
