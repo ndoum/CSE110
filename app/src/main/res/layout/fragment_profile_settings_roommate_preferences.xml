@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingHorizontal="16dp">
+    android:paddingHorizontal="16dp"
+    tools:layout_editor_absoluteY="81dp">
 
     <!-- HEADER TEXT -->
     <TextView
+        android:id="@+id/profile_settings_roommate_preferences_header_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/profile_settings_roommate_preferences_header_text"
         android:text="@string/ps_roommate_preferences_header"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <GridLayout
+        android:id="@+id/roommate_preferences_grid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:rowCount="10"
         android:columnCount="4"
-        android:id="@+id/roommate_preferences_grid"
+        android:rowCount="20"
         app:layout_constraintTop_toBottomOf="@+id/profile_settings_roommate_preferences_header_text">
 
         <!-- GENDER -->
@@ -28,39 +30,133 @@
             android:id="@+id/roommate_preferences_gender_preference"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/ps_roommate_preferences_gender"
             android:layout_row="1"
-            android:layout_columnSpan="3"
+            android:layout_rowWeight="1"
+            android:layout_columnSpan="4"
             android:layout_columnWeight="1"
+            android:text="@string/ps_roommate_preferences_gender" />
+
+
+        <RadioGroup
+            android:id="@+id/roommate_preferences_gender_preference_radio_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/roommate_preferences_gender_preference_yes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/ps_roommate_preferences_option_yes" />
+
+            <RadioButton
+                android:id="@+id/roommate_preferences_gender_preference_no_pref"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/ps_roommate_preferences_option_no_pref" />
+
+            <RadioButton
+                android:id="@+id/roommate_preferences_gender_preference_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/ps_roommate_preferences_option_no" />
+        </RadioGroup>
+
+
+        <!-- CLEANNESS -->
+        <TextView
+            android:id="@+id/roommate_preferences_cleanness_preference"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="3"
+            android:layout_rowWeight="1"
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:text="@string/ps_roommate_preferences_cleanness" />
+
+        <RadioGroup
+            android:id="@+id/roommate_preferences_cleanness_preference_radio_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="5"
+
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/roommate_preferences_cleanness_preference_yes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/ps_roommate_preferences_option_yes" />
+
+            <RadioButton
+                android:id="@+id/roommate_preferences_cleanness_preference_no_pref"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/ps_roommate_preferences_option_no_pref" />
+
+            <RadioButton
+                android:id="@+id/roommate_preferences_cleanness_preference_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/ps_roommate_preferences_option_no" />
+        </RadioGroup>
+
+
+        <!-- RESERVED -->
+        <TextView
+            android:id="@+id/roommate_preferences_reserved_preference"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="6"
+            android:layout_rowWeight="1"
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:text="@string/ps_roommate_preferences_reserved"
             />
 
-        <CheckBox
-            android:id="@+id/roommate_preferences_gender_preference_yes"
+        <RadioGroup
+            android:id="@+id/roommate_preferences_reserved_preference_radio_group"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_row="2"
-            android:layout_column="1"
-            android:layout_columnWeight="1"
-            android:text="@string/ps_roommate_preferences_option_yes" />
+            android:layout_row="7"
 
-        <CheckBox
-            android:id="@+id/roommate_preferences_gender_preference_no_pref"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_row="2"
-            android:layout_column="2"
+            android:layout_columnSpan="4"
             android:layout_columnWeight="1"
-            android:text="@string/ps_roommate_preferences_option_no_pref" />
+            android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/roommate_preferences_gender_preference_no"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_row="2"
-            android:layout_column="3"
-            android:layout_columnWeight="1"
-            android:text="@string/ps_roommate_preferences_option_no" />
+            <RadioButton
+                android:id="@+id/roommate_preferences_reserved_preference_yes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/ps_roommate_preferences_option_yes" />
 
+            <RadioButton
+                android:id="@+id/roommate_preferences_reserved_preference_no_pref"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/ps_roommate_preferences_option_no_pref" />
+
+            <RadioButton
+                android:id="@+id/roommate_preferences_reserved_preference_no_"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/ps_roommate_preferences_option_no" />
+        </RadioGroup>
 
     </GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
