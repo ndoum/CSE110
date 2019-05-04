@@ -13,7 +13,9 @@
     <string name="login_pr_button">Forgot password?</string>
 
     <!-- activity_main -->
-    <string name="main_ps_button">Profile settings</string>
+    <string name="menu_log_in_button">Log In</string>
+    <string name="menu_log_out_button">Log Out</string>
+    <string name="menu_profile_settings_button">Profile Settings</string>
 
     <!-- activity_password_recovery -->
     <string name="pr_header">Password Recovery</string>

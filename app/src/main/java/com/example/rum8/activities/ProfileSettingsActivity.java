@@ -1,6 +1,7 @@
 package com.example.rum8.activities;
 
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.rum8.R;
@@ -8,7 +9,7 @@ import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 
 public class ProfileSettingsActivity extends AppCompatActivity
-                                     implements ProfileSettingsControllerListener {
+        implements ProfileSettingsControllerListener {
 
     private ProfileSettingsController controller;
 
