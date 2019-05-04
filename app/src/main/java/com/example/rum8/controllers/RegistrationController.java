@@ -9,11 +9,18 @@ import androidx.annotation.NonNull;
 
 import com.example.rum8.listeners.RegistrationControllerListener;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static android.content.ContentValues.TAG;
 
@@ -23,6 +30,10 @@ public class RegistrationController {
   private Context context;
   private FirebaseAuth auth;
   private FirebaseAuth.AuthStateListener authStateListener;
+
+  // Access a Cloud Firestore instance from your Activity
+  FirebaseFirestore db = FirebaseFirestore.getInstance();
+
 
   public RegistrationController(final RegistrationControllerListener controllerListener, final Context context) {
     this.controllerListener = controllerListener;
@@ -59,6 +70,28 @@ public class RegistrationController {
                 emailVerify(email);
                 controllerListener.onUserRegistered();
                 Log.d("Success", "createUserWithEmail:success");
+                // create a doc in user collections on firestore
+
+                // Create a new user with email when registration is complete
+                Map<String, Object> user = new HashMap<>();
+                user.put("email", email);
+
+                db.collection("users")
+                        .add(user)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                          @Override
+                          public void onSuccess(DocumentReference documentReference) {
+                            Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                          }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                          @Override
+                          public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error adding document", e);
+                          }
+                        });
+
+
               } else {
                 if (task.getException() instanceof FirebaseAuthUserCollisionException) {
                   message = "An account with this email already exists";
