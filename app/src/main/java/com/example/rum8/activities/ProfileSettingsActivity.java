@@ -5,10 +5,12 @@ import android.database.Cursor;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -20,7 +22,7 @@ import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.example.rum8.listeners.RegistrationControllerListener;
 
 public class ProfileSettingsActivity extends AppCompatActivity
-                                     implements ProfileSettingsControllerListener {
+        implements ProfileSettingsControllerListener {
 
     private ProfileSettingsController controller;
     private ViewPager viewPager;
