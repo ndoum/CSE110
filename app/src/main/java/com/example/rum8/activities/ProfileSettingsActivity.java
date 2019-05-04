@@ -1,12 +1,6 @@
 package com.example.rum8.activities;
 
-import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -17,10 +11,9 @@ import com.example.rum8.R;
 import com.example.rum8.adapters.ProfileSettingsViewPagerAdapter;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
-import com.example.rum8.listeners.RegistrationControllerListener;
 
 public class ProfileSettingsActivity extends AppCompatActivity
-                                     implements ProfileSettingsControllerListener {
+        implements ProfileSettingsControllerListener {
 
     private ProfileSettingsController controller;
     private ViewPager viewPager;
@@ -47,8 +40,7 @@ public class ProfileSettingsActivity extends AppCompatActivity
     }
 
 
-
-    private void initController(){
+    private void initController() {
         controller = new ProfileSettingsController(this);
     }
 
