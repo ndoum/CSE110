@@ -1,6 +1,7 @@
 package com.example.rum8.activities;
 
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -80,8 +81,6 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
         emailField = (TextInputEditText) findViewById(R.id.user_email);
         passwordField = (TextInputEditText) findViewById(R.id.user_password);
         buttonLogin = (Button) findViewById(R.id.button_login);
-
-        findViewById(R.id.button_login);
 
         // override onClick login button
         buttonLogin.setOnClickListener(new View.OnClickListener() {
