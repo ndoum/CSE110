@@ -6,5 +6,4 @@ public interface MainControllerListener {
 
     void goToLogin();
 
-
 }

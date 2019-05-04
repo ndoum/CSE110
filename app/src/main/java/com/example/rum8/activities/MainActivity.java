@@ -1,17 +1,19 @@
 package com.example.rum8.activities;
 
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.rum8.R;
 import com.example.rum8.controllers.MainController;
 import com.example.rum8.listeners.MainControllerListener;
 
 public class MainActivity extends AppCompatActivity
-                          implements MainControllerListener {
+        implements MainControllerListener {
 
     private MainController controller;
 
@@ -21,6 +23,30 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         initViews();
         initController();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //Creates the menu inside of the toolbar
+        getMenuInflater().inflate(R.menu.dropdown_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.main_activity_go_to_profile_settings:
+                controller.onGoToProfileSettingsButtonClicked();
+                return true;
+            case R.id.main_activity_log_out:
+                Toast.makeText(this, "User Logged Out", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.main_activity_go_to_log_in:
+                controller.onGoToLoginButtonClicked();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
@@ -36,24 +62,9 @@ public class MainActivity extends AppCompatActivity
         startActivity(intent);
         finish();
     }
+
     private void initViews() {
-
-        final Button button_goToProfileSettings = findViewById(R.id.button_go_to_profile_settings);
-        button_goToProfileSettings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                controller.onGoToProfileSettingsButtonClicked();
-            }
-        });
-        final Button button_goToLogin = findViewById(R.id.button_go_to_login);
-        button_goToLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                controller.onGoToLoginButtonClicked();
-            }
-        });
     }
-
 
     private void initController() {
         controller = new MainController(this);
