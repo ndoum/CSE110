@@ -13,10 +13,5 @@ public class ProfileSettingsController {
     public ProfileSettingsController(final ProfileSettingsControllerListener controllerListener){
         this.controllerListener = controllerListener;
 
-        // get current user
-        String currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-
-
     }
 }
