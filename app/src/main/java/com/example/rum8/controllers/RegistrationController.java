@@ -66,7 +66,7 @@ public class RegistrationController {
                         public void onComplete(final @NonNull Task<AuthResult> task) {
                             final String message;
                             if (task.isSuccessful()) {
-                                emailVerify(email);
+                                sendVerificationEmail(email);
                                 controllerListener.onUserRegistered();
                                 Log.d("Success", "createUserWithEmail:success");
                                 // Create a new user with email when registration is complete
@@ -110,7 +110,7 @@ public class RegistrationController {
     /*
      * Helper function
      */
-    public void emailVerify(final String email) {
+    private void sendVerificationEmail(final String email) {
 
         FirebaseUser user = auth.getCurrentUser();
 
