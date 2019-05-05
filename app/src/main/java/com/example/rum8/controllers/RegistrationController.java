@@ -16,7 +16,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -31,9 +30,8 @@ public class RegistrationController {
   private FirebaseAuth auth;
   private FirebaseAuth.AuthStateListener authStateListener;
 
-  // Access a Cloud Firestore instance from your Activity
+  // Access a Cloud Firestore instance from Activity
   FirebaseFirestore db = FirebaseFirestore.getInstance();
-
 
   public RegistrationController(final RegistrationControllerListener controllerListener, final Context context) {
     this.controllerListener = controllerListener;
@@ -73,16 +71,18 @@ public class RegistrationController {
                 // Create a new user with email when registration is complete
 
                 // set email feild with user email
-                Map<String, Object> user = new HashMap<>();
-                user.put("email", email);
+                Map<String, Object> userInfo = new HashMap<>();
+                userInfo.put("email", email);
 
                 // add doc to firestore
                 db.collection("users")
-                        .add(user)
-                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        // use user id as document reference
+                        .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                        .set(userInfo)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
                           @Override
-                          public void onSuccess(DocumentReference documentReference) {
-                            Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                          public void onSuccess(Void aVoid) {
+                            Log.d(TAG, "DocumentSnapshot successfully written!");
                           }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -91,7 +91,6 @@ public class RegistrationController {
                             Log.w(TAG, "Error adding document", e);
                           }
                         });
-
 
               } else {
                 if (task.getException() instanceof FirebaseAuthUserCollisionException) {
