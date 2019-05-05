@@ -29,7 +29,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:16.1.0'
     implementation 'com.google.firebase:firebase-auth:16.2.1'
 
-    // firestore dependencies added
+    //firestore dependencies added
     implementation 'com.google.firebase:firebase-firestore:18.2.0'
 
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'

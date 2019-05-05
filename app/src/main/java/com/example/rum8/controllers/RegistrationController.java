@@ -24,13 +24,14 @@ import java.util.Map;
 import static android.content.ContentValues.TAG;
 
 public class RegistrationController {
+
     private RegistrationControllerListener controllerListener;
     private Context context;
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authStateListener;
 
-    // Access a Cloud Firestore instance from Activity
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    // Access a Cloud Firestore instance from your Activity
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public RegistrationController(final RegistrationControllerListener controllerListener, final Context context) {
 
@@ -42,6 +43,7 @@ public class RegistrationController {
             @Override
 
             public void onAuthStateChanged(final @NonNull FirebaseAuth firebaseAuth) {
+
                 // Get the current user
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             }
@@ -65,7 +67,7 @@ public class RegistrationController {
                         public void onComplete(final @NonNull Task<AuthResult> task) {
                             final String message;
                             if (task.isSuccessful()) {
-                                emailVerify(email);
+                                sendVerificationEmail(email);
                                 controllerListener.onUserRegistered();
                                 Log.d("Success", "createUserWithEmail:success");
                                 // Create a new user with email when registration is complete
@@ -109,25 +111,25 @@ public class RegistrationController {
     /*
      * Helper function
      */
-    public void emailVerify(final String email) {
+    private void sendVerificationEmail(final String email) {
 
         FirebaseUser user = auth.getCurrentUser();
 
         user.sendEmailVerification()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
-          @Override
-          public void onComplete(@NonNull Task<Void> task) {
-              final String message;
-              if (task.isSuccessful()) {
-                  message = "Verification email sent to " + email;
-                  controllerListener.showToast(message, Toast.LENGTH_SHORT);
-              } else {
-                  Log.e(TAG, "sendEmailVerification", task.getException());
-                  message = "Failed to send verification email to";
-                  controllerListener.showToast(message, Toast.LENGTH_SHORT);
-              }
-          }
-        });
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        final String message;
+                        if (task.isSuccessful()) {
+                            message = "Verification email sent to " + email;
+                            controllerListener.showToast(message, Toast.LENGTH_SHORT);
+                        } else {
+                            Log.e(TAG, "sendEmailVerification", task.getException());
+                            message = "Failed to send verification email to";
+                            controllerListener.showToast(message, Toast.LENGTH_SHORT);
+                        }
+                    }
+                });
     }
 
     private static boolean isValidEmail(final String email) {
@@ -148,8 +150,9 @@ public class RegistrationController {
         auth.removeAuthStateListener(authStateListener);
     }
 
+
     public void onGoBackToLoginButtonClicked() {
-        this.controllerListener.goBackToLogin();
+        controllerListener.goBackToLogin();
     }
 
 }
