@@ -151,7 +151,7 @@ public class RegistrationController {
 
 
     public void onGoBackToLoginButtonClicked() {
-        this.controllerListener.goBackToLogin();
+        controllerListener.goBackToLogin();
     }
 
 }
