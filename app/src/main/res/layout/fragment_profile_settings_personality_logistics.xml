@@ -1,15 +1,381 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:paddingHorizontal="16dp"
+    tools:layout_editor_absoluteY="81dp">
 
+    <!-- HEADER TEXT -->
     <TextView
+        android:id="@+id/profile_settings_roommate_preferences_header_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/profile_settings_personality_logistics_header_text"
-        android:text="@string/ps_personality_logistics_header"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="Personal Preferences"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <GridLayout
+        android:id="@+id/personal_preferences_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="4"
+        android:rowCount="20"
+        app:layout_constraintTop_toBottomOf="@+id/profile_settings_roommate_preferences_header_text">
+
+        <!-- CLEANLINESS -->
+        <TextView
+            android:id="@+id/roommate_preferences_gender_preference"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:text="I make sure to keep my room clean all the time." />
+
+
+        <RadioGroup
+            android:id="@+id/personal_preferences_cleanliness_preference_radio_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/personal_preferences_cleanliness_preference_yes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes" />
+
+            <RadioButton
+                android:id="@+id/personal_preferences_cleanliness_preference_no_pref"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No Pref" />
+
+            <RadioButton
+                android:id="@+id/personal_preferences_cleanliness_preference_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No" />
+        </RadioGroup>
+
+
+        <!-- RESERVED -->
+        <TextView
+            android:id="@+id/personal_preferences_reserved_preference"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="3"
+            android:layout_rowWeight="1"
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:text="I am a reserved person." />
+
+        <RadioGroup
+            android:id="@+id/personal_preferences_reserved_preference_radio_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="4"
+
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/personal_preferences_reserved_preference_yes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes" />
+
+            <RadioButton
+                android:id="@+id/personal_preferences_reserved_preference_no_pref"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No Pref" />
+
+            <RadioButton
+                android:id="@+id/personal_preferences_reserved_preference_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No" />
+        </RadioGroup>
+
+
+        <!-- PARTIES -->
+        <TextView
+            android:id="@+id/personal_preferences_parties_preference"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="5"
+            android:layout_rowWeight="1"
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:text="I plan to have parties or gatherings"
+            />
+
+        <RadioGroup
+            android:id="@+id/personal_preferences_parties_preference_radio_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="6"
+
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/personal_preferences_parties_preference_yes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes" />
+
+            <RadioButton
+                android:id="@+id/personal_preferences_parties_preference_no_pref"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No Pref" />
+
+            <RadioButton
+                android:id="@+id/personal_preferences_parties_preference_no_"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No" />
+        </RadioGroup>
+
+        <!-- ALCOHOL -->
+        <TextView
+            android:id="@+id/personal_preferences_alcohol_preference"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="7"
+            android:layout_rowWeight="1"
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:text="I drink alcohol"
+            />
+
+        <RadioGroup
+            android:id="@+id/personal_preferences_alcohol_preference_radio_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="8"
+
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/personal_preferences_alcohol_preference_yes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes" />
+
+            <RadioButton
+                android:id="@+id/personal_preferences_alcohol_preference_no_pref"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No Pref" />
+
+            <RadioButton
+                android:id="@+id/personal_preferences_alcohol_preference_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No" />
+        </RadioGroup>
+
+        <!-- SMOKE -->
+        <TextView
+            android:id="@+id/personal_preferences_smoke_preference"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="9"
+            android:layout_rowWeight="1"
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:text="I smoke."
+            />
+
+        <RadioGroup
+            android:id="@+id/personal_preferences_smoke_preference_radio_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="10"
+
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/personal_preferences_smoke_preference_yes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes" />
+
+            <RadioButton
+                android:id="@+id/personal_preferences_smoke_preference_no_pref"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No Pref" />
+
+            <RadioButton
+                android:id="@+id/personal_preferences_smoke_preference_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No" />
+        </RadioGroup>
+
+        <!-- SLEEP -->
+        <TextView
+            android:id="@+id/personal_preferences_sleep_preference"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="11"
+            android:layout_rowWeight="1"
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:text="I go to bed late on weekdays"
+            />
+
+        <RadioGroup
+            android:id="@+id/personal_preferences_sleep_preference_radio_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="12"
+
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/personal_preferences_sleep_preference_yes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes" />
+
+            <RadioButton
+                android:id="@+id/personal_preferences_sleep_preference_no_pref"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No Pref" />
+
+            <RadioButton
+                android:id="@+id/personal_preferences_sleep_preference_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No" />
+        </RadioGroup>
+
+        <!-- GUESTS -->
+        <TextView
+            android:id="@+id/personal_preferences_guests_preference"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="13"
+            android:layout_rowWeight="1"
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:text="I may have overnight guests."
+            />
+
+        <RadioGroup
+            android:id="@+id/personal_preferences_guests_preference_radio_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="14"
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/personal_preferences_guests_preference_yes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes" />
+
+            <RadioButton
+                android:id="@+id/personal_preferences_guests_preference_no_pref"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No Pref" />
+
+            <RadioButton
+                android:id="@+id/personal_preferences_guests_preference_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No" />
+        </RadioGroup>
+
+        <!-- PET -->
+        <TextView
+            android:id="@+id/personal_preferences_pet_preference"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="15"
+            android:layout_rowWeight="1"
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:text="I plan to have a pet."
+            />
+
+        <RadioGroup
+            android:id="@+id/personal_preferences_pet_preference_radio_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="16"
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/personal_preferences_pet_preference_yes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes" />
+
+            <RadioButton
+                android:id="@+id/personal_preferences_pet_preference_no_pref"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No Pref" />
+
+            <RadioButton
+                android:id="@+id/personal_preferences_pet_preference_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No" />
+        </RadioGroup>
+
+
+    </GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
