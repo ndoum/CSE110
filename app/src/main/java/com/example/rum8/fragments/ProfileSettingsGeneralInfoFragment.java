@@ -13,13 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
-import com.example.rum8.activities.ProfileSettingsActivity;
-import com.example.rum8.activities.RegistrationActivity;
-import com.example.rum8.adapters.ProfileSettingsViewPagerAdapter;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
-import com.example.rum8.listeners.ProfileSettingsGeneralInfoControllerListener;
-import com.example.rum8.listeners.RegistrationControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.HashMap;
