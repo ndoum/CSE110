@@ -74,7 +74,6 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
                 final String last = lastNameField.getText().toString();
                 controller.onSubmit(first, last);
             }
-
         });
 
         return rootView;
