@@ -6,6 +6,10 @@
     <string name="input_ucsd_email_hint">Enter your UCSD email here</string>
     <string name="input_password_hint">Enter your password</string>
     <string name="login_button">Log in</string>
+    <string name="yes">Yes</string>
+    <string name="no_pref">No pref</string>
+    <string name="no">No</string>
+    <string name="next">Next</string>
 
     <!-- activity_login -->
     <string name="login_header">Log In</string>
@@ -57,8 +61,14 @@
 
     <!-- personality_logistics -->
     <string name="ps_personality_logistics_header">Personality / Logistics</string>
-
-
+    <string name="ps_personality_logistics_cleanness">I make sure to keep my room clean all the time.</string>
+    <string name="ps_personality_logistics_reserved">I am a reserved person.</string>
+    <string name="ps_personality_logistics_comfortable_with_parties">I plan to have parties or gatherings</string>
+    <string name="ps_personality_logistics_comfortable_with_alcohol">I drink alcohol</string>
+    <string name="ps_personality_logistics_comfortable_with_smoking">I smoke.</string>
+    <string name="ps_personality_logistics_sleep_late">I go to bed late on weekdays</string>
+    <string name="ps_personality_logistics_overnight_guests">I may have overnight guests.</string>
+    <string name="ps_personality_logistics_comfortable_with_pets">I plan to have a pet.</string>
 
     <!-- roommate_preferences -->
     <string name="ps_roommate_preferences_header">Roommate Preferences</string>

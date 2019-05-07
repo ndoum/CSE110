@@ -82,6 +82,7 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
         passwordField = (TextInputEditText) findViewById(R.id.user_password);
         buttonLogin = (Button) findViewById(R.id.button_login);
 
+
         // override onClick login button
         buttonLogin.setOnClickListener(new View.OnClickListener() {
 
