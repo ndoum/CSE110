@@ -14,12 +14,16 @@ import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
 import com.example.rum8.activities.ProfileSettingsActivity;
+import com.example.rum8.activities.RegistrationActivity;
 import com.example.rum8.adapters.ProfileSettingsViewPagerAdapter;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.example.rum8.listeners.ProfileSettingsGeneralInfoControllerListener;
 import com.example.rum8.listeners.RegistrationControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ProfileSettingsGeneralInfoFragment extends Fragment implements ProfileSettingsControllerListener {
     private TextInputEditText firstNameField;
@@ -70,9 +74,25 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         buttonNext.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                final String first = firstNameField.getText().toString();
-                final String last = lastNameField.getText().toString();
-                controller.onSubmit(first, last);
+                Map<String, Object> userInfo = new HashMap<>();
+
+                // get names
+                final String firstName = firstNameField.getText().toString();
+                final String lastName = lastNameField.getText().toString();
+                // get gender
+                final String gender = genderSpinner.getSelectedItem().toString();
+                // get academic year
+                final String year = academicYearSpinner.getSelectedItem().toString();
+                // get college
+                final String college = collegeSpinner.getSelectedItem().toString();
+
+                userInfo.put("first_name",firstName);
+                userInfo.put("last_name", lastName);
+                userInfo.put("gender", gender);
+                userInfo.put("academic_year", year);
+                userInfo.put("college", college);
+
+                controller.onSubmit(userInfo);
             }
         });
 
@@ -81,6 +101,11 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
 
     @Override
     public void showToast(final String message, final int toastLength) {
+        //  Note on first parameter
+        //  If your code is in activity then you should use "this" of "Activty.this".
+        //  If your code is in fragment then you should go for "getActivity()"
+        Toast.makeText(getActivity(), message, toastLength).show();
+
     }
 
 

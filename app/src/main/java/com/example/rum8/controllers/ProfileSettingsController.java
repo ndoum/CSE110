@@ -1,6 +1,5 @@
 package com.example.rum8.controllers;
 
-import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -13,7 +12,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import static android.content.ContentValues.TAG;
@@ -29,7 +27,6 @@ public class ProfileSettingsController {
 
         this.controllerListener = controllerListener;
         db = FirebaseFirestore.getInstance();
-        // Listener to check the status of registration
         authStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(final @NonNull FirebaseAuth firebaseAuth) {
@@ -44,33 +41,38 @@ public class ProfileSettingsController {
 
     }
 
-    public void onSubmit(final String firstName, final String lastName) {
-        if ((!isValidName(firstName)) || (!isValidName(lastName)) ){
-            final String message = "Please use your first and last name";
-            controllerListener.showToast(message, Toast.LENGTH_SHORT);
-        }
+    public void onSubmit(final Map<String, Object> userInfo) {
 
-        Map<String, Object> userInfo = new HashMap<>();
-        userInfo.put("first_name",firstName);
-        userInfo.put("last_name", lastName);
-        db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .set(userInfo)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "DocumentSnapshot added");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding document", e);
-                    }
-                });
+        String firstName = (String) userInfo.get("first_name");
+        String lastName = (String) userInfo.get("last_name");
+
+        // check for valid name
+        if ((!isValid(firstName)) || (!isValid(lastName)) ){
+            final String message = "Please enter your first and last name";
+            controllerListener.showToast(message, Toast.LENGTH_SHORT);
+        }else {
+            // upload valid info to firebase
+            db.collection("users")
+                    .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                    .set(userInfo)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d(TAG, "DocumentSnapshot added");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error adding document", e);
+                        }
+                    });
+        }
     }
 
-    private static boolean isValidName(final String name) {
-        if (name == null) {
+    // helper method to check if user input is valid
+    private static boolean isValid(final String name) {
+        if (name == null || name.equals("")) {
             return false;
         }
         return true;
