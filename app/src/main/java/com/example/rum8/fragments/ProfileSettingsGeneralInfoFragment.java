@@ -5,12 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
+import com.example.rum8.adapters.ProfileSettingsViewPagerAdapter;
+import com.example.rum8.controllers.ProfileSettingsController;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class ProfileSettingsGeneralInfoFragment extends Fragment {
@@ -19,6 +22,9 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment {
     private Spinner genderSpinner;
     private Spinner academicYearSpinner;
     private Spinner collegeSpinner;
+    private Button buttonNext;
+
+    private ProfileSettingsController controller;
 
     @Nullable
     @Override
@@ -51,6 +57,20 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment {
         collegeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         collegeSpinner.setAdapter(collegeAdapter);
 
+        //FILLING THE BUTTON
+        buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
+
+        buttonNext.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                final String first = firstNameField.getText().toString();
+                final String last = lastNameField.getText().toString();
+                controller.onSubmit(first, last);
+            }
+        });
+
         return rootView;
     }
+
+
 }
