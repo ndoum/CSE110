@@ -18,5 +18,6 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_profile_settings_personality_logistics, container, false);
 
         return rootView;
+
     }
 }
