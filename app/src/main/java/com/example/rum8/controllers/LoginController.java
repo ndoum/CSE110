@@ -124,5 +124,5 @@ public class LoginController {
     public void destroy() {
         auth.removeAuthStateListener(authStateListener);
     }
-
 }
+

@@ -9,5 +9,5 @@ public interface LoginControllerListener {
     void goToMainPage();
 
     void showToast(final String message, final int toastLength);
-    
+
 }
