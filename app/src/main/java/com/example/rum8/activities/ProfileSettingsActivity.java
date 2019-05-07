@@ -1,17 +1,8 @@
 package com.example.rum8.activities;
 
 import android.os.Bundle;
-
 import android.widget.Button;
 import android.widget.ImageView;
-
-
-import android.provider.MediaStore;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-
-
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -45,7 +36,6 @@ public class ProfileSettingsActivity extends AppCompatActivity
         viewPager.setAdapter(new ProfileSettingsViewPagerAdapter(getSupportFragmentManager()));
 
         buttonUploadProfileImage = (Button) findViewById(R.id.general_info_profile_image_upload_button);
-        //TODO set on click listener and open android photo gallary
     }
 
 

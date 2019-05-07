@@ -3,13 +3,15 @@
     <string name="textview">TextView</string>
 
     <!-- general strings -->
-    <string name="input_ucsd_email_hint">Enter your UCSD email here</string>
-    <string name="input_password_hint">Enter your password</string>
+    <string name="ucsd_email_hint">Enter your UCSD email here</string>
+    <string name="password_hint">Enter your password</string>
     <string name="login_button">Log in</string>
     <string name="yes">Yes</string>
-    <string name="no_pref">No pref</string>
+    <string name="no_pref">No pref.</string>
     <string name="no">No</string>
     <string name="next">Next</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
 
     <!-- activity_login -->
     <string name="login_header">Log In</string>
@@ -38,19 +40,19 @@
     <string name="ps_general_info_academic_year_label">Academic year</string>
 
     <string name="ps_general_info_college_label">College</string>
-    <string-array name="profile_settings_gender_items">
+    <string-array name="ps_general_info_gender_items">
         <item>Male</item>
         <item>Female</item>
-        <item>Prefer not to say</item>
+        <item>Non-binary</item>
     </string-array>
-    <string-array name="profile_settings_academic_year_items">
+    <string-array name="ps_general_info_academic_year_items">
         <item>First</item>
         <item>Second</item>
         <item>Third</item>
         <item>Fourth</item>
-        <item>Others</item>
+        <item>Other</item>
     </string-array>
-    <string-array name="profile_settings_college_items">
+    <string-array name="ps_general_info_college_items">
         <item>Revelle</item>
         <item>Muir</item>
         <item>Marshall</item>
@@ -73,33 +75,15 @@
     <!-- roommate_preferences -->
     <string name="ps_roommate_preferences_header">Roommate Preferences</string>
     <!-- roommate_preferences_questions-->
-    <string name="ps_roommate_preferences_gender">
-        I prefer my roommate to be the same gender as me.
-    </string>
-    <string name="ps_roommate_preferences_cleanness">
-        I prefer a roommate that always keeps their part of the room clean.
-    </string>
-    <string name="ps_roommate_preferences_reserved">
-        I prefer a reserved roommate.
-    </string>
-    <string name="ps_roommate_preference_comfortable_with_parties">
-        I prefer a roommate that  is comfortable with parties or gatherings.
-    </string>
-    <string name="ps_roommate_preference_comfortable_with_alcohol">
-        I prefer a roommate that is comfortable with alcohol.
-    </string>
-    <string name="ps_roommate_preference_comfortable_with_smoking">
-        I prefer that my roommate is comfortable with smoking.
-    </string>
-    <string name="ps_roommate_preference_sleep_late">
-        I prefer a roommate that goes to bed late on weekdays.
-    </string>
-    <string name="ps_roommate_preference_overnight_guests">
-        I prefer a roommate that is okay with overnight guests.
-    </string>
-    <string name="ps_roommate_preference_comfortable_with_pets">
-        I prefer a roommate that is comfortable with pets.
-    </string>
+    <string name="ps_roommate_preferences_gender">I prefer my roommate to be the same gender as me.</string>
+    <string name="ps_roommate_preferences_cleanness">I prefer a roommate that always keeps their part of the room clean.</string>
+    <string name="ps_roommate_preferences_reserved">I prefer a reserved roommate.</string>
+    <string name="ps_roommate_preference_comfortable_with_parties">I prefer a roommate that  is comfortable with parties or gatherings.</string>
+    <string name="ps_roommate_preference_comfortable_with_alcohol">I prefer a roommate that is comfortable with alcohol.</string>
+    <string name="ps_roommate_preference_comfortable_with_smoking">I prefer that my roommate is comfortable with smoking.</string>
+    <string name="ps_roommate_preference_sleep_late">I prefer a roommate that goes to bed late on weekdays.</string>
+    <string name="ps_roommate_preference_overnight_guests">I prefer a roommate that is okay with overnight guests.</string>
+    <string name="ps_roommate_preference_comfortable_with_pets">I prefer a roommate that is comfortable with pets.</string>
     <!-- roommate_preferences_questions_options-->
     <string name="ps_roommate_preferences_option_yes">Yes</string>
     <string name="ps_roommate_preferences_option_no_pref">No Pref</string>
