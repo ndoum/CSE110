@@ -28,7 +28,7 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/input_ucsd_email_hint"
+            android:hint="@string/ucsd_email_hint"
             android:textColorHint="@color/ucsd_navy_blue"
             app:boxStrokeColor="@color/ucsd_navy_blue">
 
@@ -46,7 +46,7 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/input_password_hint"
+            android:hint="@string/password_hint"
             android:textColorHint="@color/ucsd_navy_blue"
             app:boxStrokeColor="@color/ucsd_navy_blue"
             app:endIconMode="password_toggle">
@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="Cancel"/>
+            android:text="Cancel" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
