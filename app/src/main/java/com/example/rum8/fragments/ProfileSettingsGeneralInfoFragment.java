@@ -7,16 +7,21 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
+import com.example.rum8.activities.ProfileSettingsActivity;
 import com.example.rum8.adapters.ProfileSettingsViewPagerAdapter;
 import com.example.rum8.controllers.ProfileSettingsController;
+import com.example.rum8.listeners.ProfileSettingsControllerListener;
+import com.example.rum8.listeners.ProfileSettingsGeneralInfoControllerListener;
+import com.example.rum8.listeners.RegistrationControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
 
-public class ProfileSettingsGeneralInfoFragment extends Fragment {
+public class ProfileSettingsGeneralInfoFragment extends Fragment implements ProfileSettingsControllerListener {
     private TextInputEditText firstNameField;
     private TextInputEditText lastNameField;
     private Spinner genderSpinner;
@@ -31,6 +36,8 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.fragment_profile_settings_general_info, container, false);
+
+        controller = new ProfileSettingsController(this);
 
         //NAME FIELDS
         firstNameField = rootView.findViewById(R.id.general_info_first_name_field);
@@ -70,6 +77,10 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment {
         });
 
         return rootView;
+    }
+
+    @Override
+    public void showToast(final String message, final int toastLength) {
     }
 
 

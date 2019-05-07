@@ -61,17 +61,6 @@ public class ProfileSettingsActivity extends AppCompatActivity
         buttonUploadProfileImage = (Button) findViewById(R.id.general_info_profile_image_upload_button);
         //TODO set on click listener and open android photo gallary
         buttonGeneralInfoNext = (Button) findViewById(R.id.general_info_profile_next_button);
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        System.out.println(firstName.getText().toString());
-        System.out.println(lastName.getText().toString());
-        buttonGeneralInfoNext.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                final String first = firstName.getText().toString();
-                final String last = lastName.getText().toString();
-                controller.onSubmit(first, last);
-            }
-        });
 
     }
 
