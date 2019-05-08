@@ -12,7 +12,7 @@
         android:id="@+id/profile_settings_personal_preferences_header_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Personal Preferences"
+        android:text="@string/ps_personality_logistics_header"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,7 +34,7 @@
             android:layout_rowWeight="1"
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
-            android:text="I make sure to keep my room clean all the time." />
+            android:text="@string/ps_personality_logistics_cleanness" />
 
 
         <RadioGroup
@@ -51,21 +51,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Yes" />
+                android:text="@string/yes" />
 
             <RadioButton
                 android:id="@+id/personal_preferences_cleanliness_preference_no_pref"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="No Pref" />
+                android:text="@string/no_pref" />
 
             <RadioButton
                 android:id="@+id/personal_preferences_cleanliness_preference_no"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="No" />
+                android:text="@string/no" />
         </RadioGroup>
 
 
@@ -78,7 +78,7 @@
             android:layout_rowWeight="1"
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
-            android:text="I am a reserved person." />
+            android:text="@string/ps_personality_logistics_reserved" />
 
         <RadioGroup
             android:id="@+id/personal_preferences_reserved_preference_radio_group"
@@ -95,21 +95,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Yes" />
+                android:text="@string/yes" />
 
             <RadioButton
                 android:id="@+id/personal_preferences_reserved_preference_no_pref"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="No Pref" />
+                android:text="@string/no_pref" />
 
             <RadioButton
                 android:id="@+id/personal_preferences_reserved_preference_no"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="No" />
+                android:text="@string/no" />
         </RadioGroup>
 
 
@@ -122,8 +122,7 @@
             android:layout_rowWeight="1"
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
-            android:text="I plan to have parties or gatherings"
-            />
+            android:text="@string/ps_personality_logistics_comfortable_with_parties" />
 
         <RadioGroup
             android:id="@+id/personal_preferences_parties_preference_radio_group"
@@ -140,21 +139,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Yes" />
+                android:text="@string/yes" />
 
             <RadioButton
                 android:id="@+id/personal_preferences_parties_preference_no_pref"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="No Pref" />
+                android:text="@string/no_pref" />
 
             <RadioButton
                 android:id="@+id/personal_preferences_parties_preference_no_"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="No" />
+                android:text="@string/no" />
         </RadioGroup>
 
         <!-- ALCOHOL -->
@@ -166,8 +165,7 @@
             android:layout_rowWeight="1"
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
-            android:text="I drink alcohol"
-            />
+            android:text="@string/ps_personality_logistics_comfortable_with_alcohol" />
 
         <RadioGroup
             android:id="@+id/personal_preferences_alcohol_preference_radio_group"
@@ -184,21 +182,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Yes" />
+                android:text="@string/yes" />
 
             <RadioButton
                 android:id="@+id/personal_preferences_alcohol_preference_no_pref"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="No Pref" />
+                android:text="@string/no_pref" />
 
             <RadioButton
                 android:id="@+id/personal_preferences_alcohol_preference_no"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="No" />
+                android:text="@string/no" />
         </RadioGroup>
 
         <!-- SMOKE -->
@@ -210,8 +208,7 @@
             android:layout_rowWeight="1"
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
-            android:text="I smoke."
-            />
+            android:text="@string/ps_personality_logistics_comfortable_with_smoking" />
 
         <RadioGroup
             android:id="@+id/personal_preferences_smoke_preference_radio_group"
@@ -228,21 +225,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Yes" />
+                android:text="@string/yes" />
 
             <RadioButton
                 android:id="@+id/personal_preferences_smoke_preference_no_pref"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="No Pref" />
+                android:text="@string/no_pref" />
 
             <RadioButton
                 android:id="@+id/personal_preferences_smoke_preference_no"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="No" />
+                android:text="@string/no" />
         </RadioGroup>
 
         <!-- SLEEP -->
@@ -254,8 +251,7 @@
             android:layout_rowWeight="1"
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
-            android:text="I go to bed late on weekdays"
-            />
+            android:text="@string/ps_personality_logistics_sleep_late" />
 
         <RadioGroup
             android:id="@+id/personal_preferences_sleep_preference_radio_group"
@@ -272,21 +268,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Yes" />
+                android:text="@string/yes" />
 
             <RadioButton
                 android:id="@+id/personal_preferences_sleep_preference_no_pref"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="No Pref" />
+                android:text="@string/no_pref" />
 
             <RadioButton
                 android:id="@+id/personal_preferences_sleep_preference_no"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="No" />
+                android:text="@string/no" />
         </RadioGroup>
 
         <!-- GUESTS -->
@@ -298,8 +294,7 @@
             android:layout_rowWeight="1"
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
-            android:text="I may have overnight guests."
-            />
+            android:text="@string/ps_personality_logistics_overnight_guests" />
 
         <RadioGroup
             android:id="@+id/personal_preferences_guests_preference_radio_group"
@@ -315,21 +310,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Yes" />
+                android:text="@string/yes" />
 
             <RadioButton
                 android:id="@+id/personal_preferences_guests_preference_no_pref"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="No Pref" />
+                android:text="@string/no_pref" />
 
             <RadioButton
                 android:id="@+id/personal_preferences_guests_preference_no"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="No" />
+                android:text="@string/no" />
         </RadioGroup>
 
         <!-- PET -->
@@ -341,8 +336,7 @@
             android:layout_rowWeight="1"
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
-            android:text="I plan to have a pet."
-            />
+            android:text="@string/ps_personality_logistics_comfortable_with_pets" />
 
         <RadioGroup
             android:id="@+id/personal_preferences_pet_preference_radio_group"
@@ -358,23 +352,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Yes" />
+                android:text="@string/yes" />
 
             <RadioButton
                 android:id="@+id/personal_preferences_pet_preference_no_pref"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="No Pref" />
+                android:text="@string/no_pref" />
 
             <RadioButton
                 android:id="@+id/personal_preferences_pet_preference_no"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="No" />
+                android:text="@string/no" />
         </RadioGroup>
 
-
+        <Button
+            android:id="@+id/personal_references_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/next"/>
     </GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

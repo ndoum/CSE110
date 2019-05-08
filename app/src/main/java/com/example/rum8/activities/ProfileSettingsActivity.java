@@ -1,7 +1,6 @@
 package com.example.rum8.activities;
 
 import android.os.Bundle;
-
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -47,15 +46,11 @@ public class ProfileSettingsActivity extends AppCompatActivity
         viewPager = findViewById(R.id.profile_settings_view_pager);
         viewPager.setAdapter(new ProfileSettingsViewPagerAdapter(getSupportFragmentManager()));
 
-        firstName  = (TextInputEditText) findViewById(R.id.general_info_first_name_field);
+        firstName = (TextInputEditText) findViewById(R.id.general_info_first_name_field);
         lastName = (TextInputEditText) findViewById(R.id.general_info_last_name_field);
 
         buttonUploadProfileImage = (Button) findViewById(R.id.general_info_profile_image_upload_button);
-        //TODO set on click listener and open android photo gallary
-        buttonGeneralInfoNext = (Button) findViewById(R.id.general_info_profile_next_button);
-
     }
-
 
     private void initController() {
         controller = new ProfileSettingsController(this);
