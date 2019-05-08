@@ -11,6 +11,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.Map;
 
@@ -54,7 +55,7 @@ public class ProfileSettingsController {
             // upload valid info to firebase
             db.collection("users")
                     .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                    .set(userInfo)
+                    .set(userInfo, SetOptions.merge())
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {

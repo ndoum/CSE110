@@ -43,21 +43,21 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         lastNameField = rootView.findViewById(R.id.general_info_last_name_field);
 
         //FILLING THE GENDER SPINNER
-        genderSpinner = (Spinner) rootView.findViewById(R.id.general_info_gender_spinner);
+        genderSpinner = rootView.findViewById(R.id.general_info_gender_spinner);
         ArrayAdapter<CharSequence> genderSpinnerAdapter = ArrayAdapter.createFromResource(this.getActivity(),
                 R.array.ps_general_info_gender_items, android.R.layout.simple_spinner_item);
         genderSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         genderSpinner.setAdapter(genderSpinnerAdapter);
 
         //FILLING THE ACADEMIC YEAR SPINNER
-        academicYearSpinner = (Spinner) rootView.findViewById(R.id.general_info_academic_year_spinner);
+        academicYearSpinner = rootView.findViewById(R.id.general_info_academic_year_spinner);
         ArrayAdapter<CharSequence> academicYearAdapter = ArrayAdapter.createFromResource(this.getActivity(),
                 R.array.ps_general_info_academic_year_items, android.R.layout.simple_spinner_item);
         academicYearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         academicYearSpinner.setAdapter(academicYearAdapter);
 
         //FILLING THE COLLEGE SPINNER
-        collegeSpinner = (Spinner) rootView.findViewById(R.id.general_info_college_spinner);
+        collegeSpinner = rootView.findViewById(R.id.general_info_college_spinner);
         ArrayAdapter<CharSequence> collegeAdapter = ArrayAdapter.createFromResource(this.getActivity(),
                 R.array.ps_general_info_college_items, android.R.layout.simple_spinner_item);
         collegeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -96,11 +96,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
 
     @Override
     public void showToast(final String message, final int toastLength) {
-        //  Note on first parameter
-        //  If your code is in activity then you should use "this" of "Activty.this".
-        //  If your code is in fragment then you should go for "getActivity()"
         Toast.makeText(getActivity(), message, toastLength).show();
-
     }
 
 

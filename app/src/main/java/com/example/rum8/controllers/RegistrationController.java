@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -79,7 +80,7 @@ public class RegistrationController {
                                 db.collection("users")
                                         // use user id as document reference
                                         .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                        .set(userInfo)
+                                        .set(userInfo, SetOptions.merge())
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void aVoid) {
