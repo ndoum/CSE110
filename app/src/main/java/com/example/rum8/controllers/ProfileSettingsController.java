@@ -66,6 +66,7 @@ public class ProfileSettingsController {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Log.w(TAG, "Error adding document", e);
+                            controllerListener.showToast("Network error", Toast.LENGTH_SHORT);
                         }
                     });
         }

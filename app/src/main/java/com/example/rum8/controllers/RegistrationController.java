@@ -73,7 +73,7 @@ public class RegistrationController {
                                 // Create a new user with email when registration is complete
 
                                 // set email feild with user email
-                                Map<String, Object> userInfo = new HashMap<>();
+                                final Map<String, Object> userInfo = new HashMap<>();
                                 userInfo.put("email", email);
 
                                 // add doc to firestore
@@ -91,6 +91,7 @@ public class RegistrationController {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
                                                 Log.w(TAG, "Error adding document", e);
+                                                controllerListener.showToast("Network error", Toast.LENGTH_SHORT);
                                             }
                                         });
 
