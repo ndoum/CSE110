@@ -86,7 +86,6 @@
             android:layout_width="0dp"
             android:layout_height="26dp"
             android:layout_row="4"
-
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
             android:orientation="horizontal">
@@ -130,7 +129,6 @@
             android:layout_width="0dp"
             android:layout_height="26dp"
             android:layout_row="6"
-
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
             android:orientation="horizontal">
@@ -216,7 +214,6 @@
             android:layout_width="0dp"
             android:layout_height="26dp"
             android:layout_row="10"
-
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
             android:orientation="horizontal">
@@ -259,7 +256,6 @@
             android:layout_width="0dp"
             android:layout_height="26dp"
             android:layout_row="12"
-
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
             android:orientation="horizontal">
@@ -417,7 +413,7 @@
             android:id="@+id/roommate_preferences_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/save"></Button>
+            android:text="@string/save"/>
 
     </GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

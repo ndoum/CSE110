@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -73,14 +74,14 @@ public class RegistrationController {
                                 // Create a new user with email when registration is complete
 
                                 // set email feild with user email
-                                Map<String, Object> userInfo = new HashMap<>();
+                                final Map<String, Object> userInfo = new HashMap<>();
                                 userInfo.put("email", email);
 
                                 // add doc to firestore
                                 db.collection("users")
                                         // use user id as document reference
                                         .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                        .set(userInfo)
+                                        .set(userInfo, SetOptions.merge())
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void aVoid) {
@@ -91,6 +92,7 @@ public class RegistrationController {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
                                                 Log.w(TAG, "Error adding document", e);
+                                                controllerListener.showToast("Network error", Toast.LENGTH_SHORT);
                                             }
                                         });
 
