@@ -373,6 +373,6 @@
             android:id="@+id/personal_references_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/next"></Button>
+            android:text="@string/next"/>
     </GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
