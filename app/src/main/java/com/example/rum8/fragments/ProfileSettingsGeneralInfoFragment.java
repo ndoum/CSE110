@@ -13,22 +13,26 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
+import com.example.rum8.controllers.ProfilePicUploadController;
 import com.example.rum8.controllers.ProfileSettingsController;
+import com.example.rum8.listeners.ProfilePicUploadControllerListener;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProfileSettingsGeneralInfoFragment extends Fragment implements ProfileSettingsControllerListener {
+public class ProfileSettingsGeneralInfoFragment extends Fragment implements ProfileSettingsControllerListener, ProfilePicUploadControllerListener {
     private TextInputEditText firstNameField;
     private TextInputEditText lastNameField;
     private Spinner genderSpinner;
     private Spinner academicYearSpinner;
     private Spinner collegeSpinner;
     private Button buttonNext;
+    private Button buttonUploadPic;
 
     private ProfileSettingsController controller;
+    private ProfilePicUploadController uploadController;
 
     @Nullable
     @Override
@@ -37,6 +41,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         final View rootView = inflater.inflate(R.layout.fragment_profile_settings_general_info, container, false);
 
         controller = new ProfileSettingsController(this);
+        uploadController = new ProfilePicUploadController(this);
 
         //NAME FIELDS
         firstNameField = rootView.findViewById(R.id.general_info_first_name_field);
@@ -65,6 +70,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
 
         //FILLING THE BUTTON
         buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
+        buttonUploadPic = rootView.findViewById(R.id.general_info_profile_image_upload_button);
 
         buttonNext.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -84,6 +90,13 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
                 userInfo.put("college", college);
 
                 controller.onSubmit(userInfo);
+            }
+        });
+
+        buttonUploadPic.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(final View v){
+                uploadController.onSubmit();
             }
         });
 
