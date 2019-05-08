@@ -34,7 +34,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View rootView = inflater.inflate(R.layout.fragment_profile_settings_general_info, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_profile_settings_general_info, container, false);
 
         controller = new ProfileSettingsController(this);
 
@@ -44,21 +44,21 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
 
         //FILLING THE GENDER SPINNER
         genderSpinner = rootView.findViewById(R.id.general_info_gender_spinner);
-        ArrayAdapter<CharSequence> genderSpinnerAdapter = ArrayAdapter.createFromResource(this.getActivity(),
+        final ArrayAdapter<CharSequence> genderSpinnerAdapter = ArrayAdapter.createFromResource(this.getActivity(),
                 R.array.ps_general_info_gender_items, android.R.layout.simple_spinner_item);
         genderSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         genderSpinner.setAdapter(genderSpinnerAdapter);
 
         //FILLING THE ACADEMIC YEAR SPINNER
         academicYearSpinner = rootView.findViewById(R.id.general_info_academic_year_spinner);
-        ArrayAdapter<CharSequence> academicYearAdapter = ArrayAdapter.createFromResource(this.getActivity(),
+        final ArrayAdapter<CharSequence> academicYearAdapter = ArrayAdapter.createFromResource(this.getActivity(),
                 R.array.ps_general_info_academic_year_items, android.R.layout.simple_spinner_item);
         academicYearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         academicYearSpinner.setAdapter(academicYearAdapter);
 
         //FILLING THE COLLEGE SPINNER
         collegeSpinner = rootView.findViewById(R.id.general_info_college_spinner);
-        ArrayAdapter<CharSequence> collegeAdapter = ArrayAdapter.createFromResource(this.getActivity(),
+        final ArrayAdapter<CharSequence> collegeAdapter = ArrayAdapter.createFromResource(this.getActivity(),
                 R.array.ps_general_info_college_items, android.R.layout.simple_spinner_item);
         collegeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         collegeSpinner.setAdapter(collegeAdapter);
@@ -68,17 +68,13 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
 
         buttonNext.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v){
-                Map<String, Object> userInfo = new HashMap<>();
+            public void onClick(final View v){
+                final Map<String, Object> userInfo = new HashMap<>();
 
-                // get names
                 final String firstName = firstNameField.getText().toString();
                 final String lastName = lastNameField.getText().toString();
-                // get gender
                 final String gender = genderSpinner.getSelectedItem().toString();
-                // get academic year
                 final String year = academicYearSpinner.getSelectedItem().toString();
-                // get college
                 final String college = collegeSpinner.getSelectedItem().toString();
 
                 userInfo.put("first_name",firstName);

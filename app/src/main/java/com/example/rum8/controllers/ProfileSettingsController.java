@@ -44,11 +44,11 @@ public class ProfileSettingsController {
 
     public void onSubmit(final Map<String, Object> userInfo) {
 
-        String firstName = (String) userInfo.get("first_name");
-        String lastName = (String) userInfo.get("last_name");
+        final String firstName = (String) userInfo.get("first_name");
+        final String lastName = (String) userInfo.get("last_name");
 
         // check for valid name
-        if ((!isValid(firstName)) || (!isValid(lastName)) ){
+        if ((!isPresent(firstName)) || (!isPresent(lastName)) ){
             final String message = "Please enter your first and last name";
             controllerListener.showToast(message, Toast.LENGTH_SHORT);
         }else {
@@ -71,8 +71,8 @@ public class ProfileSettingsController {
         }
     }
 
-    // helper method to check if user input is valid
-    private static boolean isValid(final String name) {
+    // helper method to check if user input is present
+    private static boolean isPresent(final String name) {
         if (name == null || name.equals("")) {
             return false;
         }
