@@ -95,12 +95,6 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
         });
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        controller.destroy();
-    }
-
     private void initController() {
         controller = new LoginController(this, this);
     }

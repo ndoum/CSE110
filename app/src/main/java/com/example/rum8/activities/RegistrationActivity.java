@@ -1,19 +1,17 @@
 package com.example.rum8.activities;
 
 import android.content.Intent;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.material.textfield.TextInputEditText;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.rum8.R;
 import com.example.rum8.controllers.RegistrationController;
 import com.example.rum8.listeners.RegistrationControllerListener;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class RegistrationActivity extends AppCompatActivity
         implements RegistrationControllerListener {
@@ -27,12 +25,6 @@ public class RegistrationActivity extends AppCompatActivity
         setContentView(R.layout.activity_registration);
         initViews();
         initController();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        controller.destroy();
     }
 
     @Override
