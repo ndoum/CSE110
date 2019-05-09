@@ -11,8 +11,7 @@ import com.example.rum8.R;
 import com.example.rum8.controllers.MainController;
 import com.example.rum8.listeners.MainControllerListener;
 
-public class MainActivity extends AppCompatActivity
-        implements MainControllerListener {
+public class MainActivity extends AppCompatActivity implements MainControllerListener {
 
     private MainController controller;
 
@@ -22,8 +21,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         initViews();
         initController();
-
-        controller.onAppLaunch();
     }
 
     @Override
