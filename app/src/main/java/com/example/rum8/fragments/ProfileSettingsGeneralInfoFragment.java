@@ -66,25 +66,22 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         //FILLING THE BUTTON
         buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
 
-        buttonNext.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(final View v){
-                final Map<String, Object> userInfo = new HashMap<>();
+        buttonNext.setOnClickListener(v -> {
+            final Map<String, Object> userInfo = new HashMap<>();
 
-                final String firstName = firstNameField.getText().toString();
-                final String lastName = lastNameField.getText().toString();
-                final String gender = genderSpinner.getSelectedItem().toString();
-                final String year = academicYearSpinner.getSelectedItem().toString();
-                final String college = collegeSpinner.getSelectedItem().toString();
+            final String firstName = firstNameField.getText().toString();
+            final String lastName = lastNameField.getText().toString();
+            final String gender = genderSpinner.getSelectedItem().toString();
+            final String year = academicYearSpinner.getSelectedItem().toString();
+            final String college = collegeSpinner.getSelectedItem().toString();
 
-                userInfo.put("first_name",firstName);
-                userInfo.put("last_name", lastName);
-                userInfo.put("gender", gender);
-                userInfo.put("academic_year", year);
-                userInfo.put("college", college);
+            userInfo.put("first_name",firstName);
+            userInfo.put("last_name", lastName);
+            userInfo.put("gender", gender);
+            userInfo.put("academic_year", year);
+            userInfo.put("college", college);
 
-                controller.onSubmit(userInfo);
-            }
+            controller.onSubmit(userInfo);
         });
 
         return rootView;
