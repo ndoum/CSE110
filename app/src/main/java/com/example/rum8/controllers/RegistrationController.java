@@ -29,29 +29,14 @@ public class RegistrationController {
     private RegistrationControllerListener controllerListener;
     private Context context;
     private FirebaseAuth auth;
-    private FirebaseAuth.AuthStateListener authStateListener;
 
     // Access a Cloud Firestore instance from your Activity
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public RegistrationController(final RegistrationControllerListener controllerListener, final Context context) {
-
         this.controllerListener = controllerListener;
         this.context = context;
-
-        // Listener to check the status of registration
-        authStateListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-
-            public void onAuthStateChanged(final @NonNull FirebaseAuth firebaseAuth) {
-
-                // Get the current user
-                final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            }
-        };
-
         auth = FirebaseAuth.getInstance();
-        auth.addAuthStateListener(authStateListener);
     }
 
     public void onSubmit(final String email, final String password) {
@@ -147,11 +132,6 @@ public class RegistrationController {
         final int minimumPasswordLength = 6;
         return password != null && password.length() >= minimumPasswordLength;
     }
-
-    public void destroy() {
-        auth.removeAuthStateListener(authStateListener);
-    }
-
 
     public void onGoBackToLoginButtonClicked() {
         controllerListener.goBackToLogin();

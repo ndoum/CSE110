@@ -28,12 +28,6 @@ public class RegistrationActivity extends AppCompatActivity
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-        controller.destroy();
-    }
-
-    @Override
     public void onUserRegistered() {
         final Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
         startActivity(intent);

@@ -13,7 +13,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.SignInMethodQueryResult;
 
 public class LoginController {
@@ -21,29 +20,14 @@ public class LoginController {
     private LoginControllerListener controllerListener;
     private Context context;
     private FirebaseAuth auth;
-    private FirebaseAuth.AuthStateListener authStateListener;
 
     public LoginController(final LoginControllerListener controllerListener, final Context context) {
         this.controllerListener = controllerListener;
         this.context = context;
-
-        // Listener to check the status of login
-        authStateListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(final @NonNull FirebaseAuth firebaseAuth) {
-
-                // Get the current user
-                final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            }
-        };
-
         auth = FirebaseAuth.getInstance();
-        auth.addAuthStateListener(authStateListener);
     }
 
-    public void userLogin(final String email, final String password) {
-
-
+    public void onSubmit(final String email, final String password) {
         if (!isValidEmail(email)) {
             final String message = "Please use your UCSD email (i.e. abc@ucsd.edu)";
             controllerListener.showToast(message, Toast.LENGTH_SHORT);
@@ -64,7 +48,6 @@ public class LoginController {
                                 } else {
                                     // Sign in success, update UI with the signed-in user's information
                                     Log.d("Success", "signInWithEmail:success");
-                                    FirebaseUser user = auth.getCurrentUser();
                                     onLoginSuccessful();
                                 }
                             } else {
@@ -120,14 +103,9 @@ public class LoginController {
         controllerListener.goToPasswordRecover();
     }
 
-    public void onLoginSuccessful() {
+    private void onLoginSuccessful() {
         controllerListener.goToMainPage();
     }
-
-    public void destroy() {
-        auth.removeAuthStateListener(authStateListener);
-    }
-
 
 }
 
