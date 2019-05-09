@@ -89,20 +89,14 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
             @Override
             public void onClick(View v) {
                 final String email = emailField.getText().toString();
-                String pw = passwordField.getText().toString();
-                controller.userLogin(email, pw);
+                final String pw = passwordField.getText().toString();
+                controller.onSubmit(email, pw);
             }
         });
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        controller.destroy();
-    }
-
     private void initController() {
-        controller = new LoginController(this, this);
+        controller = new LoginController(this);
     }
 
 }

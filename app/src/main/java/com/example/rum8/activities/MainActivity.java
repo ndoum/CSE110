@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,26 +22,25 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         initViews();
         initController();
+
+        controller.onAppLaunch();
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(final Menu menu) {
         //Creates the menu inside of the toolbar
         getMenuInflater().inflate(R.menu.dropdown_menu, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
             case R.id.main_activity_go_to_profile_settings:
                 controller.onGoToProfileSettingsButtonClicked();
                 return true;
             case R.id.main_activity_log_out:
-                Toast.makeText(this, "User Logged Out", Toast.LENGTH_LONG).show();
-                return true;
-            case R.id.main_activity_go_to_log_in:
-                controller.onGoToLoginButtonClicked();
+                controller.onLogOutButtonClicked();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
