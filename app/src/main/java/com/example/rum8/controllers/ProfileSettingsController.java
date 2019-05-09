@@ -3,11 +3,7 @@ package com.example.rum8.controllers;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -28,13 +24,10 @@ public class ProfileSettingsController {
 
         this.controllerListener = controllerListener;
         db = FirebaseFirestore.getInstance();
-        authStateListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(final @NonNull FirebaseAuth firebaseAuth) {
+        authStateListener = firebaseAuth -> {
 
-                // Get the current user
-                final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            }
+            // Get the current user
+            final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         };
 
         auth = FirebaseAuth.getInstance();
@@ -55,18 +48,10 @@ public class ProfileSettingsController {
             db.collection("users")
                     .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
                     .set(userInfo, SetOptions.merge())
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Log.d(TAG, "DocumentSnapshot added");
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w(TAG, "Error adding document", e);
-                            controllerListener.showToast("Network error", Toast.LENGTH_SHORT);
-                        }
+                    .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot added"))
+                    .addOnFailureListener(e -> {
+                        Log.w(TAG, "Error adding document", e);
+                        controllerListener.showToast("Network error", Toast.LENGTH_SHORT);
                     });
         }
     }

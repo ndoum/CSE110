@@ -2,18 +2,15 @@ package com.example.rum8.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.rum8.R;
 import com.example.rum8.controllers.PasswordRecoveryController;
 import com.example.rum8.listeners.PasswordRecoveryControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 
 public class PasswordRecoveryActivity extends AppCompatActivity implements PasswordRecoveryControllerListener {
@@ -52,12 +49,7 @@ public class PasswordRecoveryActivity extends AppCompatActivity implements Passw
     }
 
     private void initViews() {
-        button_goBackToLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                controller.onGoBackToLoginButtonClicked();
-            }
-        });
+        button_goBackToLogin.setOnClickListener(v -> controller.onGoBackToLoginButtonClicked());
     }
 
     private void initController() {
