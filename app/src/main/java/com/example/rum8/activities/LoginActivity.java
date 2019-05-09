@@ -96,7 +96,7 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
     }
 
     private void initController() {
-        controller = new LoginController(this, this);
+        controller = new LoginController(this);
     }
 
 }
