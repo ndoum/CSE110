@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,7 +38,7 @@ public class MainActivity extends AppCompatActivity
                 controller.onGoToProfileSettingsButtonClicked();
                 return true;
             case R.id.main_activity_log_out:
-                Toast.makeText(this, "User Logged Out", Toast.LENGTH_LONG).show();
+                controller.onLogOutButtonClicked();
                 return true;
             case R.id.main_activity_go_to_log_in:
                 controller.onGoToLoginButtonClicked();
