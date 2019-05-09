@@ -1,9 +1,7 @@
 package com.example.rum8.activities;
 
 import android.content.Intent;
-
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -61,21 +59,11 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
 
         // override onclick goToPasswordRecovery button
         final Button button_goToPasswordRecovery = findViewById(R.id.button_password_recovery);
-        button_goToPasswordRecovery.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                controller.onGoToPasswordRecoverClicked();
-            }
-        });
+        button_goToPasswordRecovery.setOnClickListener(v -> controller.onGoToPasswordRecoverClicked());
 
         // override onClick goToRegistration button
         final Button button_goToRegistration = findViewById(R.id.button_register);
-        button_goToRegistration.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                controller.onGoToRegistrationButtonClicked();
-            }
-        });
+        button_goToRegistration.setOnClickListener(v -> controller.onGoToRegistrationButtonClicked());
 
         // views
         emailField = (TextInputEditText) findViewById(R.id.user_email);
@@ -84,14 +72,10 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
 
 
         // override onClick login button
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                final String email = emailField.getText().toString();
-                final String pw = passwordField.getText().toString();
-                controller.onSubmit(email, pw);
-            }
+        buttonLogin.setOnClickListener(v -> {
+            final String email = emailField.getText().toString();
+            final String pw = passwordField.getText().toString();
+            controller.onSubmit(email, pw);
         });
     }
 

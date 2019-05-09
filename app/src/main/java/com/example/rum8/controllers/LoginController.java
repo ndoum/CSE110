@@ -4,12 +4,7 @@ package com.example.rum8.controllers;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-
 import com.example.rum8.listeners.LoginControllerListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
@@ -32,26 +27,20 @@ public class LoginController {
             controllerListener.showToast(message, Toast.LENGTH_SHORT);
         } else {
             auth.signInWithEmailAndPassword(email, password)
-                    .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                        @Override
-                        public void onSuccess(final AuthResult authResult) {
-                            onLoginSuccessful();
-                            Log.d("Success", "signInWithEmail:success");
+                    .addOnSuccessListener(authResult -> {
+                        onLoginSuccessful();
+                        Log.d("Success", "signInWithEmail:success");
+                    }).addOnFailureListener(e -> {
+                        final String message;
+                        if (e instanceof FirebaseAuthInvalidUserException) {
+                            message = "Account does not exist";
+                        } else if (e instanceof FirebaseAuthInvalidCredentialsException) {
+                            message = "Incorrect password";
+                        } else {
+                            message = "Network error";
                         }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(final @NonNull Exception e) {
-                            final String message;
-                            if (e instanceof FirebaseAuthInvalidUserException) {
-                                message = "Account does not exist";
-                            } else if (e instanceof FirebaseAuthInvalidCredentialsException) {
-                                message = "Incorrect password";
-                            } else {
-                                message = "Network error";
-                            }
-                            controllerListener.showToast(message, Toast.LENGTH_SHORT);
-                            Log.d("Error", "signInWithEmail:failure", e);
-                        }
+                        controllerListener.showToast(message, Toast.LENGTH_SHORT);
+                        Log.d("Error", "signInWithEmail:failure", e);
                     });
         }
     }

@@ -2,7 +2,6 @@ package com.example.rum8.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -52,22 +51,14 @@ public class RegistrationActivity extends AppCompatActivity
         editText_password = (TextInputEditText) findViewById(R.id.input_password);
         final Button button_register = (Button) findViewById(R.id.button_register);
 
-        button_register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                final String email = editText_email.getText().toString();
-                final String password = editText_password.getText().toString();
-                controller.onSubmit(email, password);
-            }
+        button_register.setOnClickListener(v -> {
+            final String email = editText_email.getText().toString();
+            final String password = editText_password.getText().toString();
+            controller.onSubmit(email, password);
         });
 
         final Button button_cancel = (Button) findViewById(R.id.button_registration_cancel);
-        button_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                controller.onGoBackToLoginButtonClicked();
-            }
-        });
+        button_cancel.setOnClickListener(v -> controller.onGoBackToLoginButtonClicked());
     }
 
     private void initController() {
