@@ -26,7 +26,7 @@ public class LoginController {
         auth = FirebaseAuth.getInstance();
     }
 
-    public void userLogin(final String email, final String password) {
+    public void onSubmit(final String email, final String password) {
         if (!isValidEmail(email)) {
             final String message = "Please use your UCSD email (i.e. abc@ucsd.edu)";
             controllerListener.showToast(message, Toast.LENGTH_SHORT);
@@ -102,7 +102,7 @@ public class LoginController {
         controllerListener.goToPasswordRecover();
     }
 
-    public void onLoginSuccessful() {
+    private void onLoginSuccessful() {
         controllerListener.goToMainPage();
     }
 
