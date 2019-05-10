@@ -50,7 +50,7 @@ public class RegistrationController {
                                 put("email", email);
                             }};
 
-                            Db.createUserAndPreferences(db, email, userInfo)
+                            Db.createUserAndPreferences(db, auth.getCurrentUser(), userInfo)
                                     .addOnSuccessListener(aVoid -> Log.d("Success", "createUserWithEmail:success"))
                                     .addOnFailureListener(e -> Log.d("Error", "createUserWithEmail:failure", e));
                         } else {
