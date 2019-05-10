@@ -33,6 +33,8 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
 
         radioGroupPersonalQuestionOne = rootView.findViewById(R.id.personal_preferences_cleanliness_preference_radio_group);
 
+        controller = new ProfileSettingsController(this);
+
         radioGroupPersonalQuestionOne.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
@@ -45,6 +47,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             else{
                 controller.updateMap("clean", indicatorNo);
             }
+            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
 
         });
 
