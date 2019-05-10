@@ -143,7 +143,7 @@
             android:layout_row="5"
             android:layout_column="0"
             android:layout_gravity="left"
-            android:text="Upload Picture" />
+            android:text="Choose from device" />
 
         <Button
             android:id="@+id/general_info_profile_image_save_button"
@@ -152,7 +152,7 @@
             android:layout_row="5"
             android:layout_column="1"
             android:layout_gravity="left"
-            android:text="Save Picture" />
+            android:text="Upload Photo" />
 
         <ImageView
             android:id="@+id/general_info_profile_image_view"

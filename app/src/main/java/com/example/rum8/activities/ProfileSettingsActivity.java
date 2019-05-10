@@ -23,7 +23,7 @@ public class ProfileSettingsActivity extends FragmentActivity
     private ViewPager viewPager;
     private ImageView imageView;
     private Uri filePath;
-    private final int PICK_IMAGE_REQUEST = 65607;
+    private final int PICK_IMAGE_REQUEST = 65537;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -31,7 +31,6 @@ public class ProfileSettingsActivity extends FragmentActivity
         setContentView(R.layout.activity_profile_settings);
         initViews();
         initController();
-
     }
 
     @Override

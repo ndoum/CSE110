@@ -18,15 +18,12 @@ import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
 import com.example.rum8.activities.ProfileSettingsActivity;
-import com.example.rum8.controllers.ProfilePicUploadController;
 import com.example.rum8.controllers.ProfileSettingsController;
-import com.example.rum8.listeners.ProfilePicUploadControllerListener;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -35,20 +32,20 @@ import com.google.firebase.storage.UploadTask;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProfileSettingsGeneralInfoFragment extends Fragment implements ProfileSettingsControllerListener, ProfilePicUploadControllerListener {
-    private final int PICK_IMAGE_REQUEST =71;
+public class ProfileSettingsGeneralInfoFragment extends Fragment implements ProfileSettingsControllerListener {
 
+    private final double ONE_HUNDRED_PERCENT = 100.0;
+    private final String PROGRESS_TITLE= "Uploading...";
+    private final String FILE_PATH = "profile_pictures/";
     private TextInputEditText firstNameField;
     private TextInputEditText lastNameField;
     private Spinner genderSpinner;
     private Spinner academicYearSpinner;
     private Spinner collegeSpinner;
     private Button buttonNext;
+    private Button buttonChoosePic;
     private Button buttonUploadPic;
-    private Button buttonSavePic;
-
     private ProfileSettingsController controller;
-    private ProfilePicUploadController uploadController;
 
     @Nullable
     @Override
@@ -57,7 +54,6 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         final View rootView = inflater.inflate(R.layout.fragment_profile_settings_general_info, container, false);
 
         controller = new ProfileSettingsController(this);
-        uploadController = new ProfilePicUploadController(this);
 
         //NAME FIELDS
         firstNameField = rootView.findViewById(R.id.general_info_first_name_field);
@@ -86,8 +82,8 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
 
         //FILLING THE BUTTON
         buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
-        buttonUploadPic = rootView.findViewById(R.id.general_info_profile_image_upload_button);
-        buttonSavePic = rootView.findViewById(R.id.general_info_profile_image_save_button);
+        buttonChoosePic = rootView.findViewById(R.id.general_info_profile_image_upload_button);
+        buttonUploadPic = rootView.findViewById(R.id.general_info_profile_image_save_button);
 
         buttonNext.setOnClickListener(v -> {
             final Map<String, Object> userInfo = new HashMap<>();
@@ -107,7 +103,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
             controller.onSubmit(userInfo);
         });
 
-        buttonUploadPic.setOnClickListener(new View.OnClickListener(){
+        buttonChoosePic.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(final View v){
                 chooseImage();
@@ -115,7 +111,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         });
 
 
-        buttonSavePic.setOnClickListener(new View.OnClickListener() {
+        buttonUploadPic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 uploadImage();
@@ -125,15 +121,13 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         return rootView;
     }
 
-
     // helper function to choose image from user's device
     private void chooseImage() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"),1);
     }
-
 
     // helper function to upload chosen picture to firebase
     private void uploadImage() {
@@ -146,33 +140,36 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         if(filePath != null)
         {
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
-            progressDialog.setTitle("Uploading...");
+            progressDialog.setTitle(PROGRESS_TITLE);
             progressDialog.show();
 
             final String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-            StorageReference ref = storageReference.child("images/"+ userID);
+            StorageReference ref = storageReference.child(FILE_PATH+ userID);
             ref.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             progressDialog.dismiss();
-                            Toast.makeText(getActivity(), "Uploaded", Toast.LENGTH_SHORT).show();
+                            final String message = "Successfully uploaded";
+                            Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             progressDialog.dismiss();
-                            Toast.makeText(getActivity(), "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                            final String message = "Network error";
+                            Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
+                            double progress = (ONE_HUNDRED_PERCENT*taskSnapshot.getBytesTransferred()/taskSnapshot
                                     .getTotalByteCount());
-                            progressDialog.setMessage("Uploaded "+(int)progress+"%");
+                            final String message = "Uploaded " + (int)progress + "%";
+                            progressDialog.setMessage(message);
                         }
                     });
         }
