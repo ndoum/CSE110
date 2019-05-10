@@ -63,13 +63,13 @@
     </string-array>
 
     <!-- personality_logistics -->
-    <string name="ps_personality_logistics_header">Personality / Logistics</string>
+    <string name="ps_personality_logistics_header">Personality and Logistics</string>
     <string name="ps_personality_logistics_cleanness">I make sure to keep my room clean all the time.</string>
     <string name="ps_personality_logistics_reserved">I am a reserved person.</string>
-    <string name="ps_personality_logistics_comfortable_with_parties">I plan to have parties or gatherings</string>
-    <string name="ps_personality_logistics_comfortable_with_alcohol">I drink alcohol</string>
+    <string name="ps_personality_logistics_comfortable_with_parties">I plan to have parties or gatherings.</string>
+    <string name="ps_personality_logistics_comfortable_with_alcohol">I drink alcohol.</string>
     <string name="ps_personality_logistics_comfortable_with_smoking">I smoke.</string>
-    <string name="ps_personality_logistics_sleep_late">I go to bed late on weekdays</string>
+    <string name="ps_personality_logistics_sleep_late">I go to bed late on weekdays.</string>
     <string name="ps_personality_logistics_overnight_guests">I may have overnight guests.</string>
     <string name="ps_personality_logistics_comfortable_with_pets">I plan to have a pet.</string>
 
@@ -88,6 +88,8 @@
     <!-- roommate_preferences_questions_options-->
     <string name="ps_roommate_preferences_option_yes">Yes</string>
     <string name="ps_roommate_preferences_option_no_pref">No Pref</string>
+    <string name="ps_roommate_preferences_option_sometimes">Sometimes</string>
+    <string name="ps_roommate_preferences_option_some_what">Somewhat</string>
     <string name="ps_roommate_preferences_option_no">No</string>
 
 

@@ -60,13 +60,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/no_pref" />
-
-            <RadioButton
-                android:id="@+id/roommate_preferences_gender_preference_no"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/no" />
         </RadioGroup>
 
 
