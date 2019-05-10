@@ -1,6 +1,10 @@
 package com.example.rum8.fragments;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,20 +13,33 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
+import com.example.rum8.activities.ProfileSettingsActivity;
 import com.example.rum8.controllers.ProfilePicUploadController;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.listeners.ProfilePicUploadControllerListener;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
+
+import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE;
 
 public class ProfileSettingsGeneralInfoFragment extends Fragment implements ProfileSettingsControllerListener, ProfilePicUploadControllerListener {
+    private final int PICK_IMAGE_REQUEST =71;
+
     private TextInputEditText firstNameField;
     private TextInputEditText lastNameField;
     private Spinner genderSpinner;
@@ -30,9 +47,15 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     private Spinner collegeSpinner;
     private Button buttonNext;
     private Button buttonUploadPic;
+    private Button buttonSavePic;
 
     private ProfileSettingsController controller;
     private ProfilePicUploadController uploadController;
+
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
+
+    private Uri filePath;
 
     @Nullable
     @Override
@@ -71,6 +94,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         //FILLING THE BUTTON
         buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
         buttonUploadPic = rootView.findViewById(R.id.general_info_profile_image_upload_button);
+        buttonSavePic = rootView.findViewById(R.id.general_info_profile_image_save_button);
 
         buttonNext.setOnClickListener(v -> {
             final Map<String, Object> userInfo = new HashMap<>();
@@ -97,7 +121,70 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
             }
         });
 
+        buttonUploadPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chooseImage();
+            }
+        });
+
+        buttonSavePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uploadImage();
+            }
+        });
+
         return rootView;
+    }
+
+
+    private void chooseImage() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+    }
+
+
+    private void uploadImage() {
+
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+
+        filePath =((ProfileSettingsActivity) getActivity()).getPath();
+
+        if(filePath != null)
+        {
+            final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setTitle("Uploading...");
+            progressDialog.show();
+
+            StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
+            ref.putFile(filePath)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            progressDialog.dismiss();
+                            Toast.makeText(getActivity(), "Uploaded", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressDialog.dismiss();
+                            Toast.makeText(getActivity(), "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
+                                    .getTotalByteCount());
+                            progressDialog.setMessage("Uploaded "+(int)progress+"%");
+                        }
+                    });
+        }
     }
 
     @Override

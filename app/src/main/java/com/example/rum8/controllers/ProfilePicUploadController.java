@@ -1,5 +1,7 @@
 package com.example.rum8.controllers;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -18,9 +20,11 @@ import com.google.firebase.storage.FirebaseStorage;
 import java.util.Map;
 
 import static android.content.ContentValues.TAG;
+import static androidx.core.app.ActivityCompat.startActivityForResult;
 
 public class ProfilePicUploadController {
 
+    private final int PICK_IMAGE_REQUEST = 71;
     private ProfilePicUploadControllerListener controllerListener;
     private FirebaseFirestore db;
     private FirebaseAuth auth;
@@ -48,5 +52,9 @@ public class ProfilePicUploadController {
     public void onSubmit(){
 
     }
+
+
+
+
 
 }
