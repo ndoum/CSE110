@@ -21,7 +21,6 @@ public class ProfileSettingsController {
     private FirebaseAuth.AuthStateListener authStateListener;
 
     public ProfileSettingsController(final ProfileSettingsControllerListener controllerListener){
-
         this.controllerListener = controllerListener;
         db = FirebaseFirestore.getInstance();
         authStateListener = firebaseAuth -> {

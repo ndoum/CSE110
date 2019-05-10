@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.rum8.fragments.ProfileSettingsPersonalityLogisticsFragment;
 import com.example.rum8.listeners.ProfilePicUploadControllerListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -24,7 +25,6 @@ import static androidx.core.app.ActivityCompat.startActivityForResult;
 
 public class ProfilePicUploadController {
 
-    private final int PICK_IMAGE_REQUEST = 71;
     private ProfilePicUploadControllerListener controllerListener;
     private FirebaseFirestore db;
     private FirebaseAuth auth;
@@ -48,13 +48,6 @@ public class ProfilePicUploadController {
 
         storage = FirebaseStorage.getInstance();
     }
-
-    public void onSubmit(){
-
-    }
-
-
-
 
 
 }

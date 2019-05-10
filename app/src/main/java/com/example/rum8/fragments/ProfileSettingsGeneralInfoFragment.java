@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +25,8 @@ import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -33,9 +34,6 @@ import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
-
-import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE;
 
 public class ProfileSettingsGeneralInfoFragment extends Fragment implements ProfileSettingsControllerListener, ProfilePicUploadControllerListener {
     private final int PICK_IMAGE_REQUEST =71;
@@ -51,11 +49,6 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
 
     private ProfileSettingsController controller;
     private ProfilePicUploadController uploadController;
-
-    private FirebaseStorage storage;
-    private StorageReference storageReference;
-
-    private Uri filePath;
 
     @Nullable
     @Override
@@ -117,20 +110,14 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         buttonUploadPic.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(final View v){
-                uploadController.onSubmit();
-            }
-        });
-
-        buttonUploadPic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 chooseImage();
             }
         });
 
+
         buttonSavePic.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 uploadImage();
             }
         });
@@ -139,6 +126,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     }
 
 
+    // helper function to choose image from user's device
     private void chooseImage() {
         Intent intent = new Intent();
         intent.setType("image/*");
@@ -147,12 +135,13 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     }
 
 
+    // helper function to upload chosen picture to firebase
     private void uploadImage() {
 
-        storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference();
+        final FirebaseStorage storage = FirebaseStorage.getInstance();
+        final StorageReference storageReference = storage.getReference();
 
-        filePath =((ProfileSettingsActivity) getActivity()).getPath();
+        final Uri filePath = ((ProfileSettingsActivity) getActivity()).getFilePath();
 
         if(filePath != null)
         {
@@ -160,7 +149,9 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
-            StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
+            final String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+            StorageReference ref = storageReference.child("images/"+ userID);
             ref.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -191,6 +182,5 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     public void showToast(final String message, final int toastLength) {
         Toast.makeText(getActivity(), message, toastLength).show();
     }
-
 
 }
