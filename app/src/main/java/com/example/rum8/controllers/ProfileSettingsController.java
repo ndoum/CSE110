@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.example.rum8.R;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,16 +23,16 @@ public class ProfileSettingsController {
     private FirebaseFirestore db;
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authStateListener;
-    private Map personalMap;
-    private Map logisticMap;
-    private Map roommateMap;
+    private Map<String, Object> personalMap;
+    private Map<String, Integer> logisticMap;
+    private Map<String, Integer> roommateMap;
 
     public ProfileSettingsController(final ProfileSettingsControllerListener controllerListener){
 
         this.controllerListener = controllerListener;
-        this.personalMap = new HashMap();
-        this.logisticMap = new HashMap();
-        this.roommateMap = new HashMap();
+        this.personalMap = new HashMap<String, Object>();
+        this.logisticMap = new HashMap<String, Integer>();
+        this.roommateMap = new HashMap<String, Integer>();
         db = FirebaseFirestore.getInstance();
         authStateListener = firebaseAuth -> {
 
@@ -65,24 +66,25 @@ public class ProfileSettingsController {
                     });
         }
     }
+    public void updateMap(String key, int value) {
+        logisticMap.put(key, value);
+        uploadFrag(logisticMap);
+    }
+    public void uploadFrag(Map<String, Integer> map) {
+
+        // upload valid info to firebase
+        db.collection("users")
+            .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+            .set(map, SetOptions.merge())
+            .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot added"))
+            .addOnFailureListener(e -> {
+                Log.w(TAG, "Error adding document", e);
+                controllerListener.showToast("Network error", Toast.LENGTH_SHORT);
+            });
+    }
     public void populate(View rootView) {
-        final Map<String, Object> logistic = new HashMap<>();
-        RadioButton cleanY = rootView.findViewById(R.id.personal_preferences_cleanliness_preference_yes);
-        RadioButton cleanN = rootView.findViewById(R.id.personal_preferences_cleanliness_preference_no);
-        RadioButton cleanNP = rootView.findViewById(R.id.personal_preferences_cleanliness_preference_no_pref);
-        decideWhich(cleanY, cleanN, cleanNP, logistic);
-        onSubmit(logistic);
     }
 
-    public void decideWhich (RadioButton yes, RadioButton no, RadioButton np, Map<String, Object> logistic){
-        if(yes.isChecked()) {
-            logistic.put("cleanliness", "y");
-        } else if (no.isChecked()) {
-            logistic.put("cleanliness", "n");
-        } else if (np.isChecked()) {
-            logistic.put("cleanliness", "np");
-        }
-    }
     public void generateString (String s) {
 
     }

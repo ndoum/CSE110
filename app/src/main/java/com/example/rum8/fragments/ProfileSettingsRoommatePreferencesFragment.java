@@ -26,17 +26,13 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
         super.onCreateView(inflater, container, savedInstanceState);
         final View rootView = inflater.inflate(R.layout.fragment_profile_settings_roommate_preferences, container, false);
         Button save = rootView.findViewById(R.id.roommate_preferences_button);
-        controller = new ProfileSettingsController(this);
 
-        save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                controller.populate(rootView);
-            }
+        controller = new ProfileSettingsController(this);
+        save.setOnClickListener(v -> {
+            controller.populate(rootView);
         });
         return rootView;
     }
-
     @Override
     public void showToast(final String message, final int toastLength) {
         Toast.makeText(getActivity(), message, toastLength).show();
