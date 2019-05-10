@@ -44,16 +44,15 @@ public class RegistrationController {
                         if (task.isSuccessful()) {
                             sendVerificationEmail(email);
                             controllerListener.onUserRegistered();
-                            Log.d("Success", "createUserWithEmail:success");
                             // Create a new user with email when registration is complete
 
                             final Map<String, Object> userInfo = new HashMap<String, Object>() {{
                                 put("email", email);
                             }};
 
-                            Db.createUser(db, auth.getCurrentUser(), userInfo)
-                                    .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
-                                    .addOnFailureListener(e -> Log.d(TAG, "Error adding document", e));
+                            Db.createUserAndPreferences(db, email, userInfo)
+                                    .addOnSuccessListener(aVoid -> Log.d("Success", "createUserWithEmail:success"))
+                                    .addOnFailureListener(e -> Log.d("Error", "createUserWithEmail:failure", e));
                         } else {
                             final String message;
                             if (task.getException() instanceof FirebaseAuthUserCollisionException) {
