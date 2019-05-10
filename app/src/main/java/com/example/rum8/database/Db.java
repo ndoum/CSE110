@@ -80,4 +80,22 @@ public class Db {
                 .update(userHash);
     }
 
+    public static Task<Void> updatePersonalPreferences(final FirebaseFirestore firestore,
+                                                       final String personalPreferencesId,
+                                                       final Map<String, Object> personalPreferencesHash) {
+
+        return firestore.collection(PERSONAL_PREFERENCES_COLLECTION_NAME)
+                .document(personalPreferencesId)
+                .update(personalPreferencesHash);
+    }
+
+    public static Task<Void> updateRoommatePreferences(final FirebaseFirestore firestore,
+                                                       final String roommatePreferencesId,
+                                                       final Map<String, Object> roommatePreferencesHash) {
+
+        return firestore.collection(ROOMMATE_PREFERENCES_COLLECTION_NAME)
+                .document(roommatePreferencesId)
+                .update(roommatePreferencesHash);
+    }
+
 }
