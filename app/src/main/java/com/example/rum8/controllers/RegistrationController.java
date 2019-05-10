@@ -5,14 +5,13 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.rum8.database.Db;
 import com.example.rum8.listeners.RegistrationControllerListener;
+import com.google.common.collect.ImmutableMap;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.SetOptions;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import static android.content.ContentValues.TAG;
@@ -42,29 +41,19 @@ public class RegistrationController {
         } else {
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener
                     ((Activity) context, task -> {
-                        final String message;
                         if (task.isSuccessful()) {
                             sendVerificationEmail(email);
                             controllerListener.onUserRegistered();
                             Log.d("Success", "createUserWithEmail:success");
                             // Create a new user with email when registration is complete
 
-                            // set email feild with user email
-                            final Map<String, Object> userInfo = new HashMap<>();
-                            userInfo.put("email", email);
+                            final Map<String, Object> userInfo = ImmutableMap.of("email", email);
 
-                            // add doc to firestore
-                            db.collection("users")
-                                    // use user id as document reference
-                                    .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .set(userInfo, SetOptions.merge())
+                            Db.createUser(db, auth.getCurrentUser(), userInfo)
                                     .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
-                                    .addOnFailureListener(e -> {
-                                        Log.w(TAG, "Error adding document", e);
-                                        controllerListener.showToast("Network error", Toast.LENGTH_SHORT);
-                                    });
-
+                                    .addOnFailureListener(e -> Log.d(TAG, "Error adding document", e));
                         } else {
+                            final String message;
                             if (task.getException() instanceof FirebaseAuthUserCollisionException) {
                                 message = "An account with this email already exists";
                             } else {
@@ -81,10 +70,7 @@ public class RegistrationController {
      * Helper function
      */
     private void sendVerificationEmail(final String email) {
-
-        FirebaseUser user = auth.getCurrentUser();
-
-        user.sendEmailVerification()
+        auth.getCurrentUser().sendEmailVerification()
                 .addOnCompleteListener(task -> {
                     final String message;
                     if (task.isSuccessful()) {
