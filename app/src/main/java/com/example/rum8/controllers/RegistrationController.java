@@ -42,16 +42,13 @@ public class RegistrationController {
         } else {
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener
                     ((Activity) context, task -> {
-                        final String message;
                         if (task.isSuccessful()) {
                             sendVerificationEmail(email);
                             controllerListener.onUserRegistered();
                             Log.d("Success", "createUserWithEmail:success");
                             // Create a new user with email when registration is complete
 
-                            // set email feild with user email
-                            final Map<String, Object> userInfo = new HashMap<>();
-                            userInfo.put("email", email);
+                            final Map<String, Object> userInfo = ImmutableMap.of("email", email);
 
                             // add doc to firestore
                             db.collection("users")
@@ -65,6 +62,7 @@ public class RegistrationController {
                                     });
 
                         } else {
+                            final String message;
                             if (task.getException() instanceof FirebaseAuthUserCollisionException) {
                                 message = "An account with this email already exists";
                             } else {
