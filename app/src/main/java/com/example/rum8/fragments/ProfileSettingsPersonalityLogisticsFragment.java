@@ -21,7 +21,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
     ProfileSettingsController controller;
     private RadioGroup radioGroupPersonalQuestionOne;
     private int indicatorYes = 1;
-    private int indicatorNoPref = 0;
+    private int indicatorSometimes = 0;
     private int indicatorNo = -1;
 
     @Nullable
@@ -39,12 +39,11 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             if(rb.getText().equals("Yes")){
                 controller.updateMap("clean", indicatorYes);
             }
-            else if(rb.getText().equals("No Pref")){
-                controller.updateMap("clean", indicatorNoPref);
+            else if(rb.getText().equals("Sometimes")){
+                controller.updateMap("clean", indicatorSometimes);
             }
             else{
                 controller.updateMap("clean", indicatorNo);
-
             }
 
         });
