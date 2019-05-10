@@ -195,7 +195,7 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
         });
 
         saveButton.setOnClickListener(v -> {
-            controller.populate(rootView);
+            controller.populate();
         });
 
         return rootView;

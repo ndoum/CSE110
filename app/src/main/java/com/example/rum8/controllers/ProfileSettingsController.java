@@ -69,12 +69,12 @@ public class ProfileSettingsController {
 
     public void updateMap(String key, int value) {
         logisticMap.put(key, value);
-        uploadFrag(logisticMap);
+
     }
-    public void uploadFrag(Map<String, Integer> map) {
+    public void uploadFrag(Map<String, Integer> map, String path) {
 
         // upload valid info to firebase
-        db.collection("users")
+        db.collection(path)
             .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
             .set(map, SetOptions.merge())
             .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot added"))
@@ -83,14 +83,10 @@ public class ProfileSettingsController {
                 controllerListener.showToast("Network error", Toast.LENGTH_SHORT);
             });
     }
-    public void populate(View rootView) {
+    public void populate() {
+        uploadFrag(logisticMap, "personal_preferences");
+        uploadFrag(roommateMap, "roommate_preferences");
     }
-
-    public void generateString (String s) {
-
-    }
-
-
 
     // helper method to check if user input is present
     private static boolean isPresent(final String name) {
