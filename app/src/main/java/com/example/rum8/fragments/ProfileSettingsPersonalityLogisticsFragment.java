@@ -20,6 +20,14 @@ import java.util.HashMap;
 public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implements ProfileSettingsControllerListener {
     ProfileSettingsController controller;
     private RadioGroup radioGroupPersonalQuestionOne;
+    private RadioGroup radioGroupPersonalQuestionTwo;
+    private RadioGroup radioGroupPersonalQuestionThree;
+    private RadioGroup radioGroupPersonalQuestionFour;
+    private RadioGroup radioGroupPersonalQuestionFive;
+    private RadioGroup radioGroupPersonalQuestionSix;
+    private RadioGroup radioGroupPersonalQuestionSeven;
+    private RadioGroup radioGroupPersonalQuestionEight;
+
     private int indicatorYes = 1;
     private int indicatorSometimes = 0;
     private int indicatorNo = -1;
@@ -32,6 +40,13 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
 
 
         radioGroupPersonalQuestionOne = rootView.findViewById(R.id.personal_preferences_cleanliness_preference_radio_group);
+        radioGroupPersonalQuestionTwo = rootView.findViewById(R.id.personal_preferences_reserved_preference_radio_group);
+        radioGroupPersonalQuestionThree = rootView.findViewById(R.id.personal_preferences_parties_preference_radio_group);
+        radioGroupPersonalQuestionFour = rootView.findViewById(R.id.personal_preferences_alcohol_preference_radio_group);
+        radioGroupPersonalQuestionFive = rootView.findViewById(R.id.personal_preferences_smoke_preference_radio_group);
+        radioGroupPersonalQuestionSix = rootView.findViewById(R.id.personal_preferences_sleep_preference_radio_group);
+        radioGroupPersonalQuestionSeven = rootView.findViewById(R.id.personal_preferences_guests_preference_radio_group);
+        radioGroupPersonalQuestionEight = rootView.findViewById(R.id.personal_preferences_pet_preference_radio_group);
 
         controller = new ProfileSettingsController(this);
 
@@ -48,30 +63,112 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
                 controller.updateMap("clean", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
-
         });
 
+        radioGroupPersonalQuestionTwo.setOnCheckedChangeListener((group, checkedId) -> {
+            // checkedId is the RadioButton selected
+            RadioButton rb = (RadioButton)group.findViewById(checkedId);
+            if(rb.getText().equals("Yes")){
+                controller.updateMap("reserved", indicatorYes);
+            }
+            else if(rb.getText().equals("Sometimes")){
+                controller.updateMap("reserved", indicatorSometimes);
+            }
+            else{
+                controller.updateMap("reserved", indicatorNo);
+            }
+            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
+        });
 
+        radioGroupPersonalQuestionThree.setOnCheckedChangeListener((group, checkedId) -> {
+            // checkedId is the RadioButton selected
+            RadioButton rb = (RadioButton)group.findViewById(checkedId);
+            if(rb.getText().equals("Yes")){
+                controller.updateMap("parties", indicatorYes);
+            }
+            else if(rb.getText().equals("Sometimes")){
+                controller.updateMap("parties", indicatorSometimes);
+            }
+            else{
+                controller.updateMap("parties", indicatorNo);
+            }
+            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
+        });
 
-//
-//        RadioButton cleanY = rootView.findViewById(R.id.personal_preferences_cleanliness_preference_yes);
-//        RadioButton cleanN = rootView.findViewById(R.id.personal_preferences_cleanliness_preference_no);
-//        RadioButton cleanNP = rootView.findViewById(R.id.personal_preferences_cleanliness_preference_no_pref);
-//
-//        controller = new ProfileSettingsController(this);
-//        cleanN.setOnClickListener(v -> {
-//                int value = -1;
-//                String key = "clean";
-//                controller.updateMap(key, value);
-//            });
+        radioGroupPersonalQuestionFour.setOnCheckedChangeListener((group, checkedId) -> {
+            // checkedId is the RadioButton selected
+            RadioButton rb = (RadioButton)group.findViewById(checkedId);
+            if(rb.getText().equals("Yes")){
+                controller.updateMap("alcohol", indicatorYes);
+            }
+            else if(rb.getText().equals("Sometimes")){
+                controller.updateMap("alcohol", indicatorSometimes);
+            }
+            else{
+                controller.updateMap("alcohol", indicatorNo);
+            }
+            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
+        });
 
+        radioGroupPersonalQuestionFive.setOnCheckedChangeListener((group, checkedId) -> {
+            // checkedId is the RadioButton selected
+            RadioButton rb = (RadioButton)group.findViewById(checkedId);
+            if(rb.getText().equals("Yes")){
+                controller.updateMap("smoke", indicatorYes);
+            }
+            else if(rb.getText().equals("Sometimes")){
+                controller.updateMap("smoke", indicatorSometimes);
+            }
+            else{
+                controller.updateMap("smoke", indicatorNo);
+            }
+            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
+        });
 
+        radioGroupPersonalQuestionSix.setOnCheckedChangeListener((group, checkedId) -> {
+            // checkedId is the RadioButton selected
+            RadioButton rb = (RadioButton)group.findViewById(checkedId);
+            if(rb.getText().equals("Yes")){
+                controller.updateMap("bed", indicatorYes);
+            }
+            else if(rb.getText().equals("Sometimes")){
+                controller.updateMap("bed", indicatorSometimes);
+            }
+            else{
+                controller.updateMap("bed", indicatorNo);
+            }
+            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
+        });
 
+        radioGroupPersonalQuestionSeven.setOnCheckedChangeListener((group, checkedId) -> {
+            // checkedId is the RadioButton selected
+            RadioButton rb = (RadioButton)group.findViewById(checkedId);
+            if(rb.getText().equals("Yes")){
+                controller.updateMap("guests", indicatorYes);
+            }
+            else if(rb.getText().equals("Sometimes")){
+                controller.updateMap("guests", indicatorSometimes);
+            }
+            else{
+                controller.updateMap("guests", indicatorNo);
+            }
+            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
+        });
 
-
-
-
-
+        radioGroupPersonalQuestionEight.setOnCheckedChangeListener((group, checkedId) -> {
+            // checkedId is the RadioButton selected
+            RadioButton rb = (RadioButton)group.findViewById(checkedId);
+            if(rb.getText().equals("Yes")){
+                controller.updateMap("pet", indicatorYes);
+            }
+            else if(rb.getText().equals("Sometimes")){
+                controller.updateMap("pet", indicatorSometimes);
+            }
+            else{
+                controller.updateMap("pet", indicatorNo);
+            }
+            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
+        });
 
         return rootView;
     }

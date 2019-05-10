@@ -66,6 +66,7 @@ public class ProfileSettingsController {
                     });
         }
     }
+
     public void updateMap(String key, int value) {
         logisticMap.put(key, value);
         uploadFrag(logisticMap);
