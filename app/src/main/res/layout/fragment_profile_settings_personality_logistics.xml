@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Sometimes" />
+                android:text="@string/ps_roommate_preferences_option_sometimes" />
 
             <RadioButton
                 android:id="@+id/personal_preferences_cleanliness_preference_no"
