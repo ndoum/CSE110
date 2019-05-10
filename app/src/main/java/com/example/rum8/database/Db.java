@@ -65,8 +65,10 @@ public class Db {
     private static String MATCH_GROUPS_COLLECTION_NAME = "match_groups";
 
     public static Task<Void> createUserAndPreferences(final FirebaseFirestore firestore,
-                                                      final String userId,
+                                                      final @Nonnull FirebaseUser user,
                                                       final Map<String, Object> userHash) {
+
+        final String userId = user.getUid();
 
         // Create user document and get a reference to it
         final DocumentReference userRef = firestore.collection(USERS_COLLECTION_NAME).document(userId);
@@ -110,20 +112,20 @@ public class Db {
     }
 
     public static Task<Void> updatePersonalPreferences(final FirebaseFirestore firestore,
-                                                       final String personalPreferencesId,
+                                                       final @Nonnull FirebaseUser user,
                                                        final Map<String, Object> personalPreferencesHash) {
 
         return firestore.collection(PERSONAL_PREFERENCES_COLLECTION_NAME)
-                .document(personalPreferencesId)
+                .document(user.getUid())
                 .update(personalPreferencesHash);
     }
 
     public static Task<Void> updateRoommatePreferences(final FirebaseFirestore firestore,
-                                                       final String roommatePreferencesId,
+                                                       final @Nonnull FirebaseUser user,
                                                        final Map<String, Object> roommatePreferencesHash) {
 
         return firestore.collection(ROOMMATE_PREFERENCES_COLLECTION_NAME)
-                .document(roommatePreferencesId)
+                .document(user.getUid())
                 .update(roommatePreferencesHash);
     }
 
