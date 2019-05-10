@@ -7,11 +7,11 @@ import android.widget.Toast;
 
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.RegistrationControllerListener;
-import com.google.common.collect.ImmutableMap;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static android.content.ContentValues.TAG;
@@ -47,7 +47,9 @@ public class RegistrationController {
                             Log.d("Success", "createUserWithEmail:success");
                             // Create a new user with email when registration is complete
 
-                            final Map<String, Object> userInfo = ImmutableMap.of("email", email);
+                            final Map<String, Object> userInfo = new HashMap<String, Object>() {{
+                                put("email", email);
+                            }};
 
                             Db.createUser(db, auth.getCurrentUser(), userInfo)
                                     .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
