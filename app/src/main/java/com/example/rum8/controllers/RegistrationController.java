@@ -5,14 +5,7 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-
 import com.example.rum8.listeners.RegistrationControllerListener;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
@@ -29,28 +22,14 @@ public class RegistrationController {
     private RegistrationControllerListener controllerListener;
     private Context context;
     private FirebaseAuth auth;
-    private FirebaseAuth.AuthStateListener authStateListener;
 
     // Access a Cloud Firestore instance from your Activity
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public RegistrationController(final RegistrationControllerListener controllerListener, final Context context) {
-
         this.controllerListener = controllerListener;
         this.context = context;
-
-        // Listener to check the status of registration
-        authStateListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(final @NonNull FirebaseAuth firebaseAuth) {
-
-                // Get the current user
-                final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            }
-        };
-
         auth = FirebaseAuth.getInstance();
-        auth.addAuthStateListener(authStateListener);
     }
 
     public void onSubmit(final String email, final String password) {
@@ -62,48 +41,37 @@ public class RegistrationController {
             controllerListener.showToast(message, Toast.LENGTH_SHORT);
         } else {
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener
-                    ((Activity) context, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(final @NonNull Task<AuthResult> task) {
-                            final String message;
-                            if (task.isSuccessful()) {
-                                sendVerificationEmail(email);
-                                controllerListener.onUserRegistered();
-                                Log.d("Success", "createUserWithEmail:success");
-                                // Create a new user with email when registration is complete
+                    ((Activity) context, task -> {
+                        final String message;
+                        if (task.isSuccessful()) {
+                            sendVerificationEmail(email);
+                            controllerListener.onUserRegistered();
+                            Log.d("Success", "createUserWithEmail:success");
+                            // Create a new user with email when registration is complete
 
-                                // set email feild with user email
-                                final Map<String, Object> userInfo = new HashMap<>();
-                                userInfo.put("email", email);
+                            // set email feild with user email
+                            final Map<String, Object> userInfo = new HashMap<>();
+                            userInfo.put("email", email);
 
-                                // add doc to firestore
-                                db.collection("users")
-                                        // use user id as document reference
-                                        .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                        .set(userInfo, SetOptions.merge())
-                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void aVoid) {
-                                                Log.d(TAG, "DocumentSnapshot successfully written!");
-                                            }
-                                        })
-                                        .addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                Log.w(TAG, "Error adding document", e);
-                                                controllerListener.showToast("Network error", Toast.LENGTH_SHORT);
-                                            }
-                                        });
+                            // add doc to firestore
+                            db.collection("users")
+                                    // use user id as document reference
+                                    .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .set(userInfo, SetOptions.merge())
+                                    .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
+                                    .addOnFailureListener(e -> {
+                                        Log.w(TAG, "Error adding document", e);
+                                        controllerListener.showToast("Network error", Toast.LENGTH_SHORT);
+                                    });
 
+                        } else {
+                            if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                                message = "An account with this email already exists";
                             } else {
-                                if (task.getException() instanceof FirebaseAuthUserCollisionException) {
-                                    message = "An account with this email already exists";
-                                } else {
-                                    message = "Authentication failed";
-                                }
-                                controllerListener.showToast(message, Toast.LENGTH_SHORT);
-                                Log.e("Error:", "createUserWithEmail:failure", task.getException());
+                                message = "Authentication failed";
                             }
+                            controllerListener.showToast(message, Toast.LENGTH_SHORT);
+                            Log.e("Error:", "createUserWithEmail:failure", task.getException());
                         }
                     });
         }
@@ -117,18 +85,15 @@ public class RegistrationController {
         FirebaseUser user = auth.getCurrentUser();
 
         user.sendEmailVerification()
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        final String message;
-                        if (task.isSuccessful()) {
-                            message = "Verification email sent to " + email;
-                            controllerListener.showToast(message, Toast.LENGTH_SHORT);
-                        } else {
-                            Log.e(TAG, "sendEmailVerification", task.getException());
-                            message = "Failed to send verification email to";
-                            controllerListener.showToast(message, Toast.LENGTH_SHORT);
-                        }
+                .addOnCompleteListener(task -> {
+                    final String message;
+                    if (task.isSuccessful()) {
+                        message = "Verification email sent to " + email;
+                        controllerListener.showToast(message, Toast.LENGTH_SHORT);
+                    } else {
+                        Log.e(TAG, "sendEmailVerification", task.getException());
+                        message = "Failed to send verification email to";
+                        controllerListener.showToast(message, Toast.LENGTH_SHORT);
                     }
                 });
     }
@@ -146,11 +111,6 @@ public class RegistrationController {
         final int minimumPasswordLength = 6;
         return password != null && password.length() >= minimumPasswordLength;
     }
-
-    public void destroy() {
-        auth.removeAuthStateListener(authStateListener);
-    }
-
 
     public void onGoBackToLoginButtonClicked() {
         controllerListener.goBackToLogin();
