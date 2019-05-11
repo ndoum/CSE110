@@ -17,8 +17,8 @@ import com.example.rum8.R;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.common.collect.ImmutableMap;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class ProfileSettingsGeneralInfoFragment extends Fragment implements ProfileSettingsControllerListener {
@@ -66,13 +66,13 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
 
         buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
         buttonNext.setOnClickListener(v -> {
-            final Map<String, Object> userInfo = ImmutableMap.of(
-                    "first_name", firstNameField.getText().toString(),
-                    "last_name", lastNameField.getText().toString(),
-                    "gender", genderSpinner.getSelectedItem().toString(),
-                    "academic_year", academicYearSpinner.getSelectedItem().toString(),
-                    "college", collegeSpinner.getSelectedItem().toString()
-            );
+            final Map<String, Object> userInfo = new HashMap<String, Object>() {{
+                put("first_name", firstNameField.getText().toString());
+                put("last_name", lastNameField.getText().toString());
+                put("gender", genderSpinner.getSelectedItem().toString());
+                put("academic_year", academicYearSpinner.getSelectedItem().toString());
+                put("college", collegeSpinner.getSelectedItem().toString());
+            }};
 
             controller.onSubmit(userInfo);
         });
