@@ -10,6 +10,7 @@ import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
 import java.util.Map;
