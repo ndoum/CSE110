@@ -2,14 +2,13 @@ package com.example.rum8.controllers;
 
 import android.util.Log;
 import android.view.View;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
-import com.example.rum8.R;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
 import java.util.Map;
