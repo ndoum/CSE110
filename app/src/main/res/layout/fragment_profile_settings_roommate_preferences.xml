@@ -77,7 +77,7 @@
         <RadioGroup
             android:id="@+id/roommate_preferences_cleanness_preference_radio_group"
             android:layout_width="0dp"
-            android:layout_height="26dp"
+            android:layout_height="28dp"
             android:layout_row="4"
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
@@ -120,7 +120,7 @@
         <RadioGroup
             android:id="@+id/roommate_preferences_reserved_preference_radio_group"
             android:layout_width="0dp"
-            android:layout_height="26dp"
+            android:layout_height="28dp"
             android:layout_row="6"
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
@@ -162,7 +162,7 @@
         <RadioGroup
             android:id="@+id/roommate_preferences_comfortable_party_preference_radio_group"
             android:layout_width="0dp"
-            android:layout_height="26dp"
+            android:layout_height="28dp"
             android:layout_row="8"
 
             android:layout_columnSpan="4"
@@ -205,7 +205,7 @@
         <RadioGroup
             android:id="@+id/roommate_preferences_alcohol_preference_radio_group"
             android:layout_width="0dp"
-            android:layout_height="26dp"
+            android:layout_height="28dp"
             android:layout_row="10"
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
@@ -247,7 +247,7 @@
         <RadioGroup
             android:id="@+id/roommate_preferences_smoking_preference_radio_group"
             android:layout_width="0dp"
-            android:layout_height="26dp"
+            android:layout_height="28dp"
             android:layout_row="12"
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
@@ -289,7 +289,7 @@
         <RadioGroup
             android:id="@+id/roommate_preferences_sleep_preference_radio_group"
             android:layout_width="0dp"
-            android:layout_height="26dp"
+            android:layout_height="28dp"
             android:layout_row="14"
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
@@ -331,7 +331,7 @@
         <RadioGroup
             android:id="@+id/roommate_preferences_guests_preference_radio_group"
             android:layout_width="0dp"
-            android:layout_height="26dp"
+            android:layout_height="28dp"
             android:layout_row="16"
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
@@ -374,7 +374,7 @@
         <RadioGroup
             android:id="@+id/roommate_preferences_pets_preference_radio_group"
             android:layout_width="0dp"
-            android:layout_height="26dp"
+            android:layout_height="28dp"
             android:layout_row="18"
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
