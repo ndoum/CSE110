@@ -47,7 +47,7 @@ public class Db {
             put("housing_type_value", ZERO);
             put("overnight_guests_value", ZERO);
             put("party_value", ZERO);
-            put("reserve_value", ZERO);
+            put("reserved_value", ZERO);
             put("smoke_value", ZERO);
             put("stay_up_late_on_weekends_value", ZERO);
         }};

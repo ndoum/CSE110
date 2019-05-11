@@ -24,13 +24,13 @@ public class ProfileSettingsController {
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authStateListener;
     private Map<String, Object> personalMap;
-    private Map<String, Integer> logisticMap;
+    private Map<String, Object> logisticMap;
     private Map<String, Integer> roommateMap;
 
     public ProfileSettingsController(final ProfileSettingsControllerListener controllerListener) {
         this.controllerListener = controllerListener;
         this.personalMap = new HashMap<String, Object>();
-        this.logisticMap = new HashMap<String, Integer>();
+        this.logisticMap = new HashMap<String, Object>();
         this.roommateMap = new HashMap<String, Integer>();
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
@@ -53,8 +53,20 @@ public class ProfileSettingsController {
 
     public void updateMap(String key, int value) {
         logisticMap.put(key, value);
-        uploadFrag(logisticMap);
     }
+
+    public void updatePersonalMap(String key, int value) {
+        logisticMap.put(key, value);
+    }
+
+    public void personalSaveSubmit(){
+        Db.updatePersonalPreferences(db, auth.getCurrentUser(),logisticMap)
+                .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
+                .addOnFailureListener(e -> Log.d(TAG, "Error adding document"));
+    }
+
+
+
 
     public void uploadFrag(Map<String, Integer> map) {
 
