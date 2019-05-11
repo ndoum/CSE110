@@ -37,6 +37,7 @@ import java.util.Map;
 public class ProfileSettingsGeneralInfoFragment extends Fragment implements ProfileSettingsControllerListener {
 
     private final double ONE_HUNDRED_PERCENT = 100.0;
+    private final int MAX_SIZE = 180; // height of imageView
     private final String PROGRESS_TITLE= "Uploading...";
     private final String FILE_PATH = "profile_pictures/";
     private TextInputEditText firstNameField;
@@ -126,14 +127,46 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         return rootView;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        // to show the picture after the user selected
+        View view = getView();
+        imageView = view.findViewById(R.id.general_info_profile_image_view);
+        Bitmap bitmap = ((ProfileSettingsActivity) getActivity()).getBitmap();
+        if (bitmap != null) {
+            bitmap = resize(bitmap, MAX_SIZE, MAX_SIZE);
+        }
+        imageView.setImageBitmap(bitmap);
+    }
+
+    private static Bitmap resize(Bitmap image, int maxWidth, int maxHeight) {
+        if (maxHeight > 0 && maxWidth > 0) {
+            int width = image.getWidth();
+            int height = image.getHeight();
+            float ratioBitmap = (float) width / (float) height;
+            float ratioMax = (float) maxWidth / (float) maxHeight;
+
+            int finalWidth = maxWidth;
+            int finalHeight = maxHeight;
+            if (ratioMax > ratioBitmap) {
+                finalWidth = (int) ((float)maxHeight * ratioBitmap);
+            } else {
+                finalHeight = (int) ((float)maxWidth / ratioBitmap);
+            }
+            image = Bitmap.createScaledBitmap(image, finalWidth, finalHeight, true);
+            return image;
+        } else {
+            return image;
+        }
+    }
+
     // helper function to choose image from user's device
     private void chooseImage() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select Picture"),1);
-        Bitmap bitmap = ((ProfileSettingsActivity) getActivity()).getBitmap();
-        imageView.setImageBitmap(bitmap);
     }
 
     // helper function to upload chosen picture to firebase
@@ -141,7 +174,6 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
 
         final FirebaseStorage storage = FirebaseStorage.getInstance();
         final StorageReference storageReference = storage.getReference();
-
         final Uri filePath = ((ProfileSettingsActivity) getActivity()).getFilePath();
 
         if(filePath != null)

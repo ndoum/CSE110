@@ -15,20 +15,49 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/general_info_profile_image_view"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
     <GridLayout
         android:id="@+id/general_info_name_fields_grid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="2"
         android:rowCount="7"
-        app:layout_constraintTop_toBottomOf="@id/profile_settings_general_info_header_text">
+        app:layout_constraintTop_toBottomOf="@id/general_info_profile_image_view">
+
+        <!-- PROFILE IMAGE -->
+        <Button
+            android:id="@+id/general_info_profile_image_upload_button"
+            android:layout_width="147dp"
+            android:layout_height="55dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_gravity="left"
+            android:text="Choose from device" />
+
+        <Button
+            android:id="@+id/general_info_profile_image_save_button"
+            android:layout_width="147dp"
+            android:layout_height="55dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_gravity="left"
+            android:text="Upload Photo" />
+
 
         <!-- NAME LABELS -->
         <TextView
             android:id="@+id/general_info_first_name_field_label"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_row="0"
+            android:layout_row="1"
             android:layout_column="0"
             android:layout_columnWeight="1"
             android:text="@string/ps_general_info_first_name_label" />
@@ -37,7 +66,7 @@
             android:id="@+id/general_info_last_name_field_label"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_row="0"
+            android:layout_row="1"
             android:layout_column="1"
             android:layout_columnWeight="1"
             android:text="@string/ps_general_info_last_name_label" />
@@ -48,7 +77,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_row="1"
+            android:layout_row="2"
             android:layout_column="0"
             android:layout_columnWeight="1"
             android:paddingEnd="24dp"
@@ -67,7 +96,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_row="1"
+            android:layout_row="2"
             android:layout_column="1"
             android:layout_columnWeight="1"
             android:paddingEnd="24dp"
@@ -86,7 +115,7 @@
             android:id="@+id/general_info_gender_label"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_row="2"
+            android:layout_row="3"
             android:layout_column="0"
             android:layout_columnWeight="1"
             android:text="@string/ps_general_info_gender_label" />
@@ -95,7 +124,7 @@
             android:id="@+id/general_info_gender_spinner"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_row="2"
+            android:layout_row="3"
             android:layout_column="1"
             android:layout_columnWeight="1"/>
 
@@ -104,7 +133,7 @@
             android:id="@+id/general_info_academic_year_label"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_row="3"
+            android:layout_row="4"
             android:layout_column="0"
             android:layout_columnWeight="1"
             android:text="@string/ps_general_info_academic_year_label" />
@@ -113,7 +142,7 @@
             android:id="@+id/general_info_academic_year_spinner"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_row="3"
+            android:layout_row="4"
             android:layout_column="1"
             android:layout_columnWeight="1"/>
 
@@ -122,7 +151,7 @@
             android:id="@+id/general_info_college_label"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_row="4"
+            android:layout_row="5"
             android:layout_column="0"
             android:layout_columnWeight="1"
             android:text="@string/ps_general_info_college_label" />
@@ -131,37 +160,11 @@
             android:id="@+id/general_info_college_spinner"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_row="4"
+            android:layout_row="5"
             android:layout_column="1"
             android:layout_columnWeight="1"/>
 
-        <!-- PROFILE IMAGE -->
-        <Button
-            android:id="@+id/general_info_profile_image_upload_button"
-            android:layout_width="147dp"
-            android:layout_height="55dp"
-            android:layout_row="5"
-            android:layout_column="0"
-            android:layout_gravity="left"
-            android:text="Choose from device" />
-
-        <Button
-            android:id="@+id/general_info_profile_image_save_button"
-            android:layout_width="147dp"
-            android:layout_height="55dp"
-            android:layout_row="5"
-            android:layout_column="1"
-            android:layout_gravity="left"
-            android:text="Upload Photo" />
-
-        <ImageView
-            android:id="@+id/general_info_profile_image_view"
-            android:layout_width="0dp"
-            android:layout_height="200dp"
-            android:layout_row="6"
-            android:layout_column="1"
-            android:layout_columnWeight="1" />
-
+        <!-- SAVE -->
         <Button
             android:id="@+id/general_info_profile_next_button"
             android:layout_width="147dp"

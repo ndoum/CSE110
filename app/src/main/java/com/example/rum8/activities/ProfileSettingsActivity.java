@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
@@ -21,7 +20,6 @@ public class ProfileSettingsActivity extends FragmentActivity
 
     private ProfileSettingsController controller;
     private ViewPager viewPager;
-    private ImageView imageView;
     private Uri filePath;
     private Bitmap bitmap;
     private final int PICK_IMAGE_REQUEST = 65537;
