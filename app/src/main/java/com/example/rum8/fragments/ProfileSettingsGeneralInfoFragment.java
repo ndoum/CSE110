@@ -17,8 +17,8 @@ import com.example.rum8.R;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.common.collect.ImmutableMap;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class ProfileSettingsGeneralInfoFragment extends Fragment implements ProfileSettingsControllerListener {
@@ -64,23 +64,15 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         collegeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         collegeSpinner.setAdapter(collegeAdapter);
 
-        //FILLING THE BUTTON
         buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
-
         buttonNext.setOnClickListener(v -> {
-            final Map<String, Object> userInfo = new HashMap<>();
-
-            final String firstName = firstNameField.getText().toString();
-            final String lastName = lastNameField.getText().toString();
-            final String gender = genderSpinner.getSelectedItem().toString();
-            final String year = academicYearSpinner.getSelectedItem().toString();
-            final String college = collegeSpinner.getSelectedItem().toString();
-
-            userInfo.put("first_name",firstName);
-            userInfo.put("last_name", lastName);
-            userInfo.put("gender", gender);
-            userInfo.put("academic_year", year);
-            userInfo.put("college", college);
+            final Map<String, Object> userInfo = ImmutableMap.of(
+                    "first_name", firstNameField.getText().toString(),
+                    "last_name", lastNameField.getText().toString(),
+                    "gender", genderSpinner.getSelectedItem().toString(),
+                    "academic_year", academicYearSpinner.getSelectedItem().toString(),
+                    "college", collegeSpinner.getSelectedItem().toString()
+            );
 
             controller.onSubmit(userInfo);
         });

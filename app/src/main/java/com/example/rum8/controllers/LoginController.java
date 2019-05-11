@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 
 public class LoginController {
+
     private LoginControllerListener controllerListener;
     private FirebaseAuth auth;
 
