@@ -2,6 +2,7 @@ package com.example.rum8.fragments;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -46,6 +48,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     private Button buttonChoosePic;
     private Button buttonUploadPic;
     private ProfileSettingsController controller;
+    private ImageView imageView;
 
     @Nullable
     @Override
@@ -84,6 +87,8 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
         buttonChoosePic = rootView.findViewById(R.id.general_info_profile_image_upload_button);
         buttonUploadPic = rootView.findViewById(R.id.general_info_profile_image_save_button);
+
+        imageView = rootView.findViewById(R.id.general_info_profile_image_view);
 
         buttonNext.setOnClickListener(v -> {
             final Map<String, Object> userInfo = new HashMap<>();
@@ -127,6 +132,8 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select Picture"),1);
+        Bitmap bitmap = ((ProfileSettingsActivity) getActivity()).getBitmap();
+        imageView.setImageBitmap(bitmap);
     }
 
     // helper function to upload chosen picture to firebase

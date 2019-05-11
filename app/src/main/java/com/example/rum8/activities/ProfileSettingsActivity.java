@@ -23,6 +23,7 @@ public class ProfileSettingsActivity extends FragmentActivity
     private ViewPager viewPager;
     private ImageView imageView;
     private Uri filePath;
+    private Bitmap bitmap;
     private final int PICK_IMAGE_REQUEST = 65537;
 
     @Override
@@ -49,8 +50,7 @@ public class ProfileSettingsActivity extends FragmentActivity
         {
             filePath = data.getData();
             try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
-                imageView.setImageBitmap(bitmap);
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
             }
             catch (Exception e)
             {
@@ -75,6 +75,10 @@ public class ProfileSettingsActivity extends FragmentActivity
 
     public Uri getFilePath (){
         return filePath;
+    }
+
+    public Bitmap getBitmap(){
+        return bitmap;
     }
 
 }
