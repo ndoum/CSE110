@@ -21,7 +21,7 @@
         android:layout_height="180dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_settings_general_info_header_text"
         />
 
     <GridLayout
@@ -39,7 +39,7 @@
             android:layout_height="55dp"
             android:layout_row="0"
             android:layout_column="0"
-            android:layout_gravity="left"
+            android:layout_gravity="top|left"
             android:text="Choose from device" />
 
         <Button
@@ -48,7 +48,7 @@
             android:layout_height="55dp"
             android:layout_row="0"
             android:layout_column="1"
-            android:layout_gravity="left"
+            android:layout_gravity="top|left"
             android:text="Upload Photo" />
 
 
