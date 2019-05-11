@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -28,7 +27,6 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
     private RadioGroup radioGroupPersonalQuestionSix;
     private RadioGroup radioGroupPersonalQuestionSeven;
     private RadioGroup radioGroupPersonalQuestionEight;
-//    private Button
 
     private int indicatorYes = 1;
     private int indicatorSometimes = 0;
