@@ -5,8 +5,12 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+
 import com.example.rum8.R;
 import com.example.rum8.database.Db;
+import com.example.rum8.fragments.ProfileSettingsGeneralInfoFragment;
+import com.example.rum8.fragments.ProfileSettingsRoommatePreferencesFragment;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -25,13 +29,13 @@ public class ProfileSettingsController {
     private FirebaseAuth.AuthStateListener authStateListener;
     private Map<String, Object> personalMap;
     private Map<String, Object> logisticMap;
-    private Map<String, Integer> roommateMap;
+    private Map<String, Object> roommateMap;
 
     public ProfileSettingsController(final ProfileSettingsControllerListener controllerListener) {
         this.controllerListener = controllerListener;
         this.personalMap = new HashMap<String, Object>();
         this.logisticMap = new HashMap<String, Object>();
-        this.roommateMap = new HashMap<String, Integer>();
+        this.roommateMap = new HashMap<String, Object>();
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
     }
@@ -56,14 +60,29 @@ public class ProfileSettingsController {
     }
 
     public void updatePersonalMap(String key, int value) {
-        logisticMap.put(key, value);
+        personalMap.put(key, value);
     }
 
+    public void updateRoommateMap(String key, int value) {
+        roommateMap.put(key, value);
+    }
+
+
+
     public void personalSaveSubmit(){
-        Db.updatePersonalPreferences(db, auth.getCurrentUser(),logisticMap)
+        Db.updatePersonalPreferences(db, auth.getCurrentUser(),personalMap)
                 .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
                 .addOnFailureListener(e -> Log.d(TAG, "Error adding document"));
     }
+
+
+    public void roommateSaveSubmit(){
+        Db.updateRoommatePreferences(db, auth.getCurrentUser(),roommateMap)
+                .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
+                .addOnFailureListener(e -> Log.d(TAG, "Error adding document"));
+    }
+
+
 
 
 

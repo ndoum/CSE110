@@ -30,6 +30,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
     private RadioGroup radioGroupPersonalQuestionSeven;
     private RadioGroup radioGroupPersonalQuestionEight;
     private Button personalSaveButton;
+    private Button personalNextButton;
 
     private int indicatorYes = 1;
     private int indicatorSometimes = 0;
@@ -179,7 +180,6 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
         personalSaveButton.setOnClickListener(v -> {
             controller.personalSaveSubmit();
         });
-
 
 
 

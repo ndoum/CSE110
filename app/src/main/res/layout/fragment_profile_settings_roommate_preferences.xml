@@ -403,7 +403,7 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/roommate_preferences_button"
+            android:id="@+id/roommate_preferences_save_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/save"/>
