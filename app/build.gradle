@@ -33,6 +33,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:16.1.0'
     implementation 'com.google.firebase:firebase-auth:16.2.1'
 
+    //firebase ui dependencies added
+    implementation 'com.firebaseui:firebase-ui-database:4.3.2'
+
     //firestore dependencies added
     implementation 'com.google.firebase:firebase-firestore:18.2.0'
 
