@@ -179,6 +179,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
         personalSaveButton = rootView.findViewById(R.id.personal_references_save_button);
         personalSaveButton.setOnClickListener(v -> {
             controller.personalSaveSubmit();
+            this.showToast("Personal logistics Saved", Toast.LENGTH_SHORT);
         });
 
 
