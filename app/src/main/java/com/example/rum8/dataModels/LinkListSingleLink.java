@@ -11,8 +11,7 @@ public class LinkListSingleLink {
     private String uid;
     //other info we want to show
 
-    public LinkListSingleLink() {
-    }
+    public LinkListSingleLink() { } //Needed for Firebase
 
     public LinkListSingleLink(ImageView image, String firstName, String lastName, String uid) {
         this.image = image;

@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rum8.R;
@@ -40,15 +41,30 @@ public class ViewLinkListActivity extends AppCompatActivity
         initController();
     }
 
+    @Override
+    protected void onStart(){
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        adapter.stopListening();
+    }
+
     private void initViews() {
         query = db.getInstance().getReference().child("users").limitToFirst(20);
+        System.out.println(query.toString());
+        System.out.println(query.toString());
+        System.out.println(query.toString());
         options = new FirebaseRecyclerOptions.Builder<LinkListSingleLink>()
                 .setQuery(query, LinkListSingleLink.class)
                 .build();
         recyclerView = findViewById(R.id.activity_view_link_list_recycler_view);
         adapter = new FirebaseRecyclerAdapter<LinkListSingleLink, LinkListSingleLinkHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull LinkListSingleLinkHolder linkHolder, int i, @NonNull LinkListSingleLink link) {//holder, int, model
+            protected void onBindViewHolder(@NonNull LinkListSingleLinkHolder linkHolder, int position, @NonNull LinkListSingleLink link) {//holder, int, model
                 linkHolder.imageView.setImageDrawable(link.getImage().getDrawable());
                 linkHolder.firstName.setText(link.getFirstName());
             }
@@ -60,6 +76,7 @@ public class ViewLinkListActivity extends AppCompatActivity
                 return new LinkListSingleLinkHolder(view);
             }
         };
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
 
