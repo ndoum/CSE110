@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
             case R.id.main_activity_log_out:
                 controller.onLogOutButtonClicked();
                 return true;
+            case R.id.main_activity_go_to_view_link_list:
+                controller.onGoToLinkListButtonClicked();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -54,6 +57,13 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     @Override
     public void goToLogin() {
         final Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void goToLinkList() {
+        final Intent intent = new Intent(MainActivity.this, ViewLinkListActivity.class);
         startActivity(intent);
         finish();
     }

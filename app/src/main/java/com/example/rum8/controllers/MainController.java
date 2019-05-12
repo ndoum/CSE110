@@ -20,4 +20,6 @@ public class MainController {
         controllerListener.goToLogin();
     }
 
+    public void onGoToLinkListButtonClicked() {controllerListener.goToLinkList();}
+
 }

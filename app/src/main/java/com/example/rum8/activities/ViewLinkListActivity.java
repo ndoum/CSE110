@@ -60,6 +60,7 @@ public class ViewLinkListActivity extends AppCompatActivity
                 return new LinkListSingleLinkHolder(view);
             }
         };
+        recyclerView.setAdapter(adapter);
     }
 
     private void initController() { controller = new ViewLinkListController(this);}
