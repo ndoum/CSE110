@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -137,10 +138,11 @@ public class Db {
                 .update(roommatePreferencesHash);
     }
 
-    public static UploadTask updateProfilePicture(final StorageReference storageReference,
-                                                  final String userID,
-                                                  final Uri filePath){
-        StorageReference ref = storageReference.child(PROFILE_PIC_PATH + userID);
+    public static UploadTask updateProfilePicture(final Uri filePath){
+        final FirebaseStorage storage = FirebaseStorage.getInstance();
+        final StorageReference storageReference = storage.getReference();
+        final String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        final StorageReference ref = storageReference.child(PROFILE_PIC_PATH + userID);
         return ref.putFile(filePath);
     }
 

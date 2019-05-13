@@ -163,12 +163,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
 
     // helper function to upload chosen picture to firebase
     private void uploadImage() {
-
-        final FirebaseStorage storage = FirebaseStorage.getInstance();
-        final StorageReference storageReference = storage.getReference();
         final Uri filePath = ((ProfileSettingsActivity) getActivity()).getFilePath();
-        final String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
         if(filePath != null)
         {
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
@@ -176,7 +171,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
             progressDialog.show();
 
             Db db = new Db();
-            db.updateProfilePicture(storageReference, userID, filePath)
+            db.updateProfilePicture(filePath)
                     .addOnSuccessListener(taskSnapshot -> {
                         progressDialog.dismiss();
                         final String message = "Successfully uploaded";
