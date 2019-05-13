@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="2"
-        android:rowCount="7"
+        android:rowCount="8"
         app:layout_constraintTop_toBottomOf="@id/profile_settings_general_info_header_text">
 
         <!-- NAME LABELS -->
@@ -154,13 +154,21 @@
             android:layout_columnWeight="1" />
 
         <Button
-            android:id="@+id/general_info_profile_next_button"
+            android:id="@+id/general_info_profile_save_button"
             android:layout_width="147dp"
             android:layout_height="55dp"
             android:layout_row="6"
             android:layout_column="0"
             android:layout_gravity="left"
             android:text="Save"/>
+        <Button
+            android:id="@+id/general_info_profile_next_button"
+            android:layout_width="147dp"
+            android:layout_height="55dp"
+            android:layout_row="7"
+            android:layout_column="0"
+            android:layout_gravity="left"
+            android:text="next"/>
 
 
     </GridLayout>
