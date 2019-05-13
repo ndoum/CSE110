@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -22,14 +21,10 @@ import com.example.rum8.R;
 import com.example.rum8.activities.ProfileSettingsActivity;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -168,20 +163,10 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
             controller.onSubmit(userInfo);
         });
 
-        buttonChoosePic.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(final View v){
-                chooseImage();
-            }
-        });
+        buttonChoosePic.setOnClickListener(v -> chooseImage());
 
 
-        buttonUploadPic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                uploadImage();
-            }
-        });
+        buttonUploadPic.setOnClickListener(v -> uploadImage());
 
     }
 
@@ -251,30 +236,21 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
 
             StorageReference ref = storageReference.child(FILE_PATH+ userID);
             ref.putFile(filePath)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            progressDialog.dismiss();
-                            final String message = "Successfully uploaded";
-                            Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-                        }
+                    .addOnSuccessListener(taskSnapshot -> {
+                        progressDialog.dismiss();
+                        final String message = "Successfully uploaded";
+                        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
                     })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            progressDialog.dismiss();
-                            final String message = "Network error";
-                            Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-                        }
+                    .addOnFailureListener(e -> {
+                        progressDialog.dismiss();
+                        final String message = "Network error";
+                        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
                     })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            double progress = (ONE_HUNDRED_PERCENT*taskSnapshot.getBytesTransferred()/taskSnapshot
-                                    .getTotalByteCount());
-                            final String message = "Uploaded " + (int)progress + "%";
-                            progressDialog.setMessage(message);
-                        }
+                    .addOnProgressListener(taskSnapshot -> {
+                        double progress = (ONE_HUNDRED_PERCENT*taskSnapshot.getBytesTransferred()/taskSnapshot
+                                .getTotalByteCount());
+                        final String message = "Uploaded " + (int)progress + "%";
+                        progressDialog.setMessage(message);
                     });
         }
     }
