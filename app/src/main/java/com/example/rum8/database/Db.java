@@ -1,7 +1,6 @@
 package com.example.rum8.database;
 
 import android.net.Uri;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
