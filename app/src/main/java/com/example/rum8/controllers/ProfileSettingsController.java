@@ -21,6 +21,11 @@ import java.util.Map;
 
 import static android.content.ContentValues.TAG;
 
+/**
+ * Class that implements the controller for profile settings activity.
+ * It serves as a communication between the view and the model in profile
+ * settings activities.
+ */
 public class ProfileSettingsController {
 
     private ProfileSettingsControllerListener controllerListener;
@@ -61,24 +66,52 @@ public class ProfileSettingsController {
         }
     }
 
-
+    /**
+     * Method that updates user's personal question response
+     * hash map with the passed in key and value.
+     * @param key, question title
+     * @param value, question response
+     */
     public void updatePersonalMap(String key, int value) {
         personalMap.put(key, value);
     }
 
+    /**
+     * Method that update user's personal question response
+     * Array that will later help to form user's self matched ids.
+     * @param index
+     * @param value
+     */
     public void updatePersonalKey(int index, int value){
         this.selfMatchIds[index] = value;
     }
 
+    /**
+     * Method that updates user's roommate preference question
+     * response hash map with the passed in key and value.
+     * @param key, question title
+     * @param value, question response
+     */
     public void updateRoommateMap(String key, int value) {
         roommateMap.put(key, value);
     }
 
+    /**
+     * Method that update user's roommate preferences response
+     * Array that will later help to form user's self matched ids.
+     * @param index
+     * @param value
+     */
     public void updateRoommateKey(int index, int value){
         this.roommateMatchIds[index] = value;
     }
 
 
+    /**
+     * Method that saves/updates user personal logistic questions response
+     * in database and create a unique self matched id that is based
+     * on the responses.
+     */
     public void personalSaveSubmit(){
         String personalMatchString = "";
         Map<String, Object> updatePersonalMatchIds =  new HashMap<String, Object>();
@@ -93,6 +126,11 @@ public class ProfileSettingsController {
 
     }
 
+    /**
+     * Method that saves/updates roommate preferences questions response
+     * in database and create a unique roommate preferences id that is based
+     * on the responses.
+     */
     public void roommateSaveSubmit(){
         String roommateMatchString = "";
         Map<String, Object> updateRoommateMatchIds =  new HashMap<String, Object>();

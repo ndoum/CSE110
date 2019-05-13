@@ -59,9 +59,13 @@ public class ProfileSettingsActivity extends AppCompatActivity
         controller = new ProfileSettingsController(this);
     }
 
+    /**
+     * Setter method that set view pager to the given number
+     * that represented the order of fragments page.
+     * @param fragmentNumber
+     */
     public void setViewPager(int fragmentNumber){
         viewPager.setCurrentItem(fragmentNumber);
-
     }
 
 }
