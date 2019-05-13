@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="4"
-        android:rowCount="20"
+        android:rowCount="18"
         app:layout_constraintTop_toBottomOf="@+id/profile_settings_personal_preferences_header_text">
 
         <!-- CLEANLINESS -->
@@ -362,15 +362,28 @@
                 android:text="@string/no" />
         </RadioGroup>
 
-        <Button
-            android:id="@+id/personal_references_next_button"
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/next"/>
-        <Button
-            android:id="@+id/personal_references_save_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/save"/>
+            android:layout_row="17"
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/personal_references_save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"/>
+
+            <Button
+                android:id="@+id/personal_references_next_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/next"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
     </GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
