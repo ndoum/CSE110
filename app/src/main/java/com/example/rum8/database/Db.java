@@ -119,7 +119,7 @@ public class Db {
                 .update(selfMatchUserIds);
     }
 
-    public static Task<Void> preference_match_group_id(final FirebaseFirestore firestore,
+    public static Task<Void> updateRoommateMatchIds(final FirebaseFirestore firestore,
                                                 final @Nonnull FirebaseUser user,
                                                 final Map<String, Object> preference_match_group_id) {
         return firestore.collection(USERS_COLLECTION_NAME)

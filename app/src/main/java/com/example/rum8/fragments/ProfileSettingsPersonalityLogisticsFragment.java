@@ -8,20 +8,19 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import com.example.rum8.R;
 import com.example.rum8.activities.ProfileSettingsActivity;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 
-import java.util.HashMap;
-import java.util.Map;
-
+/**
+ * Class that implements profile settings general logistic question sets in profile
+ * settings activity.
+ */
 public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implements ProfileSettingsControllerListener {
-    ProfileSettingsController controller;
+    private ProfileSettingsController controller;
     private RadioGroup radioGroupPersonalQuestionOne;
     private RadioGroup radioGroupPersonalQuestionTwo;
     private RadioGroup radioGroupPersonalQuestionThree;
@@ -32,19 +31,16 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
     private RadioGroup radioGroupPersonalQuestionEight;
     private Button personalSaveButton;
     private Button personalNextButton;
-
-
-
     private int indicatorYes = 1;
     private int indicatorSometimes = 0;
     private int indicatorNo = -1;
+
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.fragment_profile_settings_personality_logistics, container, false);
-
 
         radioGroupPersonalQuestionOne = rootView.findViewById(R.id.personal_preferences_cleanliness_preference_radio_group);
         radioGroupPersonalQuestionTwo = rootView.findViewById(R.id.personal_preferences_reserved_preference_radio_group);
@@ -203,22 +199,16 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
-
-
         personalSaveButton = rootView.findViewById(R.id.personal_references_save_button);
         personalSaveButton.setOnClickListener(v -> {
             controller.personalSaveSubmit();
             this.showToast("Personal logistics Saved", Toast.LENGTH_SHORT);
         });
 
-
         personalNextButton = rootView.findViewById(R.id.personal_references_next_button);
         personalNextButton.setOnClickListener(v -> {
             ((ProfileSettingsActivity) getActivity()).setViewPager(2);
         });
-
-
-
 
         return rootView;
     }

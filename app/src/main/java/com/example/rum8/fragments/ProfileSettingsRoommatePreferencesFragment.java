@@ -1,22 +1,22 @@
 package com.example.rum8.fragments;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import com.example.rum8.R;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 
+/**
+ * Class that implements profile settings rommmate preferences question sets in profile
+ * settings activity.
+ */
 public class ProfileSettingsRoommatePreferencesFragment extends Fragment implements ProfileSettingsControllerListener {
     private ProfileSettingsController controller;
     private RadioGroup radioGroupRoommateQuestionOne;
@@ -219,7 +219,6 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
 
         });
-
 
         saveRoommateButton = rootView.findViewById(R.id.roommate_preferences_save_button);
         saveRoommateButton.setOnClickListener(v -> {

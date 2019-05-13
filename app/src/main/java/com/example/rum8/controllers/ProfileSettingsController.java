@@ -61,9 +61,6 @@ public class ProfileSettingsController {
         }
     }
 
-    public void updateMap(String key, int value) {
-        logisticMap.put(key, value);
-    }
 
     public void updatePersonalMap(String key, int value) {
         personalMap.put(key, value);
@@ -82,7 +79,6 @@ public class ProfileSettingsController {
     }
 
 
-
     public void personalSaveSubmit(){
         String personalMatchString = "";
         Map<String, Object> updatePersonalMatchIds =  new HashMap<String, Object>();
@@ -97,7 +93,6 @@ public class ProfileSettingsController {
 
     }
 
-
     public void roommateSaveSubmit(){
         String roommateMatchString = "";
         Map<String, Object> updateRoommateMatchIds =  new HashMap<String, Object>();
@@ -108,30 +103,7 @@ public class ProfileSettingsController {
             roommateMatchString += Integer.toString(this.roommateMatchIds[i]);
         }
         updateRoommateMatchIds.put("preference_match_group_id", roommateMatchString);
-        Db.updateSelfMatchIds(db, auth.getCurrentUser(), updateRoommateMatchIds);
-
-    }
-
-
-
-
-
-
-    public void uploadFrag(Map<String, Integer> map) {
-
-        // upload valid info to firebase
-        db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .set(map, SetOptions.merge()).addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot added"))
-                .addOnFailureListener(e -> {
-                    Log.w(TAG, "Error adding document", e);
-                    controllerListener.showToast("Network error", Toast.LENGTH_SHORT);
-                });
-    }
-
-    public void populate(View rootView) {
-    }
-
-    public void generateString(String s) {
+        Db.updateRoommateMatchIds(db, auth.getCurrentUser(), updateRoommateMatchIds);
 
     }
 
