@@ -27,6 +27,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     private Spinner genderSpinner;
     private Spinner academicYearSpinner;
     private Spinner collegeSpinner;
+    private Button buttonSave;
     private Button buttonNext;
 
     private ProfileSettingsController controller;
@@ -64,8 +65,8 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         collegeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         collegeSpinner.setAdapter(collegeAdapter);
 
-        buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
-        buttonNext.setOnClickListener(v -> {
+        buttonSave = rootView.findViewById(R.id.general_info_profile_save_button);
+        buttonSave.setOnClickListener(v -> {
             final Map<String, Object> userInfo = new HashMap<String, Object>() {{
                 put("first_name", firstNameField.getText().toString());
                 put("last_name", lastNameField.getText().toString());
