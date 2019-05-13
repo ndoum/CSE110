@@ -18,11 +18,11 @@ import com.example.rum8.listeners.ProfileSettingsControllerListener;
 public class ProfileSettingsActivity extends FragmentActivity
         implements ProfileSettingsControllerListener {
 
+    private static final int PICK_IMAGE_REQUEST = 65537;
     private ProfileSettingsController controller;
     private ViewPager viewPager;
     private Uri filePath;
     private Bitmap bitmap;
-    private static final int PICK_IMAGE_REQUEST = 65537;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {

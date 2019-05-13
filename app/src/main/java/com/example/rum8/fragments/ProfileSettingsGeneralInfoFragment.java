@@ -20,14 +20,18 @@ import androidx.fragment.app.Fragment;
 import com.example.rum8.R;
 import com.example.rum8.activities.ProfileSettingsActivity;
 import com.example.rum8.controllers.ProfileSettingsController;
+import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.annotation.Nonnull;
 
 public class ProfileSettingsGeneralInfoFragment extends Fragment implements ProfileSettingsControllerListener {
 
@@ -163,33 +167,12 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         final FirebaseStorage storage = FirebaseStorage.getInstance();
         final StorageReference storageReference = storage.getReference();
         final Uri filePath = ((ProfileSettingsActivity) getActivity()).getFilePath();
+        final String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         if(filePath != null)
         {
-            final ProgressDialog progressDialog = new ProgressDialog(getActivity());
-            progressDialog.setTitle(PROGRESS_TITLE);
-            progressDialog.show();
-
-            final String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-            StorageReference ref = storageReference.child(FILE_PATH+ userID);
-            ref.putFile(filePath)
-                    .addOnSuccessListener(taskSnapshot -> {
-                        progressDialog.dismiss();
-                        final String message = "Successfully uploaded";
-                        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-                    })
-                    .addOnFailureListener(e -> {
-                        progressDialog.dismiss();
-                        final String message = "Network error";
-                        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-                    })
-                    .addOnProgressListener(taskSnapshot -> {
-                        double progress = (ONE_HUNDRED_PERCENT*taskSnapshot.getBytesTransferred()/taskSnapshot
-                                .getTotalByteCount());
-                        final String message = "Uploaded " + (int)progress + "%";
-                        progressDialog.setMessage(message);
-                    });
+            Db db = new Db();
+            db.updateProfilePicture(storageReference, userID, filePath);
         }
     }
 
