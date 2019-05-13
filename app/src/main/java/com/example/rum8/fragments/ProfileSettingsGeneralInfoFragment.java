@@ -51,68 +51,6 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         final View rootView = inflater.inflate(R.layout.fragment_profile_settings_general_info, container, false);
-/*
-        controller = new ProfileSettingsController(this);
-
-        //NAME FIELDS
-        firstNameField = rootView.findViewById(R.id.general_info_first_name_field);
-        lastNameField = rootView.findViewById(R.id.general_info_last_name_field);
-
-        //FILLING THE GENDER SPINNER
-        genderSpinner = rootView.findViewById(R.id.general_info_gender_spinner);
-        final ArrayAdapter<CharSequence> genderSpinnerAdapter = ArrayAdapter.createFromResource(this.getActivity(),
-                R.array.ps_general_info_gender_items, android.R.layout.simple_spinner_item);
-        genderSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        genderSpinner.setAdapter(genderSpinnerAdapter);
-
-        //FILLING THE ACADEMIC YEAR SPINNER
-        academicYearSpinner = rootView.findViewById(R.id.general_info_academic_year_spinner);
-        final ArrayAdapter<CharSequence> academicYearAdapter = ArrayAdapter.createFromResource(this.getActivity(),
-                R.array.ps_general_info_academic_year_items, android.R.layout.simple_spinner_item);
-        academicYearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        academicYearSpinner.setAdapter(academicYearAdapter);
-
-        //FILLING THE COLLEGE SPINNER
-        collegeSpinner = rootView.findViewById(R.id.general_info_college_spinner);
-        final ArrayAdapter<CharSequence> collegeAdapter = ArrayAdapter.createFromResource(this.getActivity(),
-                R.array.ps_general_info_college_items, android.R.layout.simple_spinner_item);
-        collegeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        collegeSpinner.setAdapter(collegeAdapter);
-
-        buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
-        buttonChoosePic = rootView.findViewById(R.id.general_info_profile_image_upload_button);
-        buttonUploadPic = rootView.findViewById(R.id.general_info_profile_image_save_button);
-
-        imageView = rootView.findViewById(R.id.general_info_profile_image_view);
-
-        buttonNext.setOnClickListener(v -> {
-            final Map<String, Object> userInfo = new HashMap<String, Object>() {{
-                put("first_name", firstNameField.getText().toString());
-                put("last_name", lastNameField.getText().toString());
-                put("gender", genderSpinner.getSelectedItem().toString());
-                put("academic_year", academicYearSpinner.getSelectedItem().toString());
-                put("college", collegeSpinner.getSelectedItem().toString());
-            }};
-
-            controller.onSubmit(userInfo);
-        });
-
-        buttonChoosePic.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(final View v){
-                chooseImage();
-            }
-        });
-
-
-        buttonUploadPic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                uploadImage();
-            }
-        });
-        */
-
         return rootView;
     }
 

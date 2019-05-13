@@ -43,9 +43,7 @@ public class ProfileSettingsActivity extends FragmentActivity
 
         super.onActivityResult(requestCode, resultCode, data);
 
-        if( resultCode == RESULT_OK && requestCode == PICK_IMAGE_REQUEST
-                && data != null && data.getData() != null )
-        {
+        if( isResultValid(resultCode,requestCode) && isDataValid(data) ) {
             filePath = data.getData();
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
@@ -56,6 +54,14 @@ public class ProfileSettingsActivity extends FragmentActivity
                 showToast("Network Error", Toast.LENGTH_SHORT);
             }
         }
+    }
+
+    private boolean isResultValid(final int resultCode, final int requestCode){
+        return (resultCode == RESULT_OK && requestCode == PICK_IMAGE_REQUEST);
+    }
+
+    private boolean isDataValid(final Intent data){
+        return (data != null && data.getData() != null);
     }
 
     @Override
