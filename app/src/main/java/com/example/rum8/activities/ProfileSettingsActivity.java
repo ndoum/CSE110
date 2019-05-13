@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.rum8.R;
@@ -27,6 +28,7 @@ public class ProfileSettingsActivity extends AppCompatActivity
     private Button buttonUploadProfileImage;
     private ImageView imageUserProfile;
     private static int result_load_image = 1;
+    FragmentPagerAdapter adapterViewPager;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -50,12 +52,16 @@ public class ProfileSettingsActivity extends AppCompatActivity
         lastName = (TextInputEditText) findViewById(R.id.general_info_last_name_field);
 
         buttonUploadProfileImage = (Button) findViewById(R.id.general_info_profile_image_upload_button);
+
     }
 
     private void initController() {
         controller = new ProfileSettingsController(this);
     }
 
+    public void setViewPager(int fragmentNumber){
+        viewPager.setCurrentItem(fragmentNumber);
 
+    }
 
 }

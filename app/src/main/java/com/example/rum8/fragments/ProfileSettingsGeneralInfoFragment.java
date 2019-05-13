@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
+import com.example.rum8.activities.ProfileSettingsActivity;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
@@ -76,6 +77,12 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
             }};
 
             controller.onSubmit(userInfo);
+        });
+
+        buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
+        buttonNext.setOnClickListener(v -> {
+            ((ProfileSettingsActivity) getActivity()).setViewPager(1);
+
         });
 
         return rootView;

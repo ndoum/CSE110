@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
+import com.example.rum8.activities.ProfileSettingsActivity;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 
@@ -209,6 +210,14 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             controller.personalSaveSubmit();
             this.showToast("Personal logistics Saved", Toast.LENGTH_SHORT);
         });
+
+
+        personalNextButton = rootView.findViewById(R.id.personal_references_next_button);
+        personalNextButton.setOnClickListener(v -> {
+            ((ProfileSettingsActivity) getActivity()).setViewPager(2);
+        });
+
+
 
 
         return rootView;
