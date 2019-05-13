@@ -22,7 +22,7 @@ public class ProfileSettingsActivity extends FragmentActivity
     private ViewPager viewPager;
     private Uri filePath;
     private Bitmap bitmap;
-    private final int PICK_IMAGE_REQUEST = 65537;
+    private static final int PICK_IMAGE_REQUEST = 65537;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class ProfileSettingsActivity extends FragmentActivity
 
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
 
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -50,15 +50,16 @@ public class ProfileSettingsActivity extends FragmentActivity
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
             }
-            catch (Exception e)
+            catch (final Exception e)
             {
                 e.printStackTrace();
+                showToast("Network Error", Toast.LENGTH_SHORT);
             }
         }
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(final Bundle outState) {
         super.onSaveInstanceState(outState);
     }
 

@@ -36,10 +36,10 @@ import java.util.Map;
 
 public class ProfileSettingsGeneralInfoFragment extends Fragment implements ProfileSettingsControllerListener {
 
-    private final double ONE_HUNDRED_PERCENT = 100.0;
-    private final int MAX_SIZE = 180; // height of imageView
-    private final String PROGRESS_TITLE= "Uploading...";
-    private final String FILE_PATH = "profile_pictures/";
+    private final static double ONE_HUNDRED_PERCENT = 100.0;
+    private final static int MAX_SIZE = 180; // height of imageView
+    private final static  String PROGRESS_TITLE= "Uploading...";
+    private final static String FILE_PATH = "profile_pictures/";
     private TextInputEditText firstNameField;
     private TextInputEditText lastNameField;
     private Spinner genderSpinner;
@@ -56,7 +56,73 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         final View rootView = inflater.inflate(R.layout.fragment_profile_settings_general_info, container, false);
+/*
+        controller = new ProfileSettingsController(this);
 
+        //NAME FIELDS
+        firstNameField = rootView.findViewById(R.id.general_info_first_name_field);
+        lastNameField = rootView.findViewById(R.id.general_info_last_name_field);
+
+        //FILLING THE GENDER SPINNER
+        genderSpinner = rootView.findViewById(R.id.general_info_gender_spinner);
+        final ArrayAdapter<CharSequence> genderSpinnerAdapter = ArrayAdapter.createFromResource(this.getActivity(),
+                R.array.ps_general_info_gender_items, android.R.layout.simple_spinner_item);
+        genderSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        genderSpinner.setAdapter(genderSpinnerAdapter);
+
+        //FILLING THE ACADEMIC YEAR SPINNER
+        academicYearSpinner = rootView.findViewById(R.id.general_info_academic_year_spinner);
+        final ArrayAdapter<CharSequence> academicYearAdapter = ArrayAdapter.createFromResource(this.getActivity(),
+                R.array.ps_general_info_academic_year_items, android.R.layout.simple_spinner_item);
+        academicYearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        academicYearSpinner.setAdapter(academicYearAdapter);
+
+        //FILLING THE COLLEGE SPINNER
+        collegeSpinner = rootView.findViewById(R.id.general_info_college_spinner);
+        final ArrayAdapter<CharSequence> collegeAdapter = ArrayAdapter.createFromResource(this.getActivity(),
+                R.array.ps_general_info_college_items, android.R.layout.simple_spinner_item);
+        collegeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        collegeSpinner.setAdapter(collegeAdapter);
+
+        buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
+        buttonChoosePic = rootView.findViewById(R.id.general_info_profile_image_upload_button);
+        buttonUploadPic = rootView.findViewById(R.id.general_info_profile_image_save_button);
+
+        imageView = rootView.findViewById(R.id.general_info_profile_image_view);
+
+        buttonNext.setOnClickListener(v -> {
+            final Map<String, Object> userInfo = new HashMap<String, Object>() {{
+                put("first_name", firstNameField.getText().toString());
+                put("last_name", lastNameField.getText().toString());
+                put("gender", genderSpinner.getSelectedItem().toString());
+                put("academic_year", academicYearSpinner.getSelectedItem().toString());
+                put("college", collegeSpinner.getSelectedItem().toString());
+            }};
+
+            controller.onSubmit(userInfo);
+        });
+
+        buttonChoosePic.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(final View v){
+                chooseImage();
+            }
+        });
+
+
+        buttonUploadPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                uploadImage();
+            }
+        });
+        */
+
+        return rootView;
+    }
+
+    @Override
+    public void onViewCreated (View rootView, Bundle savedInstanceState){
         controller = new ProfileSettingsController(this);
 
         //NAME FIELDS
@@ -117,23 +183,29 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
             }
         });
 
-        return rootView;
+    }
+
+    @Override
+    public void onViewStateRestored (Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
     }
 
     @Override
     public void onResume() {
+        System.out.println("onResume is called");
+        imageView.invalidate();
         super.onResume();
         // to show the picture after the user selected
-        View view = getView();
+        final View view = getView();
         imageView = view.findViewById(R.id.general_info_profile_image_view);
         Bitmap bitmap = ((ProfileSettingsActivity) getActivity()).getBitmap();
         if (bitmap != null) {
             bitmap = resize(bitmap, MAX_SIZE, MAX_SIZE);
+            imageView.setImageBitmap(bitmap);
         }
-        imageView.setImageBitmap(bitmap);
     }
 
-    private static Bitmap resize(Bitmap image, int maxWidth, int maxHeight) {
+    private static Bitmap resize(final Bitmap image, final int maxWidth, final int maxHeight) {
         if (maxHeight > 0 && maxWidth > 0) {
             int width = image.getWidth();
             int height = image.getHeight();
@@ -147,8 +219,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
             } else {
                 finalHeight = (int) ((float)maxWidth / ratioBitmap);
             }
-            image = Bitmap.createScaledBitmap(image, finalWidth, finalHeight, true);
-            return image;
+            return Bitmap.createScaledBitmap(image, finalWidth, finalHeight, true);
         } else {
             return image;
         }
@@ -156,10 +227,11 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
 
     // helper function to choose image from user's device
     private void chooseImage() {
-        Intent intent = new Intent();
+        final Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select Picture"),1);
+        onResume();
     }
 
     // helper function to upload chosen picture to firebase
