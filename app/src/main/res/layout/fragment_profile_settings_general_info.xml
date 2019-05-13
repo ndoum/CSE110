@@ -40,7 +40,7 @@
             android:layout_row="0"
             android:layout_column="0"
             android:layout_gravity="top|left"
-            android:text="Choose from device" />
+            android:text="@string/choose_from_device" />
 
         <Button
             android:id="@+id/general_info_profile_image_save_button"
@@ -49,7 +49,7 @@
             android:layout_row="0"
             android:layout_column="1"
             android:layout_gravity="top|left"
-            android:text="Upload Photo" />
+            android:text="@string/upload_Photo" />
 
 
         <!-- NAME LABELS -->
