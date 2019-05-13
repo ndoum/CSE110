@@ -32,6 +32,8 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
     private Button personalSaveButton;
     private Button personalNextButton;
 
+
+
     private int indicatorYes = 1;
     private int indicatorSometimes = 0;
     private int indicatorNo = -1;
@@ -58,12 +60,17 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
+
+                controller.updatePersonalKey(0, 1);
                 controller.updatePersonalMap("clean_value", indicatorYes);
             }
             else if(rb.getText().equals("Sometimes")){
+
+                controller.updatePersonalKey(0, 0);
                 controller.updatePersonalMap("clean_value", indicatorSometimes);
             }
             else{
+                controller.updatePersonalKey(0, -1);
                 controller.updatePersonalMap("clean_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
@@ -73,12 +80,15 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
+                controller.updatePersonalKey(1, 1);
                 controller.updatePersonalMap("reserved_value", indicatorYes);
             }
             else if(rb.getText().equals("Sometimes")){
+                controller.updatePersonalKey(1, 0);
                 controller.updatePersonalMap("reserved_value", indicatorSometimes);
             }
             else{
+                controller.updatePersonalKey(1, -1);
                 controller.updatePersonalMap("reserved_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
@@ -88,12 +98,15 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
+                controller.updatePersonalKey(2, 1);
                 controller.updatePersonalMap("party_value", indicatorYes);
             }
             else if(rb.getText().equals("Sometimes")){
+                controller.updatePersonalKey(2, 0);
                 controller.updatePersonalMap("party_value", indicatorSometimes);
             }
             else{
+                controller.updatePersonalKey(2, -1);
                 controller.updatePersonalMap("party_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
@@ -103,12 +116,15 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
+                controller.updatePersonalKey(3, 1);
                 controller.updatePersonalMap("alcohol_value", indicatorYes);
             }
             else if(rb.getText().equals("Sometimes")){
+                controller.updatePersonalKey(3, 0);
                 controller.updatePersonalMap("alcohol_value", indicatorSometimes);
             }
             else{
+                controller.updatePersonalKey(3, -1);
                 controller.updatePersonalMap("alcohol_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
@@ -118,12 +134,15 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
+                controller.updatePersonalKey(4, 1);
                 controller.updatePersonalMap("smoke_value", indicatorYes);
             }
             else if(rb.getText().equals("Sometimes")){
+                controller.updatePersonalKey(4, 0);
                 controller.updatePersonalMap("smoke_value", indicatorSometimes);
             }
             else{
+                controller.updatePersonalKey(4, -1);
                 controller.updatePersonalMap("smoke_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
@@ -133,12 +152,15 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
+                controller.updatePersonalKey(5, 1);
                 controller.updatePersonalMap("stay_up_late_on_weekends_value", indicatorYes);
             }
             else if(rb.getText().equals("Sometimes")){
+                controller.updatePersonalKey(5, 0);
                 controller.updatePersonalMap("stay_up_late_on_weekends_value", indicatorSometimes);
             }
             else{
+                controller.updatePersonalKey(5, -1);
                 controller.updatePersonalMap("stay_up_late_on_weekends_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
@@ -148,12 +170,15 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
+                controller.updatePersonalKey(6, 1);
                 controller.updatePersonalMap("overnight_guests_value", indicatorYes);
             }
             else if(rb.getText().equals("Sometimes")){
+                controller.updatePersonalKey(6, 0);
                 controller.updatePersonalMap("overnight_guests_value", indicatorSometimes);
             }
             else{
+                controller.updatePersonalKey(6, -1);
                 controller.updatePersonalMap("overnight_guests_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
@@ -163,12 +188,15 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
+                controller.updatePersonalKey(7, 1);
                 controller.updatePersonalMap("allow_pets_value", indicatorYes);
             }
             else if(rb.getText().equals("Sometimes")){
+                controller.updatePersonalKey(7, 0);
                 controller.updatePersonalMap("allow_pets_value", indicatorSometimes);
             }
             else{
+                controller.updatePersonalKey(7, -1);
                 controller.updatePersonalMap("allow_pets_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
@@ -181,7 +209,6 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             controller.personalSaveSubmit();
             this.showToast("Personal logistics Saved", Toast.LENGTH_SHORT);
         });
-
 
 
         return rootView;

@@ -60,12 +60,15 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
+                controller.updateRoommateKey(0, 1);
                 controller.updateRoommateMap("prefer_same_gender_roommate_value", indicatorYes);
             }
             else if(rb.getText().equals("No pref.")){
+                controller.updateRoommateKey(0, 0);
                 controller.updateRoommateMap("prefer_same_gender_roommate_value", indicatorSometimes);
             }
             else{
+                controller.updateRoommateKey(0, -1);
                 controller.updateRoommateMap("prefer_same_gender_roommate_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
@@ -75,12 +78,15 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
+                controller.updateRoommateKey(1, 1);
                 controller.updateRoommateMap("clean_value", indicatorYes);
             }
             else if(rb.getText().equals("No pref.")){
+                controller.updateRoommateKey(1, 0);
                 controller.updateRoommateMap("clean_value", indicatorSometimes);
             }
             else{
+                controller.updateRoommateKey(1, -1);
                 controller.updateRoommateMap("clean_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
@@ -90,12 +96,15 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
+                controller.updateRoommateKey(2, 1);
                 controller.updateRoommateMap("reserved_value", indicatorYes);
             }
             else if(rb.getText().equals("No pref.")){
+                controller.updateRoommateKey(2, 0);
                 controller.updateRoommateMap("reserved_value", indicatorSometimes);
             }
             else{
+                controller.updateRoommateKey(2, -1);
                 controller.updateRoommateMap("reserved_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
@@ -105,12 +114,15 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
+                controller.updateRoommateKey(3, 1);
                 controller.updateRoommateMap("party_value", indicatorYes);
             }
             else if(rb.getText().equals("No pref.")){
+                controller.updateRoommateKey(3, 0);
                 controller.updateRoommateMap("party_value", indicatorSometimes);
             }
             else{
+                controller.updateRoommateKey(3, -1);
                 controller.updateRoommateMap("party_valuee", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
@@ -120,12 +132,15 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
+                controller.updateRoommateKey(4, 1);
                 controller.updateRoommateMap("alcohol_value", indicatorYes);
             }
             else if(rb.getText().equals("No pref.")){
+                controller.updateRoommateKey(4, 0);
                 controller.updateRoommateMap("alcohol_value", indicatorSometimes);
             }
             else{
+                controller.updateRoommateKey(4, -1);
                 controller.updateRoommateMap("alcohol_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
@@ -135,12 +150,15 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
+                controller.updateRoommateKey(5, 1);
                 controller.updateRoommateMap("smoke_value", indicatorYes);
             }
             else if(rb.getText().equals("No pref.")){
+                controller.updateRoommateKey(5, 0);
                 controller.updateRoommateMap("smoke_value", indicatorSometimes);
             }
             else{
+                controller.updateRoommateKey(5, -1);
                 controller.updateRoommateMap("smoke_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
@@ -150,12 +168,15 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
+                controller.updateRoommateKey(6, 1);
                 controller.updateRoommateMap("stay_up_late_on_weekends_value", indicatorYes);
             }
             else if(rb.getText().equals("No pref.")){
+                controller.updateRoommateKey(6, 0);
                 controller.updateRoommateMap("stay_up_late_on_weekends_value", indicatorSometimes);
             }
             else{
+                controller.updateRoommateKey(6, -1);
                 controller.updateRoommateMap("stay_up_late_on_weekends_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
@@ -165,12 +186,15 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
+                controller.updateRoommateKey(7, 1);
                 controller.updateRoommateMap("overnight_guests_value", indicatorYes);
             }
             else if(rb.getText().equals("No pref.")){
+                controller.updateRoommateKey(7, 0);
                 controller.updateRoommateMap("overnight_guests_value", indicatorSometimes);
             }
             else{
+                controller.updateRoommateKey(7, 1);
                 controller.updateRoommateMap("overnight_guests_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
@@ -180,13 +204,16 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
+                controller.updateRoommateKey(8, 1);
                 controller.updateRoommateMap("allow_pets_value", indicatorYes);
             }
             else if(rb.getText().equals("No pref.")){
+                controller.updateRoommateKey(8, 0);
                 controller.updateRoommateMap("allow_pets_value", indicatorSometimes);
 
             }
             else{
+                controller.updateRoommateKey(8, -1);
                 controller.updateRoommateMap("allow_pets_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();

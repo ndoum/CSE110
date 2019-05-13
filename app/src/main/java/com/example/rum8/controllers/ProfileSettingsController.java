@@ -30,12 +30,18 @@ public class ProfileSettingsController {
     private Map<String, Object> personalMap;
     private Map<String, Object> logisticMap;
     private Map<String, Object> roommateMap;
+    private Map<String, Object> personalMatchIds;
+    private int [] selfMatchIds;
+    private int [] roommateMatchIds;
+
 
     public ProfileSettingsController(final ProfileSettingsControllerListener controllerListener) {
         this.controllerListener = controllerListener;
         this.personalMap = new HashMap<String, Object>();
         this.logisticMap = new HashMap<String, Object>();
         this.roommateMap = new HashMap<String, Object>();
+        this.selfMatchIds =  new int[8];
+        this.roommateMatchIds = new int[9];
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
     }
@@ -63,23 +69,47 @@ public class ProfileSettingsController {
         personalMap.put(key, value);
     }
 
+    public void updatePersonalKey(int index, int value){
+        this.selfMatchIds[index] = value;
+    }
+
     public void updateRoommateMap(String key, int value) {
         roommateMap.put(key, value);
+    }
+
+    public void updateRoommateKey(int index, int value){
+        this.roommateMatchIds[index] = value;
     }
 
 
 
     public void personalSaveSubmit(){
+        String personalMatchString = "";
+        Map<String, Object> updatePersonalMatchIds =  new HashMap<String, Object>();
         Db.updatePersonalPreferences(db, auth.getCurrentUser(),personalMap)
                 .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
                 .addOnFailureListener(e -> Log.d(TAG, "Error adding document"));
+        for(int i = 0; i<this.selfMatchIds.length;i++){
+            personalMatchString += Integer.toString(this.selfMatchIds[i]);
+        }
+        updatePersonalMatchIds.put("self_match_group_id", personalMatchString);
+        Db.updateSelfMatchIds(db, auth.getCurrentUser(), updatePersonalMatchIds);
+
     }
 
 
     public void roommateSaveSubmit(){
+        String roommateMatchString = "";
+        Map<String, Object> updateRoommateMatchIds =  new HashMap<String, Object>();
         Db.updateRoommatePreferences(db, auth.getCurrentUser(),roommateMap)
                 .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
                 .addOnFailureListener(e -> Log.d(TAG, "Error adding document"));
+        for(int i = 0; i<this.roommateMatchIds.length;i++){
+            roommateMatchString += Integer.toString(this.roommateMatchIds[i]);
+        }
+        updateRoommateMatchIds.put("preference_match_group_id", roommateMatchString);
+        Db.updateSelfMatchIds(db, auth.getCurrentUser(), updateRoommateMatchIds);
+
     }
 
 

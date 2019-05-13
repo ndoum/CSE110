@@ -103,13 +103,31 @@ public class Db {
     }
 
     public static Task<Void> updateUser(final FirebaseFirestore firestore,
-                                        final @Nonnull FirebaseUser user,
-                                        final Map<String, Object> userHash) {
+                                         final @Nonnull FirebaseUser user,
+                                         final Map<String, Object> userHash) {
 
         return firestore.collection(USERS_COLLECTION_NAME)
                 .document(user.getUid())
                 .update(userHash);
     }
+
+    public static Task<Void> updateSelfMatchIds(final FirebaseFirestore firestore,
+                                        final @Nonnull FirebaseUser user,
+                                        final Map<String, Object> selfMatchUserIds) {
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(user.getUid())
+                .update(selfMatchUserIds);
+    }
+
+    public static Task<Void> preference_match_group_id(final FirebaseFirestore firestore,
+                                                final @Nonnull FirebaseUser user,
+                                                final Map<String, Object> preference_match_group_id) {
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(user.getUid())
+                .update(preference_match_group_id);
+    }
+
+
 
     public static Task<Void> updatePersonalPreferences(final FirebaseFirestore firestore,
                                                        final @Nonnull FirebaseUser user,
