@@ -171,8 +171,28 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
 
         if(filePath != null)
         {
+            final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setTitle(PROGRESS_TITLE);
+            progressDialog.show();
+
             Db db = new Db();
-            db.updateProfilePicture(storageReference, userID, filePath);
+            db.updateProfilePicture(storageReference, userID, filePath)
+                    .addOnSuccessListener(taskSnapshot -> {
+                        progressDialog.dismiss();
+                        final String message = "Successfully uploaded";
+                        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+                    })
+                    .addOnFailureListener(e -> {
+                        progressDialog.dismiss();
+                        final String message = "Network error";
+                        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+                    })
+                    .addOnProgressListener(taskSnapshot -> {
+                        double progress = (ONE_HUNDRED_PERCENT*taskSnapshot.getBytesTransferred()/taskSnapshot
+                                .getTotalByteCount());
+                        final String message = "Uploaded " + (int)progress + "%";
+                        progressDialog.setMessage(message);
+                    });
         }
     }
 
