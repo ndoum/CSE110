@@ -5,15 +5,19 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.rum8.R;
 import com.example.rum8.adapters.ProfileSettingsViewPagerAdapter;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class ProfileSettingsActivity extends FragmentActivity
         implements ProfileSettingsControllerListener {
@@ -23,6 +27,17 @@ public class ProfileSettingsActivity extends FragmentActivity
     private ViewPager viewPager;
     private Uri filePath;
     private Bitmap bitmap;
+
+
+    private TextInputEditText firstName;
+    private TextInputEditText lastName;
+
+    private Button buttonGeneralInfoNext;
+    private Button buttonUploadProfileImage;
+    private ImageView imageUserProfile;
+    private static int result_load_image = 1;
+    FragmentPagerAdapter adapterViewPager;
+
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -71,6 +86,14 @@ public class ProfileSettingsActivity extends FragmentActivity
     private void initViews() {
         viewPager = findViewById(R.id.profile_settings_view_pager);
         viewPager.setAdapter(new ProfileSettingsViewPagerAdapter(getSupportFragmentManager()));
+
+
+        firstName = (TextInputEditText) findViewById(R.id.general_info_first_name_field);
+        lastName = (TextInputEditText) findViewById(R.id.general_info_last_name_field);
+
+        buttonUploadProfileImage = (Button) findViewById(R.id.general_info_profile_image_upload_button);
+
+
     }
 
     private void initController() {
@@ -97,5 +120,15 @@ public class ProfileSettingsActivity extends FragmentActivity
 
     @Override
     public void chooseImage(){}
+
+    /**
+     * Setter method that set view pager to the given number
+     * that represented the order of fragments page.
+     * @param fragmentNumber
+     */
+    public void setViewPager(int fragmentNumber){
+        viewPager.setCurrentItem(fragmentNumber);
+    }
+
 
 }

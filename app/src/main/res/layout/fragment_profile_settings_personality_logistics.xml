@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="4"
-        android:rowCount="20"
+        android:rowCount="18"
         app:layout_constraintTop_toBottomOf="@+id/profile_settings_personal_preferences_header_text">
 
         <!-- CLEANLINESS -->
@@ -40,7 +40,7 @@
         <RadioGroup
             android:id="@+id/personal_preferences_cleanliness_preference_radio_group"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="28dp"
             android:layout_row="2"
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
@@ -83,7 +83,7 @@
         <RadioGroup
             android:id="@+id/personal_preferences_reserved_preference_radio_group"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="28dp"
             android:layout_row="4"
 
             android:layout_columnSpan="4"
@@ -127,7 +127,7 @@
         <RadioGroup
             android:id="@+id/personal_preferences_parties_preference_radio_group"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="28dp"
             android:layout_row="6"
 
             android:layout_columnSpan="4"
@@ -170,7 +170,7 @@
         <RadioGroup
             android:id="@+id/personal_preferences_alcohol_preference_radio_group"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="28dp"
             android:layout_row="8"
 
             android:layout_columnSpan="4"
@@ -213,7 +213,7 @@
         <RadioGroup
             android:id="@+id/personal_preferences_smoke_preference_radio_group"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="28dp"
             android:layout_row="10"
 
             android:layout_columnSpan="4"
@@ -256,7 +256,7 @@
         <RadioGroup
             android:id="@+id/personal_preferences_sleep_preference_radio_group"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="28dp"
             android:layout_row="12"
 
             android:layout_columnSpan="4"
@@ -299,7 +299,7 @@
         <RadioGroup
             android:id="@+id/personal_preferences_guests_preference_radio_group"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="28dp"
             android:layout_row="14"
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
@@ -341,7 +341,7 @@
         <RadioGroup
             android:id="@+id/personal_preferences_pet_preference_radio_group"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="28dp"
             android:layout_row="16"
             android:layout_columnSpan="4"
             android:layout_columnWeight="1"
@@ -362,10 +362,28 @@
                 android:text="@string/no" />
         </RadioGroup>
 
-        <Button
-            android:id="@+id/personal_references_button"
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/next"/>
+            android:layout_row="17"
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/personal_references_save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"/>
+
+            <Button
+                android:id="@+id/personal_references_next_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/next"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
     </GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

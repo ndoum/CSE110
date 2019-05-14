@@ -55,7 +55,7 @@ public class Db {
             put("housing_type_value", ZERO);
             put("overnight_guests_value", ZERO);
             put("party_value", ZERO);
-            put("reserve_value", ZERO);
+            put("reserved_value", ZERO);
             put("smoke_value", ZERO);
             put("stay_up_late_on_weekends_value", ZERO);
         }};
@@ -111,13 +111,31 @@ public class Db {
     }
 
     public static Task<Void> updateUser(final FirebaseFirestore firestore,
-                                        final @Nonnull FirebaseUser user,
-                                        final Map<String, Object> userHash) {
+                                         final @Nonnull FirebaseUser user,
+                                         final Map<String, Object> userHash) {
 
         return firestore.collection(USERS_COLLECTION_NAME)
                 .document(user.getUid())
                 .update(userHash);
     }
+
+    public static Task<Void> updateSelfMatchIds(final FirebaseFirestore firestore,
+                                        final @Nonnull FirebaseUser user,
+                                        final Map<String, Object> selfMatchUserIds) {
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(user.getUid())
+                .update(selfMatchUserIds);
+    }
+
+    public static Task<Void> updateRoommateMatchIds(final FirebaseFirestore firestore,
+                                                final @Nonnull FirebaseUser user,
+                                                final Map<String, Object> preference_match_group_id) {
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(user.getUid())
+                .update(preference_match_group_id);
+    }
+
+
 
     public static Task<Void> updatePersonalPreferences(final FirebaseFirestore firestore,
                                                        final @Nonnull FirebaseUser user,

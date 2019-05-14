@@ -20,19 +20,14 @@ import androidx.fragment.app.Fragment;
 import com.example.rum8.R;
 import com.example.rum8.activities.ProfileSettingsActivity;
 import com.example.rum8.controllers.ProfileSettingsController;
-import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class ProfileSettingsGeneralInfoFragment extends Fragment implements ProfileSettingsControllerListener{
 
-    private final static double ONE_HUNDRED_PERCENT = 100.0;
     private final static int MAX_SIZE = 180; // height of imageView
     private final static  String PROGRESS_TITLE= "Uploading...";
     private TextInputEditText firstNameField;
@@ -40,6 +35,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     private Spinner genderSpinner;
     private Spinner academicYearSpinner;
     private Spinner collegeSpinner;
+    private Button buttonSave;
     private Button buttonNext;
     private Button buttonChoosePic;
     private Button buttonUploadPic;
@@ -84,15 +80,16 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         collegeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         collegeSpinner.setAdapter(collegeAdapter);
 
+        progressDialog = new ProgressDialog(getActivity());
+        imageView = rootView.findViewById(R.id.general_info_profile_image_view);
+
         buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
         buttonChoosePic = rootView.findViewById(R.id.general_info_profile_image_upload_button);
         buttonUploadPic = rootView.findViewById(R.id.general_info_profile_image_save_button);
 
-        imageView = rootView.findViewById(R.id.general_info_profile_image_view);
+        buttonSave = rootView.findViewById(R.id.general_info_profile_save_button);
 
-        progressDialog = new ProgressDialog(getActivity());
-
-        buttonNext.setOnClickListener(v -> {
+        buttonSave.setOnClickListener(v -> {
             final Map<String, Object> userInfo = new HashMap<String, Object>() {{
                 put("first_name", firstNameField.getText().toString());
                 put("last_name", lastNameField.getText().toString());
@@ -158,6 +155,11 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select Picture"),1);
         onResume();
+
+        buttonNext.setOnClickListener(v -> {
+            ((ProfileSettingsActivity) getActivity()).setViewPager(1);
+
+        });
     }
 
     @Override

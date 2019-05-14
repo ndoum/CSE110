@@ -14,7 +14,7 @@ public class ProfileSettingsViewPagerAdapter extends FragmentPagerAdapter {
         super(fragmentManager);
     }
 
-    public static final int FRAGMENT_COUNT = 3;
+    public static int FRAGMENT_COUNT = 3;
 
     @NonNull
     @Override
@@ -30,6 +30,7 @@ public class ProfileSettingsViewPagerAdapter extends FragmentPagerAdapter {
                 return null;
         }
     }
+
 
     @Override
     public int getCount() {

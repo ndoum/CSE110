@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="16dp">
+    android:paddingHorizontal="16dp"
+    android:rowCount="9"
+    app:layout_constraintTop_toBottomOf="@id/profile_settings_general_info_header_text">
 
     <!-- HEADER TEXT -->
     <TextView
@@ -29,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="2"
-        android:rowCount="7"
+        android:rowCount="8"
         app:layout_constraintTop_toBottomOf="@id/general_info_profile_image_view">
 
         <!-- PROFILE IMAGE -->
@@ -50,7 +52,6 @@
             android:layout_column="1"
             android:layout_gravity="top|left"
             android:text="@string/upload_Photo" />
-
 
         <!-- NAME LABELS -->
         <TextView
@@ -166,13 +167,21 @@
 
         <!-- SAVE -->
         <Button
-            android:id="@+id/general_info_profile_next_button"
+            android:id="@+id/general_info_profile_save_button"
             android:layout_width="147dp"
             android:layout_height="55dp"
             android:layout_row="6"
             android:layout_column="0"
             android:layout_gravity="left"
             android:text="Save"/>
+        <Button
+            android:id="@+id/general_info_profile_next_button"
+            android:layout_width="147dp"
+            android:layout_height="55dp"
+            android:layout_row="7"
+            android:layout_column="0"
+            android:layout_gravity="left"
+            android:text="next"/>
 
 
     </GridLayout>
