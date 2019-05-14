@@ -57,7 +57,7 @@ public class ViewLinkListActivity extends AppCompatActivity
         query = db.getInstance().getReference().child("users").limitToFirst(20);
         System.out.println(query.toString());
         System.out.println(query.toString());
-        System.out.println(query.toString());
+        System.out.println("12345678");
         options = new FirebaseRecyclerOptions.Builder<LinkListSingleLink>()
                 .setQuery(query, LinkListSingleLink.class)
                 .build();
