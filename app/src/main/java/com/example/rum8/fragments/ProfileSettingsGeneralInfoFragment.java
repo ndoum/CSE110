@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -13,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
+import com.example.rum8.activities.ProfileSettingsActivity;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
@@ -26,6 +28,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     private Spinner genderSpinner;
     private Spinner academicYearSpinner;
     private Spinner collegeSpinner;
+    private Button buttonSave;
     private Button buttonNext;
 
     private ProfileSettingsController controller;
@@ -63,8 +66,8 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         collegeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         collegeSpinner.setAdapter(collegeAdapter);
 
-        buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
-        buttonNext.setOnClickListener(v -> {
+        buttonSave = rootView.findViewById(R.id.general_info_profile_save_button);
+        buttonSave.setOnClickListener(v -> {
             final Map<String, Object> userInfo = new HashMap<String, Object>() {{
                 put("first_name", firstNameField.getText().toString());
                 put("last_name", lastNameField.getText().toString());
@@ -74,6 +77,12 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
             }};
 
             controller.onSubmit(userInfo);
+        });
+
+        buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
+        buttonNext.setOnClickListener(v -> {
+            ((ProfileSettingsActivity) getActivity()).setViewPager(1);
+
         });
 
         return rootView;

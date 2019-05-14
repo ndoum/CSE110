@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 
 public class LoginController {
+
     private LoginControllerListener controllerListener;
     private FirebaseAuth auth;
 
@@ -28,8 +29,15 @@ public class LoginController {
         } else {
             auth.signInWithEmailAndPassword(email, password)
                     .addOnSuccessListener(authResult -> {
-                        onLoginSuccessful();
-                        Log.d("Success", "signInWithEmail:success");
+
+                        // check user verified their email
+                        if (!auth.getCurrentUser().isEmailVerified()) {
+                            final String message = "Please verify your email!";
+                            controllerListener.showToast(message, Toast.LENGTH_SHORT);
+                        } else {
+                            onLoginSuccessful();
+                            Log.d("Success", "signInWithEmail:success");
+                        }
                     }).addOnFailureListener(e -> {
                         final String message;
                         if (e instanceof FirebaseAuthInvalidUserException) {
