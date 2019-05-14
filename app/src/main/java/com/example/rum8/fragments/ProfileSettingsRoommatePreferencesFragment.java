@@ -1,22 +1,22 @@
 package com.example.rum8.fragments;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import com.example.rum8.R;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 
+/**
+ * Class that implements profile settings rommmate preferences question sets in profile
+ * settings activity.
+ */
 public class ProfileSettingsRoommatePreferencesFragment extends Fragment implements ProfileSettingsControllerListener {
     private ProfileSettingsController controller;
     private RadioGroup radioGroupRoommateQuestionOne;
@@ -28,7 +28,7 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
     private RadioGroup radioGroupRoommateQuestionSeven;
     private RadioGroup radioGroupRoommateQuestionEight;
     private RadioGroup radioGroupRoommateQuestionNine;
-    private Button saveButton;
+    private Button saveRoommateButton;
 
     private int indicatorYes = 1;
     private int indicatorSometimes = 0;
@@ -55,19 +55,21 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
         radioGroupRoommateQuestionEight = rootView.findViewById(R.id.roommate_preferences_guests_preference_radio_group);
         radioGroupRoommateQuestionNine = rootView.findViewById(R.id.roommate_preferences_pets_preference_radio_group);
 
-        saveButton = rootView.findViewById(R.id.roommate_preferences_button);
 
         radioGroupRoommateQuestionOne.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
-                controller.updateMap("genderPreference", indicatorYes);
+                controller.updateRoommateKey(0, 1);
+                controller.updateRoommateMap("prefer_same_gender_roommate_value", indicatorYes);
             }
             else if(rb.getText().equals("No pref.")){
-                controller.updateMap("genderPreference", indicatorSometimes);
+                controller.updateRoommateKey(0, 0);
+                controller.updateRoommateMap("prefer_same_gender_roommate_value", indicatorSometimes);
             }
             else{
-                controller.updateMap("genderPreference", indicatorNo);
+                controller.updateRoommateKey(0, -1);
+                controller.updateRoommateMap("prefer_same_gender_roommate_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
@@ -76,13 +78,16 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
-                controller.updateMap("cleanPreference", indicatorYes);
+                controller.updateRoommateKey(1, 1);
+                controller.updateRoommateMap("clean_value", indicatorYes);
             }
             else if(rb.getText().equals("No pref.")){
-                controller.updateMap("cleanPreference", indicatorSometimes);
+                controller.updateRoommateKey(1, 0);
+                controller.updateRoommateMap("clean_value", indicatorSometimes);
             }
             else{
-                controller.updateMap("cleanPreference", indicatorNo);
+                controller.updateRoommateKey(1, -1);
+                controller.updateRoommateMap("clean_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
@@ -91,13 +96,16 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
-                controller.updateMap("reservedPreference", indicatorYes);
+                controller.updateRoommateKey(2, 1);
+                controller.updateRoommateMap("reserved_value", indicatorYes);
             }
             else if(rb.getText().equals("No pref.")){
-                controller.updateMap("reservedPreference", indicatorSometimes);
+                controller.updateRoommateKey(2, 0);
+                controller.updateRoommateMap("reserved_value", indicatorSometimes);
             }
             else{
-                controller.updateMap("reservedPreference", indicatorNo);
+                controller.updateRoommateKey(2, -1);
+                controller.updateRoommateMap("reserved_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
@@ -106,13 +114,16 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
-                controller.updateMap("partiesPreference", indicatorYes);
+                controller.updateRoommateKey(3, 1);
+                controller.updateRoommateMap("party_value", indicatorYes);
             }
             else if(rb.getText().equals("No pref.")){
-                controller.updateMap("partiesPreference", indicatorSometimes);
+                controller.updateRoommateKey(3, 0);
+                controller.updateRoommateMap("party_value", indicatorSometimes);
             }
             else{
-                controller.updateMap("partiesPreference", indicatorNo);
+                controller.updateRoommateKey(3, -1);
+                controller.updateRoommateMap("party_valuee", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
@@ -121,13 +132,16 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
-                controller.updateMap("alocholPreference", indicatorYes);
+                controller.updateRoommateKey(4, 1);
+                controller.updateRoommateMap("alcohol_value", indicatorYes);
             }
             else if(rb.getText().equals("No pref.")){
-                controller.updateMap("alocholPreference", indicatorSometimes);
+                controller.updateRoommateKey(4, 0);
+                controller.updateRoommateMap("alcohol_value", indicatorSometimes);
             }
             else{
-                controller.updateMap("alocholPreference", indicatorNo);
+                controller.updateRoommateKey(4, -1);
+                controller.updateRoommateMap("alcohol_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
@@ -136,13 +150,16 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
-                controller.updateMap("smokingPreference", indicatorYes);
+                controller.updateRoommateKey(5, 1);
+                controller.updateRoommateMap("smoke_value", indicatorYes);
             }
             else if(rb.getText().equals("No pref.")){
-                controller.updateMap("smokingPreference", indicatorSometimes);
+                controller.updateRoommateKey(5, 0);
+                controller.updateRoommateMap("smoke_value", indicatorSometimes);
             }
             else{
-                controller.updateMap("smokingPreference", indicatorNo);
+                controller.updateRoommateKey(5, -1);
+                controller.updateRoommateMap("smoke_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
@@ -151,13 +168,16 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
-                controller.updateMap("bedPreference", indicatorYes);
+                controller.updateRoommateKey(6, 1);
+                controller.updateRoommateMap("stay_up_late_on_weekends_value", indicatorYes);
             }
             else if(rb.getText().equals("No pref.")){
-                controller.updateMap("bedPreference", indicatorSometimes);
+                controller.updateRoommateKey(6, 0);
+                controller.updateRoommateMap("stay_up_late_on_weekends_value", indicatorSometimes);
             }
             else{
-                controller.updateMap("bedPreference", indicatorNo);
+                controller.updateRoommateKey(6, -1);
+                controller.updateRoommateMap("stay_up_late_on_weekends_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
@@ -166,13 +186,16 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
-                controller.updateMap("guestsPreference", indicatorYes);
+                controller.updateRoommateKey(7, 1);
+                controller.updateRoommateMap("overnight_guests_value", indicatorYes);
             }
             else if(rb.getText().equals("No pref.")){
-                controller.updateMap("guestsPreference", indicatorSometimes);
+                controller.updateRoommateKey(7, 0);
+                controller.updateRoommateMap("overnight_guests_value", indicatorSometimes);
             }
             else{
-                controller.updateMap("guestsPreference", indicatorNo);
+                controller.updateRoommateKey(7, 1);
+                controller.updateRoommateMap("overnight_guests_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
@@ -181,21 +204,26 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton)group.findViewById(checkedId);
             if(rb.getText().equals("Yes")){
-                controller.updateMap("petsPreference", indicatorYes);
+                controller.updateRoommateKey(8, 1);
+                controller.updateRoommateMap("allow_pets_value", indicatorYes);
             }
             else if(rb.getText().equals("No pref.")){
-                controller.updateMap("petsPreference", indicatorSometimes);
+                controller.updateRoommateKey(8, 0);
+                controller.updateRoommateMap("allow_pets_value", indicatorSometimes);
 
             }
             else{
-                controller.updateMap("petsPreference", indicatorNo);
+                controller.updateRoommateKey(8, -1);
+                controller.updateRoommateMap("allow_pets_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
 
         });
 
-        saveButton.setOnClickListener(v -> {
-            controller.populate(rootView);
+        saveRoommateButton = rootView.findViewById(R.id.roommate_preferences_save_button);
+        saveRoommateButton.setOnClickListener(v -> {
+            controller.roommateSaveSubmit();
+            this.showToast("Roommate Preferences Saved", Toast.LENGTH_SHORT);
         });
 
         return rootView;
