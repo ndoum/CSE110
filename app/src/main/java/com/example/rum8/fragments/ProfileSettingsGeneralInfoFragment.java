@@ -179,8 +179,8 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     }
 
     @Override
-    public void updateUploadImagePercentage(double percengate){
-        final String message = "Uploaded " + (int)percengate + "%";
+    public void updateUploadImagePercentage(double percentage){
+        final String message = "Uploaded " + (int)percentage + "%";
         progressDialog.setMessage(message);
     }
 

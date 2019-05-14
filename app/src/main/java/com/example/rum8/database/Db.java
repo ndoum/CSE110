@@ -3,13 +3,14 @@ package com.example.rum8.database;
 import android.net.Uri;
 
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Source;
 import com.google.firebase.firestore.WriteBatch;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
@@ -161,6 +162,18 @@ public class Db {
         return storage.getReference()
                 .child(PROFILE_PIC_PATH + user.getUid())
                 .putFile(filePath);
+    }
+
+    public static Task<DocumentSnapshot> fetchGeneralInfo(final FirebaseFirestore firestore,
+                                                          final @Nonnull FirebaseUser user){
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(user.getUid()).get();
+    }
+
+    public static Task<DocumentSnapshot> fetchPersonalPreferences(final FirebaseFirestore firestore,
+                                                                  final @Nonnull FirebaseUser user){
+        return firestore.collection(PERSONAL_PREFERENCES_COLLECTION_NAME)
+                .document(user.getUid()).get();
     }
 
 }
