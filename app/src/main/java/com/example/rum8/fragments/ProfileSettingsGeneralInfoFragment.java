@@ -30,12 +30,11 @@ import com.google.firebase.storage.FirebaseStorage;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProfileSettingsGeneralInfoFragment extends Fragment implements ProfileSettingsControllerListener {
+public class ProfileSettingsGeneralInfoFragment extends Fragment implements ProfileSettingsControllerListener{
 
     private final static double ONE_HUNDRED_PERCENT = 100.0;
     private final static int MAX_SIZE = 180; // height of imageView
     private final static  String PROGRESS_TITLE= "Uploading...";
-    private final static String FILE_PATH = "profile_pictures/";
     private TextInputEditText firstNameField;
     private TextInputEditText lastNameField;
     private Spinner genderSpinner;
@@ -46,6 +45,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     private Button buttonUploadPic;
     private ProfileSettingsController controller;
     private ImageView imageView;
+    private ProgressDialog progressDialog;
 
     @Nullable
     @Override
@@ -90,6 +90,8 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
 
         imageView = rootView.findViewById(R.id.general_info_profile_image_view);
 
+        progressDialog = new ProgressDialog(getActivity());
+
         buttonNext.setOnClickListener(v -> {
             final Map<String, Object> userInfo = new HashMap<String, Object>() {{
                 put("first_name", firstNameField.getText().toString());
@@ -102,12 +104,18 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
             controller.onSubmit(userInfo);
         });
 
-        buttonChoosePic.setOnClickListener(v -> chooseImage());
+        buttonChoosePic.setOnClickListener(v -> controller.onChooseImageCliked());
 
-
-        buttonUploadPic.setOnClickListener(v -> uploadImage());
+        buttonUploadPic.setOnClickListener(v -> {
+            controller.onUploadImageClicked(getFilePath());
+        });
 
     }
+
+    private Uri getFilePath(){
+        return ((ProfileSettingsActivity) getActivity()).getFilePath();
+    }
+
 
     @Override
     public void onResume() {
@@ -143,8 +151,8 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         }
     }
 
-    // helper function to choose image from user's device
-    private void chooseImage() {
+    @Override
+    public void chooseImage() {
         final Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -152,40 +160,26 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         onResume();
     }
 
-    // helper function to upload chosen picture to firebase
-    private void uploadImage() {
-        final Uri filePath = ((ProfileSettingsActivity) getActivity()).getFilePath();
-        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        final FirebaseStorage storage = FirebaseStorage.getInstance();
-        if(filePath != null)
-        {
-            final ProgressDialog progressDialog = new ProgressDialog(getActivity());
-            progressDialog.setTitle(PROGRESS_TITLE);
-            progressDialog.show();
-
-            Db.updateProfilePicture(storage, user, filePath)
-                    .addOnSuccessListener(taskSnapshot -> {
-                        progressDialog.dismiss();
-                        final String message = "Successfully uploaded";
-                        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-                    })
-                    .addOnFailureListener(e -> {
-                        progressDialog.dismiss();
-                        final String message = "Network error";
-                        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-                    })
-                    .addOnProgressListener(taskSnapshot -> {
-                        double progress = (ONE_HUNDRED_PERCENT*taskSnapshot.getBytesTransferred()/taskSnapshot
-                                .getTotalByteCount());
-                        final String message = "Uploaded " + (int)progress + "%";
-                        progressDialog.setMessage(message);
-                    });
-        }
-    }
-
     @Override
     public void showToast(final String message, final int toastLength) {
         Toast.makeText(getActivity(), message, toastLength).show();
+    }
+
+    @Override
+    public void showUploadImageProgress(){
+        progressDialog.setTitle(PROGRESS_TITLE);
+        progressDialog.show();
+    }
+
+    @Override
+    public void hideUploadImageProgress(){
+        progressDialog.dismiss();
+    }
+
+    @Override
+    public void updateUploadImagePercentage(double percengate){
+        final String message = "Uploaded " + (int)percengate + "%";
+        progressDialog.setMessage(message);
     }
 
 }

@@ -37,7 +37,6 @@ public class ProfileSettingsActivity extends FragmentActivity
         Toast.makeText(ProfileSettingsActivity.this, message, toastLength).show();
     }
 
-
     @Override
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
 
@@ -85,5 +84,18 @@ public class ProfileSettingsActivity extends FragmentActivity
     public Bitmap getBitmap(){
         return bitmap;
     }
+
+
+    @Override
+    public void showUploadImageProgress(){}
+
+    @Override
+    public void hideUploadImageProgress(){}
+
+    @Override
+    public void updateUploadImagePercentage(double percentage){}
+
+    @Override
+    public void chooseImage(){}
 
 }
