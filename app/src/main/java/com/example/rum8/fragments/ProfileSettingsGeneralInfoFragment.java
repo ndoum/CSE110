@@ -107,13 +107,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     }
 
     @Override
-    public void onViewStateRestored (Bundle savedInstanceState) {
-        super.onViewStateRestored(savedInstanceState);
-    }
-
-    @Override
     public void onResume() {
-        System.out.println("onResume is called");
         imageView.invalidate();
         super.onResume();
         // to show the picture after the user selected
@@ -164,8 +158,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
             progressDialog.setTitle(PROGRESS_TITLE);
             progressDialog.show();
 
-            Db db = new Db();
-            db.updateProfilePicture(filePath)
+            Db.updateProfilePicture(filePath)
                     .addOnSuccessListener(taskSnapshot -> {
                         progressDialog.dismiss();
                         final String message = "Successfully uploaded";
