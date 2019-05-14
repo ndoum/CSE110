@@ -13,7 +13,7 @@
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
     <string name="logo">Logo</string>
-    <string name="upload_Photo">Upload Photo</string>
+    <string name="upload_Photo">Upload photo</string>
     <string name="choose_from_device">Choose from device</string>>
 
     <!-- activity_login -->
