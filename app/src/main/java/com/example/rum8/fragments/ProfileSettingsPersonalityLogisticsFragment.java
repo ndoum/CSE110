@@ -212,8 +212,21 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
 
         return rootView;
     }
+
     @Override
     public void showToast(final String message, final int toastLength) {
         Toast.makeText(getActivity(), message, toastLength).show();
     }
+
+    @Override
+    public void showUploadImageProgress(){}
+
+    @Override
+    public void hideUploadImageProgress(){}
+
+    @Override
+    public void updateUploadImagePercentage(double percengate){}
+
+    @Override
+    public void chooseImage(){}
 }

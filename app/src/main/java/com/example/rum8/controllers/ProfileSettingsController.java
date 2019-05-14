@@ -1,20 +1,15 @@
 package com.example.rum8.controllers;
 
+import android.net.Uri;
 import android.util.Log;
-import android.view.View;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
-import androidx.fragment.app.Fragment;
-
-import com.example.rum8.R;
 import com.example.rum8.database.Db;
-import com.example.rum8.fragments.ProfileSettingsGeneralInfoFragment;
-import com.example.rum8.fragments.ProfileSettingsRoommatePreferencesFragment;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.SetOptions;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,6 +23,7 @@ import static android.content.ContentValues.TAG;
  */
 public class ProfileSettingsController {
 
+    private static final double ONE_HUNDRED_PERCENT = 100.0;
     private ProfileSettingsControllerListener controllerListener;
     private FirebaseFirestore db;
     private FirebaseAuth auth;
@@ -40,7 +36,7 @@ public class ProfileSettingsController {
     private int [] roommateMatchIds;
 
 
-    public ProfileSettingsController(final ProfileSettingsControllerListener controllerListener) {
+    public ProfileSettingsController(final ProfileSettingsControllerListener controllerListener){
         this.controllerListener = controllerListener;
         this.personalMap = new HashMap<String, Object>();
         this.logisticMap = new HashMap<String, Object>();
@@ -63,6 +59,34 @@ public class ProfileSettingsController {
             Db.updateUser(db, auth.getCurrentUser(), userInfo)
                     .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
                     .addOnFailureListener(e -> Log.d(TAG, "Error adding document"));
+        }
+    }
+
+    public void onChooseImageCliked(){
+        controllerListener.chooseImage();
+    }
+
+    public void onUploadImageClicked( final Uri filePath ) {
+        if (filePath != null) {
+            final FirebaseUser user = auth.getCurrentUser();
+            final FirebaseStorage storage = FirebaseStorage.getInstance();
+            controllerListener.showUploadImageProgress();
+            Db.updateProfilePicture(storage, user, filePath)
+                    .addOnSuccessListener(taskSnapshot -> {
+                        controllerListener.hideUploadImageProgress();
+                        final String message = "Successfully uploaded";
+                        controllerListener.showToast(message, Toast.LENGTH_SHORT);
+                    })
+                    .addOnFailureListener(e -> {
+                        controllerListener.hideUploadImageProgress();
+                        final String message = "Network error";
+                        controllerListener.showToast(message, Toast.LENGTH_SHORT);
+                    })
+                    .addOnProgressListener(taskSnapshot -> {
+                        double progress = (ONE_HUNDRED_PERCENT * taskSnapshot.getBytesTransferred() / taskSnapshot
+                                .getTotalByteCount());
+                        controllerListener.updateUploadImagePercentage(progress);
+                    });
         }
     }
 

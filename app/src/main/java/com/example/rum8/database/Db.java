@@ -1,10 +1,16 @@
 package com.example.rum8.database;
 
+import android.net.Uri;
+
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.WriteBatch;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,6 +20,8 @@ import java.util.Map;
 import javax.annotation.Nonnull;
 
 public class Db {
+
+    private final static String PROFILE_PIC_PATH = "profile_pictures/";
 
     static class InitialValues {
 
@@ -145,6 +153,14 @@ public class Db {
         return firestore.collection(ROOMMATE_PREFERENCES_COLLECTION_NAME)
                 .document(user.getUid())
                 .update(roommatePreferencesHash);
+    }
+
+    public static UploadTask updateProfilePicture(final FirebaseStorage storage,
+                                                  final @Nonnull FirebaseUser user,
+                                                  final Uri filePath){
+        return storage.getReference()
+                .child(PROFILE_PIC_PATH + user.getUid())
+                .putFile(filePath);
     }
 
 }

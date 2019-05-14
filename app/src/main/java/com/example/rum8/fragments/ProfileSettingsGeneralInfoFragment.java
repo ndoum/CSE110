@@ -1,12 +1,16 @@
 package com.example.rum8.fragments;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.RadioButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -22,7 +26,10 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProfileSettingsGeneralInfoFragment extends Fragment implements ProfileSettingsControllerListener {
+public class ProfileSettingsGeneralInfoFragment extends Fragment implements ProfileSettingsControllerListener{
+
+    private final static int MAX_SIZE = 180; // height of imageView
+    private final static  String PROGRESS_TITLE= "Uploading...";
     private TextInputEditText firstNameField;
     private TextInputEditText lastNameField;
     private Spinner genderSpinner;
@@ -30,15 +37,22 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     private Spinner collegeSpinner;
     private Button buttonSave;
     private Button buttonNext;
-
+    private Button buttonChoosePic;
+    private Button buttonUploadPic;
     private ProfileSettingsController controller;
+    private ImageView imageView;
+    private ProgressDialog progressDialog;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         final View rootView = inflater.inflate(R.layout.fragment_profile_settings_general_info, container, false);
+        return rootView;
+    }
 
+    @Override
+    public void onViewCreated (View rootView, Bundle savedInstanceState){
         controller = new ProfileSettingsController(this);
 
         //NAME FIELDS
@@ -66,7 +80,15 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         collegeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         collegeSpinner.setAdapter(collegeAdapter);
 
+        progressDialog = new ProgressDialog(getActivity());
+        imageView = rootView.findViewById(R.id.general_info_profile_image_view);
+
+        buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
+        buttonChoosePic = rootView.findViewById(R.id.general_info_profile_image_upload_button);
+        buttonUploadPic = rootView.findViewById(R.id.general_info_profile_image_save_button);
+
         buttonSave = rootView.findViewById(R.id.general_info_profile_save_button);
+
         buttonSave.setOnClickListener(v -> {
             final Map<String, Object> userInfo = new HashMap<String, Object>() {{
                 put("first_name", firstNameField.getText().toString());
@@ -79,13 +101,65 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
             controller.onSubmit(userInfo);
         });
 
-        buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
+        buttonChoosePic.setOnClickListener(v -> controller.onChooseImageCliked());
+
+        buttonUploadPic.setOnClickListener(v -> {
+            controller.onUploadImageClicked(getFilePath());
+        });
+
+    }
+
+    private Uri getFilePath(){
+        return ((ProfileSettingsActivity) getActivity()).getFilePath();
+    }
+
+
+    @Override
+    public void onResume() {
+        imageView.invalidate();
+        super.onResume();
+        // to show the picture after the user selected
+        final View view = getView();
+        imageView = view.findViewById(R.id.general_info_profile_image_view);
+        Bitmap bitmap = ((ProfileSettingsActivity) getActivity()).getBitmap();
+        if (bitmap != null) {
+            bitmap = resize(bitmap, MAX_SIZE, MAX_SIZE);
+            imageView.setImageBitmap(bitmap);
+        }
+    }
+
+    private static Bitmap resize(final Bitmap image, final int maxWidth, final int maxHeight) {
+        if (maxHeight > 0 && maxWidth > 0) {
+            int width = image.getWidth();
+            int height = image.getHeight();
+            float ratioBitmap = (float) width / (float) height;
+            float ratioMax = (float) maxWidth / (float) maxHeight;
+
+            int finalWidth = maxWidth;
+            int finalHeight = maxHeight;
+            if (ratioMax > ratioBitmap) {
+                finalWidth = (int) ((float)maxHeight * ratioBitmap);
+            } else {
+                finalHeight = (int) ((float)maxWidth / ratioBitmap);
+            }
+            return Bitmap.createScaledBitmap(image, finalWidth, finalHeight, true);
+        } else {
+            return image;
+        }
+    }
+
+    @Override
+    public void chooseImage() {
+        final Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"),1);
+        onResume();
+
         buttonNext.setOnClickListener(v -> {
             ((ProfileSettingsActivity) getActivity()).setViewPager(1);
 
         });
-
-        return rootView;
     }
 
     @Override
@@ -93,5 +167,21 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         Toast.makeText(getActivity(), message, toastLength).show();
     }
 
+    @Override
+    public void showUploadImageProgress(){
+        progressDialog.setTitle(PROGRESS_TITLE);
+        progressDialog.show();
+    }
+
+    @Override
+    public void hideUploadImageProgress(){
+        progressDialog.dismiss();
+    }
+
+    @Override
+    public void updateUploadImagePercentage(double percengate){
+        final String message = "Uploaded " + (int)percengate + "%";
+        progressDialog.setMessage(message);
+    }
 
 }
