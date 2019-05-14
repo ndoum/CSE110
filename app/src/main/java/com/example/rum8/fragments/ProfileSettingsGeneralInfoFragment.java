@@ -23,6 +23,9 @@ import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -152,13 +155,15 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     // helper function to upload chosen picture to firebase
     private void uploadImage() {
         final Uri filePath = ((ProfileSettingsActivity) getActivity()).getFilePath();
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final FirebaseStorage storage = FirebaseStorage.getInstance();
         if(filePath != null)
         {
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
             progressDialog.setTitle(PROGRESS_TITLE);
             progressDialog.show();
 
-            Db.updateProfilePicture(filePath)
+            Db.updateProfilePicture(storage, user, filePath)
                     .addOnSuccessListener(taskSnapshot -> {
                         progressDialog.dismiss();
                         final String message = "Successfully uploaded";

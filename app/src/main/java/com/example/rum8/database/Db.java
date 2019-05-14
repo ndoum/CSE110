@@ -137,12 +137,12 @@ public class Db {
                 .update(roommatePreferencesHash);
     }
 
-    public static UploadTask updateProfilePicture(final Uri filePath){
-        final FirebaseStorage storage = FirebaseStorage.getInstance();
-        final StorageReference storageReference = storage.getReference();
-        final String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        final StorageReference ref = storageReference.child(PROFILE_PIC_PATH + userID);
-        return ref.putFile(filePath);
+    public static UploadTask updateProfilePicture(final FirebaseStorage storage,
+                                                  final @Nonnull FirebaseUser user,
+                                                  final Uri filePath){
+        return storage.getReference()
+                .child(PROFILE_PIC_PATH + user.getUid())
+                .putFile(filePath);
     }
 
 }
