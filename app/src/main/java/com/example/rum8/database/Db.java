@@ -20,7 +20,9 @@ import javax.annotation.Nonnull;
 
 public class Db {
 
-    private final static String PROFILE_PIC_PATH = "profile_pictures/";
+    private static final String PROFILE_PIC_PATH = "profile_pictures/";
+    private static final String DEFAULT_PROFILE_PIC_PATH= "profile_picture_default/default_profile_pic.png";
+    private static final long ONE_MEGABYTE = 1024 * 1024;
 
     static class InitialValues {
 
@@ -174,4 +176,12 @@ public class Db {
                 .document(user.getUid()).get();
     }
 
+    public static Task<byte[]> fetchUserProfilePicture (final FirebaseStorage storage,
+                                                        final @Nonnull FirebaseUser user){
+        return storage.getReference().child(PROFILE_PIC_PATH + user.getUid()).getBytes(ONE_MEGABYTE);
+    }
+
+    public static Task<byte[]> fetchDefaultUserProfilePicture (final FirebaseStorage storage){
+        return storage.getReference().child(DEFAULT_PROFILE_PIC_PATH).getBytes(ONE_MEGABYTE);
+    }
 }
