@@ -1,10 +1,16 @@
 package com.example.rum8.database;
 
+import android.net.Uri;
+
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.WriteBatch;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,6 +20,8 @@ import java.util.Map;
 import javax.annotation.Nonnull;
 
 public class Db {
+
+    private final static String PROFILE_PIC_PATH = "profile_pictures/";
 
     static class InitialValues {
 
@@ -47,7 +55,7 @@ public class Db {
             put("housing_type_value", ZERO);
             put("overnight_guests_value", ZERO);
             put("party_value", ZERO);
-            put("reserve_value", ZERO);
+            put("reserved_value", ZERO);
             put("smoke_value", ZERO);
             put("stay_up_late_on_weekends_value", ZERO);
         }};
@@ -103,13 +111,31 @@ public class Db {
     }
 
     public static Task<Void> updateUser(final FirebaseFirestore firestore,
-                                        final @Nonnull FirebaseUser user,
-                                        final Map<String, Object> userHash) {
+                                         final @Nonnull FirebaseUser user,
+                                         final Map<String, Object> userHash) {
 
         return firestore.collection(USERS_COLLECTION_NAME)
                 .document(user.getUid())
                 .update(userHash);
     }
+
+    public static Task<Void> updateSelfMatchIds(final FirebaseFirestore firestore,
+                                        final @Nonnull FirebaseUser user,
+                                        final Map<String, Object> selfMatchUserIds) {
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(user.getUid())
+                .update(selfMatchUserIds);
+    }
+
+    public static Task<Void> updateRoommateMatchIds(final FirebaseFirestore firestore,
+                                                final @Nonnull FirebaseUser user,
+                                                final Map<String, Object> preference_match_group_id) {
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(user.getUid())
+                .update(preference_match_group_id);
+    }
+
+
 
     public static Task<Void> updatePersonalPreferences(final FirebaseFirestore firestore,
                                                        final @Nonnull FirebaseUser user,
@@ -127,6 +153,14 @@ public class Db {
         return firestore.collection(ROOMMATE_PREFERENCES_COLLECTION_NAME)
                 .document(user.getUid())
                 .update(roommatePreferencesHash);
+    }
+
+    public static UploadTask updateProfilePicture(final FirebaseStorage storage,
+                                                  final @Nonnull FirebaseUser user,
+                                                  final Uri filePath){
+        return storage.getReference()
+                .child(PROFILE_PIC_PATH + user.getUid())
+                .putFile(filePath);
     }
 
 }

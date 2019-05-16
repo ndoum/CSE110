@@ -31,13 +31,16 @@ dependencies {
     // firebase dependencies added
     implementation 'com.google.firebase:firebase-core:16.0.8'
     implementation 'com.google.firebase:firebase-database:16.1.0'
-    implementation 'com.google.firebase:firebase-auth:16.2.1'
+    implementation 'com.google.firebase:firebase-auth:17.0.0'
 
     //firebase ui dependencies added
     implementation 'com.firebaseui:firebase-ui-database:4.3.2'
 
-    //firestore dependencies added
+    // firestore dependencies added
     implementation 'com.google.firebase:firebase-firestore:18.2.0'
+
+    // firebase storage added
+    implementation 'com.google.firebase:firebase-storage:17.0.0'
 
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
@@ -48,4 +51,5 @@ dependencies {
     implementation 'com.android.support:design:28.0.0'
     api 'com.google.android.material:material:1.1.0-alpha05'
 }
+
 apply plugin: 'com.google.gms.google-services'
