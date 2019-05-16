@@ -6,4 +6,8 @@ public interface MainControllerListener {
 
     void goToLogin();
 
+    void linkButtonClicked();
+
+    void notLinkButtonClicked();
+
 }

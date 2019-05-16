@@ -20,4 +20,12 @@ public class MainController {
         controllerListener.goToLogin();
     }
 
+    public void onLinkButtonClicked(){
+        controllerListener.linkButtonClicked();
+    }
+
+    public void onNotLinkButtonClicked(){
+        controllerListener.notLinkButtonClicked();
+    }
+
 }

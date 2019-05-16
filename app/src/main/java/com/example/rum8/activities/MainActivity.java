@@ -4,16 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.rum8.R;
 import com.example.rum8.controllers.MainController;
 import com.example.rum8.listeners.MainControllerListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity implements MainControllerListener {
 
     private MainController controller;
+
+    private FloatingActionButton linkButton;
+    private FloatingActionButton notLinkButton;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -44,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         }
     }
 
+
     @Override
     public void goToProfileSettings() {
         final Intent intent = new Intent(MainActivity.this, ProfileSettingsActivity.class);
@@ -58,7 +65,24 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         finish();
     }
 
+    @Override
+    public void linkButtonClicked() {
+        Toast.makeText(getApplicationContext(), "LIKED", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void notLinkButtonClicked() {
+        Toast.makeText(getApplicationContext(), "NOT LIKED", Toast.LENGTH_LONG).show();
+    }
+
     private void initViews() {
+
+        //initialize and set listener for buttons
+        linkButton = findViewById(R.id.link_button);
+        linkButton.setOnClickListener(v -> controller.onLinkButtonClicked());
+
+        notLinkButton = findViewById(R.id.not_link_button);
+        notLinkButton.setOnClickListener(v -> controller.onNotLinkButtonClicked());
     }
 
     private void initController() {
