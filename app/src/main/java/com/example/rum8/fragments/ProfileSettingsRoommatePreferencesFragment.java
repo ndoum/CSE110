@@ -1,4 +1,5 @@
 package com.example.rum8.fragments;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.example.rum8.R;
+import com.example.rum8.activities.LoginActivity;
+import com.example.rum8.activities.MainActivity;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 
@@ -224,10 +227,13 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
         saveRoommateButton.setOnClickListener(v -> {
             controller.roommateSaveSubmit();
             this.showToast("Roommate Preferences Saved", Toast.LENGTH_SHORT);
+            final Intent intent = new Intent(getActivity(), MainActivity.class);
+            startActivity(intent);
         });
 
         return rootView;
     }
+
 
     @Override
     public void showToast(final String message, final int toastLength) {

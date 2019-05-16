@@ -9,7 +9,9 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Class that manages the tabs for user info view page
+ */
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     private final List<Fragment> fragmentList = new ArrayList<>();
@@ -17,8 +19,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     public ViewPagerAdapter(FragmentManager fm){
         super(fm);
-
-
     }
 
     @NonNull
@@ -42,6 +42,5 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public void AddFragment(Fragment fragment, String Title){
         fragmentList.add(fragment);
         FragmentListTitles.add(Title);
-
     }
 }

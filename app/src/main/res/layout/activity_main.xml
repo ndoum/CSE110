@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#127060"
+    android:background="#D5EEEC"
     android:orientation="vertical"
     tools:context=".activities.MainActivity">
 
@@ -12,6 +12,7 @@
         android:id="@+id/appbarid"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:background="#00FFFFFF"
         android:elevation="0dp">
 
         <RelativeLayout
@@ -23,17 +24,15 @@
                 android:layout_height="125dp"
                 android:layout_centerHorizontal="true"
                 android:elevation="5dp"
-                android:src="@drawable/images" />
+                android:src="@drawable/images"
+                android:layout_marginTop="15dp"/>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="72dp"
+                android:layout_marginTop="92dp"
                 app:cardBackgroundColor="#5DB1A7"
-                app:contentPaddingBottom="10dp"
-                app:contentPaddingLeft="10dp"
-                app:contentPaddingRight="10dp"
-                app:contentPaddingTop="10dp">
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
