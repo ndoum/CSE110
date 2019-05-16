@@ -22,6 +22,11 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     private FloatingActionButton notLinkButton;
 
     @Override
+    public void showToast(final String message, final int toastLength) {
+        Toast.makeText(MainActivity.this, message, toastLength).show();
+    }
+
+    @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -63,16 +68,6 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         final Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
-    }
-
-    @Override
-    public void linkButtonClicked() {
-        Toast.makeText(getApplicationContext(), "LIKED", Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void notLinkButtonClicked() {
-        Toast.makeText(getApplicationContext(), "NOT LIKED", Toast.LENGTH_LONG).show();
     }
 
     private void initViews() {
