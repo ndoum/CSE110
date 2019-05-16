@@ -6,14 +6,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.rum8.R;
+import com.example.rum8.adapters.ViewPagerAdapter;
 import com.example.rum8.controllers.MainController;
+import com.example.rum8.fragments.UserTab1Fragment;
+import com.example.rum8.fragments.UserTab2Fragment;
+import com.example.rum8.fragments.UserTab3Fragment;
 import com.example.rum8.listeners.MainControllerListener;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity implements MainControllerListener {
 
     private MainController controller;
+    private TabLayout tablayout;
+    private AppBarLayout appBarLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -21,6 +32,15 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         setContentView(R.layout.activity_main);
         initViews();
         initController();
+        tablayout = (TabLayout) findViewById(R.id.tablayout_id);
+        appBarLayout = (AppBarLayout) findViewById(R.id.appbarid);
+        viewPager = (ViewPager) findViewById(R.id.viewpager_id);
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.AddFragment(new UserTab1Fragment(), "Tab1");
+        adapter.AddFragment(new UserTab2Fragment(), "Tab2");
+        adapter.AddFragment(new UserTab3Fragment(), "Tab3");
+        viewPager.setAdapter(adapter);
+        tablayout.setupWithViewPager(viewPager);
     }
 
     @Override
