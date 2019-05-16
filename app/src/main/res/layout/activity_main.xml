@@ -56,7 +56,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="55dp"
-                            android:text="Alvin Li"
+                            android:text="User"
                             android:textSize="25sp"
                             android:textStyle="bold" />
 
@@ -64,7 +64,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:text="UCSD 3rd Year" />
+                            android:text="UCSD Nth Year" />
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
