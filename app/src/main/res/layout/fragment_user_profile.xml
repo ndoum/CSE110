@@ -21,11 +21,16 @@
         app:tabMode="fixed"
         android:id="@+id/tablayout_id">
 
-        <android.support.
+
 
 
 
 
     </android.support.design.widget.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/viewpager_id"/>
 
 </LinearLayout>

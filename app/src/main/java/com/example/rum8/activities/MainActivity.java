@@ -6,10 +6,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.rum8.R;
 import com.example.rum8.controllers.MainController;
 import com.example.rum8.listeners.MainControllerListener;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity implements MainControllerListener {
 
