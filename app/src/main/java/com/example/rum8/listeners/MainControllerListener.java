@@ -6,8 +6,6 @@ public interface MainControllerListener {
 
     void goToLogin();
 
-    void linkButtonClicked();
-
-    void notLinkButtonClicked();
+    void showToast(final String message, final int toastLength);
 
 }
