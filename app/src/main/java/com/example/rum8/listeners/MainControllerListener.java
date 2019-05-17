@@ -6,4 +6,6 @@ public interface MainControllerListener {
 
     void goToLogin();
 
+    void showToast(final String message, final int toastLength);
+
 }
