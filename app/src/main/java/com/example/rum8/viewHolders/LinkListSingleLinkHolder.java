@@ -8,14 +8,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rum8.R;
 
+
 public class LinkListSingleLinkHolder extends RecyclerView.ViewHolder {
     public ImageView imageView;
-    public TextView firstName;
+    public TextView firstNameView;
     //id field?
 
-    public LinkListSingleLinkHolder(View itemView){
+    public LinkListSingleLinkHolder(View itemView) {
         super(itemView);
-        imageView = itemView.findViewById(R.id.view_link_list_single_link_imageview);
-        firstName = itemView.findViewById(R.id.general_info_first_name_field);
+        imageView = (ImageView) itemView.findViewById(R.id.view_link_list_single_link_imageview);
+        firstNameView = (TextView) itemView.findViewById(R.id.general_info_first_name_field);
     }
+
 }

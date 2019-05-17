@@ -16,10 +16,11 @@ import com.example.rum8.controllers.ViewLinkListController;
 import com.example.rum8.dataModels.LinkListSingleLink;
 import com.example.rum8.listeners.ViewLinkListControllerListener;
 import com.example.rum8.viewHolders.LinkListSingleLinkHolder;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class ViewLinkListActivity extends AppCompatActivity
@@ -27,11 +28,14 @@ public class ViewLinkListActivity extends AppCompatActivity
 
     private ViewLinkListController controller;
     private RecyclerView recyclerView;
+    private FirebaseFirestore dbStore;
     private FirebaseDatabase db;
     private Query query;
-    private FirebaseRecyclerOptions<LinkListSingleLink> options;
-    private FirebaseRecyclerAdapter adapter;
+    private com.google.firebase.firestore.Query queryStore;
+    private FirestoreRecyclerOptions<LinkListSingleLink> options;
+    private FirestoreRecyclerAdapter adapter;
     private LinkListSingleLinkHolder singleLinkHolder;
+    private static int counter = 1;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -41,32 +45,23 @@ public class ViewLinkListActivity extends AppCompatActivity
         initController();
     }
 
-    @Override
-    protected void onStart(){
-        super.onStart();
-        adapter.startListening();
-    }
-
-    @Override
-    protected void onStop(){
-        super.onStop();
-        adapter.stopListening();
-    }
-
     private void initViews() {
-        query = db.getInstance().getReference().child("users").limitToFirst(20);
-        System.out.println(query.toString());
-        System.out.println(query.toString());
-        System.out.println("12345678");
-        options = new FirebaseRecyclerOptions.Builder<LinkListSingleLink>()
-                .setQuery(query, LinkListSingleLink.class)
+        query = FirebaseDatabase.getInstance().getReference().child("users").limitToFirst(20);
+        dbStore = FirebaseFirestore.getInstance();
+        queryStore = dbStore.collection("users").limit(20);
+        System.out.println(queryStore.toString());
+        options = new FirestoreRecyclerOptions.Builder<LinkListSingleLink>()
+                .setQuery(queryStore, LinkListSingleLink.class)
+                .setLifecycleOwner(this)
                 .build();
         recyclerView = findViewById(R.id.activity_view_link_list_recycler_view);
-        adapter = new FirebaseRecyclerAdapter<LinkListSingleLink, LinkListSingleLinkHolder>(options) {
+        adapter = new FirestoreRecyclerAdapter<LinkListSingleLink, LinkListSingleLinkHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull LinkListSingleLinkHolder linkHolder, int position, @NonNull LinkListSingleLink link) {//holder, int, model
-                linkHolder.imageView.setImageDrawable(link.getImage().getDrawable());
-                linkHolder.firstName.setText(link.getFirstName());
+            protected void onBindViewHolder(@NonNull LinkListSingleLinkHolder linkHolder, int position, @NonNull LinkListSingleLink link) {
+                //linkHolder.imageView.setImageDrawable(link.getImage().getDrawable());
+                //linkHolder.firstName.setText(link.getfirst_name() + " " + link.getlast_name());
+                //COULDNT FIGURE OUT HOW TO SET THE TEXT TO THE TEXTVIEW IN THE VIEW HOLDER
+                System.out.println("\"" + counter++ + ". " + link.getfirst_name() + " " + link.getlast_name() + "\"");
             }
 
             @NonNull
@@ -76,9 +71,13 @@ public class ViewLinkListActivity extends AppCompatActivity
                 return new LinkListSingleLinkHolder(view);
             }
         };
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter.startListening();
         recyclerView.setAdapter(adapter);
     }
 
-    private void initController() { controller = new ViewLinkListController(this);}
+    private void initController() {
+        controller = new ViewLinkListController(this);
+    }
 }
