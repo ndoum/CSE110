@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -90,13 +91,22 @@ public class ProfileSettingsController {
         }
     }
 
+    public Task<byte[]> loadDefaluUserProfileImage(final FirebaseStorage storage){
+        return Db.fetchDefaultUserProfilePicture(storage);
+    }
+
+    public Task<byte[]> loadUserProfileImage(final FirebaseStorage storage, final FirebaseUser user){
+        return Db.fetchUserProfilePicture(storage, user);
+    }
+
+
     /**
      * Method that updates user's personal question response
      * hash map with the passed in key and value.
      * @param key, question title
      * @param value, question response
      */
-    public void updatePersonalMap(String key, int value) {
+    public void updatePersonalMap(final String key, final int value) {
         personalMap.put(key, value);
     }
 
@@ -106,7 +116,7 @@ public class ProfileSettingsController {
      * @param index
      * @param value
      */
-    public void updatePersonalKey(int index, int value){
+    public void updatePersonalKey(final int index,final int value){
         this.selfMatchIds[index] = value;
     }
 
@@ -116,7 +126,7 @@ public class ProfileSettingsController {
      * @param key, question title
      * @param value, question response
      */
-    public void updateRoommateMap(String key, int value) {
+    public void updateRoommateMap(final String key, final int value) {
         roommateMap.put(key, value);
     }
 
@@ -126,7 +136,7 @@ public class ProfileSettingsController {
      * @param index
      * @param value
      */
-    public void updateRoommateKey(int index, int value){
+    public void updateRoommateKey(final int index, final int value){
         this.roommateMatchIds[index] = value;
     }
 
