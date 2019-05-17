@@ -92,11 +92,9 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     }
 
     private void initViews() {
-
         // initialize and set listener for buttons
         linkButton = findViewById(R.id.link_button);
         linkButton.setOnClickListener(v -> controller.onLinkButtonClicked());
-
         notLinkButton = findViewById(R.id.not_link_button);
         notLinkButton.setOnClickListener(v -> controller.onNotLinkButtonClicked());
     }
