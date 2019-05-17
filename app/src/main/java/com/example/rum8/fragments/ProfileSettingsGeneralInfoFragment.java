@@ -21,7 +21,6 @@ import androidx.fragment.app.Fragment;
 import com.example.rum8.R;
 import com.example.rum8.activities.ProfileSettingsActivity;
 import com.example.rum8.controllers.ProfileSettingsController;
-import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
@@ -92,7 +91,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         final FirebaseUser user = auth.getCurrentUser();
         final FirebaseStorage storage = FirebaseStorage.getInstance();
 
-        Db.fetchDefaultUserProfilePicture(storage).addOnSuccessListener(bytes -> {
+        controller.loadDefaluUserProfileImage(storage).addOnSuccessListener(bytes -> {
             Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
             imageView.setImageBitmap(bmp);
         }).addOnFailureListener(exception -> {
@@ -100,7 +99,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
             Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
         });
 
-        Db.fetchUserProfilePicture(storage, user).addOnSuccessListener(bytes -> {
+        controller.loadUserProfileImage(storage, user).addOnSuccessListener(bytes -> {
             Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
             imageView.setImageBitmap(bmp);
         }).addOnFailureListener(exception -> {
