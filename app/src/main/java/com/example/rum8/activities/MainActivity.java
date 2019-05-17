@@ -20,8 +20,9 @@ import com.example.rum8.fragments.UserTab3Fragment;
 import com.example.rum8.listeners.MainControllerListener;
 
 import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 
 public class MainActivity extends AppCompatActivity implements MainControllerListener {
 
@@ -30,8 +31,8 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     private AppBarLayout appBarLayout;
     private ViewPager viewPager;
 
-    private FloatingActionButton linkButton;
-    private FloatingActionButton notLinkButton;
+    private ExtendedFloatingActionButton linkButton;
+    private ExtendedFloatingActionButton notLinkButton;
 
     @Override
     public void showToast(final String message, final int toastLength) {
