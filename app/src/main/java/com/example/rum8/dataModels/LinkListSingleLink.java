@@ -1,6 +1,5 @@
 package com.example.rum8.dataModels;
 
-import android.media.Image;
 import android.widget.ImageView;
 
 public class LinkListSingleLink {
@@ -9,9 +8,15 @@ public class LinkListSingleLink {
     private String firstName;
     private String lastName;
     private String uid;
-    //other info we want to show
+    //other info we want to show get from the database
 
-    public LinkListSingleLink() { } //Needed for Firebase
+    public LinkListSingleLink() {
+    } //Needed for Firebase
+
+    public LinkListSingleLink(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
     public LinkListSingleLink(ImageView image, String firstName, String lastName, String uid) {
         this.image = image;
@@ -28,19 +33,19 @@ public class LinkListSingleLink {
         return this.image;
     }
 
-    public void setFirstName(String firstName) {
+    public void setfirst_name(String firstName) {
         this.firstName = firstName;
     }
 
-    public String getFirstName() {
+    public String getfirst_name() {
         return firstName;
     }
 
-    public void setLastName(String lastName) {
+    public void setlast_name(String lastName) {
         this.lastName = lastName;
     }
 
-    public String getLastName() {
+    public String getlast_name() {
         return lastName;
     }
 
