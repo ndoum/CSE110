@@ -3,6 +3,7 @@ package com.example.rum8.fragments;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,6 +24,10 @@ import com.example.rum8.activities.ProfileSettingsActivity;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -83,6 +88,28 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
 
         progressDialog = new ProgressDialog(getActivity());
         imageView = rootView.findViewById(R.id.general_info_profile_image_view);
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        final FirebaseUser user = auth.getCurrentUser();
+        final FirebaseStorage storage = FirebaseStorage.getInstance();
+
+        controller.loadDefaluUserProfileImage(storage).addOnSuccessListener(bytes -> {
+            Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+            imageView.setImageBitmap(bmp);
+        }).addOnFailureListener(exception -> {
+            final String message = "Network error";
+            Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+        });
+
+        controller.loadUserProfileImage(storage, user).addOnSuccessListener(bytes -> {
+            Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+            imageView.setImageBitmap(bmp);
+        }).addOnFailureListener(exception -> {
+            int errorCode = ((StorageException) exception).getErrorCode();
+            if (errorCode != StorageException.ERROR_OBJECT_NOT_FOUND) {
+                final String message = "Network error";
+                Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
         buttonChoosePic = rootView.findViewById(R.id.general_info_profile_image_upload_button);
@@ -180,8 +207,8 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     }
 
     @Override
-    public void updateUploadImagePercentage(double percengate){
-        final String message = "Uploaded " + (int)percengate + "%";
+    public void updateUploadImagePercentage(double percentage){
+        final String message = "Uploaded " + (int)percentage + "%";
         progressDialog.setMessage(message);
     }
 
