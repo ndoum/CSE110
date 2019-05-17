@@ -10,7 +10,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="50dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="100dp"
         android:background="#00FFFFFF"
         android:elevation="10dp"
 
@@ -51,15 +51,15 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="55dp"
-                            android:text="User"
+                            android:text="@string/menu_profile_user_name"
                             android:textSize="25sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:text="UCSD Nth Year" />
+                            android:text="@string/menu_profile_user_year" />
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -86,11 +86,12 @@
 
     </LinearLayout>
 
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/link_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
+            android:layout_gravity="bottom|end"
             android:layout_margin="32dp"
             app:srcCompat="@android:drawable/star_big_on"/>
 
@@ -98,7 +99,7 @@
             android:id="@+id/not_link_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|left"
+            android:layout_gravity="bottom|start"
             android:layout_margin="32dp"
             app:srcCompat="@android:drawable/ic_delete"
             android:backgroundTint="@color/colorAccent"/>
