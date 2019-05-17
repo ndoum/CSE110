@@ -91,11 +91,11 @@ public class ProfileSettingsController {
         }
     }
 
-    public Task<byte[]> loadDefaluUserProfileImage(FirebaseStorage storage){
+    public Task<byte[]> loadDefaluUserProfileImage(final FirebaseStorage storage){
         return Db.fetchDefaultUserProfilePicture(storage);
     }
 
-    public Task<byte[]> loadUserProfileImage(FirebaseStorage storage, FirebaseUser user){
+    public Task<byte[]> loadUserProfileImage(final FirebaseStorage storage, final FirebaseUser user){
         return Db.fetchUserProfilePicture(storage, user);
     }
 
@@ -106,7 +106,7 @@ public class ProfileSettingsController {
      * @param key, question title
      * @param value, question response
      */
-    public void updatePersonalMap(String key, int value) {
+    public void updatePersonalMap(final String key, final int value) {
         personalMap.put(key, value);
     }
 
@@ -116,7 +116,7 @@ public class ProfileSettingsController {
      * @param index
      * @param value
      */
-    public void updatePersonalKey(int index, int value){
+    public void updatePersonalKey(final int index,final int value){
         this.selfMatchIds[index] = value;
     }
 
@@ -126,7 +126,7 @@ public class ProfileSettingsController {
      * @param key, question title
      * @param value, question response
      */
-    public void updateRoommateMap(String key, int value) {
+    public void updateRoommateMap(final String key, final int value) {
         roommateMap.put(key, value);
     }
 
@@ -136,7 +136,7 @@ public class ProfileSettingsController {
      * @param index
      * @param value
      */
-    public void updateRoommateKey(int index, int value){
+    public void updateRoommateKey(final int index, final int value){
         this.roommateMatchIds[index] = value;
     }
 
