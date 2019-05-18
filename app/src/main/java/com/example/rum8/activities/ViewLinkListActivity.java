@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -59,9 +58,11 @@ public class ViewLinkListActivity extends AppCompatActivity
             @Override
             protected void onBindViewHolder(@NonNull LinkListSingleLinkHolder linkHolder, int position, @NonNull LinkListSingleLink link) {
                 //linkHolder.imageView.setImageDrawable(link.getImage().getDrawable());
-                //linkHolder.firstName.setText(link.getfirst_name() + " " + link.getlast_name());
+
+                linkHolder.firstNameView.setText(link.getfirst_name() + " " + link.getlast_name());
                 //COULDNT FIGURE OUT HOW TO SET THE TEXT TO THE TEXTVIEW IN THE VIEW HOLDER
-                System.out.println("\"" + counter++ + ". " + link.getfirst_name() + " " + link.getlast_name() + "\"");
+
+                //System.out.println("\"" + counter++ + ". " + link.getfirst_name() + " " + link.getlast_name() + "\"");
             }
 
             @NonNull

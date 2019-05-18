@@ -17,7 +17,7 @@ public class LinkListSingleLinkHolder extends RecyclerView.ViewHolder {
     public LinkListSingleLinkHolder(View itemView) {
         super(itemView);
         imageView = (ImageView) itemView.findViewById(R.id.view_link_list_single_link_imageview);
-        firstNameView = (TextView) itemView.findViewById(R.id.general_info_first_name_field);
+        firstNameView = (TextView) itemView.findViewById(R.id.view_link_list_single_link_textview);
     }
 
 }
