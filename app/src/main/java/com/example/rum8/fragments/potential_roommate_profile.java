@@ -18,18 +18,14 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
-
+/**
+ * Class that implements potential roommate profile
+ */
 public class potential_roommate_profile extends Fragment {
-
 
     private TabLayout tablayout;
     private AppBarLayout appBarLayout;
     private ViewPager viewPager;
-
-    private ExtendedFloatingActionButton linkButton;
-    private ExtendedFloatingActionButton notLinkButton;
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,7 +34,6 @@ public class potential_roommate_profile extends Fragment {
         if (container != null) {
             container.removeAllViews();
         }
-
 
         View rootView = inflater.inflate(R.layout.fragment_potential_roommate_profile, container, false);
 
