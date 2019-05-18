@@ -104,7 +104,7 @@ public class ViewLinkListActivity extends AppCompatActivity
         adapter.startListening();
         recyclerView.setAdapter(adapter);
     }
-
+    
     private void initController() {
         controller = new ViewLinkListController(this);
     }
