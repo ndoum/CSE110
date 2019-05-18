@@ -59,7 +59,7 @@ public class ViewLinkListActivity extends AppCompatActivity
             protected void onBindViewHolder(@NonNull LinkListSingleLinkHolder linkHolder, int position, @NonNull LinkListSingleLink link) {
                 //linkHolder.imageView.setImageDrawable(link.getImage().getDrawable());
 
-                linkHolder.firstNameView.setText(link.getfirst_name() + " " + link.getlast_name());
+                linkHolder.firstNameView.setText("first: "+link.getfirst_name() + " last: " + link.getlast_name() + " uid: " + link.getUid());
                 //COULDNT FIGURE OUT HOW TO SET THE TEXT TO THE TEXTVIEW IN THE VIEW HOLDER
 
                 //System.out.println("\"" + counter++ + ". " + link.getfirst_name() + " " + link.getlast_name() + "\"");
