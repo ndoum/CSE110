@@ -11,32 +11,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.ViewPager;
 
 import com.example.rum8.R;
-import com.example.rum8.adapters.ViewPagerAdapter;
 import com.example.rum8.controllers.MainController;
-import com.example.rum8.fragments.UserTab1Fragment;
-import com.example.rum8.fragments.UserTab2Fragment;
-import com.example.rum8.fragments.UserTab3Fragment;
 import com.example.rum8.fragments.potential_roommate_profile;
 import com.example.rum8.fragments.potential_roommate_profile_alt;
 import com.example.rum8.listeners.MainControllerListener;
 
-import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-import com.google.android.material.tabs.TabLayout;
 
-
+/**
+ * Class that implements the home page of application.
+ *
+ * <p>Bugs: (a list of bugs and other problems)
+ *
+ * @author
+ */
 public class MainActivity extends AppCompatActivity implements MainControllerListener {
 
     private MainController controller;
-    private TabLayout tablayout;
-    private AppBarLayout appBarLayout;
-    private ViewPager viewPager;
-
-    private ExtendedFloatingActionButton linkButton;
-    private ExtendedFloatingActionButton notLinkButton;
 
     @Override
     public void showToast(final String message, final int toastLength) {
@@ -47,17 +39,7 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //initViews();
         initController();
-//        tablayout = (TabLayout) findViewById(R.id.tablayout_id);
-//        appBarLayout = (AppBarLayout) findViewById(R.id.appbarid);
-//        viewPager = (ViewPager) findViewById(R.id.viewpager_id);
-//        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-//        adapter.AddFragment(new UserTab1Fragment(), "Tab1");
-//        adapter.AddFragment(new UserTab2Fragment(), "Tab2");
-//        adapter.AddFragment(new UserTab3Fragment(), "Tab3");
-//        viewPager.setAdapter(adapter);
-//        tablayout.setupWithViewPager(viewPager);
     }
 
     @Override
@@ -81,6 +63,9 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         }
     }
 
+    /**
+     * Method navigates to the profile setting class.
+     */
     @Override
     public void goToProfileSettings() {
         final Intent intent = new Intent(MainActivity.this, ProfileSettingsActivity.class);
@@ -88,6 +73,9 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         finish();
     }
 
+    /**
+     * Method that navigates to the login activity class.
+     */
     @Override
     public void goToLogin() {
         final Intent intent = new Intent(MainActivity.this, LoginActivity.class);
@@ -95,26 +83,48 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         finish();
     }
 
-
+    /**
+     * Method that initalize the controller for main activity.
+     */
     private void initController() {
         controller = new MainController(this);
     }
 
+    /**
+     * Method that switch between potential roommate profile fragment
+     * and roommate profile fragment alternate based on button clicks
+     * @param view
+     */
     public void ChangeFragment(View view){
         Fragment fragment;
+
+        // Actions when the link button is clicked
         if (view == findViewById(R.id.link_button)){
+
             fragment = new potential_roommate_profile();
+
             FragmentManager fm = getSupportFragmentManager();
+
             FragmentTransaction ft = fm.beginTransaction();
+
+            ft.setCustomAnimations(R.anim.exit_right, R.anim.exit_right);
             ft.replace(R.id.fragment_place, fragment);
+            ft.addToBackStack(null);
             ft.commit();
         }
-        if (view == findViewById(R.id.not_link_button)){
-            fragment = new potential_roommate_profile_alt();
-            FragmentManager fm = getSupportFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            ft.replace(R.id.fragment_place, fragment);
 
+        // Actions when the not link button is clicked
+        if (view == findViewById(R.id.not_link_button)){
+
+            fragment = new potential_roommate_profile_alt();
+
+            FragmentManager fm = getSupportFragmentManager();
+
+            FragmentTransaction ft = fm.beginTransaction();
+
+            ft.setCustomAnimations(R.anim.exit_right, R.anim.exit_right);
+            ft.replace(R.id.fragment_place, fragment);
+            ft.addToBackStack(null);
             ft.commit();
 
         }

@@ -20,6 +20,9 @@ public class UserTab2Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+
+
         view=inflater.inflate(R.layout.fragment_tab2, container, false);
         return view;
     }

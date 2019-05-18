@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.rum8.adapters.PotentialRoommateProfileAdapter;
+import com.example.rum8.adapters.potentialRoommateProfileAdapter;
 
 import com.example.rum8.R;
 import com.google.android.material.appbar.AppBarLayout;
@@ -46,7 +46,7 @@ public class potential_roommate_profile extends Fragment {
         appBarLayout = rootView.findViewById(R.id.potential_roommate_profile_appbarid);
         viewPager = rootView.findViewById(R.id.potential_roommate_profile_viewpager_id);
 
-        PotentialRoommateProfileAdapter adapter = new PotentialRoommateProfileAdapter(getFragmentManager());
+        potentialRoommateProfileAdapter adapter = new potentialRoommateProfileAdapter(getChildFragmentManager());
         adapter.AddFragment(new UserTab1Fragment(), "Tab1");
         adapter.AddFragment(new UserTab2Fragment(), "Tab2");
         adapter.AddFragment(new UserTab3Fragment(), "Tab3");
