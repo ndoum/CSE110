@@ -22,20 +22,22 @@ public class SplashActivity extends AppCompatActivity implements SplashControlle
         setContentView(R.layout.activity_splash);
         initController();
 
-        new Handler().postDelayed(new Runnable() {
-            public void run() {
-                controller.goToNextPage();
-            }
-        }, SPLASH_DISPLAY_TIME_MS);
+        new Handler().postDelayed(() -> controller.goToNextActivity(), SPLASH_DISPLAY_TIME_MS);
     }
 
+    /**
+     * Finish this activity because it should not be the parent activity of any activity.
+     */
     @Override
-    public void goToMainPage() {
+    public void goToMain() {
         final Intent intent = new Intent(SplashActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
     }
 
+    /**
+     * Finish this activity because it should not be the parent activity of any activity.
+     */
     @Override
     public void goToLogin() {
         final Intent intent = new Intent(SplashActivity.this, LoginActivity.class);

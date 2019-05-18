@@ -14,9 +14,9 @@ public class SplashController {
         auth = FirebaseAuth.getInstance();
     }
 
-    public void goToNextPage() {
+    public void goToNextActivity() {
         if (userIsLoggedIn(auth.getCurrentUser())) {
-            controllerListener.goToMainPage();
+            controllerListener.goToMain();
         } else {
             controllerListener.goToLogin();
         }
