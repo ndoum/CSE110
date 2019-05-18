@@ -9,7 +9,6 @@ public class LinkListSingleLink {
     } //Needed for Firebase
 
     public LinkListSingleLink(/*ImageView image,*/ String firstName, String lastName, String uid) {
-        //this.image = image;
         this.firstName = firstName;
         this.lastName = lastName;
         this.uid = uid;
