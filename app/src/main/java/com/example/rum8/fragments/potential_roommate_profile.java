@@ -42,9 +42,9 @@ public class potential_roommate_profile extends Fragment {
         viewPager = rootView.findViewById(R.id.potential_roommate_profile_viewpager_id);
 
         potentialRoommateProfileAdapter adapter = new potentialRoommateProfileAdapter(getChildFragmentManager());
-        adapter.AddFragment(new UserTab1Fragment(), "Tab1");
-        adapter.AddFragment(new UserTab2Fragment(), "Tab2");
-        adapter.AddFragment(new UserTab3Fragment(), "Tab3");
+        adapter.AddFragment(new UserTab1Fragment(), "General");
+        adapter.AddFragment(new UserTab2Fragment(), "Personal");
+        adapter.AddFragment(new UserTab3Fragment(), "Overview");
         viewPager.setAdapter(adapter);
         tablayout.setupWithViewPager(viewPager);
 
