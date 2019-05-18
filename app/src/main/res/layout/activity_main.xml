@@ -1,111 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-        android:layout_height="match_parent"
-    android:id="@+id/main_activity_coordinator_layout">
-    <LinearLayout
+    android:layout_height="match_parent"
+    android:id="@+id/main_activity_coordinator_layout"
+    android:orientation="vertical">
+
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="100dp"
-        android:background="#00FFFFFF"
-        android:elevation="10dp"
-        android:id="@+id/main_linear_layout"
-
-        android:orientation="vertical">
-
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbarid"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="#00FFFFFF"
-            android:elevation="0dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="125dp"
-                    android:layout_height="125dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="15dp"
-                    android:elevation="5dp"
-                    android:src="@drawable/images" />
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="92dp"
-                    app:cardBackgroundColor="#5DB1A7">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="55dp"
-                            android:text="@string/menu_profile_user_name"
-                            android:textSize="25sp"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="@string/menu_profile_user_year" />
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-
-            </RelativeLayout>
-
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tablayout_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#009688"
-            app:tabGravity="fill"
-            app:tabMode="fixed" />
-
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewpager_id"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#00644949" />
-
-    </LinearLayout>
-
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|start"
-        android:layout_margin="32dp"
-        android:id="@+id/link_button"
-        app:icon="@drawable/correct"/>
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="32dp"
-        android:id="@+id/not_link_button"
-        app:icon="@drawable/wrong"
-        android:backgroundTint="@color/colorAccent"/>
+        android:text=""/>
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>
