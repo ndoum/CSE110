@@ -61,6 +61,13 @@ public class ViewLinkListActivity extends AppCompatActivity
                 //linkHolder.imageView.setImageDrawable(link.getImage().getDrawable());
                 //linkHolder.firstName.setText(link.getfirst_name() + " " + link.getlast_name());
                 //COULDNT FIGURE OUT HOW TO SET THE TEXT TO THE TEXTVIEW IN THE VIEW HOLDER
+                if(linkHolder == null) {
+                    System.out.println("Link holder is null");
+                }
+                else{
+
+                    linkHolder.setFirstNameViewText(link.getfirst_name());
+                }
                 System.out.println("\"" + counter++ + ". " + link.getfirst_name() + " " + link.getlast_name() + "\"");
             }
 
