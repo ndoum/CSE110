@@ -57,14 +57,15 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         }
     }
 
-
     @Override
     public void goToProfileSettings() {
         final Intent intent = new Intent(MainActivity.this, ProfileSettingsActivity.class);
         startActivity(intent);
-        finish();
     }
 
+    /**
+     * Finish this activity because it should not be the parent activity of {@link LoginActivity}.
+     */
     @Override
     public void goToLogin() {
         final Intent intent = new Intent(MainActivity.this, LoginActivity.class);

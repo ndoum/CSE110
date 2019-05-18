@@ -72,7 +72,7 @@ public class LoginController {
     }
 
     public void onGoToPasswordRecoverClicked() {
-        controllerListener.goToPasswordRecover();
+        controllerListener.goToPasswordRecovery();
     }
 
     private void onLoginSuccessful() {
