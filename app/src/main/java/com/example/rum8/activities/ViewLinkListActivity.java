@@ -18,8 +18,6 @@ import com.example.rum8.listeners.ViewLinkListControllerListener;
 import com.example.rum8.viewHolders.LinkListSingleLinkHolder;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 
@@ -29,8 +27,6 @@ public class ViewLinkListActivity extends AppCompatActivity
     private ViewLinkListController controller;
     private RecyclerView recyclerView;
     private FirebaseFirestore dbStore;
-    private FirebaseDatabase db;
-    private Query query;
     private com.google.firebase.firestore.Query queryStore;
     private FirestoreRecyclerOptions<LinkListSingleLink> options;
     private FirestoreRecyclerAdapter adapter;
@@ -46,7 +42,6 @@ public class ViewLinkListActivity extends AppCompatActivity
     }
 
     private void initViews() {
-        query = FirebaseDatabase.getInstance().getReference().child("users").limitToFirst(20);
         dbStore = FirebaseFirestore.getInstance();
         queryStore = dbStore.collection("users").limit(20);
         System.out.println(queryStore.toString());
@@ -59,15 +54,7 @@ public class ViewLinkListActivity extends AppCompatActivity
             @Override
             protected void onBindViewHolder(@NonNull LinkListSingleLinkHolder linkHolder, int position, @NonNull LinkListSingleLink link) {
                 //linkHolder.imageView.setImageDrawable(link.getImage().getDrawable());
-                //linkHolder.firstName.setText(link.getfirst_name() + " " + link.getlast_name());
-                //COULDNT FIGURE OUT HOW TO SET THE TEXT TO THE TEXTVIEW IN THE VIEW HOLDER
-                if(linkHolder == null) {
-                    System.out.println("Link holder is null");
-                }
-                else{
-
-                    linkHolder.setFirstNameViewText(link.getfirst_name());
-                }
+                linkHolder.setFirstNameViewText(link.getfirst_name());
                 System.out.println("\"" + counter++ + ". " + link.getfirst_name() + " " + link.getlast_name() + "\"");
             }
 
