@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -91,18 +92,17 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         final FirebaseUser user = auth.getCurrentUser();
         final FirebaseStorage storage = FirebaseStorage.getInstance();
 
-        controller.loadDefaluUserProfileImage(storage).addOnSuccessListener(bytes -> {
-            Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-            imageView.setImageBitmap(bmp);
-        }).addOnFailureListener(exception -> {
-            final String message = "Network error";
-            Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-        });
-
+        // fetch user's profile picture
         controller.loadUserProfileImage(storage, user).addOnSuccessListener(bytes -> {
             Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
             imageView.setImageBitmap(bmp);
         }).addOnFailureListener(exception -> {
+            // fetch default if the user does not upload
+            controller.loadDefaluUserProfileImage(storage).addOnSuccessListener(bytes -> {
+                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                imageView.setImageBitmap(bmp);
+            });
+            // show error message if both way fails
             int errorCode = ((StorageException) exception).getErrorCode();
             if (errorCode != StorageException.ERROR_OBJECT_NOT_FOUND) {
                 final String message = "Network error";
