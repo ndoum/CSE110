@@ -23,8 +23,6 @@ import com.example.rum8.viewHolders.LinkListSingleLinkHolder;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageException;
@@ -38,8 +36,6 @@ public class ViewLinkListActivity extends AppCompatActivity
     private com.google.firebase.firestore.Query queryStore;
     private FirestoreRecyclerOptions<LinkListSingleLink> options;
     private FirestoreRecyclerAdapter adapter;
-    private LinkListSingleLinkHolder singleLinkHolder;
-    private static int counter = 1;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -51,29 +47,29 @@ public class ViewLinkListActivity extends AppCompatActivity
 
     private void initViews() {
         dbStore = FirebaseFirestore.getInstance();
-        queryStore = dbStore.collection("users").limit(20);
-        System.out.println(queryStore.toString());
+
+        //fetch all users from firestore (need to get from the match group later)
+        queryStore = dbStore.collection("users");
+
+        //build single links
         options = new FirestoreRecyclerOptions.Builder<LinkListSingleLink>()
                 .setQuery(queryStore, LinkListSingleLink.class)
                 .setLifecycleOwner(this)
                 .build();
+
         recyclerView = findViewById(R.id.activity_view_link_list_recycler_view);
+
         adapter = new FirestoreRecyclerAdapter<LinkListSingleLink, LinkListSingleLinkHolder>(options) {
             @Override
+            //fetch info of link to display
             protected void onBindViewHolder(@NonNull LinkListSingleLinkHolder linkHolder, int position, @NonNull LinkListSingleLink link) {
-                //link's profile image
-                //linkHolder.imageView.setImageDrawable(link.getImage().getDrawable());
 
-
-                FirebaseAuth auth = FirebaseAuth.getInstance();
-                final FirebaseUser user = auth.getCurrentUser();
                 final FirebaseStorage storage = FirebaseStorage.getInstance();
-
+                // fetch link's image
                 controller.loadLinkProfileImage(storage, link.getUid()).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                     @Override
                     public void onSuccess(byte[] bytes) {
                         Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                        //image.setImageBitmap(bmp);
                         Drawable draw = new BitmapDrawable(getResources(), bmp);
                         linkHolder.imageView.setImageDrawable(draw);
                     }
@@ -81,7 +77,6 @@ public class ViewLinkListActivity extends AppCompatActivity
                     // fetch default if the user does not upload
                     controller.loadDefaultUserProfileImage(storage).addOnSuccessListener(bytes -> {
                         Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                        //imageView.setImageBitmap(bmp);
                         Drawable draw = new BitmapDrawable(getResources(), bmp);
                         linkHolder.imageView.setImageDrawable(draw);
                     });
@@ -93,9 +88,8 @@ public class ViewLinkListActivity extends AppCompatActivity
                     }
                 });
 
-
                 //link's first name and last name
-                linkHolder.firstNameView.setText(link.getfirst_name() + " " + link.getlast_name());
+                linkHolder.setFirstNameViewText(link.getfirst_name() + " " + link.getlast_name());
             }
 
             @NonNull
@@ -110,10 +104,6 @@ public class ViewLinkListActivity extends AppCompatActivity
         adapter.startListening();
         recyclerView.setAdapter(adapter);
     }
-
-
-
-
 
     private void initController() {
         controller = new ViewLinkListController(this);
