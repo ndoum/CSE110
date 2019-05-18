@@ -109,6 +109,11 @@ public class ViewLinkListActivity extends AppCompatActivity
         recyclerView.setAdapter(adapter);
     }
 
+    @Override
+    public void onBackPressed(){
+        finish();
+    }
+
     private void initController() {
         controller = new ViewLinkListController(this);
     }
