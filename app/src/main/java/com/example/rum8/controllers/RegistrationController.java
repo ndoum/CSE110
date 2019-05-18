@@ -43,7 +43,7 @@ public class RegistrationController {
                     ((Activity) context, task -> {
                         if (task.isSuccessful()) {
                             sendVerificationEmail(email);
-                            controllerListener.onUserRegistered();
+                            controllerListener.goToLogin();
                             // Create a new user with email when registration is complete
 
                             final Map<String, Object> userInfo = new HashMap<String, Object>() {{
@@ -100,7 +100,7 @@ public class RegistrationController {
     }
 
     public void onGoBackToLoginButtonClicked() {
-        controllerListener.goBackToLogin();
+        controllerListener.goToLogin();
     }
 
 }
