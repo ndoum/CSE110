@@ -20,4 +20,7 @@ public class LinkListSingleLinkHolder extends RecyclerView.ViewHolder {
         firstNameView = (TextView) itemView.findViewById(R.id.view_link_list_single_link_textview);
     }
 
+    public void setFirstNameViewText(String text){
+        this.firstNameView.setText(text);
+    }
 }
