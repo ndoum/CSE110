@@ -8,4 +8,6 @@ public interface MainControllerListener {
 
     void goToLinkList();
 
+    void showToast(final String message, final int toastLength);
+
 }
