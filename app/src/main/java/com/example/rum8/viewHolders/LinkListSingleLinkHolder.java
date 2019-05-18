@@ -12,7 +12,6 @@ import com.example.rum8.R;
 public class LinkListSingleLinkHolder extends RecyclerView.ViewHolder {
     public ImageView imageView;
     public TextView firstNameView;
-    //id field?
 
     public LinkListSingleLinkHolder(View itemView) {
         super(itemView);
