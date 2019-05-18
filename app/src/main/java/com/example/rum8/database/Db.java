@@ -3,13 +3,12 @@ package com.example.rum8.database;
 import android.net.Uri;
 
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.WriteBatch;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
@@ -21,7 +20,9 @@ import javax.annotation.Nonnull;
 
 public class Db {
 
-    private final static String PROFILE_PIC_PATH = "profile_pictures/";
+    private static final String PROFILE_PIC_PATH = "profile_pictures/";
+    private static final String DEFAULT_PROFILE_PIC_PATH= "profile_picture_default/default_profile_pic.png";
+    private static final long ONE_MEGABYTE = 1024 * 1024;
 
     static class InitialValues {
 
@@ -163,4 +164,24 @@ public class Db {
                 .putFile(filePath);
     }
 
+    public static Task<DocumentSnapshot> fetchGeneralInfo(final FirebaseFirestore firestore,
+                                                          final @Nonnull FirebaseUser user){
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(user.getUid()).get();
+    }
+
+    public static Task<DocumentSnapshot> fetchPersonalPreferences(final FirebaseFirestore firestore,
+                                                                  final @Nonnull FirebaseUser user){
+        return firestore.collection(PERSONAL_PREFERENCES_COLLECTION_NAME)
+                .document(user.getUid()).get();
+    }
+
+    public static Task<byte[]> fetchUserProfilePicture (final FirebaseStorage storage,
+                                                        final @Nonnull FirebaseUser user){
+        return storage.getReference().child(PROFILE_PIC_PATH + user.getUid()).getBytes(ONE_MEGABYTE);
+    }
+
+    public static Task<byte[]> fetchDefaultUserProfilePicture (final FirebaseStorage storage){
+        return storage.getReference().child(DEFAULT_PROFILE_PIC_PATH).getBytes(ONE_MEGABYTE);
+    }
 }
