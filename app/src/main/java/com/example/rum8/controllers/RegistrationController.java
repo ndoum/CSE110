@@ -48,6 +48,7 @@ public class RegistrationController {
 
                             final Map<String, Object> userInfo = new HashMap<String, Object>() {{
                                 put("email", email);
+                                put("uid", auth.getCurrentUser().getUid());
                             }};
 
                             Db.createUserAndPreferences(db, auth.getCurrentUser(), userInfo)

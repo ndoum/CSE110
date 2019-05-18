@@ -46,6 +46,7 @@ public class Db {
             put("preference_match_group_id", MATCH_GROUP_ID);
             put("self_match_group_id", MATCH_GROUP_ID);
             put("ucsd_college", "Muir");
+            put("uid", EMPTY_STRING);
         }};
 
         static final Map<String, Object> PERSONAL_PREFERENCES = new HashMap<String, Object>() {{
