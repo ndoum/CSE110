@@ -116,7 +116,7 @@ public class ProfileSettingsActivity extends FragmentActivity
     public void hideUploadImageProgress(){}
 
     @Override
-    public void updateUploadImagePercentage(double percentage){}
+    public void updateUploadImagePercentage(final double percentage){}
 
     @Override
     public void chooseImage(){}
