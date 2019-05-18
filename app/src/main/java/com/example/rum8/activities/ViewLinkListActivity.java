@@ -36,7 +36,7 @@ public class ViewLinkListActivity extends AppCompatActivity
     private com.google.firebase.firestore.Query queryStore;
     private FirestoreRecyclerOptions<LinkListSingleLink> options;
     private FirestoreRecyclerAdapter adapter;
-
+    private int counter = 1, imagecounter=1;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +56,7 @@ public class ViewLinkListActivity extends AppCompatActivity
                 .setQuery(queryStore, LinkListSingleLink.class)
                 .setLifecycleOwner(this)
                 .build();
-
+        System.out.print("OPTIONS CREATED");
         recyclerView = findViewById(R.id.activity_view_link_list_recycler_view);
 
         adapter = new FirestoreRecyclerAdapter<LinkListSingleLink, LinkListSingleLinkHolder>(options) {
@@ -66,7 +66,11 @@ public class ViewLinkListActivity extends AppCompatActivity
 
                 final FirebaseStorage storage = FirebaseStorage.getInstance();
                 // fetch link's image
-                controller.loadLinkProfileImage(storage, link.getUid()).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                String imageUid = "";
+                if(link.getUid() != null) {
+                    imageUid = link.getUid();
+                }
+                controller.loadLinkProfileImage(storage, imageUid).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                     @Override
                     public void onSuccess(byte[] bytes) {
                         Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
@@ -104,7 +108,7 @@ public class ViewLinkListActivity extends AppCompatActivity
         adapter.startListening();
         recyclerView.setAdapter(adapter);
     }
-    
+
     private void initController() {
         controller = new ViewLinkListController(this);
     }
