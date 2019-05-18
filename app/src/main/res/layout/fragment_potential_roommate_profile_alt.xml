@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.potential_roommate_profile_alt">
+    tools:context=".fragments.potential_roommate_profile_alt"
+    android:background="@color/colorPrimary">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,12 +13,12 @@
 
         android:background="#00FFFFFF"
         android:elevation="10dp"
-        android:id="@+id/main_linear_layout"
+        android:id="@+id/potential_roommate_profile_alt_main_linear_layout"
 
         android:orientation="vertical">
 
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbarid"
+            android:id="@+id/potential_roommate_profile_alt_appbarid"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:background="#00FFFFFF"
@@ -51,7 +52,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="55dp"
-                            android:text="@string/menu_profile_user_name"
+                            android:text="Alvin Li"
                             android:textSize="25sp"
                             android:textStyle="bold"/>
 
@@ -71,7 +72,7 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tablayout_id"
+            android:id="@+id/potential_roommate_profile_alt_tablayout_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#009688"
@@ -79,7 +80,7 @@
             app:tabMode="fixed" />
 
         <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewpager_id"
+            android:id="@+id/potential_roommate_profile_alt_viewpager_id"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#00644949" />

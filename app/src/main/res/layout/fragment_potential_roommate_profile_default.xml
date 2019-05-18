@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.potential_roommate_profile_default"
-    android:background="@color/">
+    android:background="@color/cardview_dark_background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,12 +13,12 @@
 
         android:background="#00FFFFFF"
         android:elevation="10dp"
-        android:id="@+id/main_linear_layout"
+        android:id="@+id/potential_roommate_profile_default_main_linear_layout"
 
         android:orientation="vertical">
 
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbarid"
+            android:id="@+id/potential_roommate_profile_default_appbarid"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:background="#00FFFFFF"
@@ -34,13 +34,16 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="15dp"
                     android:elevation="5dp"
-                    android:src="@drawable/images" />
+                    android:src="@drawable/images"
+                    android:id="@+id/potential_roommate_profile_default_image"/>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="92dp"
-                    app:cardBackgroundColor="#5DB1A7">
+                    app:cardBackgroundColor="#5DB1A7"
+                    android:id="@+id/potential_roommate_profile_default_cardview"
+                    >
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -72,7 +75,7 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tablayout_id"
+            android:id="@+id/potential_roommate_profile_default_tablayout_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#009688"
@@ -80,7 +83,7 @@
             app:tabMode="fixed" />
 
         <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewpager_id"
+            android:id="@+id/potential_roommate_profile_default_viewpager_id"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#00644949" />
