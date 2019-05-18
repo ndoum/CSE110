@@ -46,6 +46,7 @@ public class Db {
             put("preference_match_group_id", MATCH_GROUP_ID);
             put("self_match_group_id", MATCH_GROUP_ID);
             put("ucsd_college", "Muir");
+            put("uid", EMPTY_STRING);
         }};
 
         static final Map<String, Object> PERSONAL_PREFERENCES = new HashMap<String, Object>() {{
@@ -184,4 +185,10 @@ public class Db {
     public static Task<byte[]> fetchDefaultUserProfilePicture (final FirebaseStorage storage){
         return storage.getReference().child(DEFAULT_PROFILE_PIC_PATH).getBytes(ONE_MEGABYTE);
     }
+
+    public static Task<byte[]> fetchLinkProfilePicture (final FirebaseStorage storage,
+                                                        final String linkUid){
+        return storage.getReference().child(PROFILE_PIC_PATH + linkUid).getBytes(ONE_MEGABYTE);
+    }
+
 }
