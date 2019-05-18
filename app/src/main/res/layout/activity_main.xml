@@ -1,17 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main_activity_coordinator_layout"
-    android:orientation="vertical">
+    android:background="@color/ucsd_dark_gold">
 
-    <TextView
+
+    <fragment
         android:layout_width="match_parent"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_height="450dp"
+        android:id="@+id/fragment_place"
+        android:name="com.example.rum8.fragments.potential_roommate_profile_default"
+        tools:layout="@layout/fragment_potential_roommate_profile_default">
+
+    </fragment>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/link_button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""/>
+        android:layout_gravity="bottom|start"
+        android:layout_margin="32dp"
+        android:onClick="ChangeFragment"
+        app:icon="@drawable/correct" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/not_link_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="32dp"
+        android:backgroundTint="@color/colorAccent"
+        android:onClick="ChangeFragment"
+        app:icon="@drawable/wrong" />
 
 
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

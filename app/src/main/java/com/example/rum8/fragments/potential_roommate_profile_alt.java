@@ -13,7 +13,9 @@ import android.view.ViewGroup;
 import com.example.rum8.R;
 
 
-public class potential_roommate_profile extends Fragment {
+
+public class potential_roommate_profile_alt extends Fragment {
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -22,7 +24,6 @@ public class potential_roommate_profile extends Fragment {
         if (container != null) {
             container.removeAllViews();
         }
-        return inflater.inflate(R.layout.fragment_potential_roommate_profile, container, false);
+        return inflater.inflate(R.layout.fragment_potential_roommate_profile_alt, container, false);
     }
-
 }
