@@ -1,9 +1,14 @@
 package com.example.rum8.activities;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,8 +22,12 @@ import com.example.rum8.listeners.ViewLinkListControllerListener;
 import com.example.rum8.viewHolders.LinkListSingleLinkHolder;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
-
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageException;
 
 public class ViewLinkListActivity extends AppCompatActivity
         implements ViewLinkListControllerListener {
@@ -52,17 +61,41 @@ public class ViewLinkListActivity extends AppCompatActivity
         adapter = new FirestoreRecyclerAdapter<LinkListSingleLink, LinkListSingleLinkHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull LinkListSingleLinkHolder linkHolder, int position, @NonNull LinkListSingleLink link) {
+                //link's profile image
                 //linkHolder.imageView.setImageDrawable(link.getImage().getDrawable());
 
 
-                linkHolder.firstNameView.setText("first: "+link.getfirst_name() + " last: " + link.getlast_name() + " uid: " + link.getUid());
-                //COULDNT FIGURE OUT HOW TO SET THE TEXT TO THE TEXTVIEW IN THE VIEW HOLDER
+                FirebaseAuth auth = FirebaseAuth.getInstance();
+                final FirebaseUser user = auth.getCurrentUser();
+                final FirebaseStorage storage = FirebaseStorage.getInstance();
 
-                //System.out.println("\"" + counter++ + ". " + link.getfirst_name() + " " + link.getlast_name() + "\"");
+                controller.loadLinkProfileImage(storage, link.getUid()).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                    @Override
+                    public void onSuccess(byte[] bytes) {
+                        Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                        //image.setImageBitmap(bmp);
+                        Drawable draw = new BitmapDrawable(getResources(), bmp);
+                        linkHolder.imageView.setImageDrawable(draw);
+                    }
+                }).addOnFailureListener(exception -> {
+                    // fetch default if the user does not upload
+                    controller.loadDefaultUserProfileImage(storage).addOnSuccessListener(bytes -> {
+                        Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                        //imageView.setImageBitmap(bmp);
+                        Drawable draw = new BitmapDrawable(getResources(), bmp);
+                        linkHolder.imageView.setImageDrawable(draw);
+                    });
+                    // show error message if both way fails
+                    int errorCode = ((StorageException) exception).getErrorCode();
+                    if (errorCode != StorageException.ERROR_OBJECT_NOT_FOUND) {
+                        final String message = "Network error";
+                        Toast.makeText(ViewLinkListActivity.this, message, Toast.LENGTH_SHORT).show();
+                    }
+                });
 
-                linkHolder.setFirstNameViewText(link.getfirst_name());
-                System.out.println("\"" + counter++ + ". " + link.getfirst_name() + " " + link.getlast_name() + "\"");
 
+                //link's first name and last name
+                linkHolder.firstNameView.setText(link.getfirst_name() + " " + link.getlast_name());
             }
 
             @NonNull
@@ -77,6 +110,10 @@ public class ViewLinkListActivity extends AppCompatActivity
         adapter.startListening();
         recyclerView.setAdapter(adapter);
     }
+
+
+
+
 
     private void initController() {
         controller = new ViewLinkListController(this);
