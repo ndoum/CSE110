@@ -36,7 +36,7 @@ public class ViewLinkListActivity extends AppCompatActivity
     private com.google.firebase.firestore.Query queryStore;
     private FirestoreRecyclerOptions<LinkListSingleLink> options;
     private FirestoreRecyclerAdapter adapter;
-    private int counter = 1, imagecounter=1;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +56,7 @@ public class ViewLinkListActivity extends AppCompatActivity
                 .setQuery(queryStore, LinkListSingleLink.class)
                 .setLifecycleOwner(this)
                 .build();
-        System.out.print("OPTIONS CREATED");
+
         recyclerView = findViewById(R.id.activity_view_link_list_recycler_view);
 
         adapter = new FirestoreRecyclerAdapter<LinkListSingleLink, LinkListSingleLinkHolder>(options) {
@@ -107,6 +107,7 @@ public class ViewLinkListActivity extends AppCompatActivity
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter.startListening();
         recyclerView.setAdapter(adapter);
+
     }
 
     @Override
