@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".activities.LoginActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.7"
+        android:background="@drawable/room" />
+
     <LinearLayout
         android:layout_width="379dp"
         android:layout_height="699dp"
