@@ -1,6 +1,6 @@
 package com.example.rum8.listeners;
 
-public interface MainControllerListener {
+public interface AdvancedSettingsControllerListener {
 
     void goToProfileSettings();
 
@@ -9,5 +9,4 @@ public interface MainControllerListener {
     void goToAdvSettings();
 
     void showToast(final String message, final int toastLength);
-
 }

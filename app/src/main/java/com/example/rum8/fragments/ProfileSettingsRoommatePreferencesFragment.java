@@ -1,4 +1,5 @@
 package com.example.rum8.fragments;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,8 +8,10 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import com.example.rum8.R;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
@@ -58,163 +61,118 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
 
         radioGroupRoommateQuestionOne.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton)group.findViewById(checkedId);
-            if(rb.getText().equals("Yes")){
-                controller.updateRoommateKey(0, 1);
-                controller.updateRoommateMap("prefer_same_gender_roommate_value", indicatorYes);
-            }
-            else if(rb.getText().equals("No pref.")){
-                controller.updateRoommateKey(0, 0);
-                controller.updateRoommateMap("prefer_same_gender_roommate_value", indicatorSometimes);
-            }
-            else{
-                controller.updateRoommateKey(0, -1);
-                controller.updateRoommateMap("prefer_same_gender_roommate_value", indicatorNo);
+            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            if (rb.getText().equals("Yes")) {
+                controller.updateUserMap("roommate_prefer_same_gender_roommate_value", indicatorYes);
+            } else if (rb.getText().equals("No pref.")) {
+                controller.updateUserMap("roommate_prefer_same_gender_roommate_value", indicatorSometimes);
+            } else {
+                controller.updateUserMap("roommate_prefer_same_gender_roommate_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionTwo.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton)group.findViewById(checkedId);
-            if(rb.getText().equals("Yes")){
-                controller.updateRoommateKey(1, 1);
-                controller.updateRoommateMap("clean_value", indicatorYes);
-            }
-            else if(rb.getText().equals("No pref.")){
-                controller.updateRoommateKey(1, 0);
-                controller.updateRoommateMap("clean_value", indicatorSometimes);
-            }
-            else{
-                controller.updateRoommateKey(1, -1);
-                controller.updateRoommateMap("clean_value", indicatorNo);
+            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            if (rb.getText().equals("Yes")) {
+                controller.updateUserMap("roommate_clean_value", indicatorYes);
+            } else if (rb.getText().equals("No pref.")) {
+                controller.updateUserMap("roommate_clean_value", indicatorSometimes);
+            } else {
+                controller.updateUserMap("roommate_clean_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionThree.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton)group.findViewById(checkedId);
-            if(rb.getText().equals("Yes")){
-                controller.updateRoommateKey(2, 1);
-                controller.updateRoommateMap("reserved_value", indicatorYes);
-            }
-            else if(rb.getText().equals("No pref.")){
-                controller.updateRoommateKey(2, 0);
-                controller.updateRoommateMap("reserved_value", indicatorSometimes);
-            }
-            else{
-                controller.updateRoommateKey(2, -1);
-                controller.updateRoommateMap("reserved_value", indicatorNo);
+            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            if (rb.getText().equals("Yes")) {
+                controller.updateUserMap("roommate_reserved_value", indicatorYes);
+            } else if (rb.getText().equals("No pref.")) {
+                controller.updateUserMap("roommate_reserved_value", indicatorSometimes);
+            } else {
+                controller.updateUserMap("roommate_reserved_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionFour.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton)group.findViewById(checkedId);
-            if(rb.getText().equals("Yes")){
-                controller.updateRoommateKey(3, 1);
-                controller.updateRoommateMap("party_value", indicatorYes);
-            }
-            else if(rb.getText().equals("No pref.")){
-                controller.updateRoommateKey(3, 0);
-                controller.updateRoommateMap("party_value", indicatorSometimes);
-            }
-            else{
-                controller.updateRoommateKey(3, -1);
-                controller.updateRoommateMap("party_valuee", indicatorNo);
+            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            if (rb.getText().equals("Yes")) {
+                controller.updateUserMap("roommate_party_value", indicatorYes);
+            } else if (rb.getText().equals("No pref.")) {
+                controller.updateUserMap("roommate_party_value", indicatorSometimes);
+            } else {
+                controller.updateUserMap("roommate_party_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionFive.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton)group.findViewById(checkedId);
-            if(rb.getText().equals("Yes")){
-                controller.updateRoommateKey(4, 1);
-                controller.updateRoommateMap("alcohol_value", indicatorYes);
-            }
-            else if(rb.getText().equals("No pref.")){
-                controller.updateRoommateKey(4, 0);
-                controller.updateRoommateMap("alcohol_value", indicatorSometimes);
-            }
-            else{
-                controller.updateRoommateKey(4, -1);
-                controller.updateRoommateMap("alcohol_value", indicatorNo);
+            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            if (rb.getText().equals("Yes")) {
+                controller.updateUserMap("roommate_alcohol_value", indicatorYes);
+            } else if (rb.getText().equals("No pref.")) {
+                controller.updateUserMap("roommate_alcohol_value", indicatorSometimes);
+            } else {
+                controller.updateUserMap("roommate_alcohol_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionSix.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton)group.findViewById(checkedId);
-            if(rb.getText().equals("Yes")){
-                controller.updateRoommateKey(5, 1);
-                controller.updateRoommateMap("smoke_value", indicatorYes);
-            }
-            else if(rb.getText().equals("No pref.")){
-                controller.updateRoommateKey(5, 0);
-                controller.updateRoommateMap("smoke_value", indicatorSometimes);
-            }
-            else{
-                controller.updateRoommateKey(5, -1);
-                controller.updateRoommateMap("smoke_value", indicatorNo);
+            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            if (rb.getText().equals("Yes")) {
+                controller.updateUserMap("roommate_smoke_value", indicatorYes);
+            } else if (rb.getText().equals("No pref.")) {
+                controller.updateUserMap("roommate_smoke_value", indicatorSometimes);
+            } else {
+                controller.updateUserMap("roommate_smoke_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionSeven.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton)group.findViewById(checkedId);
-            if(rb.getText().equals("Yes")){
-                controller.updateRoommateKey(6, 1);
-                controller.updateRoommateMap("stay_up_late_on_weekends_value", indicatorYes);
-            }
-            else if(rb.getText().equals("No pref.")){
-                controller.updateRoommateKey(6, 0);
-                controller.updateRoommateMap("stay_up_late_on_weekends_value", indicatorSometimes);
-            }
-            else{
-                controller.updateRoommateKey(6, -1);
-                controller.updateRoommateMap("stay_up_late_on_weekends_value", indicatorNo);
+            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            if (rb.getText().equals("Yes")) {
+                controller.updateUserMap("roommate_stay_up_late_on_weekdays_value", indicatorYes);
+            } else if (rb.getText().equals("No pref.")) {
+                controller.updateUserMap("roommate_stay_up_late_on_weekdays_value", indicatorSometimes);
+            } else {
+                controller.updateUserMap("roommate_stay_up_late_on_weekdays_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionEight.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton)group.findViewById(checkedId);
-            if(rb.getText().equals("Yes")){
-                controller.updateRoommateKey(7, 1);
-                controller.updateRoommateMap("overnight_guests_value", indicatorYes);
-            }
-            else if(rb.getText().equals("No pref.")){
-                controller.updateRoommateKey(7, 0);
-                controller.updateRoommateMap("overnight_guests_value", indicatorSometimes);
-            }
-            else{
-                controller.updateRoommateKey(7, 1);
-                controller.updateRoommateMap("overnight_guests_value", indicatorNo);
+            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            if (rb.getText().equals("Yes")) {
+                controller.updateUserMap("roommate_overnight_guests_value", indicatorYes);
+            } else if (rb.getText().equals("No pref.")) {
+                controller.updateUserMap("roommate_overnight_guests_value", indicatorSometimes);
+            } else {
+                controller.updateUserMap("roommate_overnight_guests_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionNine.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton)group.findViewById(checkedId);
-            if(rb.getText().equals("Yes")){
-                controller.updateRoommateKey(8, 1);
-                controller.updateRoommateMap("allow_pets_value", indicatorYes);
-            }
-            else if(rb.getText().equals("No pref.")){
-                controller.updateRoommateKey(8, 0);
-                controller.updateRoommateMap("allow_pets_value", indicatorSometimes);
+            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            if (rb.getText().equals("Yes")) {
+                controller.updateUserMap("roommate_allow_pets_value", indicatorYes);
+            } else if (rb.getText().equals("No pref.")) {
+                controller.updateUserMap("roommate_allow_pets_value", indicatorSometimes);
 
-            }
-            else{
-                controller.updateRoommateKey(8, -1);
-                controller.updateRoommateMap("allow_pets_value", indicatorNo);
+            } else {
+                controller.updateUserMap("roommate_allow_pets_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
 
@@ -222,7 +180,7 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
 
         saveRoommateButton = rootView.findViewById(R.id.roommate_preferences_save_button);
         saveRoommateButton.setOnClickListener(v -> {
-            controller.roommateSaveSubmit();
+            controller.submitUserMap();
             this.showToast("Roommate Preferences Saved", Toast.LENGTH_SHORT);
         });
 
@@ -235,15 +193,19 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
     }
 
     @Override
-    public void showUploadImageProgress(){}
+    public void showUploadImageProgress() {
+    }
 
     @Override
-    public void hideUploadImageProgress(){}
+    public void hideUploadImageProgress() {
+    }
 
     @Override
-    public void updateUploadImagePercentage(double percengate){}
+    public void updateUploadImagePercentage(double percengate) {
+    }
 
     @Override
-    public void chooseImage(){}
+    public void chooseImage() {
+    }
 
 }

@@ -17,6 +17,9 @@ public class MainController {
         controllerListener.goToProfileSettings();
     }
 
+    public void onGoToAdvSettingsButtonClicked() {
+        controllerListener.goToAdvSettings();
+    }
     public void onLogOutButtonClicked() {
         FirebaseAuth.getInstance().signOut();
         controllerListener.goToLogin();

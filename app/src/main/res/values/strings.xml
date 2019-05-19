@@ -8,6 +8,7 @@
     <string name="login_button">Log in</string>
     <string name="yes">Yes</string>
     <string name="no_pref">No pref.</string>
+    <string name="maybe">Maybe</string>
     <string name="no">No</string>
     <string name="next">Next</string>
     <string name="save">Save</string>
@@ -25,6 +26,7 @@
     <string name="menu_log_in_button">Log In</string>
     <string name="menu_log_out_button">Log Out</string>
     <string name="menu_profile_settings_button">Profile Settings</string>
+    <string name="menu_adv_settings_button">Advanced Settings</string>
 
     <!-- activity_password_recovery -->
     <string name="pr_header">Password Recovery</string>
@@ -93,6 +95,19 @@
     <string name="ps_roommate_preferences_option_sometimes">Sometimes</string>
     <string name="ps_roommate_preferences_option_somewhat">Somewhat</string>
     <string name="ps_roommate_preferences_option_no">No</string>
+
+    <!-- adv_settings-->
+    <string name="adv_settings_header">Advanced Settings</string>
+    <string name="adv_settings_sub_header_1">General</string>
+    <string name="adv_settings_sub_header_2">Personal</string>
+    <string name="adv_settings_sub_header_3">Contact</string>
+    <string name="adv_settings_living_accommodations">Living accommodations:</string>
+    <string name="adv_settings_other_things">Other things you should know:</string>
+    <string name="adv_settings_bio">About me:</string>
+    <string name="adv_settings_hobbies">Hobbies:</string>
+    <string name="adv_settings_interests">Interests:</string>
+    <string name="adv_settings_phone">Phone number:</string>
+    <string name="adv_settings_button_save">Save</string>
 
 
 </resources>
