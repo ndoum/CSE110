@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
                 return true;
             case R.id.main_activity_go_to_view_link_list:
                 controller.onGoToLinkListButtonClicked();
+                return true;
             case R.id.main_activity_go_to_adv_settings:
                 controller.onGoToAdvSettingsButtonClicked();
                 return true;
@@ -78,7 +79,8 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     @Override
     public void goToLinkList() {
         final Intent intent = new Intent(MainActivity.this, ViewLinkListActivity.class);
-
+        startActivity(intent);
+    }
     public void goToAdvSettings() {
         final Intent intent = new Intent(MainActivity.this, AdvancedSettingsActivity.class);
         startActivity(intent);

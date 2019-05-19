@@ -42,7 +42,6 @@ public class Db {
             put("matched", EMPTY_MAP);
             put("ucsd_college", "Muir");
             put("uid", EMPTY_STRING);
-        }};
 
             put("alcohol_value", ZERO);
             put("allow_pets_value", ZERO);
