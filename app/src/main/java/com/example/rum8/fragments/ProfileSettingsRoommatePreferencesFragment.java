@@ -141,11 +141,11 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("roommate_stay_up_late_on_weekends_value", indicatorYes);
+                controller.updateUserMap("roommate_stay_up_late_on_weekdays_value", indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
-                controller.updateUserMap("roommate_stay_up_late_on_weekends_value", indicatorSometimes);
+                controller.updateUserMap("roommate_stay_up_late_on_weekdays_value", indicatorSometimes);
             } else {
-                controller.updateUserMap("roommate_stay_up_late_on_weekends_value", indicatorNo);
+                controller.updateUserMap("roommate_stay_up_late_on_weekdays_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });

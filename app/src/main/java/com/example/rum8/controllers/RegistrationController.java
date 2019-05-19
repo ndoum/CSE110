@@ -9,6 +9,7 @@ import com.example.rum8.database.Db;
 import com.example.rum8.listeners.RegistrationControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -51,9 +52,12 @@ public class RegistrationController {
                                 put("uid", auth.getCurrentUser().getUid());
                             }};
 
-                            Db.createUserAndPreferences(db, auth.getCurrentUser(), userInfo)
+                            final FirebaseUser user = auth.getCurrentUser();
+
+                            Db.createUserAndPreferences(db, user, userInfo)
                                     .addOnSuccessListener(aVoid -> Log.d("Success", "createUserWithEmail:success"))
                                     .addOnFailureListener(e -> Log.d("Error", "createUserWithEmail:failure", e));
+                            Db.populatePotential(db, user);
                         } else {
                             final String message;
                             if (task.getException() instanceof FirebaseAuthUserCollisionException) {
