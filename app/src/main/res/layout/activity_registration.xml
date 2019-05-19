@@ -5,7 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.RegistrationActivity">
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:alpha="0.5"
+        android:background="@drawable/room" />
     <LinearLayout
         android:layout_width="379dp"
         android:layout_height="699dp"
@@ -14,23 +19,29 @@
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:gravity="center_horizontal"
+            android:src="@drawable/logo" />
         <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="100dp"
             android:layout_weight="0"
             android:gravity="center_horizontal"
+            android:textSize="32dp"
             android:text="@string/registration_header" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:hint="@string/ucsd_email_hint"
             android:textColorHint="@color/ucsd_navy_blue"
-            app:boxStrokeColor="@color/ucsd_navy_blue">
+            app:boxStrokeColor="@color/ucsd_navy_blue"
+            app:hintTextColor="#4E342E"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_email"
@@ -45,7 +56,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:hint="@string/password_hint"
             android:textColorHint="@color/ucsd_navy_blue"
             app:boxStrokeColor="@color/ucsd_navy_blue"
@@ -64,6 +75,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
+            android:alpha="0.7"
+            android:backgroundTint="#8D6E63"
+            android:textColor="#FFF3E0"
             android:text="@string/register_button" />
 
         <Button
@@ -71,6 +85,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
+            android:alpha="0.7"
+            android:backgroundTint="#8D6E63"
+            android:textColor="#FFF3E0"
             android:text="Cancel" />
 
     </LinearLayout>

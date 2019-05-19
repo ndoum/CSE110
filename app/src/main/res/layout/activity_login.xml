@@ -6,11 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".activities.LoginActivity">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:alpha="0.7"
-        android:background="@drawable/room" />
 
     <LinearLayout
         android:layout_width="379dp"
@@ -21,11 +16,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/logo" />
         <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="100dp"
             android:layout_weight="0"
+            android:textSize="32dp"
             android:gravity="center_horizontal"
             android:text="Log in" />
 
@@ -33,7 +33,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:hint="@string/ucsd_email_hint"
             android:textColorHint="@color/ucsd_navy_blue"
             app:boxStrokeColor="@color/ucsd_navy_blue">
@@ -43,6 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
+                android:textColor="#4056A1"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -68,22 +69,31 @@
         <Button
             android:id="@+id/button_login"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_weight="0"
+            android:backgroundTint="#8D6E63"
+            android:alpha="0.7"
+            android:textColor="#FFF3E0"
             android:text="@string/login_button" />
 
         <Button
             android:id="@+id/button_register"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_weight="0"
+            android:alpha="0.7"
+            android:backgroundTint="#8D6E63"
+            android:textColor="#FFF3E0"
             android:text="@string/login_register_button" />
 
         <Button
             android:id="@+id/button_password_recovery"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_weight="0"
+            android:alpha="0.7"
+            android:backgroundTint="#8D6E63"
+            android:textColor="#FFF3E0"
             android:text="@string/login_pr_button" />
 
     </LinearLayout>
