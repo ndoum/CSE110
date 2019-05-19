@@ -72,9 +72,9 @@ public class Db {
 
     private static String USERS_COLLECTION_NAME = "users";
 
-    public static Task<Void> createUserAndPreferences(final FirebaseFirestore firestore,
-                                                      final @Nonnull FirebaseUser user,
-                                                      final Map<String, Object> userHash) {
+    public static Task<Void> createUser(final FirebaseFirestore firestore,
+                                        final @Nonnull FirebaseUser user,
+                                        final Map<String, Object> userHash) {
         final String userId = user.getUid();
 
         // Create user document and get a reference to it
@@ -94,8 +94,8 @@ public class Db {
         return batch.commit();
     }
 
-    public static Task<DocumentSnapshot> populatePotential(final FirebaseFirestore firestore,
-                                                           final @Nonnull FirebaseUser user) {
+    public static Task<DocumentSnapshot> populateUserPotentialMatches(final FirebaseFirestore firestore,
+                                                                      final @Nonnull FirebaseUser user) {
         final String userId = user.getUid();
 
         final CollectionReference usersCollection = firestore.collection(USERS_COLLECTION_NAME);
