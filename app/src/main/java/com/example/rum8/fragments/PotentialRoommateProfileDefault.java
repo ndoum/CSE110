@@ -15,7 +15,7 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
-public class Potential_roommate_profile_default extends Fragment {
+public class PotentialRoommateProfileDefault extends Fragment {
 
     private TabLayout tablayout;
     private AppBarLayout appBarLayout;

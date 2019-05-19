@@ -15,7 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.rum8.R;
 import com.example.rum8.controllers.MainController;
 import com.example.rum8.fragments.potential_roommate_profile;
-import com.example.rum8.fragments.Potential_roommate_profile_alt;
+import com.example.rum8.fragments.PotentialRoommateProfileAlt;
 import com.example.rum8.listeners.MainControllerListener;
 
 
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         // Actions when the not link button is clicked
         if (view == findViewById(R.id.not_link_button)){
 
-            fragment = new Potential_roommate_profile_alt();
+            fragment = new PotentialRoommateProfileAlt();
 
             FragmentManager fm = getSupportFragmentManager();
 
