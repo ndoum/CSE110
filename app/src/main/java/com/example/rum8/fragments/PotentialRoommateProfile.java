@@ -18,7 +18,7 @@ import com.google.android.material.tabs.TabLayout;
 /**
  * Class that implements potential roommate profile
  */
-public class potential_roommate_profile extends Fragment {
+public class PotentialRoommateProfile extends Fragment {
 
     private TabLayout tablayout;
     private AppBarLayout appBarLayout;
