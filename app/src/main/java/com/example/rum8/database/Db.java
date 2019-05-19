@@ -71,8 +71,6 @@ public class Db {
     }
 
     private static String USERS_COLLECTION_NAME = "users";
-    static Task<Void> returnVal;
-
 
     public static Task<Void> createUserAndPreferences(final FirebaseFirestore firestore,
                                                       final @Nonnull FirebaseUser user,
