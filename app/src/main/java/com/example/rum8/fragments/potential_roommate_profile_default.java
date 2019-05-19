@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.rum8.R;
-import com.example.rum8.adapters.potentialRoommateProfileDefaultAdapter;
+import com.example.rum8.adapters.PotentialRoommateProfileDefaultAdapter;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
@@ -40,7 +40,7 @@ public class potential_roommate_profile_default extends Fragment {
         appBarLayout = rootView.findViewById(R.id.potential_roommate_profile_default_appbarid);
         viewPager = rootView.findViewById(R.id.potential_roommate_profile_default_viewpager_id);
 
-        potentialRoommateProfileDefaultAdapter adapter = new potentialRoommateProfileDefaultAdapter(getChildFragmentManager());
+        PotentialRoommateProfileDefaultAdapter adapter = new PotentialRoommateProfileDefaultAdapter(getChildFragmentManager());
         adapter.AddFragment(new UserTab1Fragment(), "General");
         adapter.AddFragment(new UserTab2Fragment(), "Personal");
         adapter.AddFragment(new UserTab3Fragment(), "Overview");

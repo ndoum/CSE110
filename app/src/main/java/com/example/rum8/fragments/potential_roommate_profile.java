@@ -1,7 +1,5 @@
 package com.example.rum8.fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,11 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.rum8.adapters.potentialRoommateProfileAdapter;
+import com.example.rum8.adapters.PotentialRoommateProfileInitAdapter;
 
 import com.example.rum8.R;
 import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 /**
@@ -41,7 +38,7 @@ public class potential_roommate_profile extends Fragment {
         appBarLayout = rootView.findViewById(R.id.potential_roommate_profile_appbarid);
         viewPager = rootView.findViewById(R.id.potential_roommate_profile_viewpager_id);
 
-        potentialRoommateProfileAdapter adapter = new potentialRoommateProfileAdapter(getChildFragmentManager());
+        PotentialRoommateProfileInitAdapter adapter = new PotentialRoommateProfileInitAdapter(getChildFragmentManager());
         adapter.AddFragment(new UserTab1Fragment(), "General");
         adapter.AddFragment(new UserTab2Fragment(), "Personal");
         adapter.AddFragment(new UserTab3Fragment(), "Overview");

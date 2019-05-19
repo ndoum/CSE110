@@ -11,20 +11,22 @@ import java.util.List;
 
 /**
  * Class that implements fragment pager adapter for potential roommate profile
- * page.
+ * alternative page.
  */
-public class potentialRoommateProfileAdapter extends FragmentPagerAdapter {
+public class PotentialRoommateProfileAltAdapter extends FragmentPagerAdapter {
 
     private final List<Fragment> fragmentList = new ArrayList<>();
     private final List<String> FragmentListTitles = new ArrayList<>();
 
+
     /**
-     * Constructor that instantiates the potential roommate profile adapter.
+     * Constructor that instantiates the potential roommate profile alt adapter.
      * @param fm
      */
-    public potentialRoommateProfileAdapter(FragmentManager fm){
+    public PotentialRoommateProfileAltAdapter(FragmentManager fm){
         super(fm);
     }
+
 
     /**
      * Method that returns specific fragment at the given position
@@ -46,6 +48,7 @@ public class potentialRoommateProfileAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return FragmentListTitles.size();
     }
+
 
     /**
      * Method that returns the title of the fragment at given
@@ -69,4 +72,5 @@ public class potentialRoommateProfileAdapter extends FragmentPagerAdapter {
         fragmentList.add(fragment);
         FragmentListTitles.add(Title);
     }
+
 }

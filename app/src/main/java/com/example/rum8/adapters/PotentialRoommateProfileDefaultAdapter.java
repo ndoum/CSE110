@@ -13,7 +13,7 @@ import java.util.List;
  * Class that implements fragment pager adapter for potential roommate profile
  * default page.
  */
-public class potentialRoommateProfileDefaultAdapter extends FragmentPagerAdapter {
+public class PotentialRoommateProfileDefaultAdapter extends FragmentPagerAdapter {
 
     private final List<Fragment> fragmentList = new ArrayList<>();
     private final List<String> FragmentListTitles = new ArrayList<>();
@@ -22,7 +22,7 @@ public class potentialRoommateProfileDefaultAdapter extends FragmentPagerAdapter
      * Constructor that instantiates the potential roommate profile default adapter.
      * @param fm
      */
-    public potentialRoommateProfileDefaultAdapter(FragmentManager fm){
+    public PotentialRoommateProfileDefaultAdapter(FragmentManager fm){
         super(fm);
     }
 
