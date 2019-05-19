@@ -33,35 +33,35 @@ public class Db {
         static final Map<String, Object> USER = new HashMap<String, Object>() {{
             put("academic_year", 1);
             put("age", 18);
+            put("budget", ZERO);
             put("email", EMPTY_STRING);
             put("first_name", EMPTY_STRING);
             put("gender", "Female");
             put("last_name", EMPTY_STRING);
             put("major", "Computer Science");
             put("mobile_phone", EMPTY_STRING);
+            put("ucsd_college", "Muir");
+
             put("potential", EMPTY_MAP);
             put("liked", EMPTY_MAP);
             put("disliked", EMPTY_MAP);
             put("matched", EMPTY_MAP);
-            put("ucsd_college", "Muir");
 
             put("alcohol_value", ZERO);
             put("allow_pets_value", ZERO);
-            put("budget", ZERO);
             put("clean_value", ZERO);
             put("overnight_guests_value", ZERO);
             put("party_value", ZERO);
-            put("prefer_same_gender_roommate_value", 0);
             put("reserved_value", ZERO);
             put("smoke_value", ZERO);
             put("stay_up_late_on_weekdays_value", ZERO);
 
             put("roommate_alcohol_value", ZERO);
             put("roommate_allow_pets_value", ZERO);
-            put("roommate_budget", ZERO);
             put("roommate_clean_value", ZERO);
             put("roommate_overnight_guests_value", ZERO);
             put("roommate_party_value", ZERO);
+            put("roommate_prefer_same_gender_roommate_value", 0);
             put("roommate_reserved_value", ZERO);
             put("roommate_smoke_value", ZERO);
             put("roommate_stay_up_late_on_weekdays_value", ZERO);

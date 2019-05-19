@@ -33,8 +33,8 @@ public class Filter {
         final String u1Gender = (String) u1Data.get("gender");
         final String u2Gender = (String) u2Data.get("gender");
 
-        final long u1GenderPref = (long) u1Data.get("prefer_same_gender_roommate_value");
-        final long u2GenderPref = (long) u2Data.get("prefer_same_gender_roommate_value");
+        final long u1GenderPref = (long) u1Data.get("roommate_prefer_same_gender_roommate_value");
+        final long u2GenderPref = (long) u2Data.get("roommate_prefer_same_gender_roommate_value");
 
         return u1Gender.equals(u2Gender) || (u1GenderPref == 0 && u2GenderPref == 0);
     }
