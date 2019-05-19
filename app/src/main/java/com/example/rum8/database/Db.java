@@ -49,24 +49,22 @@ public class Db {
             put("allow_pets_value", ZERO);
             put("budget", ZERO);
             put("clean_value", ZERO);
-            put("housing_type_value", ZERO);
             put("overnight_guests_value", ZERO);
             put("party_value", ZERO);
             put("prefer_same_gender_roommate_value", 0);
             put("reserved_value", ZERO);
             put("smoke_value", ZERO);
-            put("stay_up_late_on_weekends_value", ZERO);
+            put("stay_up_late_on_weekdays_value", ZERO);
 
             put("roommate_alcohol_value", ZERO);
             put("roommate_allow_pets_value", ZERO);
             put("roommate_budget", ZERO);
             put("roommate_clean_value", ZERO);
-            put("roommate_housing_type_value", ZERO);
             put("roommate_overnight_guests_value", ZERO);
             put("roommate_party_value", ZERO);
             put("roommate_reserved_value", ZERO);
             put("roommate_smoke_value", ZERO);
-            put("roommate_stay_up_late_on_weekends_value", ZERO);
+            put("roommate_stay_up_late_on_weekdays_value", ZERO);
         }};
 
     }
@@ -123,7 +121,7 @@ public class Db {
                             final DocumentReference otherUser = usersCollection.document(otherUserId);
 
                             otherUser.get().addOnSuccessListener(otherUserSnap -> {
-                                if (filter(userSnap, otherUserSnap)) {
+                                if (Filter.match(userSnap.getData(), otherUserSnap.getData())) {
 
                                     // Add other user to this user's potential
                                     potential.put(otherUserId, InitialValues.EMPTY_STRING);
@@ -142,27 +140,6 @@ public class Db {
                         }
                     });
         });
-    }
-
-    private static boolean filter(final DocumentSnapshot u1, final DocumentSnapshot u2) {
-        final Map<String, Object> u1Data = u1.getData();
-        final Map<String, Object> u2Data = u2.getData();
-
-        if (genderPasses(u1Data, u2Data)) {
-            return true;
-        }
-
-        return false;
-    }
-
-    private static boolean genderPasses(final Map<String, Object> u1Data, final Map<String, Object> u2Data) {
-        final String u1Gender = (String) u1Data.get("gender");
-        final String u2Gender = (String) u2Data.get("gender");
-
-        final long u1GenderPref = (long) u1Data.get("prefer_same_gender_roommate_value");
-        final long u2GenderPref = (long) u2Data.get("prefer_same_gender_roommate_value");
-
-        return u1Gender.equals(u2Gender) || (u1GenderPref == 0 && u2GenderPref == 0);
     }
 
     public static Task<Void> updateUser(final FirebaseFirestore firestore,
