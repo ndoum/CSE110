@@ -45,7 +45,7 @@ public class PotentialRoommateProfileInit extends Fragment {
         adapter.AddFragment(new UserTab3Fragment(), "Contact");
         viewPager.setAdapter(adapter);
         tablayout.setupWithViewPager(viewPager);
-        
+
         return rootView;
     }
 
