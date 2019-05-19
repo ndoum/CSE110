@@ -153,7 +153,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
                 controller.updateUserMap("allow_pets_value", indicatorYes);
-            } else if (rb.getText().equals("Sometimes")) {
+            } else if (rb.getText().equals("Maybe")) {
                 controller.updateUserMap("allow_pets_value", indicatorSometimes);
             } else {
                 controller.updateUserMap("allow_pets_value", indicatorNo);
