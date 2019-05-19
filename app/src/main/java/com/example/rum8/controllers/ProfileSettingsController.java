@@ -9,6 +9,7 @@ import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 
@@ -80,6 +81,10 @@ public class ProfileSettingsController {
                         controllerListener.updateUploadImagePercentage(progress);
                     });
         }
+    }
+
+    public Task<DocumentSnapshot> loadUserInfo(final FirebaseFirestore firestore, final FirebaseUser user){
+        return Db.fetchUserInfo(firestore, user);
     }
 
     public Task<byte[]> loadDefaluUserProfileImage(final FirebaseStorage storage) {

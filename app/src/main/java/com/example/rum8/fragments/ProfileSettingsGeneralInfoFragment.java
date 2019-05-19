@@ -26,6 +26,7 @@ import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageException;
 
@@ -34,6 +35,11 @@ import java.util.Map;
 
 public class ProfileSettingsGeneralInfoFragment extends Fragment implements ProfileSettingsControllerListener{
 
+    private final static int POSSITION_2 = 2;
+    private final static int POSSITION_3 = 3;
+    private final static int POSSITION_4 = 4;
+    private final static int POSSITION_5 = 5;
+    private final static int POSSITION_6 = 6;
     private final static int MAX_SIZE = 180; // height of imageView
     private final static  String PROGRESS_TITLE= "Uploading...";
     private TextInputEditText firstNameField;
@@ -60,6 +66,10 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     @Override
     public void onViewCreated (View rootView, Bundle savedInstanceState){
         controller = new ProfileSettingsController(this);
+        final FirebaseAuth auth = FirebaseAuth.getInstance();
+        final FirebaseUser user = auth.getCurrentUser();
+        final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        final FirebaseStorage storage = FirebaseStorage.getInstance();
 
         //NAME FIELDS
         firstNameField = rootView.findViewById(R.id.general_info_first_name_field);
@@ -71,6 +81,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
                 R.array.ps_general_info_gender_items, android.R.layout.simple_spinner_item);
         genderSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         genderSpinner.setAdapter(genderSpinnerAdapter);
+        genderSpinner.setSelection(2,true);
 
         //FILLING THE ACADEMIC YEAR SPINNER
         academicYearSpinner = rootView.findViewById(R.id.general_info_academic_year_spinner);
@@ -86,11 +97,50 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         collegeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         collegeSpinner.setAdapter(collegeAdapter);
 
+        controller.loadUserInfo(firestore,user).addOnSuccessListener(documentSnapshot -> {
+            Map<String, Object> data = documentSnapshot.getData();
+            final String userGender = (String) data.get("gender");
+            final String userYear = (String) data.get("academic_year");
+            final String userCollege = (String) data.get("ucsd_college");
+            final String userFirstName = (String) data.get("first_name");
+            final String userLastName = (String) data.get("last_name");
+
+            if (userGender.equals("Female")){
+                genderSpinner.setSelection(1);
+            }else if (userGender.equals("Non-binary")){
+                genderSpinner.setSelection(POSSITION_2);
+            }
+
+            if (userYear.equals("Second")){
+                academicYearSpinner.setSelection(1);
+            }else if (userYear.equals("Third")){
+                academicYearSpinner.setSelection(POSSITION_2);
+            }else if (userYear.equals("Fourth")){
+                academicYearSpinner.setSelection(POSSITION_3);
+            }else if (userYear.equals("Other")){
+                academicYearSpinner.setSelection(POSSITION_4);
+            }
+
+            if (userCollege.equals("Muir")){
+                collegeSpinner.setSelection(1);
+            }else if(userCollege.equals("Marshall")){
+                collegeSpinner.setSelection(POSSITION_2);
+            }else if(userCollege.equals("Warren")){
+                collegeSpinner.setSelection(POSSITION_3);
+            }else if(userCollege.equals("ERC")){
+                collegeSpinner.setSelection(POSSITION_4);
+            }else if(userCollege.equals("Sixth")){
+                collegeSpinner.setSelection(POSSITION_5);
+            }
+
+            firstNameField.setText(userFirstName);
+            lastNameField.setText(userLastName);
+
+        }).addOnFailureListener(exception -> {final String message = "Network error";
+            Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();});
+
         progressDialog = new ProgressDialog(getActivity());
         imageView = rootView.findViewById(R.id.general_info_profile_image_view);
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        final FirebaseUser user = auth.getCurrentUser();
-        final FirebaseStorage storage = FirebaseStorage.getInstance();
 
         // fetch user's profile picture
         controller.loadUserProfileImage(storage, user).addOnSuccessListener(bytes -> {

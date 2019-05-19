@@ -165,4 +165,11 @@ public class Db {
     public static Task<byte[]> fetchDefaultUserProfilePicture(final FirebaseStorage storage) {
         return storage.getReference().child(DEFAULT_PROFILE_PIC_PATH).getBytes(ONE_MEGABYTE);
     }
+
+    public static Task<DocumentSnapshot> fetchUserInfo(final FirebaseFirestore firestore,
+                                                       final @Nonnull FirebaseUser user) {
+
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(user.getUid()).get();
+    }
 }
