@@ -14,16 +14,14 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 import javax.annotation.Nonnull;
 
 public class Db {
 
     private static final String PROFILE_PIC_PATH = "profile_pictures/";
-    private static final String DEFAULT_PROFILE_PIC_PATH= "profile_picture_default/default_profile_pic.png";
+    private static final String DEFAULT_PROFILE_PIC_PATH = "profile_picture_default/default_profile_pic.png";
     private static final long ONE_MEGABYTE = 1024 * 1024;
 
     static class InitialValues {
@@ -76,10 +74,31 @@ public class Db {
     private static String USERS_COLLECTION_NAME = "users";
     static Task<Void> returnVal;
 
+
     public static Task<Void> createUserAndPreferences(final FirebaseFirestore firestore,
                                                       final @Nonnull FirebaseUser user,
                                                       final Map<String, Object> userHash) {
+        final String userId = user.getUid();
 
+        // Create user document and get a reference to it
+        final DocumentReference userRef = firestore.collection(USERS_COLLECTION_NAME).document(userId);
+
+        final WriteBatch batch = firestore.batch();
+
+        // Construct a new user hash from passed values and default values
+        // Passed values from userHash overwrite existing default values
+        final Map<String, Object> completeUserHash = InitialValues.USER;
+        completeUserHash.putAll(userHash);
+
+        // Initialize user document's data
+        batch.set(userRef, completeUserHash);
+
+        // Submit all batched operations
+        return batch.commit();
+    }
+
+    public static Task<DocumentSnapshot> populatePotential(final FirebaseFirestore firestore,
+                                                           final @Nonnull FirebaseUser user) {
         final String userId = user.getUid();
 
         final CollectionReference usersCollection = firestore.collection(USERS_COLLECTION_NAME);
@@ -89,49 +108,44 @@ public class Db {
 
         final WriteBatch batch = firestore.batch();
 
-        userRef.get().addOnSuccessListener(userSnap -> {
+        final Map<String, Object> userHash = new HashMap<>();
 
-            // Populate potential
+        return userRef.get().addOnSuccessListener(userSnap -> {
             firestore.collection(USERS_COLLECTION_NAME)
                     .get()
                     .addOnSuccessListener(queryDocumentSnapshots -> {
-                        final Set<String> potential = new HashSet<>();
-                        for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
+                        final Map<String, Object> potential = new HashMap<>();
+                        for (final QueryDocumentSnapshot doc : queryDocumentSnapshots) {
                             final String otherUserId = doc.getId();
                             final DocumentReference otherUser = usersCollection.document(otherUserId);
 
                             otherUser.get().addOnSuccessListener(otherUserSnap -> {
                                 if (filter(userSnap, otherUserSnap)) {
-                                    potential.add(otherUserId);
 
-                                    final Set<String> otherUserPotentialSet = ((Set<String>) doc.getData().get("potential"));
-                                    otherUserPotentialSet.add(userId);
+                                    // Add other user to this user's potential
+                                    potential.put(otherUserId, InitialValues.EMPTY_STRING);
 
-                                    final Map<String, Object> otherUserPotentialMap = new HashMap<String, Object>() {{
-                                        put("potential", otherUserPotentialSet);
-                                    }};
-
-                                    batch.update(otherUser, otherUserPotentialMap);
+                                    // Add this user to other user's potential
+                                    final Map<String, Object> otherUserHash = doc.getData();
+                                    final Map<String, Object> otherUserPotential = (Map<String, Object>) otherUserHash.get("potential");
+                                    otherUserPotential.put(userId, InitialValues.EMPTY_STRING);
+                                    otherUserHash.put("potential", otherUserPotential);
+                                    otherUser.update(otherUserHash);
+//                                    batch.update(otherUser, otherUserHash);
                                 }
+
                             });
                         }
 
                         userHash.put("potential", potential);
+
+                        // Update user document's data
+                        batch.update(userRef, userHash);
+
+                        // Submit all batched operations
+                        batch.commit();
                     });
-
-            // Construct a new user hash from passed values and default values
-            // Passed values from userHash overwrite existing default values
-            final Map<String, Object> completeUserHash = InitialValues.USER;
-            completeUserHash.putAll(userHash);
-
-            // Initialize user document's data
-            batch.set(userRef, completeUserHash);
-
-            returnVal = batch.commit();
         });
-
-        // Submit all batched operations
-        return returnVal;
     }
 
     private static boolean filter(final DocumentSnapshot u1, final DocumentSnapshot u2) {
@@ -149,15 +163,15 @@ public class Db {
         final String u1Gender = (String) u1Data.get("gender");
         final String u2Gender = (String) u2Data.get("gender");
 
-        final int u1GenderPref = (int) u1Data.get("prefer_same_gender_roommate_value");
-        final int u2GenderPref = (int) u2Data.get("prefer_same_gender_roommate_value");
+        final long u1GenderPref = (long) u1Data.get("prefer_same_gender_roommate_value");
+        final long u2GenderPref = (long) u2Data.get("prefer_same_gender_roommate_value");
 
         return u1Gender.equals(u2Gender) || (u1GenderPref == 0 && u2GenderPref == 0);
     }
 
     public static Task<Void> updateUser(final FirebaseFirestore firestore,
-                                         final @Nonnull FirebaseUser user,
-                                         final Map<String, Object> userHash) {
+                                        final @Nonnull FirebaseUser user,
+                                        final Map<String, Object> userHash) {
 
         return firestore.collection(USERS_COLLECTION_NAME)
                 .document(user.getUid())
@@ -166,18 +180,18 @@ public class Db {
 
     public static UploadTask updateProfilePicture(final FirebaseStorage storage,
                                                   final @Nonnull FirebaseUser user,
-                                                  final Uri filePath){
+                                                  final Uri filePath) {
         return storage.getReference()
                 .child(PROFILE_PIC_PATH + user.getUid())
                 .putFile(filePath);
     }
 
-    public static Task<byte[]> fetchUserProfilePicture (final FirebaseStorage storage,
-                                                        final @Nonnull FirebaseUser user){
+    public static Task<byte[]> fetchUserProfilePicture(final FirebaseStorage storage,
+                                                       final @Nonnull FirebaseUser user) {
         return storage.getReference().child(PROFILE_PIC_PATH + user.getUid()).getBytes(ONE_MEGABYTE);
     }
 
-    public static Task<byte[]> fetchDefaultUserProfilePicture (final FirebaseStorage storage){
+    public static Task<byte[]> fetchDefaultUserProfilePicture(final FirebaseStorage storage) {
         return storage.getReference().child(DEFAULT_PROFILE_PIC_PATH).getBytes(ONE_MEGABYTE);
     }
 }
