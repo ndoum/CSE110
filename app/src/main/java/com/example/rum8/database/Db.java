@@ -117,13 +117,20 @@ public class Db {
                         final Map<String, Object> potential = new HashMap<>();
                         for (final QueryDocumentSnapshot doc : queryDocumentSnapshots) {
                             final String otherUserId = doc.getId();
+
+                            if (userId.equals(otherUserId)) {
+                                continue;
+                            }
+
                             final DocumentReference otherUser = usersCollection.document(otherUserId);
 
                             otherUser.get().addOnSuccessListener(otherUserSnap -> {
                                 if (filter(userSnap, otherUserSnap)) {
 
                                     // Add other user to this user's potential
-                                    potential.put(otherUserId, InitialValues.EMPTY_STRING);
+                                    userHash.put("potential", potential);
+                                    userRef.update(userHash);
+//                                    potential.put(otherUserId, InitialValues.EMPTY_STRING);
 
                                     // Add this user to other user's potential
                                     final Map<String, Object> otherUserHash = doc.getData();
@@ -137,13 +144,13 @@ public class Db {
                             });
                         }
 
-                        userHash.put("potential", potential);
-
-                        // Update user document's data
-                        batch.update(userRef, userHash);
-
-                        // Submit all batched operations
-                        batch.commit();
+//                        userHash.put("potential", potential);
+//
+//                        // Update user document's data
+//                        batch.update(userRef, userHash);
+//
+//                        // Submit all batched operations
+//                        batch.commit();
                     });
         });
     }
