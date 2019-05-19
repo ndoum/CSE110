@@ -8,11 +8,10 @@
     android:id="@+id/main_activity_coordinator_layout"
 >
 
-
     <fragment
         android:layout_width="match_parent"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="30dp"
         android:layout_height="450dp"
         android:id="@+id/fragment_place"
@@ -39,6 +38,5 @@
         android:backgroundTint="@color/colorAccent"
         android:onClick="ChangeFragment"
         app:icon="@drawable/wrong" />
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

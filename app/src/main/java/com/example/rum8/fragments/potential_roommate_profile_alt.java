@@ -44,9 +44,9 @@ public class potential_roommate_profile_alt extends Fragment {
         viewPager = rootView.findViewById(R.id.potential_roommate_profile_alt_viewpager_id);
 
         potentialRoommateProfileAltAdapter adapter = new potentialRoommateProfileAltAdapter(getChildFragmentManager());
-        adapter.AddFragment(new UserTab1Fragment(), "Tab1");
-        adapter.AddFragment(new UserTab2Fragment(), "Tab2");
-        adapter.AddFragment(new UserTab3Fragment(), "Tab3");
+        adapter.AddFragment(new UserTab1Fragment(), "General");
+        adapter.AddFragment(new UserTab2Fragment(), "Personal");
+        adapter.AddFragment(new UserTab3Fragment(), "Overview");
         viewPager.setAdapter(adapter);
         tablayout.setupWithViewPager(viewPager);
 
