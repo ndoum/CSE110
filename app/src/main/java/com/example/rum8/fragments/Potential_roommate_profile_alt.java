@@ -16,7 +16,7 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.tabs.TabLayout;
 
 
-public class potential_roommate_profile_alt extends Fragment {
+public class Potential_roommate_profile_alt extends Fragment {
 
 
     private TabLayout tablayout;

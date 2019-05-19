@@ -15,7 +15,7 @@
         android:layout_marginTop="30dp"
         android:layout_height="450dp"
         android:id="@+id/fragment_place"
-        android:name="com.example.rum8.fragments.potential_roommate_profile_default"
+        android:name="com.example.rum8.fragments.Potential_roommate_profile_default"
         tools:layout="@layout/fragment_potential_roommate_profile_default">
 
     </fragment>
