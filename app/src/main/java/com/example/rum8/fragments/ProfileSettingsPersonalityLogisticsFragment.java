@@ -126,11 +126,11 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("stay_up_late_on_weekends_value", indicatorYes);
+                controller.updateUserMap("stay_up_late_on_weekdays_value", indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
-                controller.updateUserMap("stay_up_late_on_weekends_value", indicatorSometimes);
+                controller.updateUserMap("stay_up_late_on_weekdays_value", indicatorSometimes);
             } else {
-                controller.updateUserMap("stay_up_late_on_weekends_value", indicatorNo);
+                controller.updateUserMap("stay_up_late_on_weekdays_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
@@ -153,7 +153,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
                 controller.updateUserMap("allow_pets_value", indicatorYes);
-            } else if (rb.getText().equals("Sometimes")) {
+            } else if (rb.getText().equals("Maybe")) {
                 controller.updateUserMap("allow_pets_value", indicatorSometimes);
             } else {
                 controller.updateUserMap("allow_pets_value", indicatorNo);
