@@ -6,6 +6,10 @@
         android:title="@string/menu_profile_settings_button"
         app:showAsAction="never"/>
 
+    <item android:id="@+id/main_activity_go_to_adv_settings"
+        android:title="@string/menu_adv_settings_button"
+        app:showAsAction="never"/>
+
     <item android:id="@+id/main_activity_log_out"
         android:title="@string/menu_log_out_button"
         app:showAsAction="never"/>
