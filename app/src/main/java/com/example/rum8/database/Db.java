@@ -106,8 +106,6 @@ public class Db {
         // Create user document and get a reference to it
         final DocumentReference userRef = usersCollection.document(userId);
 
-        final WriteBatch batch = firestore.batch();
-
         final Map<String, Object> userHash = new HashMap<>();
 
         return userRef.get().addOnSuccessListener(userSnap -> {
@@ -128,9 +126,9 @@ public class Db {
                                 if (filter(userSnap, otherUserSnap)) {
 
                                     // Add other user to this user's potential
+                                    potential.put(otherUserId, InitialValues.EMPTY_STRING);
                                     userHash.put("potential", potential);
                                     userRef.update(userHash);
-//                                    potential.put(otherUserId, InitialValues.EMPTY_STRING);
 
                                     // Add this user to other user's potential
                                     final Map<String, Object> otherUserHash = doc.getData();
@@ -138,19 +136,10 @@ public class Db {
                                     otherUserPotential.put(userId, InitialValues.EMPTY_STRING);
                                     otherUserHash.put("potential", otherUserPotential);
                                     otherUser.update(otherUserHash);
-//                                    batch.update(otherUser, otherUserHash);
                                 }
 
                             });
                         }
-
-//                        userHash.put("potential", potential);
-//
-//                        // Update user document's data
-//                        batch.update(userRef, userHash);
-//
-//                        // Submit all batched operations
-//                        batch.commit();
                     });
         });
     }
