@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.RegistrationActivity">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
         android:alpha="0.5"
-        android:background="@drawable/room" />
+        android:background="@drawable/room"
+        android:scaleType="centerCrop" />
+
     <LinearLayout
         android:layout_width="379dp"
         android:layout_height="699dp"
@@ -19,29 +21,30 @@
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:gravity="center_horizontal"
             android:src="@drawable/logo" />
+
         <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_weight="0"
             android:gravity="center_horizontal"
-            android:textSize="32dp"
-            android:text="@string/registration_header" />
+            android:text="@string/registration_header"
+            android:textSize="32dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             android:hint="@string/ucsd_email_hint"
             android:textColorHint="@color/ucsd_navy_blue"
             app:boxStrokeColor="@color/ucsd_navy_blue"
-            app:hintTextColor="#4E342E"
-            >
+            app:hintTextColor="#4E342E">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_email"
@@ -56,7 +59,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             android:hint="@string/password_hint"
             android:textColorHint="@color/ucsd_navy_blue"
             app:boxStrokeColor="@color/ucsd_navy_blue"
@@ -70,6 +73,24 @@
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:hint="Confirm your password"
+            android:textColorHint="@color/ucsd_navy_blue"
+            app:boxStrokeColor="@color/ucsd_navy_blue"
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_password_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <Button
             android:id="@+id/button_register"
             android:layout_width="match_parent"
@@ -77,8 +98,8 @@
             android:layout_weight="0"
             android:alpha="0.7"
             android:backgroundTint="#8D6E63"
-            android:textColor="#FFF3E0"
-            android:text="@string/register_button" />
+            android:text="@string/register_button"
+            android:textColor="#FFF3E0" />
 
         <Button
             android:id="@+id/button_registration_cancel"
@@ -87,8 +108,8 @@
             android:layout_weight="0"
             android:alpha="0.7"
             android:backgroundTint="#8D6E63"
-            android:textColor="#FFF3E0"
-            android:text="Cancel" />
+            android:text="Cancel"
+            android:textColor="#FFF3E0" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
