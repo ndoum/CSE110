@@ -14,7 +14,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.rum8.R;
 import com.example.rum8.controllers.MainController;
-import com.example.rum8.fragments.PotentialRoommateProfile;
+import com.example.rum8.fragments.PotentialRoommateProfileInit;
 import com.example.rum8.fragments.PotentialRoommateProfileAlt;
 import com.example.rum8.listeners.MainControllerListener;
 
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         // Actions when the link button is clicked
         if (view == findViewById(R.id.link_button)){
 
-            fragment = new PotentialRoommateProfile();
+            fragment = new PotentialRoommateProfileInit();
 
             FragmentManager fm = getSupportFragmentManager();
 
