@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:alpha="0.5"
+        android:alpha="0.0"
         android:background="@drawable/room"
         android:scaleType="centerCrop" />
 
@@ -33,6 +33,8 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_weight="0"
+            android:fontFamily="casual"
+            android:textStyle="bold"
             android:gravity="center_horizontal"
             android:text="@string/registration_header"
             android:textSize="32dp" />
@@ -107,7 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:alpha="0.7"
-            android:backgroundTint="#8D6E63"
+            android:backgroundTint="#5C6BC0"
             android:text="Cancel"
             android:textColor="#FFF3E0" />
 

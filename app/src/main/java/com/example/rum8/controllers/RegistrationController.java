@@ -54,9 +54,12 @@ public class RegistrationController {
                             put("email", email);
                         }};
 
-                        Db.createUserAndPreferences(db, auth.getCurrentUser(), userInfo)
+                        final FirebaseUser user = auth.getCurrentUser();
+
+                        Db.createUser(db, user, userInfo)
                             .addOnSuccessListener(aVoid -> Log.d("Success", "createUserWithEmail:success"))
                             .addOnFailureListener(e -> Log.d("Error", "createUserWithEmail:failure", e));
+                        Db.populateUserPotentialMatches(db, user);
                     } else {
                         final String message;
                         if (task.getException() instanceof FirebaseAuthUserCollisionException) {
