@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.AdvancedSettingsActivity">
+
+    <LinearLayout
+        android:layout_width="379dp"
+        android:layout_height="699dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/adv_settings_header"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:gravity="center_horizontal"
+            android:text="@string/adv_settings_header"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/adv_settings_general_header"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textSize="20sp"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text="@string/adv_settings_sub_header_1" />
+
+        <TextView
+            android:id="@+id/adv_settings_living_accommodations"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_weight="0"
+            android:gravity="center_vertical"
+            android:text="@string/adv_settings_living_accommodations" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/general_info_living_accommodations_field_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/ucsd_navy_blue">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/general_info_living_accommodations_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:minLines="2"
+                android:maxLines="4" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/adv_settings_other_things"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_weight="0"
+            android:gravity="center_vertical"
+            android:text="@string/adv_settings_other_things" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/general_info_other_things_field_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/ucsd_navy_blue">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/general_info_other_things_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:minLines="2"
+                android:maxLines="4" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/adv_settings_personal_header"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="0"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="@string/adv_settings_sub_header_2" />
+
+        <TextView
+            android:id="@+id/adv_settings_bio_header"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_weight="0"
+            android:gravity="center_vertical"
+            android:text="@string/adv_settings_bio" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/personal_info_bio_field_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/ucsd_navy_blue">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/personal_info_bio_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:minLines="2"
+                android:maxLines="4" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/adv_settings_hobbies_header"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_weight="0"
+            android:gravity="center_vertical"
+            android:text="@string/adv_settings_hobbies" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/personal_info_hobbies_field_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/ucsd_navy_blue">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/personal_info_hobbies_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:minLines="2"
+                android:maxLines="4" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/adv_settings_interest_header"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_weight="0"
+            android:gravity="center_vertical"
+            android:text="@string/adv_settings_interests" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/personal_info_interest_field_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/ucsd_navy_blue">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/personal_info_interest_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:minLines="2"
+                android:maxLines="4" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/adv_settings_contact_header"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="0"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="@string/adv_settings_sub_header_3" />
+
+        <TextView
+            android:id="@+id/adv_settings_phone_header"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_weight="0"
+            android:gravity="center_vertical"
+            android:text="@string/adv_settings_phone" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/personal_info_phone_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/ucsd_navy_blue">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/personal_info_phone_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:maxLines="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="0" />
+        <Button
+            android:id="@+id/button_advanced_settings_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="@string/adv_settings_button_save" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_weight="0" />
+
+    </LinearLayout>
+
+</ScrollView>
