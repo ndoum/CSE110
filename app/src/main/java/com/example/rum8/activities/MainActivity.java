@@ -79,8 +79,10 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     @Override
     public void goToLinkList() {
         final Intent intent = new Intent(MainActivity.this, ViewLinkListActivity.class);
+        startActivity(intent);
     }
-
+	
+	@Override
     public void goToAdvSettings() {
         final Intent intent = new Intent(MainActivity.this, AdvancedSettingsActivity.class);
         startActivity(intent);

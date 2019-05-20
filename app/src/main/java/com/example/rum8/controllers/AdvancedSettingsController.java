@@ -1,16 +1,10 @@
 package com.example.rum8.controllers;
 
-import android.net.Uri;
-import android.util.Log;
 import android.widget.Toast;
 
-import com.example.rum8.database.Db;
 import com.example.rum8.listeners.AdvancedSettingsControllerListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
 
 public class AdvancedSettingsController {
 
@@ -42,5 +36,8 @@ public class AdvancedSettingsController {
         controllerListener.goToAdvSettings();
     }
 
+    public void onGoToViewLinkListButtonClicked(){
+        controllerListener.goToViewLinkList();
+    }
 
 }

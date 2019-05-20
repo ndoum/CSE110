@@ -74,6 +74,9 @@ public class AdvancedSettingsActivity extends AppCompatActivity
             case R.id.main_activity_go_to_adv_settings:
                 controller.onAdvSettingsButtonClicked();
                 return true;
+            case R.id.main_activity_go_to_view_link_list:
+                controller.onGoToViewLinkListButtonClicked();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -95,5 +98,12 @@ public class AdvancedSettingsActivity extends AppCompatActivity
     @Override
     public void goToAdvSettings() {
 
+    }
+
+    @Override
+    public void goToViewLinkList(){
+        final Intent intent = new Intent(AdvancedSettingsActivity.this, ViewLinkListActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

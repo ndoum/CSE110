@@ -38,7 +38,7 @@ dependencies {
 
     // firestore dependencies added
     implementation 'com.firebase:firebase-client-android:2.5.2'
-    implementation 'com.google.firebase:firebase-firestore:18.2.0'
+    implementation 'com.google.firebase:firebase-firestore:19.0.0'
 
     // firebase storage added
     implementation 'com.google.firebase:firebase-storage:17.0.0'
