@@ -33,15 +33,10 @@ import com.google.firebase.storage.StorageException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProfileSettingsGeneralInfoFragment extends Fragment implements ProfileSettingsControllerListener{
+public class ProfileSettingsGeneralInfoFragment extends Fragment implements ProfileSettingsControllerListener {
 
-    private final static int POSSITION_2 = 2;
-    private final static int POSSITION_3 = 3;
-    private final static int POSSITION_4 = 4;
-    private final static int POSSITION_5 = 5;
-    private final static int POSSITION_6 = 6;
     private final static int MAX_SIZE = 180; // height of imageView
-    private final static  String PROGRESS_TITLE= "Uploading...";
+    private final static String PROGRESS_TITLE = "Uploading...";
     private TextInputEditText firstNameField;
     private TextInputEditText lastNameField;
     private Spinner genderSpinner;
@@ -64,7 +59,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     }
 
     @Override
-    public void onViewCreated (View rootView, Bundle savedInstanceState){
+    public void onViewCreated(View rootView, Bundle savedInstanceState) {
         controller = new ProfileSettingsController(this);
         final FirebaseAuth auth = FirebaseAuth.getInstance();
         final FirebaseUser user = auth.getCurrentUser();
@@ -77,11 +72,10 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
 
         //FILLING THE GENDER SPINNER
         genderSpinner = rootView.findViewById(R.id.general_info_gender_spinner);
-        final ArrayAdapter<CharSequence> genderSpinnerAdapter = ArrayAdapter.createFromResource(this.getActivity(),
+        final ArrayAdapter<CharSequence> genderAdapter = ArrayAdapter.createFromResource(this.getActivity(),
                 R.array.ps_general_info_gender_items, android.R.layout.simple_spinner_item);
-        genderSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        genderSpinner.setAdapter(genderSpinnerAdapter);
-        genderSpinner.setSelection(2,true);
+        genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        genderSpinner.setAdapter(genderAdapter);
 
         //FILLING THE ACADEMIC YEAR SPINNER
         academicYearSpinner = rootView.findViewById(R.id.general_info_academic_year_spinner);
@@ -97,47 +91,26 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         collegeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         collegeSpinner.setAdapter(collegeAdapter);
 
-        controller.loadUserInfo(firestore,user).addOnSuccessListener(documentSnapshot -> {
-            Map<String, Object> data = documentSnapshot.getData();
-            final String userGender = (String) data.get("gender");
-            final String userYear = (String) data.get("academic_year");
-            final String userCollege = (String) data.get("ucsd_college");
-            final String userFirstName = (String) data.get("first_name");
-            final String userLastName = (String) data.get("last_name");
+        controller.loadUserInfo(firestore, user)
+                .addOnSuccessListener(documentSnapshot -> {
+                    final Map<String, Object> data = documentSnapshot.getData();
+                    final String userGender = (String) data.get("gender");
+                    final String userYear = (String) data.get("academic_year");
+                    final String userCollege = (String) data.get("college");
+                    final String userFirstName = (String) data.get("first_name");
+                    final String userLastName = (String) data.get("last_name");
 
-            if (userGender.equals("Female")){
-                genderSpinner.setSelection(1);
-            }else if (userGender.equals("Non-binary")){
-                genderSpinner.setSelection(POSSITION_2);
-            }
+                    genderSpinner.setSelection(genderAdapter.getPosition(userGender));
+                    academicYearSpinner.setSelection(academicYearAdapter.getPosition(userYear));
+                    collegeSpinner.setSelection(collegeAdapter.getPosition(userCollege));
 
-            if (userYear.equals("Second")){
-                academicYearSpinner.setSelection(1);
-            }else if (userYear.equals("Third")){
-                academicYearSpinner.setSelection(POSSITION_2);
-            }else if (userYear.equals("Fourth")){
-                academicYearSpinner.setSelection(POSSITION_3);
-            }else if (userYear.equals("Other")){
-                academicYearSpinner.setSelection(POSSITION_4);
-            }
-
-            if (userCollege.equals("Muir")){
-                collegeSpinner.setSelection(1);
-            }else if(userCollege.equals("Marshall")){
-                collegeSpinner.setSelection(POSSITION_2);
-            }else if(userCollege.equals("Warren")){
-                collegeSpinner.setSelection(POSSITION_3);
-            }else if(userCollege.equals("ERC")){
-                collegeSpinner.setSelection(POSSITION_4);
-            }else if(userCollege.equals("Sixth")){
-                collegeSpinner.setSelection(POSSITION_5);
-            }
-
-            firstNameField.setText(userFirstName);
-            lastNameField.setText(userLastName);
-
-        }).addOnFailureListener(exception -> {final String message = "Network error";
-            Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();});
+                    firstNameField.setText(userFirstName);
+                    lastNameField.setText(userLastName);
+                })
+                .addOnFailureListener(exception -> {
+                    final String message = "Network error";
+                    Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+                });
 
         progressDialog = new ProgressDialog(getActivity());
         imageView = rootView.findViewById(R.id.general_info_profile_image_view);
@@ -186,7 +159,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
 
     }
 
-    private Uri getFilePath(){
+    private Uri getFilePath() {
         return ((ProfileSettingsActivity) getActivity()).getFilePath();
     }
 
@@ -215,9 +188,9 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
             int finalWidth = maxWidth;
             int finalHeight = maxHeight;
             if (ratioMax > ratioBitmap) {
-                finalWidth = (int) ((float)maxHeight * ratioBitmap);
+                finalWidth = (int) ((float) maxHeight * ratioBitmap);
             } else {
-                finalHeight = (int) ((float)maxWidth / ratioBitmap);
+                finalHeight = (int) ((float) maxWidth / ratioBitmap);
             }
             return Bitmap.createScaledBitmap(image, finalWidth, finalHeight, true);
         } else {
@@ -230,7 +203,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         final Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"),1);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
         onResume();
 
         buttonNext.setOnClickListener(v -> {
@@ -245,19 +218,19 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     }
 
     @Override
-    public void showUploadImageProgress(){
+    public void showUploadImageProgress() {
         progressDialog.setTitle(PROGRESS_TITLE);
         progressDialog.show();
     }
 
     @Override
-    public void hideUploadImageProgress(){
+    public void hideUploadImageProgress() {
         progressDialog.dismiss();
     }
 
     @Override
-    public void updateUploadImagePercentage(double percentage){
-        final String message = "Uploaded " + (int)percentage + "%";
+    public void updateUploadImagePercentage(double percentage) {
+        final String message = "Uploaded " + (int) percentage + "%";
         progressDialog.setMessage(message);
     }
 
