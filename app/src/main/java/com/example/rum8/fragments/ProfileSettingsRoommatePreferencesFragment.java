@@ -153,7 +153,11 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             } else {
                 radioGroupRoommateQuestionNine.check(R.id.roommate_preferences_pets_preference_no);
             }
-        });
+        })
+            .addOnFailureListener(exception -> {
+                final String message = "Network error";
+                Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+            });
 
         radioGroupRoommateQuestionOne.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
