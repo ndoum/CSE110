@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -134,15 +135,36 @@ public class ViewLinkListActivity extends AppCompatActivity
 */
     }
 
+    private void initController() {
+        controller = new ViewLinkListController(this);
+    }
+
     @Override
     public void onBackPressed(){
         finish();
     }
 
-    private void initController() {
-        controller = new ViewLinkListController(this);
-    }
 
+
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.main_activity_go_to_profile_settings:
+                controller.onGoToProfileSettingsButtonClicked();
+                return true;
+            case R.id.main_activity_log_out:
+                controller.onLogoutButtonClicked();
+                return true;
+            case R.id.main_activity_go_to_view_link_list:
+                controller.onGoToViewLinkListButtonClicked();
+                return true;
+            case R.id.main_activity_go_to_adv_settings:
+                controller.onGoToAdvSettingsButtonClicked();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
