@@ -1,38 +1,36 @@
 package com.example.rum8.activities;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rum8.R;
 import com.example.rum8.controllers.ViewLinkListController;
 import com.example.rum8.dataModels.LinkListSingleLink;
+import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ViewLinkListControllerListener;
-import com.example.rum8.viewHolders.LinkListSingleLinkHolder;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageException;
 
+import java.util.Map;
+
+import static android.content.ContentValues.TAG;
 public class ViewLinkListActivity extends AppCompatActivity
         implements ViewLinkListControllerListener {
 
     private ViewLinkListController controller;
     private RecyclerView recyclerView;
     private FirebaseFirestore dbStore;
+    private FirebaseAuth auth;
+    private Map<String, Object> potentialMap;
     private com.google.firebase.firestore.Query queryStore;
     private FirestoreRecyclerOptions<LinkListSingleLink> options;
     private FirestoreRecyclerAdapter adapter;
@@ -47,9 +45,33 @@ public class ViewLinkListActivity extends AppCompatActivity
 
     private void initViews() {
         dbStore = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();
+
+        //fetch user info
+        Db.fetchUserInfo(dbStore, auth.getCurrentUser()).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d(TAG, "Error loading user info");
+            }
+        }).addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                potentialMap = (Map<String, Object>) documentSnapshot.get("potential");
+                System.out.println("Getting potential links...");
+                System.out.println(potentialMap.keySet());
+            }
+        });
+
+
+
+
+
+
+
+
 
         //fetch all users from firestore (need to get from the match group later)
-        queryStore = dbStore.collection("users");
+        /*queryStore = dbStore.collection("users");
 
         //build single links
         options = new FirestoreRecyclerOptions.Builder<LinkListSingleLink>()
@@ -107,7 +129,7 @@ public class ViewLinkListActivity extends AppCompatActivity
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter.startListening();
         recyclerView.setAdapter(adapter);
-
+*/
     }
 
     @Override

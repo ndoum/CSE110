@@ -9,4 +9,6 @@ public interface AdvancedSettingsControllerListener {
     void goToAdvSettings();
 
     void showToast(final String message, final int toastLength);
+
+    void goToViewLinkList();
 }
