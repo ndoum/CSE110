@@ -31,7 +31,7 @@ public class Db {
         private static final Map<String, Object> EMPTY_MAP = new HashMap<>();
 
         static final Map<String, Object> USER = new HashMap<String, Object>() {{
-            put("academic_year", 1);
+            put("academic_year", "First");
             put("age", 18);
             put("budget", ZERO);
             put("email", EMPTY_STRING);
