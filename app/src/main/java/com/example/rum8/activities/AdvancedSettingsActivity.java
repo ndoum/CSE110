@@ -14,6 +14,9 @@ import com.example.rum8.controllers.AdvancedSettingsController;
 import com.example.rum8.listeners.AdvancedSettingsControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class AdvancedSettingsActivity extends AppCompatActivity
         implements AdvancedSettingsControllerListener {
 
@@ -48,7 +51,8 @@ public class AdvancedSettingsActivity extends AppCompatActivity
         phoneNumberField = (TextInputEditText) findViewById(R.id.personal_info_phone_field);
 
         saveButton = findViewById(R.id.button_advanced_settings_save);
-        saveButton.setOnClickListener(v -> controller.onSaveButtonClicked());
+        final Map<String, Object> userHash = new HashMap<>();
+        saveButton.setOnClickListener(v -> controller.onSaveButtonClicked(userHash));
     }
 
     public void initController() {
