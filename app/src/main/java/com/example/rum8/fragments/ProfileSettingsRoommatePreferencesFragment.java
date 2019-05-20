@@ -106,7 +106,7 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             } else if (rb.getText().equals("No pref.")) {
                 controller.updateUserMap("roommate_party_value", indicatorSometimes);
             } else {
-                controller.updateUserMap("roommate_party_valuee", indicatorNo);
+                controller.updateUserMap("roommate_party_value", indicatorNo);
             }
             Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });

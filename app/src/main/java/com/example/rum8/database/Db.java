@@ -31,7 +31,7 @@ public class Db {
         private static final Map<String, Object> EMPTY_MAP = new HashMap<>();
 
         static final Map<String, Object> USER = new HashMap<String, Object>() {{
-            put("academic_year", 1);
+            put("academic_year", "First");
             put("age", 18);
             put("budget", ZERO);
             put("email", EMPTY_STRING);
@@ -40,7 +40,7 @@ public class Db {
             put("last_name", EMPTY_STRING);
             put("major", "Computer Science");
             put("mobile_phone", EMPTY_STRING);
-            put("ucsd_college", "Muir");
+            put("college", "Muir");
             put("uid", EMPTY_STRING);
 
             put("potential", EMPTY_MAP);
@@ -170,6 +170,13 @@ public class Db {
     public static Task<byte[]> fetchLinkProfilePicture (final FirebaseStorage storage,
                                                         final String linkUid){
         return storage.getReference().child(PROFILE_PIC_PATH + linkUid).getBytes(ONE_MEGABYTE);
+    }
+
+    public static Task<DocumentSnapshot> fetchUserInfo(final FirebaseFirestore firestore,
+                                                       final @Nonnull FirebaseUser user) {
+
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(user.getUid()).get();
     }
 
 }
