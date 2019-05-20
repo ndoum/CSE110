@@ -171,4 +171,12 @@ public class Db {
         return storage.getReference().child(PROFILE_PIC_PATH + linkUid).getBytes(ONE_MEGABYTE);
     }
 
+
+    public static Task<DocumentSnapshot> fetchUserInfo(final FirebaseFirestore firestore,
+                                                       final @Nonnull FirebaseUser user) {
+
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(user.getUid()).get();
+    }
+
 }
