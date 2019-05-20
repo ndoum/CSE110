@@ -2,30 +2,22 @@ package com.example.rum8.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rum8.R;
 import com.example.rum8.controllers.ViewLinkListController;
 import com.example.rum8.dataModels.LinkListSingleLink;
-import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ViewLinkListControllerListener;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Map;
-
-import static android.content.ContentValues.TAG;
 public class ViewLinkListActivity extends AppCompatActivity
         implements ViewLinkListControllerListener {
 
@@ -42,28 +34,15 @@ public class ViewLinkListActivity extends AppCompatActivity
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_link_list);
-        initViews();
         initController();
+        initViews();
+
     }
 
     private void initViews() {
-        dbStore = FirebaseFirestore.getInstance();
-        auth = FirebaseAuth.getInstance();
+        //fetch matched link list
+        controller.fetchLinkList();
 
-        //fetch user info
-        Db.fetchUserInfo(dbStore, auth.getCurrentUser()).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.d(TAG, "Error loading user info");
-            }
-        }).addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                potentialMap = (Map<String, Object>) documentSnapshot.get("potential");
-                System.out.println("Getting potential links...");
-                System.out.println(potentialMap.keySet());
-            }
-        });
 
 
 
