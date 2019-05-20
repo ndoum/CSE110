@@ -40,7 +40,7 @@ public class Db {
             put("last_name", EMPTY_STRING);
             put("major", "Computer Science");
             put("mobile_phone", EMPTY_STRING);
-            put("ucsd_college", "Muir");
+            put("college", "Muir");
 
             put("potential", EMPTY_MAP);
             put("liked", EMPTY_MAP);
