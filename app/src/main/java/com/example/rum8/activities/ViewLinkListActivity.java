@@ -1,7 +1,9 @@
 package com.example.rum8.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -139,5 +141,39 @@ public class ViewLinkListActivity extends AppCompatActivity
 
     private void initController() {
         controller = new ViewLinkListController(this);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        //Creates the menu inside of the toolbar
+        getMenuInflater().inflate(R.menu.dropdown_menu, menu);
+        return true;
+    }
+
+    @Override
+    public void goToProfileSettings() {
+        final Intent intent  = new Intent(ViewLinkListActivity.this, ProfileSettingsActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void goToLogin() {
+        final Intent intent  = new Intent(ViewLinkListActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void goToViewLinkList() {
+        //stays at current page
+    }
+
+    @Override
+    public void goToAdvSettings() {
+        final Intent intent  = new Intent(ViewLinkListActivity.this, AdvancedSettingsActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

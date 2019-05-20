@@ -9,9 +9,16 @@ public class ViewLinkListController {
 
     private ViewLinkListControllerListener controllerListener;
 
+
+
     public ViewLinkListController(final ViewLinkListControllerListener controllerListener) {
         this.controllerListener = controllerListener;
     }
+
+    public void onGoToProfileSettingsButtonClicked(){ controllerListener.goToProfileSettings();};
+    public void onLogoutButtonClicked(){ controllerListener.goToLogin();}
+    public void onGoToViewLinkListButtonClicked(){ controllerListener.goToViewLinkList();}
+    public void onGoToAdvSettingsButtonClicked(){ controllerListener.goToAdvSettings();}
 
     public Task<byte[]> loadDefaultUserProfileImage(final FirebaseStorage storage){
         return Db.fetchDefaultUserProfilePicture(storage);
