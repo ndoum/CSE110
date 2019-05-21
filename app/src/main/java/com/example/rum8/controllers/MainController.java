@@ -26,11 +26,11 @@ public class MainController {
     }
 
     public void onLinkButtonClicked(){
-        controllerListener.showToast("LIKED", Toast.LENGTH_LONG);
+        controllerListener.showToast("LIKED", Toast.LENGTH_SHORT);
     }
 
     public void onNotLinkButtonClicked(){
-        controllerListener.showToast("NOT LIKED", Toast.LENGTH_LONG);
+        controllerListener.showToast("NOT LIKED", Toast.LENGTH_SHORT);
     }
 
 }
