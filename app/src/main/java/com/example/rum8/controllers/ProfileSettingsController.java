@@ -39,8 +39,8 @@ public class ProfileSettingsController {
     }
 
     public void onSubmit(final Map<String, Object> userInfo) {
-        final String firstName = (String) userInfo.get("first_name");
-        final String lastName = (String) userInfo.get("last_name");
+        final String firstName = (String) userInfo.get(Db.Keys.FIRST_NAME);
+        final String lastName = (String) userInfo.get(Db.Keys.LAST_NAME);
 
         // check for valid name
         if ((!isPresent(firstName)) || (!isPresent(lastName))) {

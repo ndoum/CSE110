@@ -47,7 +47,7 @@ public class RegistrationController {
                             // Create a new user with email when registration is complete
 
                             final Map<String, Object> userInfo = new HashMap<String, Object>() {{
-                                put("email", email);
+                                put(Db.Keys.EMAIL, email);
                             }};
 
                             final FirebaseUser user = auth.getCurrentUser();
