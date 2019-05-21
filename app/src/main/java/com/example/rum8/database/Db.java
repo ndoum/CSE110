@@ -30,6 +30,11 @@ public class Db {
         private static final Integer ZERO = 0;
         private static final Map<String, Object> EMPTY_MAP = new HashMap<>();
 
+        //this is for matched link testing
+        private static Map<String, Object> DEFAULT_MATCHED_MAP = new HashMap<String, Object>() {
+            {put("3D0Aphxm5PV6fqzkALlTZAAgZld2", "");}
+        };
+
         static final Map<String, Object> USER = new HashMap<String, Object>() {{
             put("academic_year", "First");
             put("age", 18);
@@ -45,7 +50,8 @@ public class Db {
             put("potential", EMPTY_MAP);
             put("liked", EMPTY_MAP);
             put("disliked", EMPTY_MAP);
-            put("matched", EMPTY_MAP);
+            put("matched", DEFAULT_MATCHED_MAP); //this is for matched link testing
+            //put("matched", EMPTY_MAP);
 
             put("alcohol_value", ZERO);
             put("allow_pets_value", ZERO);

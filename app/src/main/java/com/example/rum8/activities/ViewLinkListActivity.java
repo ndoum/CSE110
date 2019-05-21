@@ -17,7 +17,9 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
+
 public class ViewLinkListActivity extends AppCompatActivity
         implements ViewLinkListControllerListener {
 
@@ -25,13 +27,14 @@ public class ViewLinkListActivity extends AppCompatActivity
     private RecyclerView recyclerView;
     private FirebaseFirestore dbStore;
     private FirebaseAuth auth;
-    private Map<String, Object> potentialMap;
+    private Set<String> linkListUidSet;
     private com.google.firebase.firestore.Query queryStore;
     private FirestoreRecyclerOptions<LinkListSingleLink> options;
     private FirestoreRecyclerAdapter adapter;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
+        linkListUidSet = new HashSet<String>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_link_list);
         initController();
@@ -41,18 +44,8 @@ public class ViewLinkListActivity extends AppCompatActivity
 
     private void initViews() {
         //fetch matched link list
-        controller.fetchLinkList();
+        controller.fetchLinkListUidsFromDB();
 
-
-
-
-
-
-
-
-
-
-        //fetch all users from firestore (need to get from the match group later)
         /*queryStore = dbStore.collection("users");
 
         //build single links
