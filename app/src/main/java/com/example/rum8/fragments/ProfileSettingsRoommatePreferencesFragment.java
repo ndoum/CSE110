@@ -155,7 +155,7 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
         })
             .addOnFailureListener(exception -> {
                 final String message = "Network error";
-                showToast(message, Toast.LENGTH_SHORT);
+                showToast(message);
             });
 
         radioGroupRoommateQuestionOne.setOnCheckedChangeListener((group, checkedId) -> {
@@ -271,15 +271,15 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
         saveRoommateButton = rootView.findViewById(R.id.roommate_preferences_save_button);
         saveRoommateButton.setOnClickListener(v -> {
             controller.submitUserMap();
-            showToast("Roommate Preferences Saved", Toast.LENGTH_SHORT);
+            showToast("Roommate Preferences Saved");
         });
 
         return rootView;
     }
 
     @Override
-    public void showToast(final String message, final int toastLength) {
-        Toast.makeText(getActivity(), message, toastLength).show();
+    public void showToast(final String message) {
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

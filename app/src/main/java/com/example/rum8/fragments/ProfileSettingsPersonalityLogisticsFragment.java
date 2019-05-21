@@ -142,7 +142,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
         )
             .addOnFailureListener(exception -> {
                 final String message = "Network error";
-                showToast(message, Toast.LENGTH_SHORT);
+                showToast(message);
             });
 
         radioGroupPersonalQuestionOne.setOnCheckedChangeListener((group, checkedId) -> {
@@ -246,7 +246,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
         personalSaveButton = rootView.findViewById(R.id.personal_references_save_button);
         personalSaveButton.setOnClickListener(v -> {
             controller.submitUserMap();
-            showToast("Personal logistics Saved", Toast.LENGTH_SHORT);
+            showToast("Personal logistics Saved");
         });
 
         personalNextButton = rootView.findViewById(R.id.personal_references_next_button);
@@ -258,8 +258,8 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
     }
 
     @Override
-    public void showToast(final String message, final int toastLength) {
-        Toast.makeText(getActivity(), message, toastLength).show();
+    public void showToast(final String message) {
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

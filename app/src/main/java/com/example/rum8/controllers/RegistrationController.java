@@ -3,7 +3,6 @@ package com.example.rum8.controllers;
 import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.RegistrationControllerListener;
@@ -35,10 +34,10 @@ public class RegistrationController {
     public void onSubmit(final String email, final String password) {
         if (!isValidEmail(email)) {
             final String message = "Please use your UCSD email (i.e. abc@ucsd.edu)";
-            controllerListener.showToast(message, Toast.LENGTH_SHORT);
+            controllerListener.showToast(message);
         } else if (!isValidPassword(password)) {
             final String message = "Your password need to be more than 6 characters";
-            controllerListener.showToast(message, Toast.LENGTH_SHORT);
+            controllerListener.showToast(message);
         } else {
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener
                     ((Activity) context, task -> {
@@ -64,7 +63,7 @@ public class RegistrationController {
                             } else {
                                 message = "Authentication failed";
                             }
-                            controllerListener.showToast(message, Toast.LENGTH_SHORT);
+                            controllerListener.showToast(message);
                             Log.e("Error:", "createUserWithEmail:failure", task.getException());
                         }
                     });
@@ -80,11 +79,11 @@ public class RegistrationController {
                     final String message;
                     if (task.isSuccessful()) {
                         message = "Verification email sent to " + email;
-                        controllerListener.showToast(message, Toast.LENGTH_SHORT);
+                        controllerListener.showToast(message);
                     } else {
                         Log.e(TAG, "sendEmailVerification", task.getException());
                         message = "Failed to send verification email to";
-                        controllerListener.showToast(message, Toast.LENGTH_SHORT);
+                        controllerListener.showToast(message);
                     }
                 });
     }

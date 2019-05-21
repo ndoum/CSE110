@@ -1,7 +1,5 @@
 package com.example.rum8.controllers;
 
-import android.widget.Toast;
-
 import com.example.rum8.listeners.MainControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -26,11 +24,11 @@ public class MainController {
     }
 
     public void onLinkButtonClicked(){
-        controllerListener.showToast("LIKED", Toast.LENGTH_SHORT);
+        controllerListener.showToast("LIKED");
     }
 
     public void onNotLinkButtonClicked(){
-        controllerListener.showToast("NOT LIKED", Toast.LENGTH_SHORT);
+        controllerListener.showToast("NOT LIKED");
     }
 
 }

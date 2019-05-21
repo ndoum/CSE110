@@ -2,7 +2,6 @@ package com.example.rum8.controllers;
 
 import android.net.Uri;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
@@ -12,7 +11,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
-
 
 import java.util.HashMap;
 import java.util.Map;
@@ -47,7 +45,7 @@ public class ProfileSettingsController {
         // check for valid name
         if ((!isPresent(firstName)) || (!isPresent(lastName))) {
             final String message = "Please enter your first and last name";
-            controllerListener.showToast(message, Toast.LENGTH_SHORT);
+            controllerListener.showToast(message);
         } else {
             Db.updateUser(db, auth.getCurrentUser(), userInfo)
                     .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
@@ -68,12 +66,12 @@ public class ProfileSettingsController {
                     .addOnSuccessListener(taskSnapshot -> {
                         controllerListener.hideUploadImageProgress();
                         final String message = "Successfully uploaded";
-                        controllerListener.showToast(message, Toast.LENGTH_SHORT);
+                        controllerListener.showToast(message);
                     })
                     .addOnFailureListener(e -> {
                         controllerListener.hideUploadImageProgress();
                         final String message = "Network error";
-                        controllerListener.showToast(message, Toast.LENGTH_SHORT);
+                        controllerListener.showToast(message);
                     })
                     .addOnProgressListener(taskSnapshot -> {
                         double progress = (ONE_HUNDRED_PERCENT * taskSnapshot.getBytesTransferred() / taskSnapshot
