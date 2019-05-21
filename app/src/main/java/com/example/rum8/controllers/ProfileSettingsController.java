@@ -119,7 +119,7 @@ public class ProfileSettingsController {
 
     // helper method to check if user input is present
     private static boolean isPresent(final String name) {
-        if (name == null || name.equals("")) {
+        if (name == null || name.isEmpty()) {
             return false;
         }
         return true;
