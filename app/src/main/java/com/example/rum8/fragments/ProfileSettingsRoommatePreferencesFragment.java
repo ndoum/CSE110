@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
 import com.example.rum8.controllers.ProfileSettingsController;
+import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -71,15 +72,15 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
 
         controller.loadUserInfo(firestore, user).addOnSuccessListener(documentSnapshot -> {
             Map<String, Object> data = documentSnapshot.getData();
-            long gender = (long) data.get("roommate_prefer_same_gender_roommate_value");
-            long clean = (long) data.get("roommate_clean_value");
-            long reserve = (long) data.get("roommate_reserved_value");
-            long party = (long) data.get("roommate_party_value");
-            long alcohol = (long) data.get("roommate_alcohol_value");
-            long smoke = (long) data.get("roommate_smoke_value");
-            long stayLate = (long) data.get("roommate_stay_up_late_on_weekdays_value");
-            long guests = (long) data.get("roommate_overnight_guests_value");
-            long pet = (long) data.get("roommate_allow_pets_value");
+            long gender = (long) data.get(Db.Keys.ROOMMATE_PREFER_SAME_GENDER_ROOMMATE_VALUE);
+            long clean = (long) data.get(Db.Keys.ROOMMATE_CLEAN_VALUE);
+            long reserve = (long) data.get(Db.Keys.ROOMMATE_RESERVED_VALUE);
+            long party = (long) data.get(Db.Keys.ROOMMATE_PARTY_VALUE);
+            long alcohol = (long) data.get(Db.Keys.ROOMMATE_ALCOHOL_VALUE);
+            long smoke = (long) data.get(Db.Keys.ROOMMATE_SMOKE_VALUE);
+            long stayLate = (long) data.get(Db.Keys.ROOMMATE_STAY_UP_LATE_ON_WEEKDAYS_VALUE);
+            long guests = (long) data.get(Db.Keys.ROOMMATE_OVERNIGHT_GUESTS_VALUE);
+            long pet = (long) data.get(Db.Keys.ROOMMATE_ALLOW_PETS_VALUE);
 
             if (gender == 1) {
                 radioGroupRoommateQuestionOne.check(R.id.roommate_preferences_gender_preference_yes);
@@ -162,11 +163,11 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("roommate_prefer_same_gender_roommate_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_PREFER_SAME_GENDER_ROOMMATE_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
-                controller.updateUserMap("roommate_prefer_same_gender_roommate_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_PREFER_SAME_GENDER_ROOMMATE_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("roommate_prefer_same_gender_roommate_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ROOMMATE_PREFER_SAME_GENDER_ROOMMATE_VALUE, indicatorNo);
             }
         });
 
@@ -174,11 +175,11 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("roommate_clean_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_CLEAN_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
-                controller.updateUserMap("roommate_clean_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_CLEAN_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("roommate_clean_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ROOMMATE_CLEAN_VALUE, indicatorNo);
             }
         });
 
@@ -186,11 +187,11 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("roommate_reserved_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_RESERVED_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
-                controller.updateUserMap("roommate_reserved_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_RESERVED_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("roommate_reserved_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ROOMMATE_RESERVED_VALUE, indicatorNo);
             }
         });
 
@@ -198,11 +199,11 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("roommate_party_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_PARTY_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
-                controller.updateUserMap("roommate_party_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_PARTY_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("roommate_party_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ROOMMATE_PARTY_VALUE, indicatorNo);
             }
         });
 
@@ -210,11 +211,11 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("roommate_alcohol_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_ALCOHOL_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
-                controller.updateUserMap("roommate_alcohol_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_ALCOHOL_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("roommate_alcohol_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ROOMMATE_ALCOHOL_VALUE, indicatorNo);
             }
         });
 
@@ -222,11 +223,11 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("roommate_smoke_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_SMOKE_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
-                controller.updateUserMap("roommate_smoke_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_SMOKE_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("roommate_smoke_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ROOMMATE_SMOKE_VALUE, indicatorNo);
             }
         });
 
@@ -234,11 +235,11 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("roommate_stay_up_late_on_weekdays_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_STAY_UP_LATE_ON_WEEKDAYS_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
-                controller.updateUserMap("roommate_stay_up_late_on_weekdays_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_STAY_UP_LATE_ON_WEEKDAYS_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("roommate_stay_up_late_on_weekdays_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ROOMMATE_STAY_UP_LATE_ON_WEEKDAYS_VALUE, indicatorNo);
             }
         });
 
@@ -246,11 +247,11 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("roommate_overnight_guests_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_OVERNIGHT_GUESTS_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
-                controller.updateUserMap("roommate_overnight_guests_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_OVERNIGHT_GUESTS_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("roommate_overnight_guests_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ROOMMATE_OVERNIGHT_GUESTS_VALUE, indicatorNo);
             }
         });
 
@@ -258,12 +259,12 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("roommate_allow_pets_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_ALLOW_PETS_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
-                controller.updateUserMap("roommate_allow_pets_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_ALLOW_PETS_VALUE, indicatorSometimes);
 
             } else {
-                controller.updateUserMap("roommate_allow_pets_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ROOMMATE_ALLOW_PETS_VALUE, indicatorNo);
             }
 
         });

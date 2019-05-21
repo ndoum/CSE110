@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.rum8.R;
 import com.example.rum8.controllers.AdvancedSettingsController;
+import com.example.rum8.database.Db;
 import com.example.rum8.listeners.AdvancedSettingsControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -53,12 +54,12 @@ public class AdvancedSettingsActivity extends AppCompatActivity
         saveButton = findViewById(R.id.button_advanced_settings_save);
         saveButton.setOnClickListener(v -> {
             final Map<String, Object> userHash = new HashMap<String, Object>() {{
-            put("living_accommodations", accommodationsField.getText().toString());
-            put("other_things_you_should_know", otherThingsField.getText().toString());
-            put("about_me", aboutMeField.getText().toString());
-            put("hobbies", hobbiesField.getText().toString());
-            put("interests", interestsField.getText().toString());
-            put("phone_number", phoneNumberField.getText().toString());
+            put(Db.Keys.LIVING_ACCOMMODATIONS, accommodationsField.getText().toString());
+            put(Db.Keys.OTHER_THINGS_YOU_SHOULD_KNOW, otherThingsField.getText().toString());
+            put(Db.Keys.ABOUT_ME, aboutMeField.getText().toString());
+            put(Db.Keys.HOBBIES, hobbiesField.getText().toString());
+            put(Db.Keys.INTERESTS, interestsField.getText().toString());
+            put(Db.Keys.PHONE_NUMBER, phoneNumberField.getText().toString());
         }};
             controller.onSaveButtonClicked(userHash);});
     }
