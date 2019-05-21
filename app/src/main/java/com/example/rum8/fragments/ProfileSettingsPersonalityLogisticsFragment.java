@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import com.example.rum8.R;
 import com.example.rum8.activities.ProfileSettingsActivity;
 import com.example.rum8.controllers.ProfileSettingsController;
+import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -66,14 +67,14 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
         controller = new ProfileSettingsController(this);
         controller.loadUserInfo(firestore, user).addOnSuccessListener(documentSnapshot -> {
                 Map<String, Object> data = documentSnapshot.getData();
-                long clean = (long) data.get("clean_value");
-                long reserve = (long) data.get("reserved_value");
-                long party = (long) data.get("party_value");
-                long alcohol = (long) data.get("alcohol_value");
-                long smoke = (long) data.get("smoke_value");
-                long stayLate = (long) data.get("stay_up_late_on_weekdays_value");
-                long guests = (long) data.get("overnight_guests_value");
-                long pet = (long) data.get("allow_pets_value");
+                long clean = (long) data.get(Db.Keys.CLEAN_VALUE);
+                long reserve = (long) data.get(Db.Keys.RESERVED_VALUE);
+                long party = (long) data.get(Db.Keys.PARTY_VALUE);
+                long alcohol = (long) data.get(Db.Keys.ALCOHOL_VALUE);
+                long smoke = (long) data.get(Db.Keys.SMOKE_VALUE);
+                long stayLate = (long) data.get(Db.Keys.STAY_UP_LATE_ON_WEEKDAYS_VALUE);
+                long guests = (long) data.get(Db.Keys.OVERNIGHT_GUESTS_VALUE);
+                long pet = (long) data.get(Db.Keys.ALLOW_PETS_VALUE);
 
                 if (clean == 1) {
                     radioGroupPersonalQuestionOne.check(R.id.personal_preferences_cleanliness_preference_yes);
@@ -150,12 +151,12 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
 
-                controller.updateUserMap("clean_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.CLEAN_VALUE, indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
 
-                controller.updateUserMap("clean_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.CLEAN_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("clean_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.CLEAN_VALUE, indicatorNo);
             }
         });
 
@@ -163,11 +164,11 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("reserved_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.RESERVED_VALUE, indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
-                controller.updateUserMap("reserved_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.RESERVED_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("reserved_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.RESERVED_VALUE, indicatorNo);
             }
         });
 
@@ -175,11 +176,11 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("party_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.PARTY_VALUE, indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
-                controller.updateUserMap("party_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.PARTY_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("party_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.PARTY_VALUE, indicatorNo);
             }
         });
 
@@ -187,11 +188,11 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("alcohol_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ALCOHOL_VALUE, indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
-                controller.updateUserMap("alcohol_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ALCOHOL_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("alcohol_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ALCOHOL_VALUE, indicatorNo);
             }
         });
 
@@ -199,11 +200,11 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("smoke_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.SMOKE_VALUE, indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
-                controller.updateUserMap("smoke_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.SMOKE_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("smoke_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.SMOKE_VALUE, indicatorNo);
             }
         });
 
@@ -211,11 +212,11 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("stay_up_late_on_weekdays_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.STAY_UP_LATE_ON_WEEKDAYS_VALUE, indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
-                controller.updateUserMap("stay_up_late_on_weekdays_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.STAY_UP_LATE_ON_WEEKDAYS_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("stay_up_late_on_weekdays_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.STAY_UP_LATE_ON_WEEKDAYS_VALUE, indicatorNo);
             }
         });
 
@@ -223,11 +224,11 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("overnight_guests_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.OVERNIGHT_GUESTS_VALUE, indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
-                controller.updateUserMap("overnight_guests_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.OVERNIGHT_GUESTS_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("overnight_guests_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.OVERNIGHT_GUESTS_VALUE, indicatorNo);
             }
         });
 
@@ -235,11 +236,11 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("allow_pets_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ALLOW_PETS_VALUE, indicatorYes);
             } else if (rb.getText().equals("Maybe")) {
-                controller.updateUserMap("allow_pets_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ALLOW_PETS_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("allow_pets_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ALLOW_PETS_VALUE, indicatorNo);
             }
         });
 

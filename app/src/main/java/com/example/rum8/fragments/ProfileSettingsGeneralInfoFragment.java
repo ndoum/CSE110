@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -22,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import com.example.rum8.R;
 import com.example.rum8.activities.ProfileSettingsActivity;
 import com.example.rum8.controllers.ProfileSettingsController;
+import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
@@ -94,11 +94,11 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         controller.loadUserInfo(firestore, user)
                 .addOnSuccessListener(documentSnapshot -> {
                     final Map<String, Object> data = documentSnapshot.getData();
-                    final String userGender = (String) data.get("gender");
-                    final String userYear = (String) data.get("academic_year");
-                    final String userCollege = (String) data.get("college");
-                    final String userFirstName = (String) data.get("first_name");
-                    final String userLastName = (String) data.get("last_name");
+                    final String userGender = (String) data.get(Db.Keys.GENDER);
+                    final String userYear = (String) data.get(Db.Keys.ACADEMIC_YEAR);
+                    final String userCollege = (String) data.get(Db.Keys.COLLEGE);
+                    final String userFirstName = (String) data.get(Db.Keys.FIRST_NAME);
+                    final String userLastName = (String) data.get(Db.Keys.LAST_NAME);
 
                     genderSpinner.setSelection(genderAdapter.getPosition(userGender));
                     academicYearSpinner.setSelection(academicYearAdapter.getPosition(userYear));
@@ -141,11 +141,11 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
 
         buttonSave.setOnClickListener(v -> {
             final Map<String, Object> userInfo = new HashMap<String, Object>() {{
-                put("first_name", firstNameField.getText().toString());
-                put("last_name", lastNameField.getText().toString());
-                put("gender", genderSpinner.getSelectedItem().toString());
-                put("academic_year", academicYearSpinner.getSelectedItem().toString());
-                put("college", collegeSpinner.getSelectedItem().toString());
+                put(Db.Keys.FIRST_NAME, firstNameField.getText().toString());
+                put(Db.Keys.LAST_NAME, lastNameField.getText().toString());
+                put(Db.Keys.GENDER, genderSpinner.getSelectedItem().toString());
+                put(Db.Keys.ACADEMIC_YEAR, academicYearSpinner.getSelectedItem().toString());
+                put(Db.Keys.COLLEGE, collegeSpinner.getSelectedItem().toString());
             }};
 
             controller.onSubmit(userInfo);
