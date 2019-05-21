@@ -71,7 +71,6 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
 
         controller.loadUserInfo(firestore, user).addOnSuccessListener(documentSnapshot -> {
             Map<String, Object> data = documentSnapshot.getData();
-            System.out.println("here");
             long gender = (long) data.get("roommate_prefer_same_gender_roommate_value");
             long clean = (long) data.get("roommate_clean_value");
             long reserve = (long) data.get("roommate_reserved_value");

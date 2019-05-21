@@ -66,7 +66,6 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
         controller = new ProfileSettingsController(this);
         controller.loadUserInfo(firestore, user).addOnSuccessListener(documentSnapshot -> {
                 Map<String, Object> data = documentSnapshot.getData();
-                System.out.println("here");
                 long clean = (long) data.get("clean_value");
                 long reserve = (long) data.get("reserved_value");
                 long party = (long) data.get("party_value");
