@@ -355,6 +355,13 @@
                 android:text="@string/yes" />
 
             <RadioButton
+                android:id="@+id/personal_preferences_pet_preference_maybe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/maybe" />
+
+            <RadioButton
                 android:id="@+id/personal_preferences_pet_preference_no"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

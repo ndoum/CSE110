@@ -17,10 +17,16 @@ public class MainController {
         controllerListener.goToProfileSettings();
     }
 
+    public void onGoToAdvSettingsButtonClicked() {
+        controllerListener.goToAdvSettings();
+    }
     public void onLogOutButtonClicked() {
         FirebaseAuth.getInstance().signOut();
         controllerListener.goToLogin();
     }
+
+
+    public void onGoToLinkListButtonClicked() {controllerListener.goToLinkList();}
 
     public void onLinkButtonClicked(){
         controllerListener.showToast("LIKED", Toast.LENGTH_LONG);
@@ -29,5 +35,6 @@ public class MainController {
     public void onNotLinkButtonClicked(){
         controllerListener.showToast("NOT LIKED", Toast.LENGTH_LONG);
     }
+
 
 }

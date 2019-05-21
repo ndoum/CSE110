@@ -92,8 +92,6 @@ public class ProfileSettingsActivity extends FragmentActivity
         lastName = (TextInputEditText) findViewById(R.id.general_info_last_name_field);
 
         buttonUploadProfileImage = (Button) findViewById(R.id.general_info_profile_image_upload_button);
-
-
     }
 
     private void initController() {
@@ -116,7 +114,7 @@ public class ProfileSettingsActivity extends FragmentActivity
     public void hideUploadImageProgress(){}
 
     @Override
-    public void updateUploadImagePercentage(double percentage){}
+    public void updateUploadImagePercentage(final double percentage){}
 
     @Override
     public void chooseImage(){}
