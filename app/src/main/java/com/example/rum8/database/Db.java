@@ -66,6 +66,13 @@ public class Db {
             put("roommate_reserved_value", ZERO);
             put("roommate_smoke_value", ZERO);
             put("roommate_stay_up_late_on_weekdays_value", ZERO);
+
+            put("living_accommodations", EMPTY_STRING);
+            put("other_things_you_should_know", EMPTY_STRING);
+            put("about_me", EMPTY_STRING);
+            put("hobbies", EMPTY_STRING);
+            put("interests", EMPTY_STRING);
+            put("phone_number", EMPTY_STRING);
         }};
 
     }
