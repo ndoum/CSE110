@@ -1,7 +1,6 @@
 package com.example.rum8.controllers;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.AdvancedSettingsControllerListener;
@@ -29,8 +28,8 @@ public class AdvancedSettingsController {
         Db.updateUser(db,auth.getCurrentUser(),userHash)
                 .addOnSuccessListener(aVoid -> {
                     Log.d(TAG, "DocumentSnapshot successfully written");
-                    controllerListener.showToast("Saved", Toast.LENGTH_LONG); })
-                .addOnFailureListener(e -> controllerListener.showToast("Network error", Toast.LENGTH_LONG));
+                    controllerListener.showToast("Saved"); })
+                .addOnFailureListener(e -> controllerListener.showToast("Network error"));
     }
 
     public void onGoToProfileSettingsButtonClicked() {

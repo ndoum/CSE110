@@ -66,7 +66,6 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
         controller = new ProfileSettingsController(this);
         controller.loadUserInfo(firestore, user).addOnSuccessListener(documentSnapshot -> {
                 Map<String, Object> data = documentSnapshot.getData();
-                System.out.println("here");
                 long clean = (long) data.get("clean_value");
                 long reserve = (long) data.get("reserved_value");
                 long party = (long) data.get("party_value");
@@ -143,7 +142,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
         )
             .addOnFailureListener(exception -> {
                 final String message = "Network error";
-                Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+                showToast(message);
             });
 
         radioGroupPersonalQuestionOne.setOnCheckedChangeListener((group, checkedId) -> {
@@ -158,7 +157,6 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             } else {
                 controller.updateUserMap("clean_value", indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupPersonalQuestionTwo.setOnCheckedChangeListener((group, checkedId) -> {
@@ -171,7 +169,6 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             } else {
                 controller.updateUserMap("reserved_value", indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupPersonalQuestionThree.setOnCheckedChangeListener((group, checkedId) -> {
@@ -184,7 +181,6 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             } else {
                 controller.updateUserMap("party_value", indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupPersonalQuestionFour.setOnCheckedChangeListener((group, checkedId) -> {
@@ -197,7 +193,6 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             } else {
                 controller.updateUserMap("alcohol_value", indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupPersonalQuestionFive.setOnCheckedChangeListener((group, checkedId) -> {
@@ -210,7 +205,6 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             } else {
                 controller.updateUserMap("smoke_value", indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupPersonalQuestionSix.setOnCheckedChangeListener((group, checkedId) -> {
@@ -223,7 +217,6 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             } else {
                 controller.updateUserMap("stay_up_late_on_weekdays_value", indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupPersonalQuestionSeven.setOnCheckedChangeListener((group, checkedId) -> {
@@ -236,7 +229,6 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             } else {
                 controller.updateUserMap("overnight_guests_value", indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupPersonalQuestionEight.setOnCheckedChangeListener((group, checkedId) -> {
@@ -249,13 +241,12 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
             } else {
                 controller.updateUserMap("allow_pets_value", indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         personalSaveButton = rootView.findViewById(R.id.personal_references_save_button);
         personalSaveButton.setOnClickListener(v -> {
             controller.submitUserMap();
-            this.showToast("Personal logistics Saved", Toast.LENGTH_SHORT);
+            showToast("Personal logistics Saved");
         });
 
         personalNextButton = rootView.findViewById(R.id.personal_references_next_button);
@@ -267,8 +258,8 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
     }
 
     @Override
-    public void showToast(final String message, final int toastLength) {
-        Toast.makeText(getActivity(), message, toastLength).show();
+    public void showToast(final String message) {
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

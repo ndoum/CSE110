@@ -48,8 +48,8 @@ public class ProfileSettingsActivity extends FragmentActivity
     }
 
     @Override
-    public void showToast(final String message, final int toastLength) {
-        Toast.makeText(ProfileSettingsActivity.this, message, toastLength).show();
+    public void showToast(final String message) {
+        Toast.makeText(ProfileSettingsActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -65,7 +65,7 @@ public class ProfileSettingsActivity extends FragmentActivity
             catch (final Exception e)
             {
                 e.printStackTrace();
-                showToast("Network Error", Toast.LENGTH_SHORT);
+                showToast("Network Error");
             }
         }
     }

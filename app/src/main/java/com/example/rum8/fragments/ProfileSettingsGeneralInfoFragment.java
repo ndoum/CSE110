@@ -109,7 +109,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
                 })
                 .addOnFailureListener(exception -> {
                     final String message = "Network error";
-                    Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+                    showToast(message);
                 });
 
         progressDialog = new ProgressDialog(getActivity());
@@ -129,7 +129,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
             int errorCode = ((StorageException) exception).getErrorCode();
             if (errorCode != StorageException.ERROR_OBJECT_NOT_FOUND) {
                 final String message = "Network error";
-                Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+                showToast(message);
             }
         });
 
@@ -213,8 +213,8 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     }
 
     @Override
-    public void showToast(final String message, final int toastLength) {
-        Toast.makeText(getActivity(), message, toastLength).show();
+    public void showToast(final String message) {
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

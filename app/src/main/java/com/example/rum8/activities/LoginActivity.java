@@ -50,8 +50,8 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
     }
 
     @Override
-    public void showToast(final String message, final int toastLength) {
-        Toast.makeText(LoginActivity.this, message, toastLength).show();
+    public void showToast(final String message) {
+        Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
     private void initViews() {

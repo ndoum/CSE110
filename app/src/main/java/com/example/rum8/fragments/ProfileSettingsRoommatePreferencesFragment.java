@@ -71,7 +71,6 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
 
         controller.loadUserInfo(firestore, user).addOnSuccessListener(documentSnapshot -> {
             Map<String, Object> data = documentSnapshot.getData();
-            System.out.println("here");
             long gender = (long) data.get("roommate_prefer_same_gender_roommate_value");
             long clean = (long) data.get("roommate_clean_value");
             long reserve = (long) data.get("roommate_reserved_value");
@@ -156,7 +155,7 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
         })
             .addOnFailureListener(exception -> {
                 final String message = "Network error";
-                Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+                showToast(message);
             });
 
         radioGroupRoommateQuestionOne.setOnCheckedChangeListener((group, checkedId) -> {
@@ -169,7 +168,6 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             } else {
                 controller.updateUserMap("roommate_prefer_same_gender_roommate_value", indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionTwo.setOnCheckedChangeListener((group, checkedId) -> {
@@ -182,7 +180,6 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             } else {
                 controller.updateUserMap("roommate_clean_value", indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionThree.setOnCheckedChangeListener((group, checkedId) -> {
@@ -195,7 +192,6 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             } else {
                 controller.updateUserMap("roommate_reserved_value", indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionFour.setOnCheckedChangeListener((group, checkedId) -> {
@@ -208,7 +204,6 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             } else {
                 controller.updateUserMap("roommate_party_value", indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionFive.setOnCheckedChangeListener((group, checkedId) -> {
@@ -221,7 +216,6 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             } else {
                 controller.updateUserMap("roommate_alcohol_value", indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionSix.setOnCheckedChangeListener((group, checkedId) -> {
@@ -234,7 +228,6 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             } else {
                 controller.updateUserMap("roommate_smoke_value", indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionSeven.setOnCheckedChangeListener((group, checkedId) -> {
@@ -247,7 +240,6 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             } else {
                 controller.updateUserMap("roommate_stay_up_late_on_weekdays_value", indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionEight.setOnCheckedChangeListener((group, checkedId) -> {
@@ -260,7 +252,6 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             } else {
                 controller.updateUserMap("roommate_overnight_guests_value", indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionNine.setOnCheckedChangeListener((group, checkedId) -> {
@@ -274,22 +265,21 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             } else {
                 controller.updateUserMap("roommate_allow_pets_value", indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
 
         });
 
         saveRoommateButton = rootView.findViewById(R.id.roommate_preferences_save_button);
         saveRoommateButton.setOnClickListener(v -> {
             controller.submitUserMap();
-            this.showToast("Roommate Preferences Saved", Toast.LENGTH_SHORT);
+            showToast("Roommate Preferences Saved");
         });
 
         return rootView;
     }
 
     @Override
-    public void showToast(final String message, final int toastLength) {
-        Toast.makeText(getActivity(), message, toastLength).show();
+    public void showToast(final String message) {
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

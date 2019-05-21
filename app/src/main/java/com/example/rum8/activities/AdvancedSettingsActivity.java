@@ -30,8 +30,8 @@ public class AdvancedSettingsActivity extends AppCompatActivity
     private Button saveButton;
 
     @Override
-    public void showToast(final String message, final int toastLength) {
-        Toast.makeText(AdvancedSettingsActivity.this, message, toastLength).show();
+    public void showToast(final String message) {
+        Toast.makeText(AdvancedSettingsActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
