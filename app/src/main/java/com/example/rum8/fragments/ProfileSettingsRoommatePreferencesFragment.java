@@ -71,7 +71,6 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
 
         controller.loadUserInfo(firestore, user).addOnSuccessListener(documentSnapshot -> {
             Map<String, Object> data = documentSnapshot.getData();
-            System.out.println("here");
             long gender = (long) data.get("roommate_prefer_same_gender_roommate_value");
             long clean = (long) data.get("roommate_clean_value");
             long reserve = (long) data.get("roommate_reserved_value");
@@ -156,7 +155,7 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
         })
             .addOnFailureListener(exception -> {
                 final String message = "Network error";
-                Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+                showToast(message);
             });
 
         radioGroupRoommateQuestionOne.setOnCheckedChangeListener((group, checkedId) -> {
@@ -272,15 +271,15 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
         saveRoommateButton = rootView.findViewById(R.id.roommate_preferences_save_button);
         saveRoommateButton.setOnClickListener(v -> {
             controller.submitUserMap();
-            this.showToast("Roommate Preferences Saved", Toast.LENGTH_SHORT);
+            showToast("Roommate Preferences Saved");
         });
 
         return rootView;
     }
 
     @Override
-    public void showToast(final String message, final int toastLength) {
-        Toast.makeText(getActivity(), message, toastLength).show();
+    public void showToast(final String message) {
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
