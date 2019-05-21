@@ -6,6 +6,10 @@ import com.example.rum8.listeners.AdvancedSettingsControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Map;
+
+import static android.content.ContentValues.TAG;
+
 public class AdvancedSettingsController {
 
     private AdvancedSettingsControllerListener controllerListener;
@@ -19,8 +23,11 @@ public class AdvancedSettingsController {
         auth = FirebaseAuth.getInstance();
     }
 
-    public void onSaveButtonClicked() {
-        controllerListener.showToast("SAVED", Toast.LENGTH_LONG);
+    public void onSaveButtonClicked(final Map<String, Object> userHash) {
+        Db.updateUser(db,auth.getCurrentUser(),userHash)
+                .addOnSuccessListener(aVoid -> {Log.d(TAG, "DocumentSnapshot successfully written");
+                    controllerListener.showToast("Saved", Toast.LENGTH_LONG); })
+                .addOnFailureListener(e -> controllerListener.showToast("Network error", Toast.LENGTH_LONG));
     }
 
     public void onGoToProfileSettingsButtonClicked() {
