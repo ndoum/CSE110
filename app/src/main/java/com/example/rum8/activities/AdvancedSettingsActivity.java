@@ -14,9 +14,6 @@ import com.example.rum8.controllers.AdvancedSettingsController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.AdvancedSettingsControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -47,9 +44,6 @@ public class AdvancedSettingsActivity extends AppCompatActivity
     }
 
     public void initViews() {
-        final FirebaseAuth auth = FirebaseAuth.getInstance();
-        final FirebaseUser user = auth.getCurrentUser();
-        final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
         accommodationsField = (TextInputEditText) findViewById(R.id.general_info_living_accommodations_field);
         otherThingsField = (TextInputEditText) findViewById(R.id.general_info_other_things_field);
@@ -60,7 +54,7 @@ public class AdvancedSettingsActivity extends AppCompatActivity
 
         initController();
 
-        controller.loadUserInfo(firestore, user)
+        controller.loadUserInfo()
                 .addOnSuccessListener(documentSnapshot -> {
                     final Map<String, Object> data = documentSnapshot.getData();
                     final String about_me = (String) data.get(Db.Keys.ABOUT_ME);

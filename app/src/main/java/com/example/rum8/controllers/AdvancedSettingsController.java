@@ -20,6 +20,7 @@ public class AdvancedSettingsController {
     private FirebaseFirestore db;
     private FirebaseAuth auth;
 
+
     public AdvancedSettingsController(final AdvancedSettingsControllerListener controllerListener){
         this.controllerListener = controllerListener;
 
@@ -52,8 +53,8 @@ public class AdvancedSettingsController {
         controllerListener.goToViewLinkList();
     }
 
-    public Task<DocumentSnapshot> loadUserInfo(final FirebaseFirestore firestore, final FirebaseUser user){
-        return Db.fetchUserInfo(firestore, user);
+    public Task<DocumentSnapshot> loadUserInfo(){
+        return Db.fetchUserInfo(this.db, this.auth.getCurrentUser());
     }
 
 }
