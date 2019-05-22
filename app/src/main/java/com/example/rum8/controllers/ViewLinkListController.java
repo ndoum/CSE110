@@ -77,7 +77,8 @@ public class ViewLinkListController {
      */
     public void populateRecyclerViewContent(Set<String> uids){
         //System.out.println(uids);
-        for(String uid : uids){
+        query = db.collectionGroup("users");
+        for(String uid : uids) {
 
         }
 

@@ -39,7 +39,6 @@ public class ViewLinkListActivity extends AppCompatActivity
         setContentView(R.layout.activity_view_link_list);
         initController();
         initViews();
-
     }
 
     private void initViews() {
