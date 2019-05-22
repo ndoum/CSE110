@@ -1,5 +1,7 @@
 package com.example.rum8.dataModels;
 
+import java.util.ArrayList;
+
 public class LinkListSingleLink {
     private String firstName;
     private String lastName;
@@ -36,6 +38,12 @@ public class LinkListSingleLink {
 
     public String getUid() {
         return uid;
+    }
+
+    public ArrayList<LinkListSingleLink> createLinkList(){
+        ArrayList<LinkListSingleLink> links = new ArrayList<LinkListSingleLink>();
+
+        return links;
     }
 
 }

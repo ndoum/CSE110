@@ -17,6 +17,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -77,9 +78,17 @@ public class ViewLinkListController {
      */
     public void populateRecyclerViewContent(Set<String> uids){
         //System.out.println(uids);
-        query = db.collectionGroup("users");
+        ArrayList<LinkListSingleLink> links = new ArrayList<>();
         for(String uid : uids) {
-
+            Db.fetchLinkInfo(db, uid).addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    String first_name = (String) documentSnapshot.get("first_name");
+                    String last_name = (String) documentSnapshot.get("last_name");
+                    LinkListSingleLink link = new LinkListSingleLink(first_name, last_name, uid);
+                    links.add(link);
+                }
+            });
         }
 
 

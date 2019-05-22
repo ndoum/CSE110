@@ -192,4 +192,9 @@ public class Db {
                 .document(user.getUid()).get();
     }
 
+    public static Task<DocumentSnapshot> fetchLinkInfo(final FirebaseFirestore firestore, final String linkUid){
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(linkUid).get();
+    }
+
 }
