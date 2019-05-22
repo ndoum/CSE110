@@ -51,9 +51,6 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.fragment_profile_settings_personality_logistics, container, false);
         final FirebaseAuth auth = FirebaseAuth.getInstance();
-        final FirebaseUser user = auth.getCurrentUser();
-        final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        final FirebaseStorage storage = FirebaseStorage.getInstance();
 
         radioGroupPersonalQuestionOne = rootView.findViewById(R.id.personal_preferences_cleanliness_preference_radio_group);
         radioGroupPersonalQuestionTwo = rootView.findViewById(R.id.personal_preferences_reserved_preference_radio_group);
@@ -65,7 +62,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
         radioGroupPersonalQuestionEight = rootView.findViewById(R.id.personal_preferences_pet_preference_radio_group);
 
         controller = new ProfileSettingsController(this);
-        controller.loadUserInfo(firestore, user).addOnSuccessListener(documentSnapshot -> {
+        controller.loadUserInfo().addOnSuccessListener(documentSnapshot -> {
                 Map<String, Object> data = documentSnapshot.getData();
                 long clean = (long) data.get(Db.Keys.CLEAN_VALUE);
                 long reserve = (long) data.get(Db.Keys.RESERVED_VALUE);

@@ -24,10 +24,7 @@ import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
+
 import com.google.firebase.storage.StorageException;
 
 import java.util.HashMap;
@@ -61,10 +58,6 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     @Override
     public void onViewCreated(View rootView, Bundle savedInstanceState) {
         controller = new ProfileSettingsController(this);
-        final FirebaseAuth auth = FirebaseAuth.getInstance();
-        final FirebaseUser user = auth.getCurrentUser();
-        final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        final FirebaseStorage storage = FirebaseStorage.getInstance();
 
         //NAME FIELDS
         firstNameField = rootView.findViewById(R.id.general_info_first_name_field);
@@ -91,7 +84,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         collegeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         collegeSpinner.setAdapter(collegeAdapter);
 
-        controller.loadUserInfo(firestore, user)
+        controller.loadUserInfo()
                 .addOnSuccessListener(documentSnapshot -> {
                     final Map<String, Object> data = documentSnapshot.getData();
                     final String userGender = (String) data.get(Db.Keys.GENDER);
@@ -116,12 +109,12 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         imageView = rootView.findViewById(R.id.general_info_profile_image_view);
 
         // fetch user's profile picture
-        controller.loadUserProfileImage(storage, user).addOnSuccessListener(bytes -> {
+        controller.loadUserProfileImage().addOnSuccessListener(bytes -> {
             Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
             imageView.setImageBitmap(bmp);
         }).addOnFailureListener(exception -> {
             // fetch default if the user does not upload
-            controller.loadDefaluUserProfileImage(storage).addOnSuccessListener(bytes -> {
+            controller.loadDefaluUserProfileImage().addOnSuccessListener(bytes -> {
                 Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                 imageView.setImageBitmap(bmp);
             });

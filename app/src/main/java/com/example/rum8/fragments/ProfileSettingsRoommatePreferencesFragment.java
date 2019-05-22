@@ -16,10 +16,6 @@ import com.example.rum8.R;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.Map;
 
@@ -49,10 +45,6 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
     public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        final FirebaseAuth auth = FirebaseAuth.getInstance();
-        final FirebaseUser user = auth.getCurrentUser();
-        final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        final FirebaseStorage storage = FirebaseStorage.getInstance();
 
         super.onCreateView(inflater, container, savedInstanceState);
         final View rootView = inflater.inflate(R.layout.fragment_profile_settings_roommate_preferences, container, false);
@@ -70,7 +62,7 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
         radioGroupRoommateQuestionEight = rootView.findViewById(R.id.roommate_preferences_guests_preference_radio_group);
         radioGroupRoommateQuestionNine = rootView.findViewById(R.id.roommate_preferences_pets_preference_radio_group);
 
-        controller.loadUserInfo(firestore, user).addOnSuccessListener(documentSnapshot -> {
+        controller.loadUserInfo().addOnSuccessListener(documentSnapshot -> {
             Map<String, Object> data = documentSnapshot.getData();
             long gender = (long) data.get(Db.Keys.ROOMMATE_PREFER_SAME_GENDER_ROOMMATE_VALUE);
             long clean = (long) data.get(Db.Keys.ROOMMATE_CLEAN_VALUE);
