@@ -14,6 +14,9 @@ import com.example.rum8.controllers.AdvancedSettingsController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.AdvancedSettingsControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -44,12 +47,38 @@ public class AdvancedSettingsActivity extends AppCompatActivity
     }
 
     public void initViews() {
+        final FirebaseAuth auth = FirebaseAuth.getInstance();
+        final FirebaseUser user = auth.getCurrentUser();
+        final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+
         accommodationsField = (TextInputEditText) findViewById(R.id.general_info_living_accommodations_field);
         otherThingsField = (TextInputEditText) findViewById(R.id.general_info_other_things_field);
         aboutMeField = (TextInputEditText) findViewById(R.id.personal_info_bio_field);
         hobbiesField = (TextInputEditText) findViewById(R.id.personal_info_hobbies_field);
         interestsField = (TextInputEditText) findViewById(R.id.personal_info_interest_field);
         phoneNumberField = (TextInputEditText) findViewById(R.id.personal_info_phone_field);
+
+        initController();
+
+        controller.loadUserInfo(firestore, user)
+                .addOnSuccessListener(documentSnapshot -> {
+                    final Map<String, Object> data = documentSnapshot.getData();
+                    final String about_me = (String) data.get(Db.Keys.ABOUT_ME);
+                    final String hobbies = (String) data.get(Db.Keys.HOBBIES);
+                    final String interests = (String) data.get(Db.Keys.INTERESTS);
+                    final String living_accommodations = (String) data.get(Db.Keys.LIVING_ACCOMMODATIONS);
+                    final String other_things_you_should_know = (String) data.get(Db.Keys.OTHER_THINGS_YOU_SHOULD_KNOW);
+                    final String phone_number = (String) data.get(Db.Keys.PHONE_NUMBER);
+                    accommodationsField.setText(living_accommodations);
+                    otherThingsField.setText(other_things_you_should_know);
+                    aboutMeField.setText(about_me);
+                    hobbiesField.setText(hobbies);
+                    interestsField.setText(interests);
+                    phoneNumberField.setText(phone_number);
+                }).addOnFailureListener(exception -> {
+                    final String message = "Network error";
+                    showToast(message);
+                });
 
         saveButton = findViewById(R.id.button_advanced_settings_save);
         saveButton.setOnClickListener(v -> {
