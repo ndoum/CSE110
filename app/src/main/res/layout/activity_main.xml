@@ -10,10 +10,10 @@
 
     <fragment
         android:layout_width="match_parent"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="25dp"
-        android:layout_height="475dp"
+        android:layout_marginRight="46dp"
+        android:layout_marginLeft="46dp"
+        android:layout_marginTop="36dp"
+        android:layout_height="456dp"
         android:id="@+id/fragment_place"
         android:name="com.example.rum8.fragments.PotentialRoommateProfileDefault"
         tools:layout="@layout/fragment_potential_roommate_profile_default">

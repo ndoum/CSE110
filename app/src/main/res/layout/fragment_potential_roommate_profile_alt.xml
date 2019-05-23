@@ -39,7 +39,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="92dp"
+                    android:layout_marginTop="80dp"
                     app:cardBackgroundColor="#5DB1A7">
 
                     <LinearLayout
@@ -53,7 +53,7 @@
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="55dp"
                             android:text="Alvin Li"
-                            android:textSize="25sp"
+                            android:textSize="35sp"
                             android:textStyle="bold"/>
 
                         <TextView
@@ -77,7 +77,10 @@
             android:layout_height="wrap_content"
             android:background="#009688"
             app:tabGravity="fill"
-            app:tabMode="fixed" />
+            app:tabMode="fixed"
+            app:tabTextAppearance="@style/CustomTextStyle"
+            app:tabIndicatorColor="@android:color/white"
+            app:tabSelectedTextColor="@color/ucsd_gold"/>
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/potential_roommate_profile_alt_viewpager_id"

@@ -12,18 +12,10 @@
         android:rowCount="18"
         >
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tab 2"
-            android:layout_row="1"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:textSize="30dp"/>
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Budgets:"
-            android:layout_row="2"
+            android:layout_row="1"
             android:layout_column="0"
             android:layout_columnWeight="1"
             android:textSize="20sp"
@@ -33,7 +25,7 @@
 
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_row="3"
+            android:layout_row="2"
             android:layout_column="0"
             android:layout_columnWeight="1"
             android:text="650" />
@@ -42,81 +34,81 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Room Type:"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_row="4"
             android:layout_column="0"
             android:layout_columnWeight="1"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
+            android:text="Double" />
         <TextView
-
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Room Type:"
             android:layout_row="5"
             android:layout_column="0"
             android:layout_columnWeight="1"
-            android:text="Double" />
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <TextView
-            android:layout_width="wrap_content"
+
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Room Type:"
             android:layout_row="6"
             android:layout_column="0"
             android:layout_columnWeight="1"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
+            android:text="Double" />
         <TextView
-
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Room Type:"
             android:layout_row="7"
             android:layout_column="0"
             android:layout_columnWeight="1"
-            android:text="Double" />
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <TextView
-            android:layout_width="wrap_content"
+
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Room Type:"
             android:layout_row="8"
             android:layout_column="0"
             android:layout_columnWeight="1"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:text="Double" />
 
         <TextView
-
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Room Type:"
             android:layout_row="9"
             android:layout_column="0"
             android:layout_columnWeight="1"
-            android:text="Double" />
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:layout_width="wrap_content"
+
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Room Type:"
             android:layout_row="10"
             android:layout_column="0"
             android:layout_columnWeight="1"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_row="11"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
             android:text="Double" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Room Type:"
-            android:layout_row="12"
+            android:layout_row="11"
             android:layout_column="0"
             android:layout_columnWeight="1"
             android:textSize="20sp"
@@ -126,7 +118,7 @@
 
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_row="13"
+            android:layout_row="12"
             android:layout_column="0"
             android:layout_columnWeight="1"
             android:text="Double" />
