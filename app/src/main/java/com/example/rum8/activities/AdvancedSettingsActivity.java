@@ -14,7 +14,6 @@ import com.example.rum8.controllers.AdvancedSettingsController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.AdvancedSettingsControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
