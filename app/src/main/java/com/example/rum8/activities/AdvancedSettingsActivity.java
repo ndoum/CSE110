@@ -97,8 +97,7 @@ public class AdvancedSettingsActivity extends AppCompatActivity
     }
 
     @Override
-    public void showCurrentUserInfo(final DocumentSnapshot documentSnapshot){
-        final Map<String, Object> data = documentSnapshot.getData();
+    public void showCurrentUserInfo(final Map<String, Object> data){
         final String about_me = (String) data.get(Db.Keys.ABOUT_ME);
         final String hobbies = (String) data.get(Db.Keys.HOBBIES);
         final String interests = (String) data.get(Db.Keys.INTERESTS);

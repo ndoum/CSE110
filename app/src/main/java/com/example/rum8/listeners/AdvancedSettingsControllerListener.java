@@ -1,6 +1,6 @@
 package com.example.rum8.listeners;
 
-import com.google.firebase.firestore.DocumentSnapshot;
+import java.util.Map;
 
 public interface AdvancedSettingsControllerListener {
 
@@ -12,5 +12,5 @@ public interface AdvancedSettingsControllerListener {
 
     void showToast(final String message);
 
-    void showCurrentUserInfo(final DocumentSnapshot documentSnapshot);
+    void showCurrentUserInfo(final Map<String, Object> data);
 }
