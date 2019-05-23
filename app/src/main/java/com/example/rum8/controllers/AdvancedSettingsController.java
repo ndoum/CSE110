@@ -1,16 +1,15 @@
 package com.example.rum8.controllers;
 
-import android.net.Uri;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.AdvancedSettingsControllerListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
+
+import java.util.Map;
+
+import static android.content.ContentValues.TAG;
 
 public class AdvancedSettingsController {
 
@@ -25,8 +24,11 @@ public class AdvancedSettingsController {
         auth = FirebaseAuth.getInstance();
     }
 
-    public void onSaveButtonClicked() {
-        controllerListener.showToast("SAVED", Toast.LENGTH_LONG);
+    public void onSaveButtonClicked(final Map<String, Object> userHash) {
+        Db.updateUser(db,auth.getCurrentUser(),userHash)
+                .addOnSuccessListener(aVoid -> {Log.d(TAG, "DocumentSnapshot successfully written");
+                    controllerListener.showToast("Saved"); })
+                .addOnFailureListener(e -> controllerListener.showToast("Network error"));
     }
 
     public void onGoToProfileSettingsButtonClicked() {
@@ -42,5 +44,14 @@ public class AdvancedSettingsController {
         controllerListener.goToAdvSettings();
     }
 
+    public void loadUserInfo(){
+        Db.fetchUserInfo(this.db, this.auth.getCurrentUser()).addOnSuccessListener(documentSnapshot -> {
+            final Map<String, Object> data = documentSnapshot.getData();
+            controllerListener.showCurrentUserInfo(data);
+        }).addOnFailureListener(exception -> {
+            final String message = "Network error";
+            controllerListener.showToast(message);
+        });
+    }
 
 }

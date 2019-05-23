@@ -1,7 +1,6 @@
 package com.example.rum8.controllers;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.rum8.listeners.PasswordRecoveryControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,7 +35,7 @@ public class PasswordRecoveryController {
                     else {
                         message = "Network error";
                     }
-                    controllerListener.showToast(message, Toast.LENGTH_SHORT);
+                    controllerListener.showToast(message);
                     Log.d("Error", "Reset Password Email: failure", e);
                 });
 

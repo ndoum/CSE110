@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     private FloatingActionButton notLinkButton;
 
     @Override
-    public void showToast(final String message, final int toastLength) {
-        Toast.makeText(MainActivity.this, message, toastLength).show();
+    public void showToast(final String message) {
+        Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

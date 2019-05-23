@@ -20,56 +20,106 @@ import javax.annotation.Nonnull;
 
 public class Db {
 
-    private static final String PROFILE_PIC_PATH = "profile_pictures/";
-    private static final String DEFAULT_PROFILE_PIC_PATH = "profile_picture_default/default_profile_pic.png";
-    private static final long ONE_MEGABYTE = 1024 * 1024;
+    public static class Keys {
 
-    static class InitialValues {
+        public static final String ACADEMIC_YEAR = "academic_year";
+        public static final String AGE = "age";
+        public static final String BUDGET = "budget";
+        public static final String COLLEGE = "college";
+        public static final String EMAIL = "email";
+        public static final String FIRST_NAME = "first_name";
+        public static final String GENDER = "gender";
+        public static final String LAST_NAME = "last_name";
+        public static final String MAJOR = "major";
+        public static final String PHONE_NUMBER = "phone_number";
+
+        public static final String ABOUT_ME = "about_me";
+        public static final String HOBBIES = "hobbies";
+        public static final String INTERESTS = "interests";
+        public static final String LIVING_ACCOMMODATIONS = "living_accommodations";
+        public static final String OTHER_THINGS_YOU_SHOULD_KNOW = "other_things_you_should_know";
+
+        public static final String POTENTIAL = "potential";
+        public static final String LIKED = "liked";
+        public static final String DISLIKED = "disliked";
+        public static final String MATCHED = "matched";
+
+        public static final String ALCOHOL_VALUE = "alcohol_value";
+        public static final String ALLOW_PETS_VALUE = "allow_pets_value";
+        public static final String CLEAN_VALUE = "clean_value";
+        public static final String OVERNIGHT_GUESTS_VALUE = "overnight_guests_value";
+        public static final String PARTY_VALUE = "party_value";
+        public static final String RESERVED_VALUE = "reserved_value";
+        public static final String SMOKE_VALUE = "smoke_value";
+        public static final String STAY_UP_LATE_ON_WEEKDAYS_VALUE = "stay_up_late_on_weekdays_value";
+
+        public static final String ROOMMATE_ALCOHOL_VALUE = String.format("roommate_%s", ALCOHOL_VALUE);
+        public static final String ROOMMATE_ALLOW_PETS_VALUE = String.format("roommate_%s", ALLOW_PETS_VALUE);
+        public static final String ROOMMATE_CLEAN_VALUE = String.format("roommate_%s", CLEAN_VALUE);
+        public static final String ROOMMATE_OVERNIGHT_GUESTS_VALUE = String.format("roommate_%s", OVERNIGHT_GUESTS_VALUE);
+        public static final String ROOMMATE_PARTY_VALUE = String.format("roommate_%s", PARTY_VALUE);
+        public static final String ROOMMATE_PREFER_SAME_GENDER_ROOMMATE_VALUE = "roommate_prefer_same_gender_roommate_value";
+        public static final String ROOMMATE_RESERVED_VALUE = String.format("roommate_%s", RESERVED_VALUE);
+        public static final String ROOMMATE_SMOKE_VALUE = String.format("roommate_%s", SMOKE_VALUE);
+        public static final String ROOMMATE_STAY_UP_LATE_ON_WEEKDAYS_VALUE = String.format("roommate_%s", STAY_UP_LATE_ON_WEEKDAYS_VALUE);
+
+    }
+
+    private static class InitialValues {
 
         private static final String EMPTY_STRING = "";
         private static final Integer ZERO = 0;
         private static final Map<String, Object> EMPTY_MAP = new HashMap<>();
 
-        static final Map<String, Object> USER = new HashMap<String, Object>() {{
-            put("academic_year", 1);
-            put("age", 18);
-            put("budget", ZERO);
-            put("email", EMPTY_STRING);
-            put("first_name", EMPTY_STRING);
-            put("gender", "Female");
-            put("last_name", EMPTY_STRING);
-            put("major", "Computer Science");
-            put("mobile_phone", EMPTY_STRING);
-            put("ucsd_college", "Muir");
+        private static final Map<String, Object> USER = new HashMap<String, Object>() {{
+            put(Keys.ACADEMIC_YEAR, "First");
+            put(Keys.AGE, 18);
+            put(Keys.BUDGET, ZERO);
+            put(Keys.COLLEGE, "Muir");
+            put(Keys.EMAIL, EMPTY_STRING);
+            put(Keys.FIRST_NAME, EMPTY_STRING);
+            put(Keys.GENDER, "Female");
+            put(Keys.LAST_NAME, EMPTY_STRING);
+            put(Keys.MAJOR, "Computer Science");
+            put(Keys.PHONE_NUMBER, EMPTY_STRING);
 
-            put("potential", EMPTY_MAP);
-            put("liked", EMPTY_MAP);
-            put("disliked", EMPTY_MAP);
-            put("matched", EMPTY_MAP);
+            put(Keys.ABOUT_ME, EMPTY_STRING);
+            put(Keys.HOBBIES, EMPTY_STRING);
+            put(Keys.INTERESTS, EMPTY_STRING);
+            put(Keys.LIVING_ACCOMMODATIONS, EMPTY_STRING);
+            put(Keys.OTHER_THINGS_YOU_SHOULD_KNOW, EMPTY_STRING);
 
-            put("alcohol_value", ZERO);
-            put("allow_pets_value", ZERO);
-            put("clean_value", ZERO);
-            put("overnight_guests_value", ZERO);
-            put("party_value", ZERO);
-            put("reserved_value", ZERO);
-            put("smoke_value", ZERO);
-            put("stay_up_late_on_weekdays_value", ZERO);
+            put(Keys.POTENTIAL, EMPTY_MAP);
+            put(Keys.LIKED, EMPTY_MAP);
+            put(Keys.DISLIKED, EMPTY_MAP);
+            put(Keys.MATCHED, EMPTY_MAP);
 
-            put("roommate_alcohol_value", ZERO);
-            put("roommate_allow_pets_value", ZERO);
-            put("roommate_clean_value", ZERO);
-            put("roommate_overnight_guests_value", ZERO);
-            put("roommate_party_value", ZERO);
-            put("roommate_prefer_same_gender_roommate_value", 0);
-            put("roommate_reserved_value", ZERO);
-            put("roommate_smoke_value", ZERO);
-            put("roommate_stay_up_late_on_weekdays_value", ZERO);
+            put(Keys.ALCOHOL_VALUE, ZERO);
+            put(Keys.ALLOW_PETS_VALUE, ZERO);
+            put(Keys.CLEAN_VALUE, ZERO);
+            put(Keys.OVERNIGHT_GUESTS_VALUE, ZERO);
+            put(Keys.PARTY_VALUE, ZERO);
+            put(Keys.RESERVED_VALUE, ZERO);
+            put(Keys.SMOKE_VALUE, ZERO);
+            put(Keys.STAY_UP_LATE_ON_WEEKDAYS_VALUE, ZERO);
+
+            put(Keys.ROOMMATE_ALCOHOL_VALUE, ZERO);
+            put(Keys.ROOMMATE_ALLOW_PETS_VALUE, ZERO);
+            put(Keys.ROOMMATE_CLEAN_VALUE, ZERO);
+            put(Keys.ROOMMATE_OVERNIGHT_GUESTS_VALUE, ZERO);
+            put(Keys.ROOMMATE_PARTY_VALUE, ZERO);
+            put(Keys.ROOMMATE_PREFER_SAME_GENDER_ROOMMATE_VALUE, 0);
+            put(Keys.ROOMMATE_RESERVED_VALUE, ZERO);
+            put(Keys.ROOMMATE_SMOKE_VALUE, ZERO);
+            put(Keys.ROOMMATE_STAY_UP_LATE_ON_WEEKDAYS_VALUE, ZERO);
         }};
 
     }
 
-    private static String USERS_COLLECTION_NAME = "users";
+    private static final String USERS_COLLECTION_NAME = "users";
+    private static final String PROFILE_PIC_PATH = "profile_pictures/";
+    private static final String DEFAULT_PROFILE_PIC_PATH = "profile_picture_default/default_profile_pic.png";
+    private static final long ONE_MEGABYTE = 1024 * 1024;
 
     public static Task<Void> createUser(final FirebaseFirestore firestore,
                                         final @Nonnull FirebaseUser user,
@@ -122,15 +172,15 @@ public class Db {
                                 if (Filter.match(userSnap.getData(), otherUserSnap.getData())) {
 
                                     // Add other user to this user's potential
-                                    potential.put(otherUserId, InitialValues.EMPTY_STRING);
-                                    userHash.put("potential", potential);
+                                    potential.put(otherUserId, "");
+                                    userHash.put(Db.Keys.POTENTIAL, potential);
                                     userRef.update(userHash);
 
                                     // Add this user to other user's potential
                                     final Map<String, Object> otherUserHash = doc.getData();
-                                    final Map<String, Object> otherUserPotential = (Map<String, Object>) otherUserHash.get("potential");
-                                    otherUserPotential.put(userId, InitialValues.EMPTY_STRING);
-                                    otherUserHash.put("potential", otherUserPotential);
+                                    final Map<String, Object> otherUserPotential = (Map<String, Object>) otherUserHash.get(Db.Keys.POTENTIAL);
+                                    otherUserPotential.put(userId, "");
+                                    otherUserHash.put(Db.Keys.POTENTIAL, otherUserPotential);
                                     otherUser.update(otherUserHash);
                                 }
 
@@ -164,5 +214,12 @@ public class Db {
 
     public static Task<byte[]> fetchDefaultUserProfilePicture(final FirebaseStorage storage) {
         return storage.getReference().child(DEFAULT_PROFILE_PIC_PATH).getBytes(ONE_MEGABYTE);
+    }
+
+    public static Task<DocumentSnapshot> fetchUserInfo(final FirebaseFirestore firestore,
+                                                       final @Nonnull FirebaseUser user) {
+
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(user.getUid()).get();
     }
 }

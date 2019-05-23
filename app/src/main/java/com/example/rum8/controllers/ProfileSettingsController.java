@@ -2,16 +2,15 @@ package com.example.rum8.controllers;
 
 import android.net.Uri;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
-
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,6 +28,7 @@ public class ProfileSettingsController {
     private ProfileSettingsControllerListener controllerListener;
     private FirebaseFirestore db;
     private FirebaseAuth auth;
+    private FirebaseStorage storage;
     private Map<String, Object> userMap;
 
 
@@ -37,16 +37,17 @@ public class ProfileSettingsController {
         userMap = new HashMap<>();
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
+        storage = FirebaseStorage.getInstance();
     }
 
     public void onSubmit(final Map<String, Object> userInfo) {
-        final String firstName = (String) userInfo.get("first_name");
-        final String lastName = (String) userInfo.get("last_name");
+        final String firstName = (String) userInfo.get(Db.Keys.FIRST_NAME);
+        final String lastName = (String) userInfo.get(Db.Keys.LAST_NAME);
 
         // check for valid name
         if ((!isPresent(firstName)) || (!isPresent(lastName))) {
             final String message = "Please enter your first and last name";
-            controllerListener.showToast(message, Toast.LENGTH_SHORT);
+            controllerListener.showToast(message);
         } else {
             Db.updateUser(db, auth.getCurrentUser(), userInfo)
                     .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
@@ -67,12 +68,12 @@ public class ProfileSettingsController {
                     .addOnSuccessListener(taskSnapshot -> {
                         controllerListener.hideUploadImageProgress();
                         final String message = "Successfully uploaded";
-                        controllerListener.showToast(message, Toast.LENGTH_SHORT);
+                        controllerListener.showToast(message);
                     })
                     .addOnFailureListener(e -> {
                         controllerListener.hideUploadImageProgress();
                         final String message = "Network error";
-                        controllerListener.showToast(message, Toast.LENGTH_SHORT);
+                        controllerListener.showToast(message);
                     })
                     .addOnProgressListener(taskSnapshot -> {
                         double progress = (ONE_HUNDRED_PERCENT * taskSnapshot.getBytesTransferred() / taskSnapshot
@@ -82,12 +83,16 @@ public class ProfileSettingsController {
         }
     }
 
-    public Task<byte[]> loadDefaluUserProfileImage(final FirebaseStorage storage) {
-        return Db.fetchDefaultUserProfilePicture(storage);
+    public Task<DocumentSnapshot> loadUserInfo(){
+        return Db.fetchUserInfo(this.db, auth.getCurrentUser());
     }
 
-    public Task<byte[]> loadUserProfileImage(final FirebaseStorage storage, final FirebaseUser user) {
-        return Db.fetchUserProfilePicture(storage, user);
+    public Task<byte[]> loadDefaluUserProfileImage() {
+        return Db.fetchDefaultUserProfilePicture(this.storage);
+    }
+
+    public Task<byte[]> loadUserProfileImage() {
+        return Db.fetchUserProfilePicture(this.storage, this.auth.getCurrentUser());
     }
 
 
@@ -116,7 +121,7 @@ public class ProfileSettingsController {
 
     // helper method to check if user input is present
     private static boolean isPresent(final String name) {
-        if (name == null || name.equals("")) {
+        if (name == null || name.isEmpty()) {
             return false;
         }
         return true;
