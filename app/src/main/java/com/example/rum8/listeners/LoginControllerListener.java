@@ -2,12 +2,12 @@ package com.example.rum8.listeners;
 
 public interface LoginControllerListener {
 
-    void goToPasswordRecover();
+    void goToPasswordRecovery();
 
     void goToRegistration();
 
     void goToMainPage();
 
-    void showToast(final String message, final int toastLength);
+    void showToast(final String message);
 
 }

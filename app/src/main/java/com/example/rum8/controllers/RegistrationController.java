@@ -3,12 +3,12 @@ package com.example.rum8.controllers;
 import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.RegistrationControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -34,25 +34,28 @@ public class RegistrationController {
     public void onSubmit(final String email, final String password) {
         if (!isValidEmail(email)) {
             final String message = "Please use your UCSD email (i.e. abc@ucsd.edu)";
-            controllerListener.showToast(message, Toast.LENGTH_SHORT);
+            controllerListener.showToast(message);
         } else if (!isValidPassword(password)) {
             final String message = "Your password need to be more than 6 characters";
-            controllerListener.showToast(message, Toast.LENGTH_SHORT);
+            controllerListener.showToast(message);
         } else {
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener
                     ((Activity) context, task -> {
                         if (task.isSuccessful()) {
                             sendVerificationEmail(email);
-                            controllerListener.onUserRegistered();
+                            controllerListener.goToLogin();
                             // Create a new user with email when registration is complete
 
                             final Map<String, Object> userInfo = new HashMap<String, Object>() {{
-                                put("email", email);
+                                put(Db.Keys.EMAIL, email);
                             }};
 
-                            Db.createUserAndPreferences(db, auth.getCurrentUser(), userInfo)
+                            final FirebaseUser user = auth.getCurrentUser();
+
+                            Db.createUser(db, user, userInfo)
                                     .addOnSuccessListener(aVoid -> Log.d("Success", "createUserWithEmail:success"))
                                     .addOnFailureListener(e -> Log.d("Error", "createUserWithEmail:failure", e));
+                            Db.populateUserPotentialMatches(db, user);
                         } else {
                             final String message;
                             if (task.getException() instanceof FirebaseAuthUserCollisionException) {
@@ -60,7 +63,7 @@ public class RegistrationController {
                             } else {
                                 message = "Authentication failed";
                             }
-                            controllerListener.showToast(message, Toast.LENGTH_SHORT);
+                            controllerListener.showToast(message);
                             Log.e("Error:", "createUserWithEmail:failure", task.getException());
                         }
                     });
@@ -76,11 +79,11 @@ public class RegistrationController {
                     final String message;
                     if (task.isSuccessful()) {
                         message = "Verification email sent to " + email;
-                        controllerListener.showToast(message, Toast.LENGTH_SHORT);
+                        controllerListener.showToast(message);
                     } else {
                         Log.e(TAG, "sendEmailVerification", task.getException());
                         message = "Failed to send verification email to";
-                        controllerListener.showToast(message, Toast.LENGTH_SHORT);
+                        controllerListener.showToast(message);
                     }
                 });
     }
@@ -100,7 +103,7 @@ public class RegistrationController {
     }
 
     public void onGoBackToLoginButtonClicked() {
-        controllerListener.goBackToLogin();
+        controllerListener.goToLogin();
     }
 
 }

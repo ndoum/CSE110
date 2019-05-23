@@ -1,6 +1,8 @@
 package com.example.rum8.listeners;
 
-public interface MainControllerListener {
+import java.util.Map;
+
+public interface AdvancedSettingsControllerListener {
 
     void goToProfileSettings();
 
@@ -10,4 +12,5 @@ public interface MainControllerListener {
 
     void showToast(final String message);
 
+    void showCurrentUserInfo(final Map<String, Object> data);
 }

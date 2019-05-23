@@ -1,6 +1,5 @@
 package com.example.rum8.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
@@ -26,24 +25,17 @@ public class RegistrationActivity extends AppCompatActivity
         initController();
     }
 
+    /**
+     * Finish this activity because {@link LoginActivity} is the parent activity of this activity.
+     */
     @Override
-    public void onUserRegistered() {
-        final Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
-        startActivity(intent);
+    public void goToLogin() {
         finish();
     }
 
     @Override
-    public void showToast(final String message, final int toastLength) {
-        Toast.makeText(RegistrationActivity.this, message, toastLength).show();
-    }
-
-    @Override
-    public void goBackToLogin() {
-        final Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
-        startActivity(intent);
-        finish();
-
+    public void showToast(final String message) {
+        Toast.makeText(RegistrationActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
     private void initViews() {
