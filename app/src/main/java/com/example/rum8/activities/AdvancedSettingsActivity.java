@@ -39,8 +39,8 @@ public class AdvancedSettingsActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advanced_profile_settings);
-        initViews();
         initController();
+        initViews();
     }
 
     public void initViews() {
@@ -52,27 +52,7 @@ public class AdvancedSettingsActivity extends AppCompatActivity
         interestsField = (TextInputEditText) findViewById(R.id.personal_info_interest_field);
         phoneNumberField = (TextInputEditText) findViewById(R.id.personal_info_phone_field);
 
-        initController();
-
-        controller.loadUserInfo()
-                .addOnSuccessListener(documentSnapshot -> {
-                    final Map<String, Object> data = documentSnapshot.getData();
-                    final String about_me = (String) data.get(Db.Keys.ABOUT_ME);
-                    final String hobbies = (String) data.get(Db.Keys.HOBBIES);
-                    final String interests = (String) data.get(Db.Keys.INTERESTS);
-                    final String living_accommodations = (String) data.get(Db.Keys.LIVING_ACCOMMODATIONS);
-                    final String other_things_you_should_know = (String) data.get(Db.Keys.OTHER_THINGS_YOU_SHOULD_KNOW);
-                    final String phone_number = (String) data.get(Db.Keys.PHONE_NUMBER);
-                    accommodationsField.setText(living_accommodations);
-                    otherThingsField.setText(other_things_you_should_know);
-                    aboutMeField.setText(about_me);
-                    hobbiesField.setText(hobbies);
-                    interestsField.setText(interests);
-                    phoneNumberField.setText(phone_number);
-                }).addOnFailureListener(exception -> {
-                    final String message = "Network error";
-                    showToast(message);
-                });
+        controller.loadUserInfo();
 
         saveButton = findViewById(R.id.button_advanced_settings_save);
         saveButton.setOnClickListener(v -> {
@@ -110,12 +90,25 @@ public class AdvancedSettingsActivity extends AppCompatActivity
             case R.id.main_activity_go_to_adv_settings:
                 controller.onAdvSettingsButtonClicked();
                 return true;
-            case R.id.main_activity_go_to_view_link_list:
-                controller.onGoToViewLinkListButtonClicked();
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void showCurrentUserInfo(final Map<String, Object> data){
+        final String about_me = (String) data.get(Db.Keys.ABOUT_ME);
+        final String hobbies = (String) data.get(Db.Keys.HOBBIES);
+        final String interests = (String) data.get(Db.Keys.INTERESTS);
+        final String living_accommodations = (String) data.get(Db.Keys.LIVING_ACCOMMODATIONS);
+        final String other_things_you_should_know = (String) data.get(Db.Keys.OTHER_THINGS_YOU_SHOULD_KNOW);
+        final String phone_number = (String) data.get(Db.Keys.PHONE_NUMBER);
+        accommodationsField.setText(living_accommodations);
+        otherThingsField.setText(other_things_you_should_know);
+        aboutMeField.setText(about_me);
+        hobbiesField.setText(hobbies);
+        interestsField.setText(interests);
+        phoneNumberField.setText(phone_number);
     }
 
     @Override
@@ -132,14 +125,12 @@ public class AdvancedSettingsActivity extends AppCompatActivity
     }
 
     @Override
-    public void goToAdvSettings() {
-
-    }
-
-    @Override
     public void goToViewLinkList(){
         final Intent intent = new Intent(AdvancedSettingsActivity.this, ViewLinkListActivity.class);
         startActivity(intent);
         finish();
     }
+
+    public void goToAdvSettings() {}
+
 }

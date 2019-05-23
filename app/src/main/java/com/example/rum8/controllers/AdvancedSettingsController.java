@@ -4,10 +4,7 @@ import android.util.Log;
 
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.AdvancedSettingsControllerListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Map;
@@ -53,8 +50,14 @@ public class AdvancedSettingsController {
         controllerListener.goToViewLinkList();
     }
 
-    public Task<DocumentSnapshot> loadUserInfo(){
-        return Db.fetchUserInfo(this.db, this.auth.getCurrentUser());
+    public void loadUserInfo(){
+        Db.fetchUserInfo(this.db, this.auth.getCurrentUser()).addOnSuccessListener(documentSnapshot -> {
+            final Map<String, Object> data = documentSnapshot.getData();
+            controllerListener.showCurrentUserInfo(data);
+        }).addOnFailureListener(exception -> {
+            final String message = "Network error";
+            controllerListener.showToast(message);
+        });
     }
 
 }

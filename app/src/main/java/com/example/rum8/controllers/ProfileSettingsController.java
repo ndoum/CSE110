@@ -28,6 +28,7 @@ public class ProfileSettingsController {
     private ProfileSettingsControllerListener controllerListener;
     private FirebaseFirestore db;
     private FirebaseAuth auth;
+    private FirebaseStorage storage;
     private Map<String, Object> userMap;
 
 
@@ -36,6 +37,7 @@ public class ProfileSettingsController {
         userMap = new HashMap<>();
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
+        storage = FirebaseStorage.getInstance();
     }
 
     public void onSubmit(final Map<String, Object> userInfo) {
@@ -81,16 +83,16 @@ public class ProfileSettingsController {
         }
     }
 
-    public Task<DocumentSnapshot> loadUserInfo(final FirebaseFirestore firestore, final FirebaseUser user){
-        return Db.fetchUserInfo(firestore, user);
+    public Task<DocumentSnapshot> loadUserInfo(){
+        return Db.fetchUserInfo(this.db, auth.getCurrentUser());
     }
 
-    public Task<byte[]> loadDefaluUserProfileImage(final FirebaseStorage storage) {
-        return Db.fetchDefaultUserProfilePicture(storage);
+    public Task<byte[]> loadDefaluUserProfileImage() {
+        return Db.fetchDefaultUserProfilePicture(this.storage);
     }
 
-    public Task<byte[]> loadUserProfileImage(final FirebaseStorage storage, final FirebaseUser user) {
-        return Db.fetchUserProfilePicture(storage, user);
+    public Task<byte[]> loadUserProfileImage() {
+        return Db.fetchUserProfilePicture(this.storage, this.auth.getCurrentUser());
     }
 
 
