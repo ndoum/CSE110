@@ -52,8 +52,6 @@ public class AdvancedSettingsActivity extends AppCompatActivity
         interestsField = (TextInputEditText) findViewById(R.id.personal_info_interest_field);
         phoneNumberField = (TextInputEditText) findViewById(R.id.personal_info_phone_field);
 
-        initController();
-
         controller.loadUserInfo()
                 .addOnSuccessListener(documentSnapshot -> {
                     final Map<String, Object> data = documentSnapshot.getData();
