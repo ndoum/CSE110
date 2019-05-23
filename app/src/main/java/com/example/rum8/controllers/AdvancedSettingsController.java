@@ -44,5 +44,14 @@ public class AdvancedSettingsController {
         controllerListener.goToAdvSettings();
     }
 
+    public void loadUserInfo(){
+        Db.fetchUserInfo(this.db, this.auth.getCurrentUser()).addOnSuccessListener(documentSnapshot -> {
+            final Map<String, Object> data = documentSnapshot.getData();
+            controllerListener.showCurrentUserInfo(data);
+        }).addOnFailureListener(exception -> {
+            final String message = "Network error";
+            controllerListener.showToast(message);
+        });
+    }
 
 }
