@@ -52,14 +52,17 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
-        case R.id.main_activity_go_to_profile_settings:
-            controller.onGoToProfileSettingsButtonClicked();
-            return true;
-        case R.id.main_activity_log_out:
-            controller.onLogOutButtonClicked();
-            return true;
-        default:
-            return super.onOptionsItemSelected(item);
+            case R.id.main_activity_go_to_profile_settings:
+                controller.onGoToProfileSettingsButtonClicked();
+                return true;
+            case R.id.main_activity_log_out:
+                controller.onLogOutButtonClicked();
+                return true;
+            case R.id.main_activity_go_to_adv_settings:
+                controller.onGoToAdvSettingsButtonClicked();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
@@ -81,6 +84,12 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         final Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void goToAdvSettings() {
+        final Intent intent = new Intent(MainActivity.this, AdvancedSettingsActivity.class);
+        startActivity(intent);
     }
 
     /**
