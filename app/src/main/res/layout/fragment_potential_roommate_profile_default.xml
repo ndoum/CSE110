@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:background="#009688"
             app:tabGravity="fill"
-            app:tabMode="fixed"
+            app:tabMode="scrollable"
             app:tabTextAppearance="@style/CustomTextStyle"
             app:tabIndicatorColor="@android:color/white"
             app:tabSelectedTextColor="@color/ucsd_gold"
