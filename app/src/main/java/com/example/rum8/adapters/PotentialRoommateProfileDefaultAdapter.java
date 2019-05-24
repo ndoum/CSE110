@@ -20,14 +20,16 @@ public class PotentialRoommateProfileDefaultAdapter extends FragmentPagerAdapter
 
     /**
      * Constructor that instantiates the potential roommate profile default adapter.
+     *
      * @param fm
      */
-    public PotentialRoommateProfileDefaultAdapter(FragmentManager fm){
+    public PotentialRoommateProfileDefaultAdapter(FragmentManager fm) {
         super(fm);
     }
 
     /**
      * Method that returns specific fragment at the given position
+     *
      * @param position
      * @return
      */
@@ -40,6 +42,7 @@ public class PotentialRoommateProfileDefaultAdapter extends FragmentPagerAdapter
 
     /**
      * Method that returns the size of fragment.
+     *
      * @return
      */
     @Override
@@ -50,6 +53,7 @@ public class PotentialRoommateProfileDefaultAdapter extends FragmentPagerAdapter
     /**
      * Method that returns the title of the fragment at given
      * position.
+     *
      * @param position
      * @return
      */
@@ -59,7 +63,7 @@ public class PotentialRoommateProfileDefaultAdapter extends FragmentPagerAdapter
         return FragmentListTitles.get(position);
     }
 
-    public void AddFragment(Fragment fragment, String Title){
+    public void AddFragment(Fragment fragment, String Title) {
         fragmentList.add(fragment);
         FragmentListTitles.add(Title);
     }

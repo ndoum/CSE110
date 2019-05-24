@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     /**
      * Method that switch between potential roommate profile fragment and roommate
      * profile fragment alternate based on button clicks
-     * 
+     *
      * @param view
      */
     public void ChangeFragment(View view) {

@@ -13,14 +13,15 @@ import com.example.rum8.R;
 
 public class UserTab3Fragment extends Fragment {
     View view;
-    public UserTab3Fragment(){
+
+    public UserTab3Fragment() {
 
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view=inflater.inflate(R.layout.fragment_tab3, container, false);
+        view = inflater.inflate(R.layout.fragment_tab3, container, false);
         return view;
     }
 

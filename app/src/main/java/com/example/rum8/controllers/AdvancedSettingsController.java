@@ -17,8 +17,7 @@ public class AdvancedSettingsController {
     private FirebaseFirestore db;
     private FirebaseAuth auth;
 
-
-    public AdvancedSettingsController(final AdvancedSettingsControllerListener controllerListener){
+    public AdvancedSettingsController(final AdvancedSettingsControllerListener controllerListener) {
         this.controllerListener = controllerListener;
 
         db = FirebaseFirestore.getInstance();
@@ -26,10 +25,11 @@ public class AdvancedSettingsController {
     }
 
     public void onSaveButtonClicked(final Map<String, Object> userHash) {
-        Db.updateUser(db,auth.getCurrentUser(),userHash)
+        Db.updateUser(db, auth.getCurrentUser(), userHash)
                 .addOnSuccessListener(aVoid -> {
                     Log.d(TAG, "DocumentSnapshot successfully written");
-                    controllerListener.showToast("Saved"); })
+                    controllerListener.showToast("Saved");
+                })
                 .addOnFailureListener(e -> controllerListener.showToast("Network error"));
     }
 
@@ -50,7 +50,7 @@ public class AdvancedSettingsController {
         controllerListener.goToViewLinkList();
     }
 
-    public void loadUserInfo(){
+    public void loadUserInfo() {
         Db.fetchUserInfo(this.db, this.auth.getCurrentUser()).addOnSuccessListener(documentSnapshot -> {
             final Map<String, Object> data = documentSnapshot.getData();
             controllerListener.showCurrentUserInfo(data);

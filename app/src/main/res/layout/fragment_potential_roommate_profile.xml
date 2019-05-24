@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.PotentialRoommateProfileInit"
-    android:background="@color/cardview_light_background">
+    android:background="@color/cardview_light_background"
+    tools:context=".fragments.PotentialRoommateProfileInit">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <LinearLayout
+        android:id="@+id/potential_roommate_profile_main_linear_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
 
+        android:layout_height="match_parent"
         android:background="#00FFFFFF"
         android:elevation="10dp"
-        android:id="@+id/potential_roommate_profile_main_linear_layout"
 
         android:orientation="vertical">
 
@@ -45,10 +45,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="80dp"
+                    android:layout_marginBottom="-8dp"
                     android:background="@drawable/radius"
                     app:cardBackgroundColor="#5DB1A7"
                     app:cardCornerRadius="8dp"
-                    android:layout_marginBottom="-8dp"
 
 
                     >
@@ -65,14 +65,13 @@
                             android:layout_marginTop="55dp"
                             android:text="@string/menu_profile_user_name"
                             android:textSize="35sp"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:text="@string/menu_profile_user_year"
-                            />
+                            android:text="@string/menu_profile_user_year" />
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -89,10 +88,10 @@
             android:layout_height="wrap_content"
             android:background="#009688"
             app:tabGravity="fill"
-            app:tabMode="scrollable"
-            app:tabTextAppearance="@style/CustomTextStyle"
             app:tabIndicatorColor="@android:color/white"
-            app:tabSelectedTextColor="@color/ucsd_gold" />
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/ucsd_gold"
+            app:tabTextAppearance="@style/CustomTextStyle" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/potential_roommate_profile_viewpager_id"
