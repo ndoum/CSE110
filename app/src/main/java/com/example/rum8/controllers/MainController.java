@@ -1,7 +1,6 @@
 package com.example.rum8.controllers;
 
 import com.example.rum8.database.Db;
-import com.example.rum8.listeners.AdvancedSettingsControllerListener;
 import com.example.rum8.listeners.MainControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;

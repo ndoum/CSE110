@@ -10,11 +10,11 @@ import com.example.rum8.fragments.ProfileSettingsPersonalityLogisticsFragment;
 import com.example.rum8.fragments.ProfileSettingsRoommatePreferencesFragment;
 
 public class ProfileSettingsViewPagerAdapter extends FragmentPagerAdapter {
+    public static int FRAGMENT_COUNT = 3;
+
     public ProfileSettingsViewPagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
     }
-
-    public static int FRAGMENT_COUNT = 3;
 
     @NonNull
     @Override
