@@ -55,12 +55,6 @@ public class MainController {
                     final Map<String, Object> otherUserdata = documentSnapshotOther.getData();
                     controllerListener.showCurrentUserInfo(otherUserdata);
 
-                    // TODO: move removal somewhere else
-                    // remove other user from potentials
-                    //potential.remove(userId);
-                    //data.put(Db.Keys.POTENTIAL, potential);
-                    //Db.updateUser(this.db, this.auth.getCurrentUser(), data);
-
                 }).addOnFailureListener(exception -> {
                     final String message = "Network error";
                     controllerListener.showToast(message);
