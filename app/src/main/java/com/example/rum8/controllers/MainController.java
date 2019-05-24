@@ -24,14 +24,9 @@ public class MainController {
         controllerListener.goToLogin();
     }
 
-<<<<<<< HEAD
-
     public void onGoToLinkListButtonClicked() {controllerListener.goToLinkList();}
 
-    public void onLinkButtonClicked(){
-=======
     public void onLinkButtonClicked() {
->>>>>>> master
         controllerListener.showToast("LIKED");
     }
 
