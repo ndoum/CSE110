@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_light_background"
+    tools:context=".fragments.PotentialRoommateProfileAlt">
+
+    <LinearLayout
+        android:id="@+id/potential_roommate_profile_alt_main_linear_layout"
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+        android:background="#00FFFFFF"
+        android:elevation="10dp"
+
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/potential_roommate_profile_alt_appbarid"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#00FFFFFF"
+            android:elevation="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/ucsd_gold">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="125dp"
+                    android:layout_height="125dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:elevation="5dp"
+                    android:src="@drawable/images" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginBottom="-8dp"
+                    app:cardBackgroundColor="#5DB1A7"
+                    app:cardCornerRadius="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="55dp"
+                            android:text="Alvin Li"
+                            android:textSize="35sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="@string/menu_profile_user_year" />
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </RelativeLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/potential_roommate_profile_alt_tablayout_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#009688"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@android:color/white"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/ucsd_gold"
+            app:tabTextAppearance="@style/CustomTextStyle" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/potential_roommate_profile_alt_viewpager_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00644949" />
+
+    </LinearLayout>
+
+</FrameLayout>

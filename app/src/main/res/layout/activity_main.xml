@@ -1,33 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_coordinator_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activities.MainActivity">
+    android:layout_height="match_parent">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <fragment
+        android:id="@+id/fragment_place"
+        android:name="com.example.rum8.fragments.PotentialRoommateProfileDefault"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="450dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="50dp"
+        tools:layout="@layout/fragment_potential_roommate_profile_default"
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/link_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_margin="32dp"
-            app:srcCompat="@android:drawable/star_big_on"/>
+        >
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/not_link_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|left"
-            android:layout_margin="32dp"
-            app:srcCompat="@android:drawable/ic_delete"
-            android:backgroundTint="@color/colorAccent"/>
+    </fragment>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/link_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="32dp"
+        android:onClick="ChangeFragment"
+        app:icon="@drawable/correct" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/not_link_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_margin="32dp"
+        android:backgroundTint="@color/colorAccent"
+        android:onClick="ChangeFragment"
+        app:icon="@drawable/wrong" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

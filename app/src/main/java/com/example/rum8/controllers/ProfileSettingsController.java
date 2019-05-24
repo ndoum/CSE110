@@ -83,7 +83,7 @@ public class ProfileSettingsController {
         }
     }
 
-    public Task<DocumentSnapshot> loadUserInfo(){
+    public Task<DocumentSnapshot> loadUserInfo() {
         return Db.fetchUserInfo(this.db, auth.getCurrentUser());
     }
 

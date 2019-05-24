@@ -38,17 +38,17 @@ public class LoginController {
                             Log.d("Success", "signInWithEmail:success");
                         }
                     }).addOnFailureListener(e -> {
-                        final String message;
-                        if (e instanceof FirebaseAuthInvalidUserException) {
-                            message = "Account does not exist";
-                        } else if (e instanceof FirebaseAuthInvalidCredentialsException) {
-                            message = "Incorrect password";
-                        } else {
-                            message = "Network error";
-                        }
-                        controllerListener.showToast(message);
-                        Log.d("Error", "signInWithEmail:failure", e);
-                    });
+                final String message;
+                if (e instanceof FirebaseAuthInvalidUserException) {
+                    message = "Account does not exist";
+                } else if (e instanceof FirebaseAuthInvalidCredentialsException) {
+                    message = "Incorrect password";
+                } else {
+                    message = "Network error";
+                }
+                controllerListener.showToast(message);
+                Log.d("Error", "signInWithEmail:failure", e);
+            });
         }
     }
 
@@ -77,6 +77,7 @@ public class LoginController {
     private void onLoginSuccessful() {
         controllerListener.goToMainPage();
     }
+
 
 }
 

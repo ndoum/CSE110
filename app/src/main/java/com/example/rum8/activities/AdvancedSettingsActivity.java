@@ -57,14 +57,15 @@ public class AdvancedSettingsActivity extends AppCompatActivity
         saveButton = findViewById(R.id.button_advanced_settings_save);
         saveButton.setOnClickListener(v -> {
             final Map<String, Object> userHash = new HashMap<String, Object>() {{
-            put(Db.Keys.LIVING_ACCOMMODATIONS, accommodationsField.getText().toString());
-            put(Db.Keys.OTHER_THINGS_YOU_SHOULD_KNOW, otherThingsField.getText().toString());
-            put(Db.Keys.ABOUT_ME, aboutMeField.getText().toString());
-            put(Db.Keys.HOBBIES, hobbiesField.getText().toString());
-            put(Db.Keys.INTERESTS, interestsField.getText().toString());
-            put(Db.Keys.PHONE_NUMBER, phoneNumberField.getText().toString());
-        }};
-            controller.onSaveButtonClicked(userHash);});
+                put(Db.Keys.LIVING_ACCOMMODATIONS, accommodationsField.getText().toString());
+                put(Db.Keys.OTHER_THINGS_YOU_SHOULD_KNOW, otherThingsField.getText().toString());
+                put(Db.Keys.ABOUT_ME, aboutMeField.getText().toString());
+                put(Db.Keys.HOBBIES, hobbiesField.getText().toString());
+                put(Db.Keys.INTERESTS, interestsField.getText().toString());
+                put(Db.Keys.PHONE_NUMBER, phoneNumberField.getText().toString());
+            }};
+            controller.onSaveButtonClicked(userHash);
+        });
     }
 
     public void initController() {
@@ -96,7 +97,7 @@ public class AdvancedSettingsActivity extends AppCompatActivity
     }
 
     @Override
-    public void showCurrentUserInfo(final Map<String, Object> data){
+    public void showCurrentUserInfo(final Map<String, Object> data) {
         final String about_me = (String) data.get(Db.Keys.ABOUT_ME);
         final String hobbies = (String) data.get(Db.Keys.HOBBIES);
         final String interests = (String) data.get(Db.Keys.INTERESTS);
@@ -125,5 +126,6 @@ public class AdvancedSettingsActivity extends AppCompatActivity
     }
 
     @Override
-    public void goToAdvSettings() {}
+    public void goToAdvSettings() {
+    }
 }
