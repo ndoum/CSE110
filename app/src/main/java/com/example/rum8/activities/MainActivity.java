@@ -14,9 +14,12 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.rum8.R;
 import com.example.rum8.controllers.MainController;
+import com.example.rum8.database.Db;
 import com.example.rum8.fragments.PotentialRoommateProfileInit;
 import com.example.rum8.fragments.PotentialRoommateProfileAlt;
 import com.example.rum8.listeners.MainControllerListener;
+
+import java.util.Map;
 
 /**
  * Class that implements the home page of application.
@@ -138,6 +141,11 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
             ft.commit();
 
         }
+    }
+
+    @Override
+    public void showCurrentUserInfo(final Map<String, Object> data) {
+
     }
 
 }
