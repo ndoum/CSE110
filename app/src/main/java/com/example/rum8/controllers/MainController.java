@@ -34,14 +34,11 @@ public class MainController {
         controllerListener.goToLogin();
     }
 
-    public void onLinkButtonClicked() {
-        controllerListener.showToast("LIKED");
-    }
-
-    public void onNotLinkButtonClicked() {
-        controllerListener.showToast("NOT LIKED");
-    }
-
+    /**
+     * use user's potential list to find other other
+     * remove the other user from potential list
+     * show other user's info
+     */
     public void loadUserInfo() {
         Db.fetchUserInfo(this.db, this.auth.getCurrentUser()).addOnSuccessListener(documentSnapshot -> {
 
