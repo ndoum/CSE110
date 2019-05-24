@@ -3,6 +3,7 @@ package com.example.rum8.controllers;
 import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.RegistrationControllerListener;
@@ -37,10 +38,10 @@ public class RegistrationController {
             controllerListener.showToast(message);
         } else if (!isValidPassword(password)) {
             final String message = "Your password need to be more than 6 characters";
-            controllerListener.showToast(message, Toast.LENGTH_SHORT);
+            controllerListener.showToast(message);
         } else if (!passWordMatch(password, passwordConfirm)) {
             final String message = "Passwords didn't match";
-            controllerListener.showToast(message, Toast.LENGTH_SHORT);
+            controllerListener.showToast(message);
         } else {
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener
                 ((Activity) context, task -> {
@@ -67,7 +68,7 @@ public class RegistrationController {
                             message = "Authentication failed";
 
                         }
-                        controllerListener.showToast(message, Toast.LENGTH_SHORT);
+                        controllerListener.showToast(message);
                         Log.e("Error:", "createUserWithEmail:failure", task.getException());
                     }
                 });

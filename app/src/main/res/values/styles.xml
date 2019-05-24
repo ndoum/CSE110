@@ -5,10 +5,9 @@
         <!-- Customize your theme here. -->
 
         // middle
-        <item name="colorPrimary">#FF7043</item>
-
-        <item name="colorPrimaryDark">#FF7043</item>
-        <item name="colorAccent">#FF7043</item>
+        <item name="colorPrimary">#FFCC80</item>
+        <item name="colorPrimaryDark">#FFCC80</item>
+        <item name="colorAccent">#E65100</item>
     </style>
 
 </resources>
