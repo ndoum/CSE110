@@ -24,7 +24,6 @@ import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
-
 import com.google.firebase.storage.StorageException;
 
 import java.util.HashMap;
@@ -46,6 +45,26 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     private ProfileSettingsController controller;
     private ImageView imageView;
     private ProgressDialog progressDialog;
+
+    private static Bitmap resize(final Bitmap image, final int maxWidth, final int maxHeight) {
+        if (maxHeight > 0 && maxWidth > 0) {
+            int width = image.getWidth();
+            int height = image.getHeight();
+            float ratioBitmap = (float) width / (float) height;
+            float ratioMax = (float) maxWidth / (float) maxHeight;
+
+            int finalWidth = maxWidth;
+            int finalHeight = maxHeight;
+            if (ratioMax > ratioBitmap) {
+                finalWidth = (int) ((float) maxHeight * ratioBitmap);
+            } else {
+                finalHeight = (int) ((float) maxWidth / ratioBitmap);
+            }
+            return Bitmap.createScaledBitmap(image, finalWidth, finalHeight, true);
+        } else {
+            return image;
+        }
+    }
 
     @Nullable
     @Override
@@ -161,7 +180,6 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         return ((ProfileSettingsActivity) getActivity()).getFilePath();
     }
 
-
     @Override
     public void onResume() {
         imageView.invalidate();
@@ -173,26 +191,6 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         if (bitmap != null) {
             bitmap = resize(bitmap, MAX_SIZE, MAX_SIZE);
             imageView.setImageBitmap(bitmap);
-        }
-    }
-
-    private static Bitmap resize(final Bitmap image, final int maxWidth, final int maxHeight) {
-        if (maxHeight > 0 && maxWidth > 0) {
-            int width = image.getWidth();
-            int height = image.getHeight();
-            float ratioBitmap = (float) width / (float) height;
-            float ratioMax = (float) maxWidth / (float) maxHeight;
-
-            int finalWidth = maxWidth;
-            int finalHeight = maxHeight;
-            if (ratioMax > ratioBitmap) {
-                finalWidth = (int) ((float) maxHeight * ratioBitmap);
-            } else {
-                finalHeight = (int) ((float) maxWidth / ratioBitmap);
-            }
-            return Bitmap.createScaledBitmap(image, finalWidth, finalHeight, true);
-        } else {
-            return image;
         }
     }
 

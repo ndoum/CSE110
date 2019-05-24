@@ -18,6 +18,73 @@ import javax.annotation.Nonnull;
 
 public class Db {
 
+    private static final String USERS_COLLECTION_NAME = "users";
+    private static final String PROFILE_PIC_PATH = "profile_pictures/";
+    private static final String DEFAULT_PROFILE_PIC_PATH = "profile_picture_default/default_profile_pic.png";
+    private static final long ONE_MEGABYTE = 1024 * 1024;
+
+    public static Task<Void> createUser(final FirebaseFirestore firestore,
+                                        final @Nonnull FirebaseUser user,
+                                        final Map<String, Object> userHash) {
+        final String userId = user.getUid();
+
+        // Create user document and get a reference to it
+        final DocumentReference userRef = firestore.collection(USERS_COLLECTION_NAME).document(userId);
+
+        final WriteBatch batch = firestore.batch();
+
+        // Construct a new user hash from passed values and default values
+        // Passed values from userHash overwrite existing default values
+        final Map<String, Object> completeUserHash = InitialValues.USER;
+        completeUserHash.putAll(userHash);
+
+        // Initialize user document's data
+        batch.set(userRef, completeUserHash);
+
+        // Submit all batched operations
+        return batch.commit();
+    }
+
+    public static Task<Void> updateUser(final FirebaseFirestore firestore,
+                                        final @Nonnull FirebaseUser user,
+                                        final Map<String, Object> userHash) {
+
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(user.getUid())
+                .update(userHash);
+    }
+
+    public static UploadTask updateProfilePicture(final FirebaseStorage storage,
+                                                  final @Nonnull FirebaseUser user,
+                                                  final Uri filePath) {
+        return storage.getReference()
+                .child(PROFILE_PIC_PATH + user.getUid())
+                .putFile(filePath);
+    }
+
+    public static Task<byte[]> fetchUserProfilePicture(final FirebaseStorage storage,
+                                                       final @Nonnull FirebaseUser user) {
+        return storage.getReference().child(PROFILE_PIC_PATH + user.getUid()).getBytes(ONE_MEGABYTE);
+    }
+
+    public static Task<byte[]> fetchDefaultUserProfilePicture(final FirebaseStorage storage) {
+        return storage.getReference().child(DEFAULT_PROFILE_PIC_PATH).getBytes(ONE_MEGABYTE);
+    }
+
+    public static Task<DocumentSnapshot> fetchUserInfo(final FirebaseFirestore firestore,
+                                                       final @Nonnull FirebaseUser user) {
+
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(user.getUid()).get();
+    }
+
+    public static Task<DocumentSnapshot> fetchUserInfoById(final FirebaseFirestore firestore,
+                                                           final String userId) {
+
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(userId).get();
+    }
+
     public static class Keys {
 
         public static final String ACADEMIC_YEAR = "academic_year";
@@ -114,71 +181,6 @@ public class Db {
             put(Keys.ROOMMATE_STAY_UP_LATE_ON_WEEKDAYS_VALUE, ZERO);
         }};
 
-    }
-
-    private static final String USERS_COLLECTION_NAME = "users";
-    private static final String PROFILE_PIC_PATH = "profile_pictures/";
-    private static final String DEFAULT_PROFILE_PIC_PATH = "profile_picture_default/default_profile_pic.png";
-    private static final long ONE_MEGABYTE = 1024 * 1024;
-
-    public static Task<Void> createUser(final FirebaseFirestore firestore,
-                                        final @Nonnull FirebaseUser user,
-                                        final Map<String, Object> userHash) {
-        final String userId = user.getUid();
-
-        // Create user document and get a reference to it
-        final DocumentReference userRef = firestore.collection(USERS_COLLECTION_NAME).document(userId);
-
-        final WriteBatch batch = firestore.batch();
-
-        // Construct a new user hash from passed values and default values
-        // Passed values from userHash overwrite existing default values
-        final Map<String, Object> completeUserHash = InitialValues.USER;
-        completeUserHash.putAll(userHash);
-
-        // Initialize user document's data
-        batch.set(userRef, completeUserHash);
-
-        // Submit all batched operations
-        return batch.commit();
-    }
-
-    public static Task<Void> updateUser(final FirebaseFirestore firestore,
-                                        final @Nonnull FirebaseUser user,
-                                        final Map<String, Object> userHash) {
-
-        return firestore.collection(USERS_COLLECTION_NAME)
-                .document(user.getUid())
-                .update(userHash);
-    }
-
-    public static UploadTask updateProfilePicture(final FirebaseStorage storage,
-                                                  final @Nonnull FirebaseUser user,
-                                                  final Uri filePath) {
-        return storage.getReference()
-                .child(PROFILE_PIC_PATH + user.getUid())
-                .putFile(filePath);
-    }
-
-    public static Task<byte[]> fetchUserProfilePicture(final FirebaseStorage storage,
-                                                       final @Nonnull FirebaseUser user) {
-        return storage.getReference().child(PROFILE_PIC_PATH + user.getUid()).getBytes(ONE_MEGABYTE);
-    }
-
-    public static Task<byte[]> fetchDefaultUserProfilePicture(final FirebaseStorage storage) {
-        return storage.getReference().child(DEFAULT_PROFILE_PIC_PATH).getBytes(ONE_MEGABYTE);
-    }
-
-    public static Task<byte[]> fetchLinkProfilePicture (final FirebaseStorage storage,
-                                                        final String linkUid){
-        return storage.getReference().child(PROFILE_PIC_PATH + linkUid).getBytes(ONE_MEGABYTE);
-    }
-
-    public static Task<DocumentSnapshot> fetchUserInfo(final FirebaseFirestore firestore,
-                                                       final @Nonnull FirebaseUser user) {
-
-        return firestore.collection(USERS_COLLECTION_NAME)
-                .document(user.getUid()).get();
     }
 
 }
