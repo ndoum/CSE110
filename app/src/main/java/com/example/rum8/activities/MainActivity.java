@@ -4,21 +4,31 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.rum8.R;
 import com.example.rum8.controllers.MainController;
+import com.example.rum8.fragments.PotentialRoommateProfileInit;
+import com.example.rum8.fragments.PotentialRoommateProfileAlt;
 import com.example.rum8.listeners.MainControllerListener;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+/**
+ * Class that implements the home page of application.
+ *
+ * <p>
+ * Bugs: (a list of bugs and other problems)
+ *
+ * @author
+ */
 public class MainActivity extends AppCompatActivity implements MainControllerListener {
 
     private MainController controller;
-
-    private FloatingActionButton linkButton;
-    private FloatingActionButton notLinkButton;
 
     @Override
     public void showToast(final String message) {
@@ -29,13 +39,12 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initViews();
         initController();
     }
 
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
-        //Creates the menu inside of the toolbar
+        // Creates the menu inside of the toolbar
         getMenuInflater().inflate(R.menu.dropdown_menu, menu);
         return true;
     }
@@ -60,6 +69,9 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         }
     }
 
+    /**
+     * Method navigates to the profile setting class.
+     */
     @Override
     public void goToProfileSettings() {
         final Intent intent = new Intent(MainActivity.this, ProfileSettingsActivity.class);
@@ -67,7 +79,8 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     }
 
     /**
-     * Finish this activity because it should not be the parent activity of {@link LoginActivity}.
+     * Finish this activity because it should not be the parent activity of
+     * {@link LoginActivity}.
      */
     @Override
     public void goToLogin() {
@@ -88,18 +101,52 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         startActivity(intent);
     }
 
-    private void initViews() {
-
-        //initialize and set listener for buttons
-        linkButton = findViewById(R.id.link_button);
-        linkButton.setOnClickListener(v -> controller.onLinkButtonClicked());
-
-        notLinkButton = findViewById(R.id.not_link_button);
-        notLinkButton.setOnClickListener(v -> controller.onNotLinkButtonClicked());
-    }
-
+    /**
+     * Method that initalize the controller for main activity.
+     */
     private void initController() {
         controller = new MainController(this);
+    }
+
+    /**
+     * Method that switch between potential roommate profile fragment and roommate
+     * profile fragment alternate based on button clicks
+     * 
+     * @param view
+     */
+    public void ChangeFragment(View view) {
+        Fragment fragment;
+
+        // Actions when the link button is clicked
+        if (view == findViewById(R.id.link_button)) {
+
+            fragment = new PotentialRoommateProfileInit();
+
+            FragmentManager fm = getSupportFragmentManager();
+
+            FragmentTransaction ft = fm.beginTransaction();
+
+            ft.setCustomAnimations(R.anim.exit_right, R.anim.exit_right);
+            ft.replace(R.id.fragment_place, fragment);
+            ft.addToBackStack(null);
+            ft.commit();
+        }
+
+        // Actions when the not link button is clicked
+        if (view == findViewById(R.id.not_link_button)) {
+
+            fragment = new PotentialRoommateProfileAlt();
+
+            FragmentManager fm = getSupportFragmentManager();
+
+            FragmentTransaction ft = fm.beginTransaction();
+
+            ft.setCustomAnimations(R.anim.exit_right, R.anim.exit_right);
+            ft.replace(R.id.fragment_place, fragment);
+            ft.addToBackStack(null);
+            ft.commit();
+
+        }
     }
 
 }
