@@ -85,6 +85,11 @@ public class Db {
                 .document(userId).get();
     }
 
+    public static Task<byte[]> fetchLinkProfilePicture (final FirebaseStorage storage,
+                                                        final String linkUid){
+        return storage.getReference().child(PROFILE_PIC_PATH + linkUid).getBytes(ONE_MEGABYTE);
+    }
+
     public static class Keys {
 
         public static final String ACADEMIC_YEAR = "academic_year";
