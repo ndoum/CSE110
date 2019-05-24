@@ -4,24 +4,23 @@
     android:layout_height="match_parent"
     android:background="#E0DEDA"
     android:orientation="vertical"
-    android:paddingRight="10dp"
     android:paddingLeft="10dp"
-    >
+    android:paddingRight="10dp">
 
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="4"
-        android:rowCount="18"
-        >
+        android:rowCount="18">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Budgets:"
             android:layout_row="1"
             android:layout_column="0"
             android:layout_columnWeight="1"
+            android:text="Budgets:"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -37,10 +36,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Room Type:"
             android:layout_row="3"
             android:layout_column="0"
             android:layout_columnWeight="1"
+            android:text="Room Type:"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -52,13 +51,14 @@
             android:layout_column="0"
             android:layout_columnWeight="1"
             android:text="Double" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Living Accommodations:"
             android:layout_row="5"
             android:layout_column="0"
             android:layout_columnWeight="1"
+            android:text="Living Accommodations:"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -70,13 +70,14 @@
             android:layout_column="0"
             android:layout_columnWeight="1"
             android:text="I prefer to be in a double bedroom, but I am willing to sleep in the living room if the price is right." />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Other things you should know:"
             android:layout_row="7"
             android:layout_column="0"
             android:layout_columnWeight="1"
+            android:text="Other things you should know:"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -92,10 +93,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Room Type:"
             android:layout_row="9"
             android:layout_column="0"
             android:layout_columnWeight="1"
+            android:text="Room Type:"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -111,10 +112,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Room Type:"
             android:layout_row="11"
             android:layout_column="0"
             android:layout_columnWeight="1"
+            android:text="Room Type:"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -126,8 +127,6 @@
             android:layout_column="0"
             android:layout_columnWeight="1"
             android:text="Double" />
-
-
 
 
     </GridLayout>

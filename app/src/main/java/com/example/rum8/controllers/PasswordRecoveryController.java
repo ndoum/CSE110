@@ -16,12 +16,14 @@ public class PasswordRecoveryController {
         auth = FirebaseAuth.getInstance();
     }
 
-    public void onGoBackToLoginButtonClicked(){ this.controllerListener.goBackToLogin();}
+    public void onGoBackToLoginButtonClicked() {
+        this.controllerListener.goBackToLogin();
+    }
 
     /**
      * Send reset password email to users
      */
-    public void onSubmit(String email){
+    public void onSubmit(String email) {
         auth.sendPasswordResetEmail(email)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
@@ -31,8 +33,8 @@ public class PasswordRecoveryController {
                 .addOnFailureListener(e -> {
                     String message;
                     if (e instanceof FirebaseAuthInvalidUserException) {
-                        message = "Account does not exist";}
-                    else {
+                        message = "Account does not exist";
+                    } else {
                         message = "Network error";
                     }
                     controllerListener.showToast(message);

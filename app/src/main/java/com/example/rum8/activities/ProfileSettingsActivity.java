@@ -57,24 +57,22 @@ public class ProfileSettingsActivity extends FragmentActivity
 
         super.onActivityResult(requestCode, resultCode, data);
 
-        if( isResultValid(resultCode,requestCode) && isDataValid(data) ) {
+        if (isResultValid(resultCode, requestCode) && isDataValid(data)) {
             filePath = data.getData();
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
-            }
-            catch (final Exception e)
-            {
+            } catch (final Exception e) {
                 e.printStackTrace();
                 showToast("Network Error");
             }
         }
     }
 
-    private boolean isResultValid(final int resultCode, final int requestCode){
+    private boolean isResultValid(final int resultCode, final int requestCode) {
         return (resultCode == RESULT_OK && requestCode == PICK_IMAGE_REQUEST);
     }
 
-    private boolean isDataValid(final Intent data){
+    private boolean isDataValid(final Intent data) {
         return (data != null && data.getData() != null);
     }
 
@@ -100,33 +98,38 @@ public class ProfileSettingsActivity extends FragmentActivity
         controller = new ProfileSettingsController(this);
     }
 
-    public Uri getFilePath (){
+    public Uri getFilePath() {
         return filePath;
     }
 
-    public Bitmap getBitmap(){
+    public Bitmap getBitmap() {
         return bitmap;
     }
 
 
     @Override
-    public void showUploadImageProgress(){}
+    public void showUploadImageProgress() {
+    }
 
     @Override
-    public void hideUploadImageProgress(){}
+    public void hideUploadImageProgress() {
+    }
 
     @Override
-    public void updateUploadImagePercentage(final double percentage){}
+    public void updateUploadImagePercentage(final double percentage) {
+    }
 
     @Override
-    public void chooseImage(){}
+    public void chooseImage() {
+    }
 
     /**
      * Setter method that set view pager to the given number
      * that represented the order of fragments page.
+     *
      * @param fragmentNumber
      */
-    public void setViewPager(int fragmentNumber){
+    public void setViewPager(int fragmentNumber) {
         viewPager.setCurrentItem(fragmentNumber);
     }
 

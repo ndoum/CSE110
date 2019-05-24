@@ -60,85 +60,85 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
 
         controller = new ProfileSettingsController(this);
         controller.loadUserInfo().addOnSuccessListener(documentSnapshot -> {
-                Map<String, Object> data = documentSnapshot.getData();
-                long clean = (long) data.get(Db.Keys.CLEAN_VALUE);
-                long reserve = (long) data.get(Db.Keys.RESERVED_VALUE);
-                long party = (long) data.get(Db.Keys.PARTY_VALUE);
-                long alcohol = (long) data.get(Db.Keys.ALCOHOL_VALUE);
-                long smoke = (long) data.get(Db.Keys.SMOKE_VALUE);
-                long stayLate = (long) data.get(Db.Keys.STAY_UP_LATE_ON_WEEKDAYS_VALUE);
-                long guests = (long) data.get(Db.Keys.OVERNIGHT_GUESTS_VALUE);
-                long pet = (long) data.get(Db.Keys.ALLOW_PETS_VALUE);
+                    Map<String, Object> data = documentSnapshot.getData();
+                    long clean = (long) data.get(Db.Keys.CLEAN_VALUE);
+                    long reserve = (long) data.get(Db.Keys.RESERVED_VALUE);
+                    long party = (long) data.get(Db.Keys.PARTY_VALUE);
+                    long alcohol = (long) data.get(Db.Keys.ALCOHOL_VALUE);
+                    long smoke = (long) data.get(Db.Keys.SMOKE_VALUE);
+                    long stayLate = (long) data.get(Db.Keys.STAY_UP_LATE_ON_WEEKDAYS_VALUE);
+                    long guests = (long) data.get(Db.Keys.OVERNIGHT_GUESTS_VALUE);
+                    long pet = (long) data.get(Db.Keys.ALLOW_PETS_VALUE);
 
-                if (clean == 1) {
-                    radioGroupPersonalQuestionOne.check(R.id.personal_preferences_cleanliness_preference_yes);
-                } else if (clean == 0) {
-                    radioGroupPersonalQuestionOne.check(R.id.personal_preferences_cleanliness_preference_no_pref);
-                } else {
-                    radioGroupPersonalQuestionOne.check(R.id.personal_preferences_cleanliness_preference_no);
-                }
+                    if (clean == 1) {
+                        radioGroupPersonalQuestionOne.check(R.id.personal_preferences_cleanliness_preference_yes);
+                    } else if (clean == 0) {
+                        radioGroupPersonalQuestionOne.check(R.id.personal_preferences_cleanliness_preference_no_pref);
+                    } else {
+                        radioGroupPersonalQuestionOne.check(R.id.personal_preferences_cleanliness_preference_no);
+                    }
 
-                if (reserve == 1) {
-                    radioGroupPersonalQuestionTwo.check(R.id.personal_preferences_reserved_preference_yes);
-                } else if (clean == 0) {
-                    radioGroupPersonalQuestionTwo.check(R.id.personal_preferences_reserved_preference_no_pref);
-                } else {
-                    radioGroupPersonalQuestionTwo.check(R.id.personal_preferences_reserved_preference_no);
-                }
+                    if (reserve == 1) {
+                        radioGroupPersonalQuestionTwo.check(R.id.personal_preferences_reserved_preference_yes);
+                    } else if (clean == 0) {
+                        radioGroupPersonalQuestionTwo.check(R.id.personal_preferences_reserved_preference_no_pref);
+                    } else {
+                        radioGroupPersonalQuestionTwo.check(R.id.personal_preferences_reserved_preference_no);
+                    }
 
-                if (party == 1) {
-                    radioGroupPersonalQuestionThree.check(R.id.personal_preferences_parties_preference_yes);
-                } else if (party == 0) {
-                    radioGroupPersonalQuestionThree.check(R.id.personal_preferences_parties_preference_no_pref);
-                } else {
-                    radioGroupPersonalQuestionThree.check(R.id.personal_preferences_parties_preference_no_);
-                }
+                    if (party == 1) {
+                        radioGroupPersonalQuestionThree.check(R.id.personal_preferences_parties_preference_yes);
+                    } else if (party == 0) {
+                        radioGroupPersonalQuestionThree.check(R.id.personal_preferences_parties_preference_no_pref);
+                    } else {
+                        radioGroupPersonalQuestionThree.check(R.id.personal_preferences_parties_preference_no_);
+                    }
 
-                if (alcohol == 1) {
-                    radioGroupPersonalQuestionFour.check(R.id.personal_preferences_alcohol_preference_yes);
-                } else if (alcohol == 0) {
-                    radioGroupPersonalQuestionFour.check(R.id.personal_preferences_alcohol_preference_no_pref);
-                } else {
-                    radioGroupPersonalQuestionFour.check(R.id.personal_preferences_alcohol_preference_no);
-                }
+                    if (alcohol == 1) {
+                        radioGroupPersonalQuestionFour.check(R.id.personal_preferences_alcohol_preference_yes);
+                    } else if (alcohol == 0) {
+                        radioGroupPersonalQuestionFour.check(R.id.personal_preferences_alcohol_preference_no_pref);
+                    } else {
+                        radioGroupPersonalQuestionFour.check(R.id.personal_preferences_alcohol_preference_no);
+                    }
 
-                if (smoke == 1) {
-                    radioGroupPersonalQuestionFive.check(R.id.personal_preferences_smoke_preference_yes);
-                } else if (smoke == 0) {
-                    radioGroupPersonalQuestionFive.check(R.id.personal_preferences_smoke_preference_no_pref);
-                } else {
-                    radioGroupPersonalQuestionFive.check(R.id.personal_preferences_smoke_preference_no);
-                }
+                    if (smoke == 1) {
+                        radioGroupPersonalQuestionFive.check(R.id.personal_preferences_smoke_preference_yes);
+                    } else if (smoke == 0) {
+                        radioGroupPersonalQuestionFive.check(R.id.personal_preferences_smoke_preference_no_pref);
+                    } else {
+                        radioGroupPersonalQuestionFive.check(R.id.personal_preferences_smoke_preference_no);
+                    }
 
-                if (stayLate == 1) {
-                    radioGroupPersonalQuestionSix.check(R.id.personal_preferences_sleep_preference_yes);
-                } else if (alcohol == 0) {
-                    radioGroupPersonalQuestionSix.check(R.id.personal_preferences_sleep_preference_no_pref);
-                } else {
-                    radioGroupPersonalQuestionSix.check(R.id.personal_preferences_sleep_preference);
-                }
+                    if (stayLate == 1) {
+                        radioGroupPersonalQuestionSix.check(R.id.personal_preferences_sleep_preference_yes);
+                    } else if (alcohol == 0) {
+                        radioGroupPersonalQuestionSix.check(R.id.personal_preferences_sleep_preference_no_pref);
+                    } else {
+                        radioGroupPersonalQuestionSix.check(R.id.personal_preferences_sleep_preference);
+                    }
 
-                if (guests == 1) {
-                    radioGroupPersonalQuestionSeven.check(R.id.personal_preferences_guests_preference_yes);
-                } else if (alcohol == 0) {
-                    radioGroupPersonalQuestionSeven.check(R.id.personal_preferences_guests_preference_no_pref);
-                } else {
-                    radioGroupPersonalQuestionSeven.check(R.id.personal_preferences_guests_preference_no);
-                }
+                    if (guests == 1) {
+                        radioGroupPersonalQuestionSeven.check(R.id.personal_preferences_guests_preference_yes);
+                    } else if (alcohol == 0) {
+                        radioGroupPersonalQuestionSeven.check(R.id.personal_preferences_guests_preference_no_pref);
+                    } else {
+                        radioGroupPersonalQuestionSeven.check(R.id.personal_preferences_guests_preference_no);
+                    }
 
-                if (pet == 1) {
-                    radioGroupPersonalQuestionEight.check(R.id.personal_preferences_pet_preference_yes);
-                } else if (alcohol == 0) {
-                    radioGroupPersonalQuestionEight.check(R.id.personal_preferences_pet_preference_maybe);
-                } else {
-                    radioGroupPersonalQuestionEight.check(R.id.personal_preferences_pet_preference_no);
+                    if (pet == 1) {
+                        radioGroupPersonalQuestionEight.check(R.id.personal_preferences_pet_preference_yes);
+                    } else if (alcohol == 0) {
+                        radioGroupPersonalQuestionEight.check(R.id.personal_preferences_pet_preference_maybe);
+                    } else {
+                        radioGroupPersonalQuestionEight.check(R.id.personal_preferences_pet_preference_no);
+                    }
                 }
-            }
         )
-            .addOnFailureListener(exception -> {
-                final String message = "Network error";
-                showToast(message);
-            });
+                .addOnFailureListener(exception -> {
+                    final String message = "Network error";
+                    showToast(message);
+                });
 
         radioGroupPersonalQuestionOne.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
