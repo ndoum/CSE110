@@ -6,6 +6,7 @@ import com.example.rum8.listeners.MainControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class MainController {
@@ -43,8 +44,33 @@ public class MainController {
 
     public void loadUserInfo() {
         Db.fetchUserInfo(this.db, this.auth.getCurrentUser()).addOnSuccessListener(documentSnapshot -> {
+
             final Map<String, Object> data = documentSnapshot.getData();
-            controllerListener.showCurrentUserInfo(data);
+            final HashMap<String, Object> potential = (HashMap<String, Object>) data.get(Db.Keys.POTENTIAL);
+
+            // when potential is not empty, show the first user in potential
+            if (potential.keySet().size() > 0) {
+
+                // get other user's id
+                final String userId = (String) potential.keySet().toArray()[0];
+                Db.fetchUserInfoById(this.db, userId).addOnSuccessListener(documentSnapshotOther -> {
+                    controllerListener.showCurrentUserInfo(data);
+
+                    // show other user's info
+                    final Map<String, Object> otherUserdata = documentSnapshotOther.getData();
+                    controllerListener.showCurrentUserInfo(otherUserdata);
+
+                    // remove other user from potentials
+                    potential.remove(userId);
+                    data.put(Db.Keys.POTENTIAL, potential);
+                    Db.updateUser(this.db, this.auth.getCurrentUser(), data);
+
+                }).addOnFailureListener(exception -> {
+                    final String message = "Network error";
+                    controllerListener.showToast(message);
+                });
+            }
+
         }).addOnFailureListener(exception -> {
             final String message = "Network error";
             controllerListener.showToast(message);

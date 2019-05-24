@@ -222,4 +222,13 @@ public class Db {
         return firestore.collection(USERS_COLLECTION_NAME)
                 .document(user.getUid()).get();
     }
+
+    public static Task<DocumentSnapshot> fetchUserInfoById(final FirebaseFirestore firestore,
+                                                            final String userId) {
+
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(userId).get();
+    }
+
+
 }

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,13 +22,17 @@ public class UserTab1Fragment extends Fragment implements MainControllerListener
 
     private View view;
     private MainController controller;
+    private TextView budgetField;
+    private TextView livingAccommodationsField;
+    private TextView otherThingsField;
+
     public UserTab1Fragment(){}
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        view=inflater.inflate(R.layout.fragment_tab1, container, false);
+        view = inflater.inflate(R.layout.fragment_tab1, container, false);
 
         return view;
     }
@@ -36,17 +41,24 @@ public class UserTab1Fragment extends Fragment implements MainControllerListener
     public void onViewCreated(View rootView, Bundle savedInstanceState) {
         controller = new MainController(this);
         controller.loadUserInfo();
+        budgetField = view.findViewById(R.id.budget_text);
+        livingAccommodationsField = view.findViewById(R.id.living_accommodations_text);
+        otherThingsField = view.findViewById(R.id.other_thing_text);
     }
 
     @Override
     public void showCurrentUserInfo(final Map<String, Object> data) {
-        final String about_me = (String) data.get(Db.Keys.ABOUT_ME);
-        final String hobbies = (String) data.get(Db.Keys.HOBBIES);
-        final String interests = (String) data.get(Db.Keys.INTERESTS);
+        final long budget = (long) data.get(Db.Keys.BUDGET);
+        //final String about_me = (String) data.get(Db.Keys.ABOUT_ME);
+        //final String hobbies = (String) data.get(Db.Keys.HOBBIES);
+        //final String interests = (String) data.get(Db.Keys.INTERESTS);
         final String living_accommodations = (String) data.get(Db.Keys.LIVING_ACCOMMODATIONS);
         final String other_things_you_should_know = (String) data.get(Db.Keys.OTHER_THINGS_YOU_SHOULD_KNOW);
-        final String phone_number = (String) data.get(Db.Keys.PHONE_NUMBER);
-        //TODO: show those info on fragments
+
+        budgetField.setText(String.valueOf(budget));
+        livingAccommodationsField.setText(living_accommodations);
+        otherThingsField.setText(other_things_you_should_know);
+        onResume();
     }
 
     @Override
