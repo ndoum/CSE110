@@ -31,15 +31,30 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/ucsd_gold">
+                android:background="@drawable/grad"
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="125dp"
-                    android:layout_height="125dp"
+
+
+                >
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="4dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="15dp"
-                    android:elevation="5dp"
-                    android:src="@drawable/images" />
+                    >
+                    <ImageView
+                        android:layout_width="125dp"
+                        android:layout_height="125dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="10dp"
+                        android:padding="5dp"
+                        android:scaleType="centerInside"
+                        android:elevation="5dp"
+                        android:background="@drawable/circle"
+                        android:src="@drawable/images" />
+
+                </RelativeLayout>
+
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -47,7 +62,7 @@
                     android:layout_marginTop="80dp"
                     android:layout_marginBottom="-8dp"
                     android:background="@drawable/radius"
-                    app:cardBackgroundColor="#5DB1A7"
+                    app:cardBackgroundColor="#FFDC87"
                     app:cardCornerRadius="8dp"
 
 
@@ -56,7 +71,10 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:elevation="3dp"
+
+                        >
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -86,11 +104,11 @@
             android:id="@+id/potential_roommate_profile_tablayout_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#009688"
+            android:background="@color/ucsd_gold"
             app:tabGravity="fill"
             app:tabIndicatorColor="@android:color/white"
             app:tabMode="scrollable"
-            app:tabSelectedTextColor="@color/ucsd_gold"
+            app:tabSelectedTextColor="#000000"
             app:tabTextAppearance="@style/CustomTextStyle" />
 
         <androidx.viewpager.widget.ViewPager
