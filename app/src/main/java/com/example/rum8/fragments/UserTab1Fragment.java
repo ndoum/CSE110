@@ -26,7 +26,8 @@ public class UserTab1Fragment extends Fragment implements MainControllerListener
     private TextView livingAccommodationsField;
     private TextView otherThingsField;
 
-    public UserTab1Fragment(){}
+    public UserTab1Fragment() {
+    }
 
     @Nullable
     @Override
@@ -62,17 +63,20 @@ public class UserTab1Fragment extends Fragment implements MainControllerListener
     }
 
     @Override
-    public void showToast(final String message){
+    public void showToast(final String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void goToProfileSettings(){}
+    public void goToProfileSettings() {
+    }
 
     @Override
-    public void goToLogin(){}
+    public void goToLogin() {
+    }
 
     @Override
-    public void goToAdvSettings(){}
+    public void goToAdvSettings() {
+    }
 
 }
