@@ -30,8 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_row="2"
             android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:text="" />
+            android:layout_columnWeight="1" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -49,8 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_row="4"
             android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:text="" />
+            android:layout_columnWeight="1" />
 
         <TextView
             android:layout_width="wrap_content"

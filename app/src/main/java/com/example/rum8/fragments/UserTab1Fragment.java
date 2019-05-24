@@ -50,15 +50,13 @@ public class UserTab1Fragment extends Fragment implements MainControllerListener
     @Override
     public void showCurrentUserInfo(final Map<String, Object> data) {
         final long budget = (long) data.get(Db.Keys.BUDGET);
-        //final String about_me = (String) data.get(Db.Keys.ABOUT_ME);
-        //final String hobbies = (String) data.get(Db.Keys.HOBBIES);
-        //final String interests = (String) data.get(Db.Keys.INTERESTS);
         final String living_accommodations = (String) data.get(Db.Keys.LIVING_ACCOMMODATIONS);
         final String other_things_you_should_know = (String) data.get(Db.Keys.OTHER_THINGS_YOU_SHOULD_KNOW);
 
         budgetField.setText(String.valueOf(budget));
         livingAccommodationsField.setText(living_accommodations);
         otherThingsField.setText(other_things_you_should_know);
+
         onResume();
     }
 
