@@ -36,7 +36,6 @@ public class MainController {
 
     /**
      * use user's potential list to find other other
-     * remove the other user from potential list
      * show other user's info
      */
     public void loadUserInfo() {
@@ -57,10 +56,11 @@ public class MainController {
                     final Map<String, Object> otherUserdata = documentSnapshotOther.getData();
                     controllerListener.showCurrentUserInfo(otherUserdata);
 
+                    // TODO: move removal somewhere else
                     // remove other user from potentials
-                    potential.remove(userId);
-                    data.put(Db.Keys.POTENTIAL, potential);
-                    Db.updateUser(this.db, this.auth.getCurrentUser(), data);
+                    //potential.remove(userId);
+                    //data.put(Db.Keys.POTENTIAL, potential);
+                    //Db.updateUser(this.db, this.auth.getCurrentUser(), data);
 
                 }).addOnFailureListener(exception -> {
                     final String message = "Network error";
