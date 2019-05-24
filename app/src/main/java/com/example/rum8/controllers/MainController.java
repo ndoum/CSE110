@@ -18,16 +18,17 @@ public class MainController {
     public void onGoToAdvSettingsButtonClicked() {
         controllerListener.goToAdvSettings();
     }
+
     public void onLogOutButtonClicked() {
         FirebaseAuth.getInstance().signOut();
         controllerListener.goToLogin();
     }
 
-    public void onLinkButtonClicked(){
+    public void onLinkButtonClicked() {
         controllerListener.showToast("LIKED");
     }
 
-    public void onNotLinkButtonClicked(){
+    public void onNotLinkButtonClicked() {
         controllerListener.showToast("NOT LIKED");
     }
 

@@ -127,6 +127,11 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         });
 
         buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
+        buttonNext.setOnClickListener(v -> {
+            ((ProfileSettingsActivity) getActivity()).setViewPager(1);
+
+        });
+
         buttonChoosePic = rootView.findViewById(R.id.general_info_profile_image_upload_button);
         buttonUploadPic = rootView.findViewById(R.id.general_info_profile_image_save_button);
 
@@ -199,10 +204,6 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
         onResume();
 
-        buttonNext.setOnClickListener(v -> {
-            ((ProfileSettingsActivity) getActivity()).setViewPager(1);
-
-        });
     }
 
     @Override

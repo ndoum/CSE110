@@ -44,26 +44,21 @@ public class RegistrationController {
             controllerListener.showToast(message);
         } else {
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener
-                ((Activity) context, task -> {
-                    if (task.isSuccessful()) {
-                        sendVerificationEmail(email);
-                        controllerListener.goToLogin();
-                        // Create a new user with email when registration is complete
+                    ((Activity) context, task -> {
+                        if (task.isSuccessful()) {
+                            sendVerificationEmail(email);
+                            controllerListener.goToLogin();
+                            // Create a new user with email when registration is complete
 
-                        final Map<String, Object> userInfo = new HashMap<String, Object>() {{
-                            put("email", email);
-                        }};
+                            final Map<String, Object> userInfo = new HashMap<String, Object>() {{
+                                put(Db.Keys.EMAIL, email);
+                            }};
 
-                        final FirebaseUser user = auth.getCurrentUser();
+                            final FirebaseUser user = auth.getCurrentUser();
 
-                        Db.createUser(db, user, userInfo)
-                            .addOnSuccessListener(aVoid -> Log.d("Success", "createUserWithEmail:success"))
-                            .addOnFailureListener(e -> Log.d("Error", "createUserWithEmail:failure", e));
-                        Db.populateUserPotentialMatches(db, user);
-                    } else {
-                        final String message;
-                        if (task.getException() instanceof FirebaseAuthUserCollisionException) {
-                            message = "An account with this email already exists";
+                            Db.createUser(db, user, userInfo)
+                                    .addOnSuccessListener(aVoid -> Log.d("Success", "createUserWithEmail:success"))
+                                    .addOnFailureListener(e -> Log.d("Error", "createUserWithEmail:failure", e));
                         } else {
                             message = "Authentication failed";
 
