@@ -108,7 +108,7 @@ public class Db {
             put(Keys.ROOMMATE_CLEAN_VALUE, ZERO);
             put(Keys.ROOMMATE_OVERNIGHT_GUESTS_VALUE, ZERO);
             put(Keys.ROOMMATE_PARTY_VALUE, ZERO);
-            put(Keys.ROOMMATE_PREFER_SAME_GENDER_ROOMMATE_VALUE, 0);
+            put(Keys.ROOMMATE_PREFER_SAME_GENDER_ROOMMATE_VALUE, 1);
             put(Keys.ROOMMATE_RESERVED_VALUE, ZERO);
             put(Keys.ROOMMATE_SMOKE_VALUE, ZERO);
             put(Keys.ROOMMATE_STAY_UP_LATE_ON_WEEKDAYS_VALUE, ZERO);
