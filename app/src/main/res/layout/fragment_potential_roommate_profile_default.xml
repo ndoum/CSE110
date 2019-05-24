@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.PotentialRoommateProfileDefault"
+    android:background="@color/cardview_light_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="#00FFFFFF"
+        android:elevation="10dp"
+        android:id="@+id/potential_roommate_profile_default_main_linear_layout"
+
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/potential_roommate_profile_default_appbarid"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#00FFFFFF"
+            android:elevation="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/ucsd_gold"
+                >
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="125dp"
+                    android:layout_height="125dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:elevation="5dp"
+                    android:src="@drawable/images"
+                    android:id="@+id/potential_roommate_profile_default_image"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    app:cardBackgroundColor="#5DB1A7"
+                    app:cardCornerRadius="8dp"
+                    android:layout_marginBottom="-8dp"
+                    android:id="@+id/potential_roommate_profile_default_cardview"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="55dp"
+                            android:text="user 2"
+                            android:textSize="35sp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="user 2 year"
+                            />
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </RelativeLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/potential_roommate_profile_default_tablayout_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#009688"
+            app:tabGravity="fill"
+            app:tabMode="scrollable"
+            app:tabTextAppearance="@style/CustomTextStyle"
+            app:tabIndicatorColor="@android:color/white"
+            app:tabSelectedTextColor="@color/ucsd_gold"
+            />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/potential_roommate_profile_default_viewpager_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00644949" />
+
+    </LinearLayout>
+
+</FrameLayout>

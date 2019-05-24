@@ -1,5 +1,7 @@
 package com.example.rum8.fragments;
 
+import android.content.Intent;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
+import com.example.rum8.activities.LoginActivity;
+import com.example.rum8.activities.MainActivity;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
@@ -20,8 +24,8 @@ import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import java.util.Map;
 
 /**
- * Class that implements profile settings rommmate preferences question sets in profile
- * settings activity.
+ * Class that implements profile settings rommmate preferences question sets in
+ * profile settings activity.
  */
 public class ProfileSettingsRoommatePreferencesFragment extends Fragment implements ProfileSettingsControllerListener {
     private ProfileSettingsController controller;
@@ -42,24 +46,30 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater,
-                             @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+            @Nullable Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
-        final View rootView = inflater.inflate(R.layout.fragment_profile_settings_roommate_preferences, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_profile_settings_roommate_preferences, container,
+                false);
 
         controller = new ProfileSettingsController(this);
 
-        // Initialize each corresponding radio group in roommate preferences questionnaire
+        // Initialize each corresponding radio group in roommate preferences
+        // questionnaire
         radioGroupRoommateQuestionOne = rootView.findViewById(R.id.roommate_preferences_gender_preference_radio_group);
-        radioGroupRoommateQuestionTwo = rootView.findViewById(R.id.roommate_preferences_cleanness_preference_radio_group);
-        radioGroupRoommateQuestionThree = rootView.findViewById(R.id.roommate_preferences_reserved_preference_radio_group);
-        radioGroupRoommateQuestionFour = rootView.findViewById(R.id.roommate_preferences_comfortable_party_preference_radio_group);
-        radioGroupRoommateQuestionFive = rootView.findViewById(R.id.roommate_preferences_alcohol_preference_radio_group);
+        radioGroupRoommateQuestionTwo = rootView
+                .findViewById(R.id.roommate_preferences_cleanness_preference_radio_group);
+        radioGroupRoommateQuestionThree = rootView
+                .findViewById(R.id.roommate_preferences_reserved_preference_radio_group);
+        radioGroupRoommateQuestionFour = rootView
+                .findViewById(R.id.roommate_preferences_comfortable_party_preference_radio_group);
+        radioGroupRoommateQuestionFive = rootView
+                .findViewById(R.id.roommate_preferences_alcohol_preference_radio_group);
         radioGroupRoommateQuestionSix = rootView.findViewById(R.id.roommate_preferences_smoking_preference_radio_group);
         radioGroupRoommateQuestionSeven = rootView.findViewById(R.id.roommate_preferences_sleep_preference_radio_group);
-        radioGroupRoommateQuestionEight = rootView.findViewById(R.id.roommate_preferences_guests_preference_radio_group);
+        radioGroupRoommateQuestionEight = rootView
+                .findViewById(R.id.roommate_preferences_guests_preference_radio_group);
         radioGroupRoommateQuestionNine = rootView.findViewById(R.id.roommate_preferences_pets_preference_radio_group);
 
         controller.loadUserInfo().addOnSuccessListener(documentSnapshot -> {
@@ -145,11 +155,10 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             } else {
                 radioGroupRoommateQuestionNine.check(R.id.roommate_preferences_pets_preference_no);
             }
-        })
-            .addOnFailureListener(exception -> {
-                final String message = "Network error";
-                showToast(message);
-            });
+        }).addOnFailureListener(exception -> {
+            final String message = "Network error";
+            showToast(message);
+        });
 
         radioGroupRoommateQuestionOne.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
