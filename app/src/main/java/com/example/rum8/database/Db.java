@@ -4,11 +4,9 @@ import android.net.Uri;
 
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.WriteBatch;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.UploadTask;
@@ -45,53 +43,6 @@ public class Db {
 
         // Submit all batched operations
         return batch.commit();
-    }
-
-    public static Task<DocumentSnapshot> populateUserPotentialMatches(final FirebaseFirestore firestore,
-                                                                      final @Nonnull FirebaseUser user) {
-        final String userId = user.getUid();
-
-        final CollectionReference usersCollection = firestore.collection(USERS_COLLECTION_NAME);
-
-        // Create user document and get a reference to it
-        final DocumentReference userRef = usersCollection.document(userId);
-
-        final Map<String, Object> userHash = new HashMap<>();
-
-        return userRef.get().addOnSuccessListener(userSnap -> {
-            firestore.collection(USERS_COLLECTION_NAME)
-                    .get()
-                    .addOnSuccessListener(queryDocumentSnapshots -> {
-                        final Map<String, Object> potential = new HashMap<>();
-                        for (final QueryDocumentSnapshot doc : queryDocumentSnapshots) {
-                            final String otherUserId = doc.getId();
-
-                            if (userId.equals(otherUserId)) {
-                                continue;
-                            }
-
-                            final DocumentReference otherUser = usersCollection.document(otherUserId);
-
-                            otherUser.get().addOnSuccessListener(otherUserSnap -> {
-                                if (Filter.match(userSnap.getData(), otherUserSnap.getData())) {
-
-                                    // Add other user to this user's potential
-                                    potential.put(otherUserId, "");
-                                    userHash.put(Db.Keys.POTENTIAL, potential);
-                                    userRef.update(userHash);
-
-                                    // Add this user to other user's potential
-                                    final Map<String, Object> otherUserHash = doc.getData();
-                                    final Map<String, Object> otherUserPotential = (Map<String, Object>) otherUserHash.get(Db.Keys.POTENTIAL);
-                                    otherUserPotential.put(userId, "");
-                                    otherUserHash.put(Db.Keys.POTENTIAL, otherUserPotential);
-                                    otherUser.update(otherUserHash);
-                                }
-
-                            });
-                        }
-                    });
-        });
     }
 
     public static Task<Void> updateUser(final FirebaseFirestore firestore,
