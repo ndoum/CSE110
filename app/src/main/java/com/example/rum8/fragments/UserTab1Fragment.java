@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
+import com.example.rum8.controllers.MainController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.MainControllerListener;
 
@@ -18,7 +19,8 @@ import java.util.Map;
 
 public class UserTab1Fragment extends Fragment implements MainControllerListener {
 
-    View view;
+    private View view;
+    private MainController controller;
     public UserTab1Fragment(){}
 
     @Nullable
@@ -31,6 +33,12 @@ public class UserTab1Fragment extends Fragment implements MainControllerListener
     }
 
     @Override
+    public void onViewCreated(View rootView, Bundle savedInstanceState) {
+        controller = new MainController(this);
+        controller.loadUserInfo();
+    }
+
+    @Override
     public void showCurrentUserInfo(final Map<String, Object> data) {
         final String about_me = (String) data.get(Db.Keys.ABOUT_ME);
         final String hobbies = (String) data.get(Db.Keys.HOBBIES);
@@ -38,6 +46,7 @@ public class UserTab1Fragment extends Fragment implements MainControllerListener
         final String living_accommodations = (String) data.get(Db.Keys.LIVING_ACCOMMODATIONS);
         final String other_things_you_should_know = (String) data.get(Db.Keys.OTHER_THINGS_YOU_SHOULD_KNOW);
         final String phone_number = (String) data.get(Db.Keys.PHONE_NUMBER);
+        //TODO: show those info on fragments
     }
 
     @Override
