@@ -23,21 +23,17 @@ public class ProfileSettingsActivity extends FragmentActivity
         implements ProfileSettingsControllerListener {
 
     private static final int PICK_IMAGE_REQUEST = 65537;
+    private static int result_load_image = 1;
+    FragmentPagerAdapter adapterViewPager;
     private ProfileSettingsController controller;
     private ViewPager viewPager;
     private Uri filePath;
     private Bitmap bitmap;
-
-
     private TextInputEditText firstName;
     private TextInputEditText lastName;
-
     private Button buttonGeneralInfoNext;
     private Button buttonUploadProfileImage;
     private ImageView imageUserProfile;
-    private static int result_load_image = 1;
-    FragmentPagerAdapter adapterViewPager;
-
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -86,10 +82,10 @@ public class ProfileSettingsActivity extends FragmentActivity
         viewPager.setAdapter(new ProfileSettingsViewPagerAdapter(getSupportFragmentManager()));
 
 
-        firstName = (TextInputEditText) findViewById(R.id.general_info_first_name_field);
-        lastName = (TextInputEditText) findViewById(R.id.general_info_last_name_field);
+        firstName = findViewById(R.id.general_info_first_name_field);
+        lastName = findViewById(R.id.general_info_last_name_field);
 
-        buttonUploadProfileImage = (Button) findViewById(R.id.general_info_profile_image_upload_button);
+        buttonUploadProfileImage = findViewById(R.id.general_info_profile_image_upload_button);
 
 
     }

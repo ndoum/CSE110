@@ -142,7 +142,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
 
         radioGroupPersonalQuestionOne.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            RadioButton rb = group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
 
                 controller.updateUserMap(Db.Keys.CLEAN_VALUE, indicatorYes);
@@ -156,7 +156,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
 
         radioGroupPersonalQuestionTwo.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            RadioButton rb = group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
                 controller.updateUserMap(Db.Keys.RESERVED_VALUE, indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
@@ -168,7 +168,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
 
         radioGroupPersonalQuestionThree.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            RadioButton rb = group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
                 controller.updateUserMap(Db.Keys.PARTY_VALUE, indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
@@ -180,7 +180,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
 
         radioGroupPersonalQuestionFour.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            RadioButton rb = group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
                 controller.updateUserMap(Db.Keys.ALCOHOL_VALUE, indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
@@ -192,7 +192,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
 
         radioGroupPersonalQuestionFive.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            RadioButton rb = group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
                 controller.updateUserMap(Db.Keys.SMOKE_VALUE, indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
@@ -204,7 +204,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
 
         radioGroupPersonalQuestionSix.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            RadioButton rb = group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
                 controller.updateUserMap(Db.Keys.STAY_UP_LATE_ON_WEEKDAYS_VALUE, indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
@@ -216,7 +216,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
 
         radioGroupPersonalQuestionSeven.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            RadioButton rb = group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
                 controller.updateUserMap(Db.Keys.OVERNIGHT_GUESTS_VALUE, indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
@@ -228,7 +228,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
 
         radioGroupPersonalQuestionEight.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            RadioButton rb = group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
                 controller.updateUserMap(Db.Keys.ALLOW_PETS_VALUE, indicatorYes);
             } else if (rb.getText().equals("Maybe")) {

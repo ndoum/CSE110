@@ -18,6 +18,20 @@ public class LoginController {
         auth = FirebaseAuth.getInstance();
     }
 
+    private static boolean isValidEmail(final String email) {
+        if (email == null) {
+            return false;
+        }
+
+        final int minimumEmailLength = 10;
+        return email.length() >= minimumEmailLength && email.endsWith("@ucsd.edu");
+    }
+
+    private static boolean isValidPassword(final String password) {
+        final int minimumPasswordLength = 6;
+        return password != null && password.length() >= minimumPasswordLength;
+    }
+
     public void onSubmit(final String email, final String password) {
         if (!isValidEmail(email)) {
             final String message = "Please use your UCSD email (i.e. abc@ucsd.edu)";
@@ -50,20 +64,6 @@ public class LoginController {
                 Log.d("Error", "signInWithEmail:failure", e);
             });
         }
-    }
-
-    private static boolean isValidEmail(final String email) {
-        if (email == null) {
-            return false;
-        }
-
-        final int minimumEmailLength = 10;
-        return email.length() >= minimumEmailLength && email.endsWith("@ucsd.edu");
-    }
-
-    private static boolean isValidPassword(final String password) {
-        final int minimumPasswordLength = 6;
-        return password != null && password.length() >= minimumPasswordLength;
     }
 
     public void onGoToRegistrationButtonClicked() {
