@@ -5,8 +5,8 @@
         <!-- Customize your theme here. -->
 
         // middle
-        <item name="colorPrimary">#22465E</item>
-        <item name="colorPrimaryDark">#1A4461</item>
+        <item name="colorPrimary">#DA9785</item>
+        <item name="colorPrimaryDark">#DA9785</item>
         <item name="colorAccent">#E65100</item>
     </style>
 

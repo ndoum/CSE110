@@ -10,8 +10,9 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:alpha="0.9"
-        android:background="@drawable/back" />
+        android:alpha="0.8"
+        android:background="@drawable/back"
+        />
 
     <LinearLayout
         android:layout_width="379dp"
@@ -31,19 +32,19 @@
             android:fontFamily="@font/rock_salt"
             android:gravity="center_horizontal"
             android:text="Log in"
-            android:textColor="#93462c"
+            android:textColor="#F8E8D0"
             android:textSize="32dp"
             android:textStyle="bold" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
+            android:layout_marginTop="200dp"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:hint="@string/ucsd_email_hint"
-            android:textColorHint="#93462c"
-            app:boxStrokeColor="#93462c"
-            app:hintTextColor="#93462c"
+            android:textColorHint="#F8E8D0"
+            app:boxStrokeColor="#F8E8D0"
+            app:hintTextColor="#F8E8D0"
             >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -52,8 +53,8 @@
                 android:layout_height="60dp"
                 android:inputType="textPersonName"
                 android:maxLines="1"
-                android:textColor="#93462c"
-                android:textColorHint="#93462c"
+                android:textColor="#F8E8D0"
+                android:textColorHint="#F8E8D0"
                 android:fontFamily="@font/annie_use_your_telescope"
                 android:textStyle="bold"
                 android:textSize="23dp"
@@ -68,10 +69,10 @@
             android:layout_height="wrap_content"
             android:hint="@string/password_hint"
             android:textColor="#93462c"
-            android:textColorHint="#93462c"
-            app:boxStrokeColor="#93462c"
+            android:textColorHint="#F8E8D0"
+            app:boxStrokeColor="#F8E8D0"
             app:endIconMode="password_toggle"
-            app:hintTextColor="#93462c"
+            app:hintTextColor="#F8E8D0"
             android:layout_marginTop="10dp"
             >
 
@@ -82,8 +83,8 @@
                 android:fontFamily="@font/annie_use_your_telescope"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:textColor="#93462c"
-                android:textColorHint="#93462c"
+                android:textColor="#F8E8D0"
+                android:textColorHint="#F8E8D0"
                 android:textSize="23dp"
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -98,19 +99,22 @@
             android:fontFamily="@font/annie_use_your_telescope"
             android:text="@string/login_button"
             android:textColor="#FFF3E0"
-            android:textSize="23dp" />
+            android:textSize="23dp"
+            android:alpha="0.7"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:orientation="vertical"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="30dp"
             >
 
             <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:id="@+id/button_register"
                 android:layout_width="270dp"
-                android:layout_height="60dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/button_rounded"
                 android:backgroundTint="@android:color/transparent"
@@ -118,14 +122,15 @@
                 android:textColor="#FFF6E0" />
 
             <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:id="@+id/button_password_recovery"
                 android:layout_width="200dp"
-                android:layout_height="60dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/button_rounded"
                 android:backgroundTint="@android:color/transparent"
                 android:text="@string/login_pr_button"
-                android:textColor="#062926"
+                android:textColor="#F8F8F6"
 
                 />
         </LinearLayout>
