@@ -1,6 +1,5 @@
 package com.example.rum8.database;
 
-import java.util.Locale;
 import java.util.Map;
 
 public class Filter {
@@ -18,51 +17,51 @@ public class Filter {
     }
 
     private static boolean alcoholValuePasses(final Map<String, Object> u1Data, final Map<String, Object> u2Data) {
-        return differenceLessThanTwo(u1Data, u2Data, "alcohol_value");
+        return differenceLessThanTwo(u1Data, u2Data, Db.Keys.ALCOHOL_VALUE);
     }
 
     private static boolean allowPetsValue(final Map<String, Object> u1Data, final Map<String, Object> u2Data) {
-        return differenceLessThanTwo(u1Data, u2Data, "allow_pets_value");
+        return differenceLessThanTwo(u1Data, u2Data, Db.Keys.ALLOW_PETS_VALUE);
     }
 
     private static boolean cleanValuePasses(final Map<String, Object> u1Data, final Map<String, Object> u2Data) {
-        return differenceLessThanTwo(u1Data, u2Data, "clean_value");
+        return differenceLessThanTwo(u1Data, u2Data, Db.Keys.CLEAN_VALUE);
     }
 
     private static boolean genderPasses(final Map<String, Object> u1Data, final Map<String, Object> u2Data) {
-        final String u1Gender = (String) u1Data.get("gender");
-        final String u2Gender = (String) u2Data.get("gender");
+        final String u1Gender = (String) u1Data.get(Db.Keys.GENDER);
+        final String u2Gender = (String) u2Data.get(Db.Keys.GENDER);
 
-        final long u1GenderPref = (long) u1Data.get("roommate_prefer_same_gender_roommate_value");
-        final long u2GenderPref = (long) u2Data.get("roommate_prefer_same_gender_roommate_value");
+        final long u1GenderPref = (long) u1Data.get(Db.Keys.ROOMMATE_PREFER_SAME_GENDER_ROOMMATE_VALUE);
+        final long u2GenderPref = (long) u2Data.get(Db.Keys.ROOMMATE_PREFER_SAME_GENDER_ROOMMATE_VALUE);
 
         return u1Gender.equals(u2Gender) || (u1GenderPref == 0 && u2GenderPref == 0);
     }
 
     private static boolean overnightGuestsValuePasses(final Map<String, Object> u1Data, final Map<String, Object> u2Data) {
-        return differenceLessThanTwo(u1Data, u2Data, "overnight_guests_value");
+        return differenceLessThanTwo(u1Data, u2Data, Db.Keys.OVERNIGHT_GUESTS_VALUE);
     }
 
     private static boolean partyValuePasses(final Map<String, Object> u1Data, final Map<String, Object> u2Data) {
-        return differenceLessThanTwo(u1Data, u2Data, "party_value");
+        return differenceLessThanTwo(u1Data, u2Data, Db.Keys.PARTY_VALUE);
     }
 
     private static boolean reservedValuePasses(final Map<String, Object> u1Data, final Map<String, Object> u2Data) {
-        return differenceLessThanTwo(u1Data, u2Data, "reserved_value");
+        return differenceLessThanTwo(u1Data, u2Data, Db.Keys.RESERVED_VALUE);
     }
 
     private static boolean smokeValuePasses(final Map<String, Object> u1Data, final Map<String, Object> u2Data) {
-        return differenceLessThanTwo(u1Data, u2Data, "smoke_value");
+        return differenceLessThanTwo(u1Data, u2Data, Db.Keys.SMOKE_VALUE);
     }
 
     private static boolean stayUpLateOnWeekdaysValuePasses(final Map<String, Object> u1Data, final Map<String, Object> u2Data) {
-        return differenceLessThanTwo(u1Data, u2Data, "stay_up_late_on_weekdays_value");
+        return differenceLessThanTwo(u1Data, u2Data, Db.Keys.STAY_UP_LATE_ON_WEEKDAYS_VALUE);
     }
 
     private static boolean differenceLessThanTwo(final Map<String, Object> u1Data,
                                                  final Map<String, Object> u2Data,
                                                  final String personalKey) {
-        final String roommateKey = String.format(Locale.US, "roommate_%s", personalKey);
+        final String roommateKey = String.format("roommate_%s", personalKey);
 
         final long u1RoommateValue = (long) u1Data.get(personalKey);
         final long u2PersonalValue = (long) u2Data.get(roommateKey);

@@ -1,7 +1,6 @@
 package com.example.rum8.controllers;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.AdvancedSettingsControllerListener;
@@ -18,7 +17,7 @@ public class AdvancedSettingsController {
     private FirebaseFirestore db;
     private FirebaseAuth auth;
 
-    public AdvancedSettingsController(final AdvancedSettingsControllerListener controllerListener){
+    public AdvancedSettingsController(final AdvancedSettingsControllerListener controllerListener) {
         this.controllerListener = controllerListener;
 
         db = FirebaseFirestore.getInstance();
@@ -26,11 +25,12 @@ public class AdvancedSettingsController {
     }
 
     public void onSaveButtonClicked(final Map<String, Object> userHash) {
-        Db.updateUser(db,auth.getCurrentUser(),userHash)
+        Db.updateUser(db, auth.getCurrentUser(), userHash)
                 .addOnSuccessListener(aVoid -> {
                     Log.d(TAG, "DocumentSnapshot successfully written");
-                    controllerListener.showToast("Saved", Toast.LENGTH_LONG); })
-                .addOnFailureListener(e -> controllerListener.showToast("Network error", Toast.LENGTH_LONG));
+                    controllerListener.showToast("Saved");
+                })
+                .addOnFailureListener(e -> controllerListener.showToast("Network error"));
     }
 
     public void onGoToProfileSettingsButtonClicked() {
@@ -46,8 +46,19 @@ public class AdvancedSettingsController {
         controllerListener.goToAdvSettings();
     }
 
+
     public void onGoToViewLinkListButtonClicked(){
-        controllerListener.goToViewLinkList();
+        //controllerListener.goToViewLinkList();
+	}
+	
+    public void loadUserInfo() {
+        Db.fetchUserInfo(this.db, this.auth.getCurrentUser()).addOnSuccessListener(documentSnapshot -> {
+            final Map<String, Object> data = documentSnapshot.getData();
+            controllerListener.showCurrentUserInfo(data);
+        }).addOnFailureListener(exception -> {
+            final String message = "Network error";
+            controllerListener.showToast(message);
+        });
     }
 
 }

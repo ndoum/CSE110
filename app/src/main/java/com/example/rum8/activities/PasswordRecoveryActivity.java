@@ -52,8 +52,8 @@ public class PasswordRecoveryActivity extends AppCompatActivity implements Passw
     }
 
     @Override
-    public void showToast(final String message, final int toastLength) {
-        Toast.makeText(PasswordRecoveryActivity.this, message, toastLength).show();
+    public void showToast(final String message) {
+        Toast.makeText(PasswordRecoveryActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
 }

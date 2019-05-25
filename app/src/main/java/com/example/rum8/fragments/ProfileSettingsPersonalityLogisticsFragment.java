@@ -15,11 +15,9 @@ import androidx.fragment.app.Fragment;
 import com.example.rum8.R;
 import com.example.rum8.activities.ProfileSettingsActivity;
 import com.example.rum8.controllers.ProfileSettingsController;
+import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.Map;
 
@@ -50,9 +48,6 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.fragment_profile_settings_personality_logistics, container, false);
         final FirebaseAuth auth = FirebaseAuth.getInstance();
-        final FirebaseUser user = auth.getCurrentUser();
-        final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        final FirebaseStorage storage = FirebaseStorage.getInstance();
 
         radioGroupPersonalQuestionOne = rootView.findViewById(R.id.personal_preferences_cleanliness_preference_radio_group);
         radioGroupPersonalQuestionTwo = rootView.findViewById(R.id.personal_preferences_reserved_preference_radio_group);
@@ -64,198 +59,189 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
         radioGroupPersonalQuestionEight = rootView.findViewById(R.id.personal_preferences_pet_preference_radio_group);
 
         controller = new ProfileSettingsController(this);
-        controller.loadUserInfo(firestore, user).addOnSuccessListener(documentSnapshot -> {
-                Map<String, Object> data = documentSnapshot.getData();
-                System.out.println("here");
-                long clean = (long) data.get("clean_value");
-                long reserve = (long) data.get("reserved_value");
-                long party = (long) data.get("party_value");
-                long alcohol = (long) data.get("alcohol_value");
-                long smoke = (long) data.get("smoke_value");
-                long stayLate = (long) data.get("stay_up_late_on_weekdays_value");
-                long guests = (long) data.get("overnight_guests_value");
-                long pet = (long) data.get("allow_pets_value");
+        controller.loadUserInfo().addOnSuccessListener(documentSnapshot -> {
+                    Map<String, Object> data = documentSnapshot.getData();
+                    long clean = (long) data.get(Db.Keys.CLEAN_VALUE);
+                    long reserve = (long) data.get(Db.Keys.RESERVED_VALUE);
+                    long party = (long) data.get(Db.Keys.PARTY_VALUE);
+                    long alcohol = (long) data.get(Db.Keys.ALCOHOL_VALUE);
+                    long smoke = (long) data.get(Db.Keys.SMOKE_VALUE);
+                    long stayLate = (long) data.get(Db.Keys.STAY_UP_LATE_ON_WEEKDAYS_VALUE);
+                    long guests = (long) data.get(Db.Keys.OVERNIGHT_GUESTS_VALUE);
+                    long pet = (long) data.get(Db.Keys.ALLOW_PETS_VALUE);
 
-                if (clean == 1) {
-                    radioGroupPersonalQuestionOne.check(R.id.personal_preferences_cleanliness_preference_yes);
-                } else if (clean == 0) {
-                    radioGroupPersonalQuestionOne.check(R.id.personal_preferences_cleanliness_preference_no_pref);
-                } else {
-                    radioGroupPersonalQuestionOne.check(R.id.personal_preferences_cleanliness_preference_no);
-                }
+                    if (clean == 1) {
+                        radioGroupPersonalQuestionOne.check(R.id.personal_preferences_cleanliness_preference_yes);
+                    } else if (clean == 0) {
+                        radioGroupPersonalQuestionOne.check(R.id.personal_preferences_cleanliness_preference_no_pref);
+                    } else {
+                        radioGroupPersonalQuestionOne.check(R.id.personal_preferences_cleanliness_preference_no);
+                    }
 
-                if (reserve == 1) {
-                    radioGroupPersonalQuestionTwo.check(R.id.personal_preferences_reserved_preference_yes);
-                } else if (clean == 0) {
-                    radioGroupPersonalQuestionTwo.check(R.id.personal_preferences_reserved_preference_no_pref);
-                } else {
-                    radioGroupPersonalQuestionTwo.check(R.id.personal_preferences_reserved_preference_no);
-                }
+                    if (reserve == 1) {
+                        radioGroupPersonalQuestionTwo.check(R.id.personal_preferences_reserved_preference_yes);
+                    } else if (clean == 0) {
+                        radioGroupPersonalQuestionTwo.check(R.id.personal_preferences_reserved_preference_no_pref);
+                    } else {
+                        radioGroupPersonalQuestionTwo.check(R.id.personal_preferences_reserved_preference_no);
+                    }
 
-                if (party == 1) {
-                    radioGroupPersonalQuestionThree.check(R.id.personal_preferences_parties_preference_yes);
-                } else if (party == 0) {
-                    radioGroupPersonalQuestionThree.check(R.id.personal_preferences_parties_preference_no_pref);
-                } else {
-                    radioGroupPersonalQuestionThree.check(R.id.personal_preferences_parties_preference_no_);
-                }
+                    if (party == 1) {
+                        radioGroupPersonalQuestionThree.check(R.id.personal_preferences_parties_preference_yes);
+                    } else if (party == 0) {
+                        radioGroupPersonalQuestionThree.check(R.id.personal_preferences_parties_preference_no_pref);
+                    } else {
+                        radioGroupPersonalQuestionThree.check(R.id.personal_preferences_parties_preference_no_);
+                    }
 
-                if (alcohol == 1) {
-                    radioGroupPersonalQuestionFour.check(R.id.personal_preferences_alcohol_preference_yes);
-                } else if (alcohol == 0) {
-                    radioGroupPersonalQuestionFour.check(R.id.personal_preferences_alcohol_preference_no_pref);
-                } else {
-                    radioGroupPersonalQuestionFour.check(R.id.personal_preferences_alcohol_preference_no);
-                }
+                    if (alcohol == 1) {
+                        radioGroupPersonalQuestionFour.check(R.id.personal_preferences_alcohol_preference_yes);
+                    } else if (alcohol == 0) {
+                        radioGroupPersonalQuestionFour.check(R.id.personal_preferences_alcohol_preference_no_pref);
+                    } else {
+                        radioGroupPersonalQuestionFour.check(R.id.personal_preferences_alcohol_preference_no);
+                    }
 
-                if (smoke == 1) {
-                    radioGroupPersonalQuestionFive.check(R.id.personal_preferences_smoke_preference_yes);
-                } else if (smoke == 0) {
-                    radioGroupPersonalQuestionFive.check(R.id.personal_preferences_smoke_preference_no_pref);
-                } else {
-                    radioGroupPersonalQuestionFive.check(R.id.personal_preferences_smoke_preference_no);
-                }
+                    if (smoke == 1) {
+                        radioGroupPersonalQuestionFive.check(R.id.personal_preferences_smoke_preference_yes);
+                    } else if (smoke == 0) {
+                        radioGroupPersonalQuestionFive.check(R.id.personal_preferences_smoke_preference_no_pref);
+                    } else {
+                        radioGroupPersonalQuestionFive.check(R.id.personal_preferences_smoke_preference_no);
+                    }
 
-                if (stayLate == 1) {
-                    radioGroupPersonalQuestionSix.check(R.id.personal_preferences_sleep_preference_yes);
-                } else if (alcohol == 0) {
-                    radioGroupPersonalQuestionSix.check(R.id.personal_preferences_sleep_preference_no_pref);
-                } else {
-                    radioGroupPersonalQuestionSix.check(R.id.personal_preferences_sleep_preference);
-                }
+                    if (stayLate == 1) {
+                        radioGroupPersonalQuestionSix.check(R.id.personal_preferences_sleep_preference_yes);
+                    } else if (alcohol == 0) {
+                        radioGroupPersonalQuestionSix.check(R.id.personal_preferences_sleep_preference_no_pref);
+                    } else {
+                        radioGroupPersonalQuestionSix.check(R.id.personal_preferences_sleep_preference);
+                    }
 
-                if (guests == 1) {
-                    radioGroupPersonalQuestionSeven.check(R.id.personal_preferences_guests_preference_yes);
-                } else if (alcohol == 0) {
-                    radioGroupPersonalQuestionSeven.check(R.id.personal_preferences_guests_preference_no_pref);
-                } else {
-                    radioGroupPersonalQuestionSeven.check(R.id.personal_preferences_guests_preference_no);
-                }
+                    if (guests == 1) {
+                        radioGroupPersonalQuestionSeven.check(R.id.personal_preferences_guests_preference_yes);
+                    } else if (alcohol == 0) {
+                        radioGroupPersonalQuestionSeven.check(R.id.personal_preferences_guests_preference_no_pref);
+                    } else {
+                        radioGroupPersonalQuestionSeven.check(R.id.personal_preferences_guests_preference_no);
+                    }
 
-                if (pet == 1) {
-                    radioGroupPersonalQuestionEight.check(R.id.personal_preferences_pet_preference_yes);
-                } else if (alcohol == 0) {
-                    radioGroupPersonalQuestionEight.check(R.id.personal_preferences_pet_preference_maybe);
-                } else {
-                    radioGroupPersonalQuestionEight.check(R.id.personal_preferences_pet_preference_no);
+                    if (pet == 1) {
+                        radioGroupPersonalQuestionEight.check(R.id.personal_preferences_pet_preference_yes);
+                    } else if (alcohol == 0) {
+                        radioGroupPersonalQuestionEight.check(R.id.personal_preferences_pet_preference_maybe);
+                    } else {
+                        radioGroupPersonalQuestionEight.check(R.id.personal_preferences_pet_preference_no);
+                    }
                 }
-            }
         )
-            .addOnFailureListener(exception -> {
-                final String message = "Network error";
-                Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-            });
+                .addOnFailureListener(exception -> {
+                    final String message = "Network error";
+                    showToast(message);
+                });
 
         radioGroupPersonalQuestionOne.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
 
-                controller.updateUserMap("clean_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.CLEAN_VALUE, indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
 
-                controller.updateUserMap("clean_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.CLEAN_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("clean_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.CLEAN_VALUE, indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupPersonalQuestionTwo.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("reserved_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.RESERVED_VALUE, indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
-                controller.updateUserMap("reserved_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.RESERVED_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("reserved_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.RESERVED_VALUE, indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupPersonalQuestionThree.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("party_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.PARTY_VALUE, indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
-                controller.updateUserMap("party_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.PARTY_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("party_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.PARTY_VALUE, indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupPersonalQuestionFour.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("alcohol_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ALCOHOL_VALUE, indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
-                controller.updateUserMap("alcohol_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ALCOHOL_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("alcohol_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ALCOHOL_VALUE, indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupPersonalQuestionFive.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("smoke_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.SMOKE_VALUE, indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
-                controller.updateUserMap("smoke_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.SMOKE_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("smoke_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.SMOKE_VALUE, indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupPersonalQuestionSix.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("stay_up_late_on_weekdays_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.STAY_UP_LATE_ON_WEEKDAYS_VALUE, indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
-                controller.updateUserMap("stay_up_late_on_weekdays_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.STAY_UP_LATE_ON_WEEKDAYS_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("stay_up_late_on_weekdays_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.STAY_UP_LATE_ON_WEEKDAYS_VALUE, indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupPersonalQuestionSeven.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("overnight_guests_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.OVERNIGHT_GUESTS_VALUE, indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
-                controller.updateUserMap("overnight_guests_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.OVERNIGHT_GUESTS_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("overnight_guests_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.OVERNIGHT_GUESTS_VALUE, indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupPersonalQuestionEight.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("allow_pets_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ALLOW_PETS_VALUE, indicatorYes);
             } else if (rb.getText().equals("Maybe")) {
-                controller.updateUserMap("allow_pets_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ALLOW_PETS_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("allow_pets_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ALLOW_PETS_VALUE, indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         personalSaveButton = rootView.findViewById(R.id.personal_references_save_button);
         personalSaveButton.setOnClickListener(v -> {
             controller.submitUserMap();
-            this.showToast("Personal logistics Saved", Toast.LENGTH_SHORT);
+            showToast("Personal logistics Saved");
         });
 
         personalNextButton = rootView.findViewById(R.id.personal_references_next_button);
@@ -267,8 +253,8 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
     }
 
     @Override
-    public void showToast(final String message, final int toastLength) {
-        Toast.makeText(getActivity(), message, toastLength).show();
+    public void showToast(final String message) {
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

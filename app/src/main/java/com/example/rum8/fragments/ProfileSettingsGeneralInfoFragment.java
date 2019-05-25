@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -22,12 +21,10 @@ import androidx.fragment.app.Fragment;
 import com.example.rum8.R;
 import com.example.rum8.activities.ProfileSettingsActivity;
 import com.example.rum8.controllers.ProfileSettingsController;
+import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
+
 import com.google.firebase.storage.StorageException;
 
 import java.util.HashMap;
@@ -61,10 +58,6 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     @Override
     public void onViewCreated(View rootView, Bundle savedInstanceState) {
         controller = new ProfileSettingsController(this);
-        final FirebaseAuth auth = FirebaseAuth.getInstance();
-        final FirebaseUser user = auth.getCurrentUser();
-        final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        final FirebaseStorage storage = FirebaseStorage.getInstance();
 
         //NAME FIELDS
         firstNameField = rootView.findViewById(R.id.general_info_first_name_field);
@@ -91,14 +84,14 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         collegeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         collegeSpinner.setAdapter(collegeAdapter);
 
-        controller.loadUserInfo(firestore, user)
+        controller.loadUserInfo()
                 .addOnSuccessListener(documentSnapshot -> {
                     final Map<String, Object> data = documentSnapshot.getData();
-                    final String userGender = (String) data.get("gender");
-                    final String userYear = (String) data.get("academic_year");
-                    final String userCollege = (String) data.get("college");
-                    final String userFirstName = (String) data.get("first_name");
-                    final String userLastName = (String) data.get("last_name");
+                    final String userGender = (String) data.get(Db.Keys.GENDER);
+                    final String userYear = (String) data.get(Db.Keys.ACADEMIC_YEAR);
+                    final String userCollege = (String) data.get(Db.Keys.COLLEGE);
+                    final String userFirstName = (String) data.get(Db.Keys.FIRST_NAME);
+                    final String userLastName = (String) data.get(Db.Keys.LAST_NAME);
 
                     genderSpinner.setSelection(genderAdapter.getPosition(userGender));
                     academicYearSpinner.setSelection(academicYearAdapter.getPosition(userYear));
@@ -109,19 +102,19 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
                 })
                 .addOnFailureListener(exception -> {
                     final String message = "Network error";
-                    Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+                    showToast(message);
                 });
 
         progressDialog = new ProgressDialog(getActivity());
         imageView = rootView.findViewById(R.id.general_info_profile_image_view);
 
         // fetch user's profile picture
-        controller.loadUserProfileImage(storage, user).addOnSuccessListener(bytes -> {
+        controller.loadUserProfileImage().addOnSuccessListener(bytes -> {
             Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
             imageView.setImageBitmap(bmp);
         }).addOnFailureListener(exception -> {
             // fetch default if the user does not upload
-            controller.loadDefaluUserProfileImage(storage).addOnSuccessListener(bytes -> {
+            controller.loadDefaluUserProfileImage().addOnSuccessListener(bytes -> {
                 Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                 imageView.setImageBitmap(bmp);
             });
@@ -129,11 +122,16 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
             int errorCode = ((StorageException) exception).getErrorCode();
             if (errorCode != StorageException.ERROR_OBJECT_NOT_FOUND) {
                 final String message = "Network error";
-                Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+                showToast(message);
             }
         });
 
         buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
+        buttonNext.setOnClickListener(v -> {
+            ((ProfileSettingsActivity) getActivity()).setViewPager(1);
+
+        });
+
         buttonChoosePic = rootView.findViewById(R.id.general_info_profile_image_upload_button);
         buttonUploadPic = rootView.findViewById(R.id.general_info_profile_image_save_button);
 
@@ -141,11 +139,11 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
 
         buttonSave.setOnClickListener(v -> {
             final Map<String, Object> userInfo = new HashMap<String, Object>() {{
-                put("first_name", firstNameField.getText().toString());
-                put("last_name", lastNameField.getText().toString());
-                put("gender", genderSpinner.getSelectedItem().toString());
-                put("academic_year", academicYearSpinner.getSelectedItem().toString());
-                put("college", collegeSpinner.getSelectedItem().toString());
+                put(Db.Keys.FIRST_NAME, firstNameField.getText().toString());
+                put(Db.Keys.LAST_NAME, lastNameField.getText().toString());
+                put(Db.Keys.GENDER, genderSpinner.getSelectedItem().toString());
+                put(Db.Keys.ACADEMIC_YEAR, academicYearSpinner.getSelectedItem().toString());
+                put(Db.Keys.COLLEGE, collegeSpinner.getSelectedItem().toString());
             }};
 
             controller.onSubmit(userInfo);
@@ -206,15 +204,11 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
         onResume();
 
-        buttonNext.setOnClickListener(v -> {
-            ((ProfileSettingsActivity) getActivity()).setViewPager(1);
-
-        });
     }
 
     @Override
-    public void showToast(final String message, final int toastLength) {
-        Toast.makeText(getActivity(), message, toastLength).show();
+    public void showToast(final String message) {
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

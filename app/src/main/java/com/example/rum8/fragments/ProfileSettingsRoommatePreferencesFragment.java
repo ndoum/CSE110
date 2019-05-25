@@ -1,5 +1,7 @@
 package com.example.rum8.fragments;
 
+import android.content.Intent;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,18 +15,17 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
+import com.example.rum8.activities.LoginActivity;
+import com.example.rum8.activities.MainActivity;
 import com.example.rum8.controllers.ProfileSettingsController;
+import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.Map;
 
 /**
- * Class that implements profile settings rommmate preferences question sets in profile
- * settings activity.
+ * Class that implements profile settings rommmate preferences question sets in
+ * profile settings activity.
  */
 public class ProfileSettingsRoommatePreferencesFragment extends Fragment implements ProfileSettingsControllerListener {
     private ProfileSettingsController controller;
@@ -45,42 +46,43 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater,
-                             @Nullable ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        final FirebaseAuth auth = FirebaseAuth.getInstance();
-        final FirebaseUser user = auth.getCurrentUser();
-        final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        final FirebaseStorage storage = FirebaseStorage.getInstance();
 
         super.onCreateView(inflater, container, savedInstanceState);
-        final View rootView = inflater.inflate(R.layout.fragment_profile_settings_roommate_preferences, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_profile_settings_roommate_preferences, container,
+                false);
 
         controller = new ProfileSettingsController(this);
 
-        // Initialize each corresponding radio group in roommate preferences questionnaire
+        // Initialize each corresponding radio group in roommate preferences
+        // questionnaire
         radioGroupRoommateQuestionOne = rootView.findViewById(R.id.roommate_preferences_gender_preference_radio_group);
-        radioGroupRoommateQuestionTwo = rootView.findViewById(R.id.roommate_preferences_cleanness_preference_radio_group);
-        radioGroupRoommateQuestionThree = rootView.findViewById(R.id.roommate_preferences_reserved_preference_radio_group);
-        radioGroupRoommateQuestionFour = rootView.findViewById(R.id.roommate_preferences_comfortable_party_preference_radio_group);
-        radioGroupRoommateQuestionFive = rootView.findViewById(R.id.roommate_preferences_alcohol_preference_radio_group);
+        radioGroupRoommateQuestionTwo = rootView
+                .findViewById(R.id.roommate_preferences_cleanness_preference_radio_group);
+        radioGroupRoommateQuestionThree = rootView
+                .findViewById(R.id.roommate_preferences_reserved_preference_radio_group);
+        radioGroupRoommateQuestionFour = rootView
+                .findViewById(R.id.roommate_preferences_comfortable_party_preference_radio_group);
+        radioGroupRoommateQuestionFive = rootView
+                .findViewById(R.id.roommate_preferences_alcohol_preference_radio_group);
         radioGroupRoommateQuestionSix = rootView.findViewById(R.id.roommate_preferences_smoking_preference_radio_group);
         radioGroupRoommateQuestionSeven = rootView.findViewById(R.id.roommate_preferences_sleep_preference_radio_group);
-        radioGroupRoommateQuestionEight = rootView.findViewById(R.id.roommate_preferences_guests_preference_radio_group);
+        radioGroupRoommateQuestionEight = rootView
+                .findViewById(R.id.roommate_preferences_guests_preference_radio_group);
         radioGroupRoommateQuestionNine = rootView.findViewById(R.id.roommate_preferences_pets_preference_radio_group);
 
-        controller.loadUserInfo(firestore, user).addOnSuccessListener(documentSnapshot -> {
+        controller.loadUserInfo().addOnSuccessListener(documentSnapshot -> {
             Map<String, Object> data = documentSnapshot.getData();
-            System.out.println("here");
-            long gender = (long) data.get("roommate_prefer_same_gender_roommate_value");
-            long clean = (long) data.get("roommate_clean_value");
-            long reserve = (long) data.get("roommate_reserved_value");
-            long party = (long) data.get("roommate_party_value");
-            long alcohol = (long) data.get("roommate_alcohol_value");
-            long smoke = (long) data.get("roommate_smoke_value");
-            long stayLate = (long) data.get("roommate_stay_up_late_on_weekdays_value");
-            long guests = (long) data.get("roommate_overnight_guests_value");
-            long pet = (long) data.get("roommate_allow_pets_value");
+            long gender = (long) data.get(Db.Keys.ROOMMATE_PREFER_SAME_GENDER_ROOMMATE_VALUE);
+            long clean = (long) data.get(Db.Keys.ROOMMATE_CLEAN_VALUE);
+            long reserve = (long) data.get(Db.Keys.ROOMMATE_RESERVED_VALUE);
+            long party = (long) data.get(Db.Keys.ROOMMATE_PARTY_VALUE);
+            long alcohol = (long) data.get(Db.Keys.ROOMMATE_ALCOHOL_VALUE);
+            long smoke = (long) data.get(Db.Keys.ROOMMATE_SMOKE_VALUE);
+            long stayLate = (long) data.get(Db.Keys.ROOMMATE_STAY_UP_LATE_ON_WEEKDAYS_VALUE);
+            long guests = (long) data.get(Db.Keys.ROOMMATE_OVERNIGHT_GUESTS_VALUE);
+            long pet = (long) data.get(Db.Keys.ROOMMATE_ALLOW_PETS_VALUE);
 
             if (gender == 1) {
                 radioGroupRoommateQuestionOne.check(R.id.roommate_preferences_gender_preference_yes);
@@ -153,143 +155,133 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             } else {
                 radioGroupRoommateQuestionNine.check(R.id.roommate_preferences_pets_preference_no);
             }
-        })
-            .addOnFailureListener(exception -> {
-                final String message = "Network error";
-                Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-            });
+        }).addOnFailureListener(exception -> {
+            final String message = "Network error";
+            showToast(message);
+        });
 
         radioGroupRoommateQuestionOne.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("roommate_prefer_same_gender_roommate_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_PREFER_SAME_GENDER_ROOMMATE_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
-                controller.updateUserMap("roommate_prefer_same_gender_roommate_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_PREFER_SAME_GENDER_ROOMMATE_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("roommate_prefer_same_gender_roommate_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ROOMMATE_PREFER_SAME_GENDER_ROOMMATE_VALUE, indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionTwo.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("roommate_clean_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_CLEAN_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
-                controller.updateUserMap("roommate_clean_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_CLEAN_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("roommate_clean_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ROOMMATE_CLEAN_VALUE, indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionThree.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("roommate_reserved_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_RESERVED_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
-                controller.updateUserMap("roommate_reserved_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_RESERVED_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("roommate_reserved_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ROOMMATE_RESERVED_VALUE, indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionFour.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("roommate_party_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_PARTY_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
-                controller.updateUserMap("roommate_party_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_PARTY_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("roommate_party_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ROOMMATE_PARTY_VALUE, indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionFive.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("roommate_alcohol_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_ALCOHOL_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
-                controller.updateUserMap("roommate_alcohol_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_ALCOHOL_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("roommate_alcohol_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ROOMMATE_ALCOHOL_VALUE, indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionSix.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("roommate_smoke_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_SMOKE_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
-                controller.updateUserMap("roommate_smoke_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_SMOKE_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("roommate_smoke_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ROOMMATE_SMOKE_VALUE, indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionSeven.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("roommate_stay_up_late_on_weekdays_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_STAY_UP_LATE_ON_WEEKDAYS_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
-                controller.updateUserMap("roommate_stay_up_late_on_weekdays_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_STAY_UP_LATE_ON_WEEKDAYS_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("roommate_stay_up_late_on_weekdays_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ROOMMATE_STAY_UP_LATE_ON_WEEKDAYS_VALUE, indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionEight.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("roommate_overnight_guests_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_OVERNIGHT_GUESTS_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
-                controller.updateUserMap("roommate_overnight_guests_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_OVERNIGHT_GUESTS_VALUE, indicatorSometimes);
             } else {
-                controller.updateUserMap("roommate_overnight_guests_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ROOMMATE_OVERNIGHT_GUESTS_VALUE, indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
         });
 
         radioGroupRoommateQuestionNine.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
             RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
-                controller.updateUserMap("roommate_allow_pets_value", indicatorYes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_ALLOW_PETS_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
-                controller.updateUserMap("roommate_allow_pets_value", indicatorSometimes);
+                controller.updateUserMap(Db.Keys.ROOMMATE_ALLOW_PETS_VALUE, indicatorSometimes);
 
             } else {
-                controller.updateUserMap("roommate_allow_pets_value", indicatorNo);
+                controller.updateUserMap(Db.Keys.ROOMMATE_ALLOW_PETS_VALUE, indicatorNo);
             }
-            Toast.makeText(rootView.getContext(), rb.getText(), Toast.LENGTH_SHORT).show();
 
         });
 
         saveRoommateButton = rootView.findViewById(R.id.roommate_preferences_save_button);
         saveRoommateButton.setOnClickListener(v -> {
             controller.submitUserMap();
-            this.showToast("Roommate Preferences Saved", Toast.LENGTH_SHORT);
+            showToast("Roommate Preferences Saved");
         });
 
         return rootView;
     }
 
     @Override
-    public void showToast(final String message, final int toastLength) {
-        Toast.makeText(getActivity(), message, toastLength).show();
+    public void showToast(final String message) {
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
