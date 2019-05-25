@@ -132,10 +132,4 @@ public class AdvancedSettingsActivity extends AppCompatActivity
     public void goToAdvSettings() {
     }
 
-    @Override
-    public void goToViewLinkList(){
-        final Intent intent = new Intent(AdvancedSettingsActivity.this, ViewLinkListActivity.class);
-        startActivity(intent);
-        finish();
-    }
 }

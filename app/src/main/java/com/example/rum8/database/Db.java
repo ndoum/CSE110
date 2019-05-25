@@ -68,6 +68,15 @@ public class Db {
         private static final String EMPTY_STRING = "";
         private static final Integer ZERO = 0;
         private static final Map<String, Object> EMPTY_MAP = new HashMap<>();
+        /**
+         * Default matched map for testing
+         * */
+        private static Map<String, Object> DEFAULT_MATCH = new HashMap<String, Object>(){{
+            put("2hBil0X545C53yGVKLnpQv6iE8EE", EMPTY_MAP);
+            put("3DCX2lZdswSPVBJvbxHJhM6tmFG3", EMPTY_MAP);
+            put("9ni9BdXOtdNwZOIg71cUWbdqKS93", EMPTY_MAP);
+        }};
+
         private static final Map<String, Object> USER = new HashMap<String, Object>() {{
             put(Keys.ACADEMIC_YEAR, "First");
             put(Keys.AGE, 18);
@@ -89,7 +98,10 @@ public class Db {
             put(Keys.POTENTIAL, EMPTY_MAP);
             put(Keys.LIKED, EMPTY_MAP);
             put(Keys.DISLIKED, EMPTY_MAP);
-            put(Keys.MATCHED, EMPTY_MAP);
+
+            //put(Keys.MATCHED, EMPTY_MAP);
+            /** For testing*/
+            put(Keys.MATCHED, DEFAULT_MATCH); //TODO switch back to empty map
 
             put(Keys.ALCOHOL_VALUE, ZERO);
             put(Keys.ALLOW_PETS_VALUE, ZERO);

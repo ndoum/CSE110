@@ -2,50 +2,68 @@ package com.example.rum8.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rum8.R;
+import com.example.rum8.adapters.ViewLinkListRecycleViewAdapter;
 import com.example.rum8.controllers.ViewLinkListController;
 import com.example.rum8.dataModels.LinkListSingleLink;
+import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ViewLinkListControllerListener;
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Set;
+
+import static android.content.ContentValues.TAG;
+
 
 public class ViewLinkListActivity extends AppCompatActivity
         implements ViewLinkListControllerListener {
 
     private ViewLinkListController controller;
     private RecyclerView recyclerView;
-    private FirebaseFirestore dbStore;
-    private FirebaseAuth auth;
-    private Set<String> linkListUidSet;
-    private com.google.firebase.firestore.Query queryStore;
-    private FirestoreRecyclerOptions<LinkListSingleLink> options;
-    private FirestoreRecyclerAdapter adapter;
+    private FirebaseFirestore db;
+    //private Set<String> linkListUidSet;
+    private ArrayList<LinkListSingleLink> links; //matched links
+    private ViewLinkListRecycleViewAdapter adapter;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
-        linkListUidSet = new HashSet<String>();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_link_list);
+        links = new ArrayList<>();
+        db = FirebaseFirestore.getInstance();
         initController();
         initViews();
     }
 
     private void initViews() {
-        //fetch matched link list
         controller.fetchLinkListUidsFromDB();
+        System.out.println("FINISHED POPULATING LINK LIST CONTENT");
 
-        /*queryStore = dbStore.collection("users");
+        System.out.println("IN LINKS:...");
+        System.out.println(links);
+        LinkListSingleLink test1 = new LinkListSingleLink("Tina", "Hsieh", "1234567890");
+        //addNewLink(test1);
+        links.add(test1);
+        LinkListSingleLink test2 = new LinkListSingleLink("Oli", "Zhou", "0987654321");
+        links.add(test2);
+        recyclerView = findViewById(R.id.activity_view_link_list_recycler_view);
+        adapter = new ViewLinkListRecycleViewAdapter(links);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
+
+        //ViewLinkListRecycleViewAdapter
+    /*queryStore = dbStore.collection("users");
 
         //build single links
         options = new FirestoreRecyclerOptions.Builder<LinkListSingleLink>()
@@ -111,11 +129,30 @@ public class ViewLinkListActivity extends AppCompatActivity
     }
 
     @Override
+    public void addNewLink(HashMap<String, Object> documentData, String uid) {
+        System.out.println("creating linkListSingleLink Object for " + uid);
+        String first_name = (String) documentData.get("first_name");
+        String last_name = (String) documentData.get("last_name");
+        LinkListSingleLink newLink = new LinkListSingleLink(first_name, last_name, uid);
+        links.add(newLink);
+    }
+
+    @Override
+    public void populateRecylcerViewContent(Set<String> uids){
+        for(String uid:uids){
+            Db.fetchLinkInfo(db, uid).addOnFailureListener(e ->
+                    Log.d(TAG, "Fetch matched list failed"))
+                    .addOnSuccessListener(documentSnapshot -> {
+                        System.out.println("FUNCTION CALL TO ADDNEWLINK");
+                        addNewLink((HashMap<String, Object>) documentSnapshot.getData(), uid);
+                    });
+        }
+    }
+
+    @Override
     public void onBackPressed(){
         finish();
     }
-
-
 
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
@@ -169,4 +206,14 @@ public class ViewLinkListActivity extends AppCompatActivity
         startActivity(intent);
         finish();
     }
+
+    /*@Override
+    public void addToLinks(LinkListSingleLink link) {
+        //System.out.println("ADDING TO LINKS!!!!!");
+        links.add(link);
+        System.out.println("IN FUNCTION ADD TO LINKS...");
+        System.out.println(links);
+    }*/
+
+
 }
