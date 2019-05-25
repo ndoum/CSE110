@@ -5,7 +5,8 @@
     android:background="#E0DEDA"
     android:orientation="vertical"
     android:paddingLeft="10dp"
-    android:paddingRight="10dp">
+    android:paddingRight="10dp"
+    android:paddingTop="5dp">
 
 
     <GridLayout

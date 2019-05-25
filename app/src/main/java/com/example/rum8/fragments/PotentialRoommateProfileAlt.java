@@ -43,7 +43,6 @@ public class PotentialRoommateProfileAlt extends Fragment {
         adapter.AddFragment(new UserTab1Fragment(), "General");
         adapter.AddFragment(new UserTab2Fragment(), "Personal");
         adapter.AddFragment(new UserTab3Fragment(), "Overview");
-        adapter.AddFragment(new UserTab3Fragment(), "Contact");
         viewPager.setAdapter(adapter);
         tablayout.setupWithViewPager(viewPager);
 
