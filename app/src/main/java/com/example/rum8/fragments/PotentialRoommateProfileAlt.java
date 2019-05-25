@@ -1,13 +1,12 @@
 package com.example.rum8.fragments;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.rum8.R;
 import com.example.rum8.adapters.PotentialRoommateProfileAltAdapter;
@@ -15,9 +14,7 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
-
 public class PotentialRoommateProfileAlt extends Fragment {
-
 
     private TabLayout tablayout;
     private AppBarLayout appBarLayout;
@@ -26,10 +23,8 @@ public class PotentialRoommateProfileAlt extends Fragment {
     private ExtendedFloatingActionButton linkButton;
     private ExtendedFloatingActionButton notLinkButton;
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         if (container != null) {
             container.removeAllViews();
@@ -44,7 +39,6 @@ public class PotentialRoommateProfileAlt extends Fragment {
         adapter.AddFragment(new UserTab1Fragment(), "General");
         adapter.AddFragment(new UserTab2Fragment(), "Personal");
         adapter.AddFragment(new UserTab3Fragment(), "Overview");
-        adapter.AddFragment(new UserTab4Fragment(), "Contact");
         viewPager.setAdapter(adapter);
         tablayout.setupWithViewPager(viewPager);
 

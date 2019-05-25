@@ -1,13 +1,12 @@
 package com.example.rum8.fragments;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.rum8.R;
 import com.example.rum8.adapters.PotentialRoommateProfileDefaultAdapter;
@@ -24,11 +23,8 @@ public class PotentialRoommateProfileDefault extends Fragment {
     private ExtendedFloatingActionButton linkButton;
     private ExtendedFloatingActionButton notLinkButton;
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         if (container != null) {
             container.removeAllViews();
@@ -40,18 +36,16 @@ public class PotentialRoommateProfileDefault extends Fragment {
         appBarLayout = rootView.findViewById(R.id.potential_roommate_profile_default_appbarid);
         viewPager = rootView.findViewById(R.id.potential_roommate_profile_default_viewpager_id);
 
-        PotentialRoommateProfileDefaultAdapter adapter = new PotentialRoommateProfileDefaultAdapter(getChildFragmentManager());
+        PotentialRoommateProfileDefaultAdapter adapter = new PotentialRoommateProfileDefaultAdapter(
+                getChildFragmentManager());
         adapter.AddFragment(new UserTab1Fragment(), "General");
         adapter.AddFragment(new UserTab2Fragment(), "Personal");
         adapter.AddFragment(new UserTab3Fragment(), "Overview");
-        adapter.AddFragment(new UserTab4Fragment(), "Contact");
         viewPager.setAdapter(adapter);
         tablayout.setupWithViewPager(viewPager);
-
 
         // Inflate the layout for this fragment
         return rootView;
     }
-
 
 }
