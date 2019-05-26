@@ -26,18 +26,20 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
         public ImageView imageView;
         public TextView firstNameView;
         public Button button_link;
-        
+
         public LinkListSingleLinkHolder(@NonNull View itemView) {
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.view_link_list_single_link_imageview);
             firstNameView = (TextView) itemView.findViewById(R.id.view_link_list_single_link_textview);
         }
     }
+    public ViewLinkListRecycleViewAdapter(){}
 
     public ViewLinkListRecycleViewAdapter(List<LinkListSingleLink> lLinks){
         this.lLinks = lLinks;
     }
 
+    public void setlLinks(List<LinkListSingleLink> lLinks){ this.lLinks = lLinks;}
     @Override
     public ViewLinkListRecycleViewAdapter.LinkListSingleLinkHolder onCreateViewHolder(ViewGroup parent, int viewType){
         Context context = parent.getContext();

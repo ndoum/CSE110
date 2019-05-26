@@ -47,6 +47,7 @@ public class ViewLinkListActivity extends AppCompatActivity
     }
 
     private void initViews() {
+        adapter = new ViewLinkListRecycleViewAdapter();
         controller.fetchLinkListUidsFromDB();
         System.out.println("FINISHED POPULATING LINK LIST CONTENT");
 
@@ -142,14 +143,14 @@ public class ViewLinkListActivity extends AppCompatActivity
     @Override
     public void displayLinks() {
         recyclerView = findViewById(R.id.activity_view_link_list_recycler_view);
-        adapter = new ViewLinkListRecycleViewAdapter(links);
+        adapter.setlLinks(links);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
 
     @Override
     public void populateRecylcerViewContent(Set<String> uids){
-        System.out.println("IN POPULATE RECYCLER VIEW CONTENT");
+        //System.out.println("IN POPULATE RECYCLER VIEW CONTENT");
         for(String uid:uids){
             Db.fetchLinkInfo(db, uid).addOnFailureListener(e ->
                     Log.d(TAG, "Fetch matched list failed"))
