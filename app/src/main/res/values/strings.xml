@@ -99,8 +99,6 @@
     <string name="ps_roommate_preferences_option_somewhat">Somewhat</string>
     <string name="ps_roommate_preferences_option_no">No</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- adv_settings-->
     <string name="adv_settings_header">Advanced Settings</string>
     <string name="adv_settings_sub_header_1">General</string>
@@ -112,6 +110,7 @@
     <string name="adv_settings_hobbies">Hobbies:</string>
     <string name="adv_settings_interests">Interests:</string>
     <string name="adv_settings_phone">Phone number:</string>
+    <string name="adv_settings_budget">Budget:</string>
     <string name="adv_settings_button_save">Save</string>
 
 

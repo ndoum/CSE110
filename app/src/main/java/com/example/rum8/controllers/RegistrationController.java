@@ -32,6 +32,7 @@ public class RegistrationController {
         auth = FirebaseAuth.getInstance();
     }
 
+
     public void onSubmit(final String email, final String password, final String passwordConfirm) {
         if (!isValidEmail(email)) {
             final String message = "Please use your UCSD email (i.e. abc@ucsd.edu)";

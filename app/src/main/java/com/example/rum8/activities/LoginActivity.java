@@ -61,9 +61,9 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
         final Button button_goToRegistration = findViewById(R.id.button_register);
         button_goToRegistration.setOnClickListener(v -> controller.onGoToRegistrationButtonClicked());
 
-        emailField = (TextInputEditText) findViewById(R.id.user_email);
-        passwordField = (TextInputEditText) findViewById(R.id.user_password);
-        buttonLogin = (Button) findViewById(R.id.button_login);
+        emailField = findViewById(R.id.user_email);
+        passwordField = findViewById(R.id.user_password);
+        buttonLogin = findViewById(R.id.button_login);
 
         buttonLogin.setOnClickListener(v -> {
             final String email = emailField.getText().toString();

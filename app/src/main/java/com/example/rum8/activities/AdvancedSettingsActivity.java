@@ -45,12 +45,12 @@ public class AdvancedSettingsActivity extends AppCompatActivity
 
     public void initViews() {
 
-        accommodationsField = (TextInputEditText) findViewById(R.id.general_info_living_accommodations_field);
-        otherThingsField = (TextInputEditText) findViewById(R.id.general_info_other_things_field);
-        aboutMeField = (TextInputEditText) findViewById(R.id.personal_info_bio_field);
-        hobbiesField = (TextInputEditText) findViewById(R.id.personal_info_hobbies_field);
-        interestsField = (TextInputEditText) findViewById(R.id.personal_info_interest_field);
-        phoneNumberField = (TextInputEditText) findViewById(R.id.personal_info_phone_field);
+        accommodationsField = findViewById(R.id.general_info_living_accommodations_field);
+        otherThingsField = findViewById(R.id.general_info_other_things_field);
+        aboutMeField = findViewById(R.id.personal_info_bio_field);
+        hobbiesField = findViewById(R.id.personal_info_hobbies_field);
+        interestsField = findViewById(R.id.personal_info_interest_field);
+        phoneNumberField = findViewById(R.id.personal_info_phone_field);
 
         controller.loadUserInfo();
 

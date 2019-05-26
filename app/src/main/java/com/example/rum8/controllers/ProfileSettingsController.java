@@ -40,6 +40,11 @@ public class ProfileSettingsController {
         storage = FirebaseStorage.getInstance();
     }
 
+    // helper method to check if user input is present
+    private static boolean isPresent(final String name) {
+        return name != null && !name.isEmpty();
+    }
+
     public void onSubmit(final Map<String, Object> userInfo) {
         final String firstName = (String) userInfo.get(Db.Keys.FIRST_NAME);
         final String lastName = (String) userInfo.get(Db.Keys.LAST_NAME);
@@ -95,7 +100,6 @@ public class ProfileSettingsController {
         return Db.fetchUserProfilePicture(this.storage, this.auth.getCurrentUser());
     }
 
-
     /**
      * Method that updates user hash map with the passed in key and value.
      *
@@ -117,14 +121,6 @@ public class ProfileSettingsController {
         /**
          * TODO: update here user's sets here
          */
-    }
-
-    // helper method to check if user input is present
-    private static boolean isPresent(final String name) {
-        if (name == null || name.isEmpty()) {
-            return false;
-        }
-        return true;
     }
 
 }
