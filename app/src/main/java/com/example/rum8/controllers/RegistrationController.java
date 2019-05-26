@@ -3,6 +3,7 @@ package com.example.rum8.controllers;
 import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.RegistrationControllerListener;
@@ -31,26 +32,16 @@ public class RegistrationController {
         auth = FirebaseAuth.getInstance();
     }
 
-    private static boolean isValidEmail(final String email) {
-        if (email == null) {
-            return false;
-        }
 
-        final int minimumEmailLength = 10;
-        return email.length() >= minimumEmailLength && email.endsWith("@ucsd.edu");
-    }
-
-    private static boolean isValidPassword(final String password) {
-        final int minimumPasswordLength = 6;
-        return password != null && password.length() >= minimumPasswordLength;
-    }
-
-    public void onSubmit(final String email, final String password) {
+    public void onSubmit(final String email, final String password, final String passwordConfirm) {
         if (!isValidEmail(email)) {
             final String message = "Please use your UCSD email (i.e. abc@ucsd.edu)";
             controllerListener.showToast(message);
         } else if (!isValidPassword(password)) {
             final String message = "Your password need to be more than 6 characters";
+            controllerListener.showToast(message);
+        } else if (!passWordMatch(password, passwordConfirm)) {
+            final String message = "Passwords didn't match";
             controllerListener.showToast(message);
         } else {
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener
@@ -100,6 +91,25 @@ public class RegistrationController {
                         controllerListener.showToast(message);
                     }
                 });
+    }
+
+    private static boolean isValidEmail(final String email) {
+        if (email == null) {
+            return false;
+        }
+
+        final int minimumEmailLength = 10;
+        return email.length() >= minimumEmailLength && email.endsWith("@ucsd.edu");
+    }
+
+    // check the passwords match
+    private static boolean passWordMatch(final String password, final String passwordConfirm) {
+        return password.equals(passwordConfirm);
+    }
+
+    private static boolean isValidPassword(final String password) {
+        final int minimumPasswordLength = 6;
+        return password != null && password.length() >= minimumPasswordLength;
     }
 
     public void onGoBackToLoginButtonClicked() {
