@@ -5,17 +5,19 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="208dp"
-        android:layout_height="396dp"
+        android:layout_width="250dp"
+        android:layout_height="450dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="6dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:contentDescription="@string/logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rum8_logo" />
+        app:layout_constraintVertical_bias="0.402"
+        app:srcCompat="@drawable/logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

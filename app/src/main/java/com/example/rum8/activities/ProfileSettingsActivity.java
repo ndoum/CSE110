@@ -17,6 +17,7 @@ import com.example.rum8.R;
 import com.example.rum8.adapters.ProfileSettingsViewPagerAdapter;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
+import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class ProfileSettingsActivity extends FragmentActivity
@@ -34,6 +35,7 @@ public class ProfileSettingsActivity extends FragmentActivity
     private Button buttonGeneralInfoNext;
     private Button buttonUploadProfileImage;
     private ImageView imageUserProfile;
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -87,6 +89,8 @@ public class ProfileSettingsActivity extends FragmentActivity
 
         buttonUploadProfileImage = findViewById(R.id.general_info_profile_image_upload_button);
 
+        tabLayout = findViewById(R.id.activity_profile_settings_tab_layout);
+        tabLayout.setupWithViewPager(viewPager);
 
     }
 

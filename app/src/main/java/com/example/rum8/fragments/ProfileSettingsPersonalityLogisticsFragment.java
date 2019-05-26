@@ -17,7 +17,6 @@ import com.example.rum8.activities.ProfileSettingsActivity;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
-import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Map;
 
@@ -47,7 +46,6 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.fragment_profile_settings_personality_logistics, container, false);
-        final FirebaseAuth auth = FirebaseAuth.getInstance();
 
         radioGroupPersonalQuestionOne = rootView.findViewById(R.id.personal_preferences_cleanliness_preference_radio_group);
         radioGroupPersonalQuestionTwo = rootView.findViewById(R.id.personal_preferences_reserved_preference_radio_group);
@@ -115,7 +113,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
                     } else if (alcohol == 0) {
                         radioGroupPersonalQuestionSix.check(R.id.personal_preferences_sleep_preference_no_pref);
                     } else {
-                        radioGroupPersonalQuestionSix.check(R.id.personal_preferences_sleep_preference);
+                        radioGroupPersonalQuestionSix.check(R.id.personal_preferences_sleep_preference_no);
                     }
 
                     if (guests == 1) {
@@ -133,6 +131,15 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
                     } else {
                         radioGroupPersonalQuestionEight.check(R.id.personal_preferences_pet_preference_no);
                     }
+
+                    radioGroupPersonalQuestionOne.jumpDrawablesToCurrentState();
+                    radioGroupPersonalQuestionTwo.jumpDrawablesToCurrentState();
+                    radioGroupPersonalQuestionThree.jumpDrawablesToCurrentState();
+                    radioGroupPersonalQuestionFour.jumpDrawablesToCurrentState();
+                    radioGroupPersonalQuestionFive.jumpDrawablesToCurrentState();
+                    radioGroupPersonalQuestionSix.jumpDrawablesToCurrentState();
+                    radioGroupPersonalQuestionSeven.jumpDrawablesToCurrentState();
+                    radioGroupPersonalQuestionEight.jumpDrawablesToCurrentState();
                 }
         )
                 .addOnFailureListener(exception -> {
