@@ -115,7 +115,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
                     } else if (alcohol == 0) {
                         radioGroupPersonalQuestionSix.check(R.id.personal_preferences_sleep_preference_no_pref);
                     } else {
-                        radioGroupPersonalQuestionSix.check(R.id.personal_preferences_sleep_preference);
+                        radioGroupPersonalQuestionSix.check(R.id.personal_preferences_sleep_preference_no);
                     }
 
                     if (guests == 1) {
