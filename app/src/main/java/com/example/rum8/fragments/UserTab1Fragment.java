@@ -43,8 +43,11 @@ public class UserTab1Fragment extends Fragment implements MainControllerListener
         controller = new MainController(this);
         controller.loadUserInfo();
         budgetField = view.findViewById(R.id.budget_text);
+
+
         livingAccommodationsField = view.findViewById(R.id.living_accommodations_text);
         otherThingsField = view.findViewById(R.id.other_thing_text);
+
     }
 
     @Override
