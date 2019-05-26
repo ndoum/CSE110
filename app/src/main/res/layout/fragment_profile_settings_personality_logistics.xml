@@ -20,7 +20,6 @@
             android:rowCount="18"
             app:layout_constraintTop_toTopOf="parent">
 
-
             <!-- CLEANLINESS -->
             <TextView
                 android:id="@+id/personal_preferences_cleanliness_preference"
@@ -31,7 +30,6 @@
                 android:layout_columnSpan="4"
                 android:layout_columnWeight="1"
                 android:text="@string/ps_personality_logistics_cleanness" />
-
 
             <RadioGroup
                 android:id="@+id/personal_preferences_cleanliness_preference_radio_group"
