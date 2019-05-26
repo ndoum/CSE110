@@ -1,12 +1,8 @@
 package com.example.rum8.controllers;
 
-import android.util.Log;
-
-import androidx.annotation.NonNull;
-
+import com.example.rum8.dataModels.LinkListSingleLink;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ViewLinkListControllerListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -16,8 +12,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
-import static android.content.ContentValues.TAG;
 
 public class ViewLinkListController {
 
@@ -51,38 +45,36 @@ public class ViewLinkListController {
     /**
      * Fetch matched link uids from user's "matched" field
      */
-    public void fetchLinkListUidsFromDB(){
+    public void prepareLinks(){
         linkListUidMap = new HashMap<>();
         linkListUidSet = new HashSet<>();
+        Db.fetchUserInfo(db, auth.getCurrentUser()).addOnCompleteListener(task -> {
+            if(task.isSuccessful()){
+                linkListUidMap = (HashMap<String, Object>) task.getResult().get("matched");
+                linkListUidSet = linkListUidMap.keySet();
+                System.out.println("FETCHED UID SET");
+                System.out.println(linkListUidSet);
 
-        Db.fetchUserInfo(db, auth.getCurrentUser()).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.d(TAG, "Fetch user info failed");
+                for(String uid:linkListUidSet){
+                    Db.fetchLinkInfo(db, uid).addOnCompleteListener(task1 -> {
+                        if(task1.isSuccessful()){
+                            HashMap<String, Object> uidMap = (HashMap<String, Object>) task1.getResult().getData();
+                            String name = (String) uidMap.get("first_name");
+                            System.out.println("FUNCTION CALL TO ADDNEWLINK for: "+name);
+                            //controllerListener.addNewLink(uidMap, uid);
+                            System.out.println("creating linkListSingleLink Object for " + uid);
+                            String first_name = (String) uidMap.get("first_name");
+                            String last_name = (String) uidMap.get("last_name");
+                            LinkListSingleLink newLink = new LinkListSingleLink(first_name, last_name, uid);
+                            controllerListener.addNewLink(newLink);
+                        }
+                    });
+                }
             }
-        }).addOnSuccessListener(documentSnapshot -> {
-            linkListUidMap = (HashMap<String, Object>) documentSnapshot.get("matched");
-            linkListUidSet = linkListUidMap.keySet();
-            //System.out.println("FETCHED UID SET");
-            controllerListener.populateRecylcerViewContent(linkListUidSet);
-            System.out.println("POPULATED!!!!!");
-            controllerListener.displayLinks();
         });
+        controllerListener.displayLinks();
     }
 
-    /**
-     * Fetch matched link info from db and build recycler view
-     */
-    /*public void populateRecyclerViewContent(Set<String> uids){
-        for(String uid:uids){
-            Db.fetchLinkInfo(db, uid).addOnFailureListener(e ->
-                    Log.d(TAG, "Fetch matched list failed"))
-                    .addOnSuccessListener(documentSnapshot -> {
-                        System.out.println("FUNCTION CALL TO ADDNEWLINK");
-                        controllerListener.addNewLink((HashMap<String, Object>) documentSnapshot.getData(), uid);
-                    });
-        }
-    }*/
 
     public Task<byte[]> loadDefaultUserProfileImage(final FirebaseStorage storage){
         return Db.fetchDefaultUserProfilePicture(storage);

@@ -2,10 +2,10 @@ package com.example.rum8.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,13 +16,14 @@ import com.example.rum8.controllers.ViewLinkListController;
 import com.example.rum8.dataModels.LinkListSingleLink;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ViewLinkListControllerListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
-
-import static android.content.ContentValues.TAG;
 
 
 public class ViewLinkListActivity extends AppCompatActivity
@@ -31,7 +32,7 @@ public class ViewLinkListActivity extends AppCompatActivity
     private ViewLinkListController controller;
     private RecyclerView recyclerView;
     private FirebaseFirestore db;
-    //private Set<String> linkListUidSet;
+
     private ArrayList<LinkListSingleLink> links; //matched links
     private ViewLinkListRecycleViewAdapter adapter;
 
@@ -39,31 +40,27 @@ public class ViewLinkListActivity extends AppCompatActivity
     protected void onCreate(final Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_link_list);
-        links = new ArrayList<>();
-        db = FirebaseFirestore.getInstance();
         initController();
+        setContentView(R.layout.activity_view_link_list);
+        db = FirebaseFirestore.getInstance();
+
         initViews();
     }
 
     private void initViews() {
-        adapter = new ViewLinkListRecycleViewAdapter();
-        controller.fetchLinkListUidsFromDB();
-        System.out.println("FINISHED POPULATING LINK LIST CONTENT");
-
-        //System.out.println("IN LINKS:...");
-        //System.out.println(links);
-        /*LinkListSingleLink test1 = new LinkListSingleLink("Tina", "Hsieh", "1234567890");
-        //addNewLink(test1);
-        links.add(test1);
-        LinkListSingleLink test2 = new LinkListSingleLink("Oli", "Zhou", "0987654321");
-        links.add(test2);*/
-        /*
+        System.out.println("PREPARE LINKS");
+        links = new ArrayList<>();
         recyclerView = findViewById(R.id.activity_view_link_list_recycler_view);
-        adapter = new ViewLinkListRecycleViewAdapter(links);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
-        */
+
+
+        //LinkListSingleLink test1 = new LinkListSingleLink("Tina", "Hsieh", "1234567890");
+        //links.add(test1);
+
+        controller.prepareLinks();
+        System.out.println("FINISHED POPULATING LINK LIST CONTENT");
+        System.out.println("Links");
+        System.out.println(links);
 
         //ViewLinkListRecycleViewAdapter
     /*queryStore = dbStore.collection("users");
@@ -127,39 +124,41 @@ public class ViewLinkListActivity extends AppCompatActivity
 */
     }
 
+
     private void initController() {
         controller = new ViewLinkListController(this);
     }
 
     @Override
-    public void addNewLink(HashMap<String, Object> documentData, String uid) {
-        System.out.println("creating linkListSingleLink Object for " + uid);
-        String first_name = (String) documentData.get("first_name");
-        String last_name = (String) documentData.get("last_name");
-        LinkListSingleLink newLink = new LinkListSingleLink(first_name, last_name, uid);
+    public void addNewLink(LinkListSingleLink newLink) {
         links.add(newLink);
     }
 
     @Override
     public void displayLinks() {
-        recyclerView = findViewById(R.id.activity_view_link_list_recycler_view);
+        System.out.println("Links in DISPLAY LINKS");
+        System.out.println(links);
+        adapter = new ViewLinkListRecycleViewAdapter();
         adapter.setlLinks(links);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+        System.out.println("DISPLAYED!!!!!");
     }
 
     @Override
     public void populateRecylcerViewContent(Set<String> uids){
         //System.out.println("IN POPULATE RECYCLER VIEW CONTENT");
         for(String uid:uids){
-            Db.fetchLinkInfo(db, uid).addOnFailureListener(e ->
-                    Log.d(TAG, "Fetch matched list failed"))
-                    .addOnSuccessListener(documentSnapshot -> {
-                        HashMap<String, Object> uidMap = (HashMap<String, Object>) documentSnapshot.getData();
+            Db.fetchLinkInfo(db, uid).addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if(task.isSuccessful()){
+                        HashMap<String, Object> uidMap = (HashMap<String, Object>) task.getResult().getData();
                         String name = (String) uidMap.get("first_name");
                         System.out.println("FUNCTION CALL TO ADDNEWLINK for: "+name);
-                        addNewLink(uidMap, uid);
-                    });
+                        //addNewLink(uidMap, uid);
+                    }
+                }
+            });
         }
     }
 
@@ -228,6 +227,8 @@ public class ViewLinkListActivity extends AppCompatActivity
         System.out.println("IN FUNCTION ADD TO LINKS...");
         System.out.println(links);
     }*/
+
+
 
 
 }
