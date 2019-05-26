@@ -11,15 +11,6 @@
         android:id="@+id/fragment_profile_settings_personality_logistics_constraint_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <!-- HEADER TEXT -->
-        <TextView
-            android:id="@+id/profile_settings_personal_preferences_header_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ps_personality_logistics_header"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <GridLayout
             android:id="@+id/personal_preferences_grid"
@@ -27,7 +18,7 @@
             android:layout_height="wrap_content"
             android:columnCount="4"
             android:rowCount="18"
-            app:layout_constraintTop_toBottomOf="@+id/profile_settings_personal_preferences_header_text">
+            app:layout_constraintTop_toTopOf="parent">
 
             <!-- CLEANLINESS -->
             <TextView
@@ -39,7 +30,6 @@
                 android:layout_columnSpan="4"
                 android:layout_columnWeight="1"
                 android:text="@string/ps_personality_logistics_cleanness" />
-
 
             <RadioGroup
                 android:id="@+id/personal_preferences_cleanliness_preference_radio_group"

@@ -12,23 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- HEADER TEXT -->
-        <TextView
-            android:id="@+id/profile_settings_roommate_preferences_header_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ps_roommate_preferences_header"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <GridLayout
             android:id="@+id/roommate_preferences_grid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="4"
             android:rowCount="25"
-            app:layout_constraintTop_toBottomOf="@+id/profile_settings_roommate_preferences_header_text">
+            app:layout_constraintTop_toTopOf="parent">
 
             <!-- GENDER -->
             <TextView
@@ -415,6 +405,5 @@
 
         </GridLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </ScrollView>
