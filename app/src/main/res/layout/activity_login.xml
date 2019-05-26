@@ -98,6 +98,7 @@
             android:backgroundTint="#995050"
             android:fontFamily="@font/annie_use_your_telescope"
             android:text="@string/login_button"
+            android:textStyle="bold"
             android:textColor="#FFF3E0"
             android:textSize="23dp"
             android:alpha="0.7"
@@ -107,7 +108,7 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:orientation="vertical"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="35dp"
             >
 
             <Button
@@ -119,7 +120,9 @@
                 android:background="@drawable/button_rounded"
                 android:backgroundTint="@android:color/transparent"
                 android:text="@string/login_register_button"
-                android:textColor="#FFF6E0" />
+                android:textSize="15dp"
+                android:alpha="0.8"
+                android:textColor="#F8E8D0" />
 
             <Button
                 style="@style/Widget.AppCompat.Button.Borderless"
@@ -130,7 +133,8 @@
                 android:background="@drawable/button_rounded"
                 android:backgroundTint="@android:color/transparent"
                 android:text="@string/login_pr_button"
-                android:textColor="#F8F8F6"
+                android:textSize="15dp"
+                android:textColor="#F8E8D0"
 
                 />
         </LinearLayout>

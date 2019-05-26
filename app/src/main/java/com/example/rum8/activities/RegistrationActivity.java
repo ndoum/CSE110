@@ -50,9 +50,6 @@ public class RegistrationActivity extends AppCompatActivity
             final String passwordConfirm = editText_passwordConfirm.getText().toString();
             controller.onSubmit(email, password, passwordConfirm);
         });
-
-        final Button button_cancel = (Button) findViewById(R.id.button_registration_cancel);
-        button_cancel.setOnClickListener(v -> controller.onGoBackToLoginButtonClicked());
     }
 
     private void initController() {
