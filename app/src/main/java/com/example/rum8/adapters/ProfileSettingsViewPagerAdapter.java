@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.rum8.R;
 import com.example.rum8.fragments.ProfileSettingsGeneralInfoFragment;
 import com.example.rum8.fragments.ProfileSettingsPersonalityLogisticsFragment;
 import com.example.rum8.fragments.ProfileSettingsRoommatePreferencesFragment;
@@ -42,9 +41,9 @@ public class ProfileSettingsViewPagerAdapter extends FragmentPagerAdapter {
     }
 
     @Override
-    public CharSequence getPageTitle(int position){
+    public CharSequence getPageTitle(int position) {
         String title;
-        switch(position){
+        switch (position) {
             case GENERAL_INFO_POSITION:
                 title = "General Info";
                 break;
