@@ -46,11 +46,6 @@ public class AdvancedSettingsController {
         controllerListener.goToAdvSettings();
     }
 
-
-    public void onGoToViewLinkListButtonClicked(){
-        //controllerListener.goToViewLinkList();
-	}
-	
     public void loadUserInfo() {
         Db.fetchUserInfo(this.db, this.auth.getCurrentUser()).addOnSuccessListener(documentSnapshot -> {
             final Map<String, Object> data = documentSnapshot.getData();

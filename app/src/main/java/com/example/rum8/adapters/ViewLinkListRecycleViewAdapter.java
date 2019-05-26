@@ -1,5 +1,6 @@
 package com.example.rum8.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,7 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
     public class LinkListSingleLinkHolder extends RecyclerView.ViewHolder{
         public ImageView imageView;
         public TextView firstNameView;
-        public TextView lastNameView;
+        //public TextView lastNameView;
         //public Button button_link;
 
         public LinkListSingleLinkHolder(@NonNull View itemView) {
@@ -45,8 +46,8 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
 
     @Override
     public ViewLinkListRecycleViewAdapter.LinkListSingleLinkHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        //Context context = parent.getContext();
-        LayoutInflater inflater = LayoutInflater.from(activity.getBaseContext());
+        Context context = parent.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
 
         View view;
         view = inflater.inflate(R.layout.activity_view_link_list_single_link, parent, false);
@@ -62,8 +63,8 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
         TextView firstNameView = linkHolder.firstNameView;
         firstNameView.setText(link.getfirst_name());
 
-        TextView lastNameView = linkHolder.lastNameView;
-        lastNameView.setText(link.getlast_name());
+        //TextView lastNameView = linkHolder.lastNameView;
+        //lastNameView.setText(link.getlast_name());
 
         //ImageView imageView = linkHolder.imageView;
 

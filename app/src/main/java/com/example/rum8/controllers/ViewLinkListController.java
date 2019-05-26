@@ -75,7 +75,6 @@ public class ViewLinkListController {
         controllerListener.displayLinks();
     }
 
-
     public Task<byte[]> loadDefaultUserProfileImage(final FirebaseStorage storage){
         return Db.fetchDefaultUserProfilePicture(storage);
     }

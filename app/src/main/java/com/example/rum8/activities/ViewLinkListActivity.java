@@ -53,10 +53,8 @@ public class ViewLinkListActivity extends AppCompatActivity
         recyclerView = findViewById(R.id.activity_view_link_list_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
-        //LinkListSingleLink test1 = new LinkListSingleLink("Tina", "Hsieh", "1234567890");
-        //links.add(test1);
-
+        LinkListSingleLink test1 = new LinkListSingleLink("Oli", "Z", "1234567");
+        links.add(test1);
         controller.prepareLinks();
         System.out.println("FINISHED POPULATING LINK LIST CONTENT");
         System.out.println("Links");
