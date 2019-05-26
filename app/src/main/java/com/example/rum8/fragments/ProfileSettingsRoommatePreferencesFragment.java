@@ -151,6 +151,16 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             } else {
                 radioGroupRoommateQuestionNine.check(R.id.roommate_preferences_pets_preference_no);
             }
+
+            radioGroupRoommateQuestionOne.jumpDrawablesToCurrentState();
+            radioGroupRoommateQuestionTwo.jumpDrawablesToCurrentState();
+            radioGroupRoommateQuestionThree.jumpDrawablesToCurrentState();
+            radioGroupRoommateQuestionFour.jumpDrawablesToCurrentState();
+            radioGroupRoommateQuestionFive.jumpDrawablesToCurrentState();
+            radioGroupRoommateQuestionSix.jumpDrawablesToCurrentState();
+            radioGroupRoommateQuestionSeven.jumpDrawablesToCurrentState();
+            radioGroupRoommateQuestionEight.jumpDrawablesToCurrentState();
+            radioGroupRoommateQuestionNine.jumpDrawablesToCurrentState();
         }).addOnFailureListener(exception -> {
             final String message = "Network error";
             showToast(message);
