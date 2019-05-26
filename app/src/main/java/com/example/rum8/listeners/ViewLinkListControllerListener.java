@@ -11,4 +11,5 @@ public interface ViewLinkListControllerListener {
     void goToAdvSettings();
     void populateRecylcerViewContent(Set<String> uids);
     void addNewLink(HashMap<String, Object> documentData, String uid);
+    void displayLinks();
 }

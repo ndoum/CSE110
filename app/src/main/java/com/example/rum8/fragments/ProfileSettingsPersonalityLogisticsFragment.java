@@ -192,14 +192,14 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
 
         radioGroupPersonalQuestionFive.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            /*RadioButton rb = (RadioButton) group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
                 controller.updateUserMap(Db.Keys.SMOKE_VALUE, indicatorYes);
             } else if (rb.getText().equals("Sometimes")) {
                 controller.updateUserMap(Db.Keys.SMOKE_VALUE, indicatorSometimes);
             } else {
                 controller.updateUserMap(Db.Keys.SMOKE_VALUE, indicatorNo);
-            }
+            }*/
         });
 
         radioGroupPersonalQuestionSix.setOnCheckedChangeListener((group, checkedId) -> {

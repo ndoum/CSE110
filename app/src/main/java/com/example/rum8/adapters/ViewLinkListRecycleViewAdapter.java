@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,7 +25,8 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
     public class LinkListSingleLinkHolder extends RecyclerView.ViewHolder{
         public ImageView imageView;
         public TextView firstNameView;
-
+        public Button button_link;
+        
         public LinkListSingleLinkHolder(@NonNull View itemView) {
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.view_link_list_single_link_imageview);

@@ -50,17 +50,19 @@ public class ViewLinkListActivity extends AppCompatActivity
         controller.fetchLinkListUidsFromDB();
         System.out.println("FINISHED POPULATING LINK LIST CONTENT");
 
-        System.out.println("IN LINKS:...");
-        System.out.println(links);
-        LinkListSingleLink test1 = new LinkListSingleLink("Tina", "Hsieh", "1234567890");
+        //System.out.println("IN LINKS:...");
+        //System.out.println(links);
+        /*LinkListSingleLink test1 = new LinkListSingleLink("Tina", "Hsieh", "1234567890");
         //addNewLink(test1);
         links.add(test1);
         LinkListSingleLink test2 = new LinkListSingleLink("Oli", "Zhou", "0987654321");
-        links.add(test2);
+        links.add(test2);*/
+        /*
         recyclerView = findViewById(R.id.activity_view_link_list_recycler_view);
         adapter = new ViewLinkListRecycleViewAdapter(links);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+        */
 
         //ViewLinkListRecycleViewAdapter
     /*queryStore = dbStore.collection("users");
@@ -138,13 +140,24 @@ public class ViewLinkListActivity extends AppCompatActivity
     }
 
     @Override
+    public void displayLinks() {
+        recyclerView = findViewById(R.id.activity_view_link_list_recycler_view);
+        adapter = new ViewLinkListRecycleViewAdapter(links);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
     public void populateRecylcerViewContent(Set<String> uids){
+        System.out.println("IN POPULATE RECYCLER VIEW CONTENT");
         for(String uid:uids){
             Db.fetchLinkInfo(db, uid).addOnFailureListener(e ->
                     Log.d(TAG, "Fetch matched list failed"))
                     .addOnSuccessListener(documentSnapshot -> {
-                        System.out.println("FUNCTION CALL TO ADDNEWLINK");
-                        addNewLink((HashMap<String, Object>) documentSnapshot.getData(), uid);
+                        HashMap<String, Object> uidMap = (HashMap<String, Object>) documentSnapshot.getData();
+                        String name = (String) uidMap.get("first_name");
+                        System.out.println("FUNCTION CALL TO ADDNEWLINK for: "+name);
+                        addNewLink(uidMap, uid);
                     });
         }
     }

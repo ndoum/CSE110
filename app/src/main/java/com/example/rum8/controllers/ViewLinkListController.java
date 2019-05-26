@@ -63,8 +63,10 @@ public class ViewLinkListController {
         }).addOnSuccessListener(documentSnapshot -> {
             linkListUidMap = (HashMap<String, Object>) documentSnapshot.get("matched");
             linkListUidSet = linkListUidMap.keySet();
-            System.out.println("FETCHED UID SET");
+            //System.out.println("FETCHED UID SET");
             controllerListener.populateRecylcerViewContent(linkListUidSet);
+            System.out.println("POPULATED!!!!!");
+            controllerListener.displayLinks();
         });
     }
 
