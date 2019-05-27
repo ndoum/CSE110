@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         // Actions when the not link button is clicked
         if (view == findViewById(R.id.not_link_button)) {
 
-            fragment = new PotentialRoommateProfileAlt();
+            fragment = new PotentialRoommateProfileInit();
 
             FragmentManager fm = getSupportFragmentManager();
 

@@ -62,6 +62,7 @@ public class MainController {
                     controllerListener.showToast(message);
                 });
             }
+            
 
         }).addOnFailureListener(exception -> {
             final String message = "Network error";
