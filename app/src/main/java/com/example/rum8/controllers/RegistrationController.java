@@ -3,6 +3,7 @@ package com.example.rum8.controllers;
 import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.RegistrationControllerListener;
@@ -31,41 +32,45 @@ public class RegistrationController {
         auth = FirebaseAuth.getInstance();
     }
 
-    public void onSubmit(final String email, final String password) {
+
+    public void onSubmit(final String email, final String password, final String passwordConfirm) {
         if (!isValidEmail(email)) {
             final String message = "Please use your UCSD email (i.e. abc@ucsd.edu)";
             controllerListener.showToast(message);
         } else if (!isValidPassword(password)) {
             final String message = "Your password need to be more than 6 characters";
             controllerListener.showToast(message);
+        } else if (!passWordMatch(password, passwordConfirm)) {
+            final String message = "Passwords didn't match";
+            controllerListener.showToast(message);
         } else {
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener
-                    ((Activity) context, task -> {
-                        if (task.isSuccessful()) {
-                            sendVerificationEmail(email);
-                            controllerListener.goToLogin();
-                            // Create a new user with email when registration is complete
+                ((Activity) context, task -> {
+                    if (task.isSuccessful()) {
+                        sendVerificationEmail(email);
+                        controllerListener.goToLogin();
+                        // Create a new user with email when registration is complete
 
-                            final Map<String, Object> userInfo = new HashMap<String, Object>() {{
-                                put(Db.Keys.EMAIL, email);
-                            }};
+                        final Map<String, Object> userInfo = new HashMap<String, Object>() {{
+                            put(Db.Keys.EMAIL, email);
+                        }};
 
-                            final FirebaseUser user = auth.getCurrentUser();
+                        final FirebaseUser user = auth.getCurrentUser();
 
-                            Db.createUser(db, user, userInfo)
-                                    .addOnSuccessListener(aVoid -> Log.d("Success", "createUserWithEmail:success"))
-                                    .addOnFailureListener(e -> Log.d("Error", "createUserWithEmail:failure", e));
+                        Db.createUser(db, user, userInfo)
+                            .addOnSuccessListener(aVoid -> Log.d("Success", "createUserWithEmail:success"))
+                            .addOnFailureListener(e -> Log.d("Error", "createUserWithEmail:failure", e));
+                    } else {
+                        final String message;
+                        if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                            message = "An account with this email already exists";
                         } else {
-                            final String message;
-                            if (task.getException() instanceof FirebaseAuthUserCollisionException) {
-                                message = "An account with this email already exists";
-                            } else {
-                                message = "Authentication failed";
-                            }
-                            controllerListener.showToast(message);
-                            Log.e("Error:", "createUserWithEmail:failure", task.getException());
+                            message = "Authentication failed";
                         }
-                    });
+                        controllerListener.showToast(message);
+                        Log.e("Error:", "createUserWithEmail:failure", task.getException());
+                    }
+                });
         }
     }
 
@@ -74,17 +79,17 @@ public class RegistrationController {
      */
     private void sendVerificationEmail(final String email) {
         auth.getCurrentUser().sendEmailVerification()
-                .addOnCompleteListener(task -> {
-                    final String message;
-                    if (task.isSuccessful()) {
-                        message = "Verification email sent to " + email;
-                        controllerListener.showToast(message);
-                    } else {
-                        Log.e(TAG, "sendEmailVerification", task.getException());
-                        message = "Failed to send verification email to";
-                        controllerListener.showToast(message);
-                    }
-                });
+            .addOnCompleteListener(task -> {
+                final String message;
+                if (task.isSuccessful()) {
+                    message = "Verification email sent to " + email;
+                    controllerListener.showToast(message);
+                } else {
+                    Log.e(TAG, "sendEmailVerification", task.getException());
+                    message = "Failed to send verification email to";
+                    controllerListener.showToast(message);
+                }
+            });
     }
 
     private static boolean isValidEmail(final String email) {
@@ -94,6 +99,11 @@ public class RegistrationController {
 
         final int minimumEmailLength = 10;
         return email.length() >= minimumEmailLength && email.endsWith("@ucsd.edu");
+    }
+
+    // check the passwords match
+    private static boolean passWordMatch(final String password, final String passwordConfirm) {
+        return password.equals(passwordConfirm);
     }
 
     private static boolean isValidPassword(final String password) {

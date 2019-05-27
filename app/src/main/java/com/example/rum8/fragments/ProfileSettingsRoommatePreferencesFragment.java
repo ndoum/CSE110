@@ -1,7 +1,5 @@
 package com.example.rum8.fragments;
 
-import android.content.Intent;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +13,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
-import com.example.rum8.activities.LoginActivity;
-import com.example.rum8.activities.MainActivity;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
@@ -155,6 +151,16 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
             } else {
                 radioGroupRoommateQuestionNine.check(R.id.roommate_preferences_pets_preference_no);
             }
+
+            radioGroupRoommateQuestionOne.jumpDrawablesToCurrentState();
+            radioGroupRoommateQuestionTwo.jumpDrawablesToCurrentState();
+            radioGroupRoommateQuestionThree.jumpDrawablesToCurrentState();
+            radioGroupRoommateQuestionFour.jumpDrawablesToCurrentState();
+            radioGroupRoommateQuestionFive.jumpDrawablesToCurrentState();
+            radioGroupRoommateQuestionSix.jumpDrawablesToCurrentState();
+            radioGroupRoommateQuestionSeven.jumpDrawablesToCurrentState();
+            radioGroupRoommateQuestionEight.jumpDrawablesToCurrentState();
+            radioGroupRoommateQuestionNine.jumpDrawablesToCurrentState();
         }).addOnFailureListener(exception -> {
             final String message = "Network error";
             showToast(message);
@@ -162,7 +168,7 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
 
         radioGroupRoommateQuestionOne.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            RadioButton rb = group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
                 controller.updateUserMap(Db.Keys.ROOMMATE_PREFER_SAME_GENDER_ROOMMATE_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
@@ -174,7 +180,7 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
 
         radioGroupRoommateQuestionTwo.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            RadioButton rb = group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
                 controller.updateUserMap(Db.Keys.ROOMMATE_CLEAN_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
@@ -186,7 +192,7 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
 
         radioGroupRoommateQuestionThree.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            RadioButton rb = group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
                 controller.updateUserMap(Db.Keys.ROOMMATE_RESERVED_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
@@ -198,7 +204,7 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
 
         radioGroupRoommateQuestionFour.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            RadioButton rb = group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
                 controller.updateUserMap(Db.Keys.ROOMMATE_PARTY_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
@@ -210,7 +216,7 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
 
         radioGroupRoommateQuestionFive.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            RadioButton rb = group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
                 controller.updateUserMap(Db.Keys.ROOMMATE_ALCOHOL_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
@@ -222,7 +228,7 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
 
         radioGroupRoommateQuestionSix.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            RadioButton rb = group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
                 controller.updateUserMap(Db.Keys.ROOMMATE_SMOKE_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
@@ -234,7 +240,7 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
 
         radioGroupRoommateQuestionSeven.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            RadioButton rb = group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
                 controller.updateUserMap(Db.Keys.ROOMMATE_STAY_UP_LATE_ON_WEEKDAYS_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
@@ -246,7 +252,7 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
 
         radioGroupRoommateQuestionEight.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            RadioButton rb = group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
                 controller.updateUserMap(Db.Keys.ROOMMATE_OVERNIGHT_GUESTS_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {
@@ -258,7 +264,7 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
 
         radioGroupRoommateQuestionNine.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
-            RadioButton rb = (RadioButton) group.findViewById(checkedId);
+            RadioButton rb = group.findViewById(checkedId);
             if (rb.getText().equals("Yes")) {
                 controller.updateUserMap(Db.Keys.ROOMMATE_ALLOW_PETS_VALUE, indicatorYes);
             } else if (rb.getText().equals("No pref.")) {

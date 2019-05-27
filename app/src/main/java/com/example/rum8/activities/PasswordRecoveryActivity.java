@@ -30,8 +30,6 @@ public class PasswordRecoveryActivity extends AppCompatActivity implements Passw
     private void initViews() {
         emailField = (TextInputEditText) findViewById(R.id.user_email);
         button_resetPassword = (Button) findViewById(R.id.button_reset_password);
-        button_goBackToLogin = (Button) findViewById(R.id.button_go_back_to_login);
-        button_goBackToLogin.setOnClickListener(v -> controller.onGoBackToLoginButtonClicked());
 
         button_resetPassword.setOnClickListener(v -> {
             final String email = emailField.getText().toString();
