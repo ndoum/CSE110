@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbarid"
+
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:background="#00FFFFFF"
@@ -78,7 +78,7 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tablayout_id"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#009688"
@@ -86,7 +86,6 @@
             app:tabMode="fixed" />
 
         <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewpager_id"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#00644949" />
