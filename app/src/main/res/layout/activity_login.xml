@@ -4,139 +4,133 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fbf4f2"
     tools:context=".activities.LoginActivity">
 
-
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:alpha="0.8"
-        android:background="@drawable/back"
-        />
+        android:id="@+id/login_logo_imageview"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:paddingTop="20dp"
+        android:src="@drawable/logo_no_margin_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/login_app_name_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="rüm8"
+        android:textColor="@color/menuBarColor"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_logo_imageview" />
+
 
     <LinearLayout
-        android:layout_width="379dp"
-        android:layout_height="699dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/login_header_textview"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_weight="0"
-            android:fontFamily="@font/rock_salt"
-            android:gravity="center_horizontal"
-            android:text="Log in"
-            android:textColor="#F8E8D0"
-            android:textSize="32dp"
-            android:textStyle="bold" />
+            android:layout_height="wrap_content"
+            android:text="@string/login_header"
+            android:textColor="@color/colorAccent" />
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_marginTop="200dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:hint="@string/ucsd_email_hint"
-            android:textColorHint="#F8E8D0"
-            app:boxStrokeColor="#F8E8D0"
-            app:hintTextColor="#F8E8D0"
-            >
+            android:textColorHint="@color/colorAccent"
+            app:boxStrokeColor="@color/colorAccent"
+            app:hintTextColor="@color/colorAccent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/user_email"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:maxLines="1"
-                android:textColor="#F8E8D0"
-                android:textColorHint="#F8E8D0"
-                android:fontFamily="@font/annie_use_your_telescope"
-                android:textStyle="bold"
-                android:textSize="23dp"
-                />
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/menuBarColor" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/password_hint"
-            android:textColor="#93462c"
-            android:textColorHint="#F8E8D0"
-            app:boxStrokeColor="#F8E8D0"
-            app:endIconMode="password_toggle"
-            app:hintTextColor="#F8E8D0"
             android:layout_marginTop="10dp"
-            >
+            android:hint="@string/password_hint"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccent"
+            app:boxStrokeColor="@color/colorAccent"
+            app:endIconMode="password_toggle"
+            app:hintTextColor="@color/colorAccent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/user_password"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:fontFamily="@font/annie_use_your_telescope"
+                android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:textColor="#F8E8D0"
-                android:textColorHint="#F8E8D0"
-                android:textSize="23dp"
-                android:textStyle="bold" />
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/menuBarColor" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/button_login"
+            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="158dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:backgroundTint="#995050"
-            android:fontFamily="@font/annie_use_your_telescope"
-            android:text="@string/login_button"
-            android:textStyle="bold"
-            android:textColor="#FFF3E0"
-            android:textSize="23dp"
-            android:alpha="0.7"
-            />
+            android:text="@string/login_button" />
+
+        <Button
+            android:id="@+id/button_password_recovery"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@android:color/transparent"
+            android:text="@string/login_pr_button"
+            android:textColor="@color/menuBarColor" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:orientation="vertical"
-            android:layout_marginTop="35dp"
-            >
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/first_time_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="First time?"
+                android:textColor="@color/colorAccent"
+                android:layout_gravity="center"/>
 
             <Button
-                style="@style/Widget.AppCompat.Button.Borderless"
                 android:id="@+id/button_register"
-                android:layout_width="270dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/button_rounded"
-                android:backgroundTint="@android:color/transparent"
-                android:text="@string/login_register_button"
-                android:textSize="15dp"
-                android:alpha="0.8"
-                android:textColor="#F8E8D0" />
-
-            <Button
                 style="@style/Widget.AppCompat.Button.Borderless"
-                android:id="@+id/button_password_recovery"
-                android:layout_width="200dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/button_rounded"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/first_time_text_view"
                 android:backgroundTint="@android:color/transparent"
-                android:text="@string/login_pr_button"
-                android:textSize="15dp"
-                android:textColor="#F8E8D0"
-
-                />
+                android:padding="0dp"
+                android:text=" Register here"
+                android:textColor="@color/menuBarColor"/>
         </LinearLayout>
 
 
