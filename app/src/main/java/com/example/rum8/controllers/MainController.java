@@ -49,7 +49,7 @@ public class MainController {
                 // get other user's id
                 final String userId = (String) potential.keySet().toArray()[0];
                 Db.fetchUserInfoById(this.db, userId).addOnSuccessListener(documentSnapshotOther -> {
-                    controllerListener.showCurrentUserInfo(data);
+                    //controllerListener.showCurrentUserInfo(data);
 
 
 

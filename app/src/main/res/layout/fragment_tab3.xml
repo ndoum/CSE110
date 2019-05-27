@@ -66,31 +66,8 @@
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:gravity="center"
-                    android:text=" "
+                    android:id="@+id/tab3_question_1_question"
 
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_weight="1"
-                    android:background="#ffffff"
-                    android:gravity="center"
-                    android:text="x"
-
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_weight="1"
-                    android:background="#ffffff"
-                    android:gravity="center"
-                    android:text=" "
 
                     />
 
@@ -103,6 +80,33 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_1_yes"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_1_sometimes"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_1_no"
 
                     />
             </TableRow>
@@ -118,6 +122,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_2_question"
 
 
                     />
@@ -131,6 +136,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_2_yes"
 
                     />
 
@@ -143,6 +149,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_2_sometimes"
 
                     />
 
@@ -155,6 +162,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_2_no"
 
                     />
             </TableRow>
@@ -170,6 +178,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_3_question"
 
                     />
 
@@ -182,6 +191,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_3_yes"
 
                     />
 
@@ -194,6 +204,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_3_sometimes"
 
                     />
 
@@ -206,58 +217,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
-
-
-                    />
-            </TableRow>
-
-            <TableRow>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_weight="1"
-                    android:background="#ffffff"
-                    android:gravity="center"
-                    android:text=" "
-
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_weight="1"
-                    android:background="#ffffff"
-                    android:gravity="center"
-                    android:text=" "
-
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_weight="1"
-                    android:background="#ffffff"
-                    android:gravity="center"
-                    android:text=" "
-
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_weight="1"
-                    android:background="#ffffff"
-                    android:gravity="center"
-                    android:text=" "
+                    android:id="@+id/tab3_question_3_no"
 
 
                     />
@@ -274,6 +234,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_4_question"
 
                     />
 
@@ -286,6 +247,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_4_yes"
 
                     />
 
@@ -298,6 +260,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_4_sometimes"
 
                     />
 
@@ -310,6 +273,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_4_no"
 
 
                     />
@@ -326,6 +290,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_5_question"
 
                     />
 
@@ -338,6 +303,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_5_yes"
 
                     />
 
@@ -350,6 +316,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_5_sometimes"
 
                     />
 
@@ -362,6 +329,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_5_no"
 
 
                     />
@@ -378,6 +346,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_6_question"
 
                     />
 
@@ -390,6 +359,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_6_yes"
 
                     />
 
@@ -402,6 +372,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_6_sometimes"
 
                     />
 
@@ -414,6 +385,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_6_no"
 
 
                     />
@@ -430,6 +402,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_7_question"
 
                     />
 
@@ -442,6 +415,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_7_yes"
 
                     />
 
@@ -454,6 +428,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_7_sometimes"
 
                     />
 
@@ -466,6 +441,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_7_no"
 
 
                     />
@@ -482,6 +458,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_8_question"
 
                     />
 
@@ -494,6 +471,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_8_yes"
 
                     />
 
@@ -506,6 +484,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_8_sometimes"
 
                     />
 
@@ -518,10 +497,13 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text=" "
+                    android:id="@+id/tab3_question_8_no"
 
 
                     />
             </TableRow>
+
+
 
         </TableLayout>
     </LinearLayout>
