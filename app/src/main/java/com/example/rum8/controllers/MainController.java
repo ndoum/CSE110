@@ -67,4 +67,15 @@ public class MainController {
         });
     }
 
+    public void loadUserPotential() {
+        Db.fetchUserInfo(this.db, this.auth.getCurrentUser()).addOnSuccessListener(documentSnapshot -> {
+            final Map<String, Object> data = documentSnapshot.getData();
+            final HashMap<String, Object> potential = (HashMap<String, Object>) data.get(Db.Keys.POTENTIAL);
+            int potentialListSize = potential.keySet().size();
+            if(potentialListSize == 0){
+                controllerListener.showToast("No more potential");
+            }
+        });
+    }
+
 }

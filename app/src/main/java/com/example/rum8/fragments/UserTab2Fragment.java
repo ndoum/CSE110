@@ -76,4 +76,8 @@ public class UserTab2Fragment extends Fragment implements MainControllerListener
     @Override
     public void goToAdvSettings() {
     }
+
+    @Override
+    public void setPotentialListSize(int size){
+    }
 }

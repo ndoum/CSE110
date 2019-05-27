@@ -14,4 +14,6 @@ public interface MainControllerListener {
 
     void showCurrentUserInfo(final Map<String, Object> data);
 
+    void setPotentialListSize(int size);
+
 }

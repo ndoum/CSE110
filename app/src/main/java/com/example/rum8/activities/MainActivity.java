@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.rum8.R;
 import com.example.rum8.controllers.MainController;
 import com.example.rum8.fragments.PotentialRoommateProfileAlt;
+import com.example.rum8.fragments.PotentialRoommateProfileDefault;
 import com.example.rum8.fragments.PotentialRoommateProfileInit;
 import com.example.rum8.listeners.MainControllerListener;
 
@@ -31,6 +32,8 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity implements MainControllerListener {
 
     private MainController controller;
+    private int potentialListSize;
+    private Fragment fragment;
 
     @Override
     public void showToast(final String message) {
@@ -110,36 +113,45 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     public void ChangeFragment(View view) {
         Fragment fragment;
 
+        controller.loadUserPotential();
+
         // Actions when the link button is clicked
         if (view == findViewById(R.id.link_button)) {
 
-            fragment = new PotentialRoommateProfileInit();
+                fragment = new PotentialRoommateProfileDefault();
 
-            FragmentManager fm = getSupportFragmentManager();
+                FragmentManager fm = getSupportFragmentManager();
 
-            FragmentTransaction ft = fm.beginTransaction();
+                FragmentTransaction ft = fm.beginTransaction();
 
-            ft.setCustomAnimations(R.anim.exit_right, R.anim.exit_right);
-            ft.replace(R.id.fragment_place, fragment);
-            ft.addToBackStack(null);
-            ft.commit();
+                ft.setCustomAnimations(R.anim.exit_right, R.anim.exit_right);
+                ft.replace(R.id.fragment_place, fragment);
+                ft.addToBackStack(null);
+                ft.commit();
+
         }
 
         // Actions when the not link button is clicked
         if (view == findViewById(R.id.not_link_button)) {
 
-            fragment = new PotentialRoommateProfileAlt();
 
-            FragmentManager fm = getSupportFragmentManager();
+            fragment = new PotentialRoommateProfileDefault();
 
-            FragmentTransaction ft = fm.beginTransaction();
+                FragmentManager fm = getSupportFragmentManager();
 
-            ft.setCustomAnimations(R.anim.exit_right, R.anim.exit_right);
-            ft.replace(R.id.fragment_place, fragment);
-            ft.addToBackStack(null);
-            ft.commit();
+                FragmentTransaction ft = fm.beginTransaction();
+
+                ft.setCustomAnimations(R.anim.exit_right, R.anim.exit_right);
+                ft.replace(R.id.fragment_place, fragment);
+                ft.addToBackStack(null);
+                ft.commit();
 
         }
+    }
+
+    @Override
+    public void setPotentialListSize(int size){
+        this.potentialListSize = size;
     }
 
     @Override

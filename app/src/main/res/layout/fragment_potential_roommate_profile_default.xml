@@ -53,19 +53,19 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/potential_first_name_default"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="55dp"
-                            android:text="user 2"
                             android:textSize="35sp"
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/potential_academic_year_default"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="user 2 year" />
+                            android:layout_gravity="center_horizontal" />
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
