@@ -42,6 +42,7 @@ public class ViewLinkListActivity extends AppCompatActivity
         initController();
         setContentView(R.layout.activity_view_link_list);
         db = FirebaseFirestore.getInstance();
+        controller.prepareLinks();
 
         initViews();
     }
@@ -53,13 +54,15 @@ public class ViewLinkListActivity extends AppCompatActivity
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ViewLinkListRecycleViewAdapter();
 
-        LinkListSingleLink test1 = new LinkListSingleLink("Oli", "Z", "1234567");
-        links.add(test1);
-        controller.prepareLinks();
+      //  LinkListSingleLink test1 = new LinkListSingleLink("Oli", "Z", "1234567");
+        //links.add(test1);
+        //controller.prepareLinks();
         System.out.println("FINISHED POPULATING LINK LIST CONTENT");
         System.out.println("Links");
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         System.out.println(links);
 
+        controller.display();
         //ViewLinkListRecycleViewAdapter
     /*queryStore = dbStore.collection("users");
 
@@ -122,6 +125,10 @@ public class ViewLinkListActivity extends AppCompatActivity
 */
     }
 
+    @Override
+    public ArrayList<LinkListSingleLink> getLinks(){
+        return links;
+    }
 
     private void initController() {
         controller = new ViewLinkListController(this);
@@ -133,7 +140,7 @@ public class ViewLinkListActivity extends AppCompatActivity
     }
 
     @Override
-    public void displayLinks() {
+    public void displayLinks(ArrayList<LinkListSingleLink> links) {
         System.out.println("Links in DISPLAY LINKS");
         System.out.println(links);
 

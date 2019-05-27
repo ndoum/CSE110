@@ -2,6 +2,7 @@ package com.example.rum8.listeners;
 
 import com.example.rum8.dataModels.LinkListSingleLink;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 public interface ViewLinkListControllerListener {
@@ -11,5 +12,6 @@ public interface ViewLinkListControllerListener {
     void goToAdvSettings();
     void populateRecylcerViewContent(Set<String> uids);
     void addNewLink(LinkListSingleLink link);
-    void displayLinks();
+    void displayLinks(ArrayList<LinkListSingleLink> links);
+    ArrayList<LinkListSingleLink> getLinks();
 }

@@ -64,13 +64,17 @@ public class ViewLinkListController {
                             String last_name = (String) uidMap.get("last_name");
                             System.out.println("creating linkListSingleLink Object for " + uid + " " + first_name + " " + last_name);
                             LinkListSingleLink newLink = new LinkListSingleLink(first_name, last_name, uid);
+                            System.out.println(newLink.getfirst_name());
                             controllerListener.addNewLink(newLink);
+                            controllerListener.displayLinks(controllerListener.getLinks());
                         }
                     });
                 }
             }
         });
-        controllerListener.displayLinks();
+    }
+
+    public void display (){
     }
 
     public Task<byte[]> loadDefaultUserProfileImage(final FirebaseStorage storage){
