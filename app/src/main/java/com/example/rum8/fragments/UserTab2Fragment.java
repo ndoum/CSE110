@@ -78,6 +78,12 @@ public class UserTab2Fragment extends Fragment implements MainControllerListener
     }
 
     @Override
-    public void setPotentialListSize(int size){
+    public void setFragment() {
+
+    }
+
+    @Override
+    public void setFragmentEmpty() {
+
     }
 }

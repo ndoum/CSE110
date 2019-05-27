@@ -16,24 +16,16 @@ import com.example.rum8.R;
 import com.example.rum8.controllers.MainController;
 import com.example.rum8.fragments.PotentialRoommateProfileAlt;
 import com.example.rum8.fragments.PotentialRoommateProfileDefault;
-import com.example.rum8.fragments.PotentialRoommateProfileInit;
 import com.example.rum8.listeners.MainControllerListener;
 
 import java.util.Map;
 
 /**
  * Class that implements the home page of application.
- *
- * <p>
- * Bugs: (a list of bugs and other problems)
- *
- * @author
  */
 public class MainActivity extends AppCompatActivity implements MainControllerListener {
 
     private MainController controller;
-    private int potentialListSize;
-    private Fragment fragment;
 
     @Override
     public void showToast(final String message) {
@@ -104,6 +96,36 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         controller = new MainController(this);
     }
 
+    @Override
+    public void setFragment() {
+        Fragment fragment;
+        fragment = new PotentialRoommateProfileDefault();
+
+        FragmentManager fm = getSupportFragmentManager();
+
+        FragmentTransaction ft = fm.beginTransaction();
+
+        ft.setCustomAnimations(R.anim.exit_right, R.anim.exit_right);
+        ft.replace(R.id.fragment_place, fragment);
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+
+    @Override
+    public void setFragmentEmpty() {
+        Fragment fragment;
+        fragment = new PotentialRoommateProfileAlt();
+
+        FragmentManager fm = getSupportFragmentManager();
+
+        FragmentTransaction ft = fm.beginTransaction();
+
+        ft.setCustomAnimations(R.anim.exit_right, R.anim.exit_right);
+        ft.replace(R.id.fragment_place, fragment);
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+
     /**
      * Method that switch between potential roommate profile fragment and roommate
      * profile fragment alternate based on button clicks
@@ -111,52 +133,20 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
      * @param view
      */
     public void ChangeFragment(View view) {
-        Fragment fragment;
-
-        controller.loadUserPotential();
 
         // Actions when the link button is clicked
         if (view == findViewById(R.id.link_button)) {
-
-                fragment = new PotentialRoommateProfileDefault();
-
-                FragmentManager fm = getSupportFragmentManager();
-
-                FragmentTransaction ft = fm.beginTransaction();
-
-                ft.setCustomAnimations(R.anim.exit_right, R.anim.exit_right);
-                ft.replace(R.id.fragment_place, fragment);
-                ft.addToBackStack(null);
-                ft.commit();
-
+            controller.onLikeClicked();
         }
 
         // Actions when the not link button is clicked
         if (view == findViewById(R.id.not_link_button)) {
-
-
-            fragment = new PotentialRoommateProfileDefault();
-
-                FragmentManager fm = getSupportFragmentManager();
-
-                FragmentTransaction ft = fm.beginTransaction();
-
-                ft.setCustomAnimations(R.anim.exit_right, R.anim.exit_right);
-                ft.replace(R.id.fragment_place, fragment);
-                ft.addToBackStack(null);
-                ft.commit();
-
+            controller.onDisLikeClicked();
         }
     }
 
     @Override
-    public void setPotentialListSize(int size){
-        this.potentialListSize = size;
-    }
-
-    @Override
     public void showCurrentUserInfo(final Map<String, Object> data) {
-
     }
 
 }

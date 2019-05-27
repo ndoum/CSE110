@@ -15,7 +15,6 @@ import com.example.rum8.controllers.MainController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.MainControllerListener;
 import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.Map;
@@ -30,9 +29,6 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
 
     private TextView firstName;
     private TextView academicYear;
-    private ExtendedFloatingActionButton linkButton;
-    private ExtendedFloatingActionButton notLinkButton;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -66,36 +62,43 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
     }
 
     @Override
-    public void goToProfileSettings(){
+    public void goToProfileSettings() {
 
     }
 
     @Override
-    public void goToLogin(){
+    public void goToLogin() {
 
     }
 
     @Override
-    public void goToAdvSettings(){
+    public void goToAdvSettings() {
 
     }
 
     @Override
-    public void showToast(final String message){
+    public void showToast(final String message) {
 
     }
 
     @Override
-    public void showCurrentUserInfo(final Map<String, Object> data){
+    public void showCurrentUserInfo(final Map<String, Object> data) {
         firstName = rootView.findViewById(R.id.potential_first_name_default);
         firstName.setText((String) data.get(Db.Keys.FIRST_NAME));
         academicYear = rootView.findViewById(R.id.potential_academic_year_default);
         academicYear.setText((String) data.get(Db.Keys.ACADEMIC_YEAR) + "Year");
     }
 
+
     @Override
-    public void setPotentialListSize(int size) {
+    public void setFragment() {
 
     }
+
+    @Override
+    public void setFragmentEmpty() {
+
+    }
+
 
 }
