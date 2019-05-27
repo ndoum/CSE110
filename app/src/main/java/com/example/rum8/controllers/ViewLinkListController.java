@@ -52,19 +52,13 @@ public class ViewLinkListController {
             if(task.isSuccessful()){
                 linkListUidMap = (HashMap<String, Object>) task.getResult().get("matched");
                 linkListUidSet = linkListUidMap.keySet();
-                System.out.println("FETCHED UID SET");
-                System.out.println(linkListUidSet);
-
                 for(String uid:linkListUidSet){
                     Db.fetchLinkInfo(db, uid).addOnCompleteListener(task1 -> {
                         if(task1.isSuccessful()){
                             HashMap<String, Object> uidMap = (HashMap<String, Object>) task1.getResult().getData();
-
                             String first_name = (String) uidMap.get("first_name");
                             String last_name = (String) uidMap.get("last_name");
-                            System.out.println("creating linkListSingleLink Object for " + uid + " " + first_name + " " + last_name);
                             LinkListSingleLink newLink = new LinkListSingleLink(first_name, last_name, uid);
-                            System.out.println(newLink.getfirst_name());
                             controllerListener.addNewLink(newLink);
                             controllerListener.displayLinks(controllerListener.getLinks());
                         }
@@ -72,9 +66,6 @@ public class ViewLinkListController {
                 }
             }
         });
-    }
-
-    public void display (){
     }
 
     public Task<byte[]> loadDefaultUserProfileImage(final FirebaseStorage storage){

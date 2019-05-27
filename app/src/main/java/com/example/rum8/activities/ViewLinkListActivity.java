@@ -54,15 +54,8 @@ public class ViewLinkListActivity extends AppCompatActivity
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ViewLinkListRecycleViewAdapter();
 
-      //  LinkListSingleLink test1 = new LinkListSingleLink("Oli", "Z", "1234567");
-        //links.add(test1);
-        //controller.prepareLinks();
-        System.out.println("FINISHED POPULATING LINK LIST CONTENT");
-        System.out.println("Links");
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        System.out.println(links);
 
-        controller.display();
+        //controller.display();
         //ViewLinkListRecycleViewAdapter
     /*queryStore = dbStore.collection("users");
 
