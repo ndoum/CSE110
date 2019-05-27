@@ -67,6 +67,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:id="@+id/tab3_question_1_question"
+                    android:text="I keep my room clean."
 
 
                     />
@@ -121,7 +122,7 @@
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:gravity="center"
-                    android:text=" "
+                    android:text="I am a reserved person."
                     android:id="@+id/tab3_question_2_question"
 
 
@@ -177,8 +178,9 @@
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:gravity="center"
-                    android:text=" "
+                    android:text="I plan to have parties."
                     android:id="@+id/tab3_question_3_question"
+
 
                     />
 
@@ -233,7 +235,7 @@
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:gravity="center"
-                    android:text=" "
+                    android:text="I drink alcohol."
                     android:id="@+id/tab3_question_4_question"
 
                     />
@@ -289,7 +291,7 @@
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:gravity="center"
-                    android:text=" "
+                    android:text="I smoke."
                     android:id="@+id/tab3_question_5_question"
 
                     />
@@ -345,7 +347,7 @@
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:gravity="center"
-                    android:text=" "
+                    android:text="I go to bed lates."
                     android:id="@+id/tab3_question_6_question"
 
                     />
@@ -401,7 +403,7 @@
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:gravity="center"
-                    android:text=" "
+                    android:text="I am fine with guests."
                     android:id="@+id/tab3_question_7_question"
 
                     />
@@ -457,7 +459,7 @@
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:gravity="center"
-                    android:text=" "
+                    android:text="I plan to have a pet."
                     android:id="@+id/tab3_question_8_question"
 
                     />

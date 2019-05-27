@@ -258,6 +258,16 @@ public class UserTab3Fragment extends Fragment implements MainControllerListener
         onResume();
     }
 
+    @Override
+    public void setFragment() {
+
+    }
+
+    @Override
+    public void setFragmentEmpty() {
+
+    }
+
 
     @Override
     public void showToast(final String message) {
