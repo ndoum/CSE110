@@ -25,7 +25,7 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
     public class LinkListSingleLinkHolder extends RecyclerView.ViewHolder{
         public ImageView imageView;
         public TextView firstNameView;
-        //public TextView lastNameView;
+        public TextView lastNameView;
         //public Button button_link;
 
         public LinkListSingleLinkHolder(@NonNull View itemView) {
@@ -67,6 +67,7 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
         //lastNameView.setText(link.getlast_name());
 
         //ImageView imageView = linkHolder.imageView;
+        //TODO set image
 
     }
 

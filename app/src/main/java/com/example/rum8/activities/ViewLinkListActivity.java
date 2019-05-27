@@ -38,7 +38,6 @@ public class ViewLinkListActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         initController();
         setContentView(R.layout.activity_view_link_list);
@@ -48,10 +47,11 @@ public class ViewLinkListActivity extends AppCompatActivity
     }
 
     private void initViews() {
-        System.out.println("PREPARE LINKS");
+        System.out.println("PREPARING LINKS");
         links = new ArrayList<>();
         recyclerView = findViewById(R.id.activity_view_link_list_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new ViewLinkListRecycleViewAdapter();
 
         LinkListSingleLink test1 = new LinkListSingleLink("Oli", "Z", "1234567");
         links.add(test1);
@@ -136,7 +136,7 @@ public class ViewLinkListActivity extends AppCompatActivity
     public void displayLinks() {
         System.out.println("Links in DISPLAY LINKS");
         System.out.println(links);
-        adapter = new ViewLinkListRecycleViewAdapter();
+
         adapter.setlLinks(links);
         recyclerView.setAdapter(adapter);
         System.out.println("DISPLAYED!!!!!");

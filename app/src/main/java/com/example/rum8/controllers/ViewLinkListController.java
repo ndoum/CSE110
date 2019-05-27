@@ -59,12 +59,10 @@ public class ViewLinkListController {
                     Db.fetchLinkInfo(db, uid).addOnCompleteListener(task1 -> {
                         if(task1.isSuccessful()){
                             HashMap<String, Object> uidMap = (HashMap<String, Object>) task1.getResult().getData();
-                            String name = (String) uidMap.get("first_name");
-                            System.out.println("FUNCTION CALL TO ADDNEWLINK for: "+name);
-                            //controllerListener.addNewLink(uidMap, uid);
-                            System.out.println("creating linkListSingleLink Object for " + uid);
+
                             String first_name = (String) uidMap.get("first_name");
                             String last_name = (String) uidMap.get("last_name");
+                            System.out.println("creating linkListSingleLink Object for " + uid + " " + first_name + " " + last_name);
                             LinkListSingleLink newLink = new LinkListSingleLink(first_name, last_name, uid);
                             controllerListener.addNewLink(newLink);
                         }
