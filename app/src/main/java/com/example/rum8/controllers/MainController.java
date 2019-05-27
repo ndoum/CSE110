@@ -51,6 +51,8 @@ public class MainController {
                 Db.fetchUserInfoById(this.db, userId).addOnSuccessListener(documentSnapshotOther -> {
                     controllerListener.showCurrentUserInfo(data);
 
+
+
                     // show other user's info
                     final Map<String, Object> otherUserdata = documentSnapshotOther.getData();
                     controllerListener.showCurrentUserInfo(otherUserdata);
@@ -66,5 +68,7 @@ public class MainController {
             controllerListener.showToast(message);
         });
     }
+
+
 
 }

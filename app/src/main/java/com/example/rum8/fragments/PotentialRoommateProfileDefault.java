@@ -20,8 +20,6 @@ public class PotentialRoommateProfileDefault extends Fragment {
     private AppBarLayout appBarLayout;
     private ViewPager viewPager;
 
-    private ExtendedFloatingActionButton linkButton;
-    private ExtendedFloatingActionButton notLinkButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
