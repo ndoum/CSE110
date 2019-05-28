@@ -9,7 +9,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -49,7 +48,7 @@ public class ViewLinkListController {
      */
     public void prepareLinks(){
         linkListUidMap = new HashMap<>();
-        linkListUidSet = new HashSet<>();
+
         Db.fetchUserInfo(db, auth.getCurrentUser()).addOnCompleteListener(task -> {
             if(task.isSuccessful()){
                 linkListUidMap = (HashMap<String, Object>) task.getResult().get("matched");
@@ -60,40 +59,13 @@ public class ViewLinkListController {
                             HashMap<String, Object> uidMap = (HashMap<String, Object>) task1.getResult().getData();
                             String first_name = (String) uidMap.get("first_name");
                             String last_name = (String) uidMap.get("last_name");
-
                             LinkListSingleLink newLink = new LinkListSingleLink(first_name, last_name, uid);
                             controllerListener.addNewLink(newLink);
                             controllerListener.displayLinks(controllerListener.getLinks());
-                            /*
-                            //fetch link's profile image
-                            Db.fetchUserProfilePictureById(storage, uid).addOnSuccessListener(bytes -> {
-                                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                                String first_name = (String) task1.getResult().get("first_name");
-                                String last_name = (String) task1.getResult().get("last_name");
-
-                                LinkListSingleLink newLink = new LinkListSingleLink(first_name, last_name, uid);
-                                controllerListener.addNewLink(newLink);
-                                controllerListener.displayLinks(controllerListener.getLinks());
-                            }).addOnFailureListener(e ->
-                                    //fetch default user profile image
-                                    Db.fetchDefaultUserProfilePicture(storage).addOnSuccessListener(
-                                            bytes -> {
-                                                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-
-                                                String first_name = (String) task1.getResult().get("first_name");
-                                                String last_name = (String) task1.getResult().get("last_name");
-
-                                                LinkListSingleLink newLink = new LinkListSingleLink(first_name, last_name, uid);
-                                                controllerListener.addNewLink(newLink);
-                                                controllerListener.displayLinks(controllerListener.getLinks());
-                                            }
-                                    )
-                            );*/
                         }
                     });
-
             }
-        });
+        }});
     }
 
     public Task<byte[]> loadDefaultUserProfileImage(final FirebaseStorage storage){
