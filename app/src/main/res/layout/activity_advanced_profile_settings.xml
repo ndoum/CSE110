@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_color"
     tools:context=".activities.AdvancedSettingsActivity">
 
     <LinearLayout
-        android:layout_width="379dp"
-        android:layout_height="699dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/adv_settings_header"
@@ -47,7 +47,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/ucsd_navy_blue">
+            app:boxStrokeColor="@color/colorAccent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/general_info_living_accommodations_field"
@@ -71,7 +71,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/ucsd_navy_blue">
+            app:boxStrokeColor="@color/colorAccent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/general_info_room_type_field"
@@ -95,7 +95,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/ucsd_navy_blue">
+            app:boxStrokeColor="@color/colorAccent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/general_info_budget_field"
@@ -120,7 +120,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/ucsd_navy_blue">
+            app:boxStrokeColor="@color/colorAccent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/general_info_other_things_field"
@@ -154,7 +154,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/ucsd_navy_blue">
+            app:boxStrokeColor="@color/colorAccent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/personal_info_bio_field"
@@ -179,7 +179,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/ucsd_navy_blue">
+            app:boxStrokeColor="@color/colorAccent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/personal_info_hobbies_field"
@@ -203,7 +203,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/ucsd_navy_blue">
+            app:boxStrokeColor="@color/colorAccent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/personal_info_interest_field"
@@ -236,7 +236,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/ucsd_navy_blue">
+            app:boxStrokeColor="@color/colorAccent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/personal_info_phone_field"
@@ -246,22 +246,15 @@
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_weight="0" />
-
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_advanced_settings_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:text="@string/adv_settings_button_save" />
+            android:text="@string/adv_settings_button_save"/>
 
-        <Space
+        <androidx.legacy.widget.Space
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_weight="0" />
+            android:layout_height="20dp" />
 
     </LinearLayout>
 
