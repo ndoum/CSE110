@@ -3,139 +3,503 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E0DEDA"
+    android:fillViewport="true"
     android:orientation="vertical">
 
-
-    <GridLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:columnCount="4"
-        android:rowCount="18">
+        android:layout_height="wrap_content">
 
-        <TextView
+        <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:text="Tab 3"
-            android:textSize="30dp" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="30dp"
+            android:background="#ffffff"
+            >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="2"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:text="Budgets:"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            <TableRow>
 
-        <TextView
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Question"
+                    android:textStyle="bold" />
 
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_row="3"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:text="650" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Yes"
+                    android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="4"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:text="Room Type:"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Sometimes"
+                    android:textStyle="bold" />
 
-        <TextView
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="No"
+                    android:textStyle="bold" />
 
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_row="5"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:text="Double" />
+            </TableRow>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="6"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:text="Room Type:"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            <TableRow>
 
-        <TextView
-
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_row="7"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:text="Double" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="8"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:text="Room Type:"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_row="9"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:text="Double" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="10"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:text="Room Type:"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_row="11"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:text="Double" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="12"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:text="Room Type:"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_row="13"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:text="Double" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:id="@+id/tab3_question_1_question"
+                    android:text="@string/user_tab_three_question_one"
 
 
-    </GridLayout>
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_1_yes"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_1_sometimes"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_1_no"
+
+                    />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text="@string/user_tab_three_question_two"
+                    android:id="@+id/tab3_question_2_question"
+
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_2_yes"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_2_sometimes"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_2_no"
+
+                    />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text="@string/user_tab_three_question_three"
+                    android:id="@+id/tab3_question_3_question"
+
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_3_yes"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_3_sometimes"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_3_no"
+
+
+                    />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text="@string/user_tab_three_question_four"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_4_yes"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_4_sometimes"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_4_no"
+
+
+                    />
+            </TableRow>
+
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text="@string/user_tab_three_question_five"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_5_yes"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_5_sometimes"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_5_no"
+
+
+                    />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text="@string/user_tab_three_question_six"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_6_yes"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_6_sometimes"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_6_no"
+
+
+                    />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text="@string/user_tab_three_question_seven"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_7_yes"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_7_sometimes"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_7_no"
+
+
+                    />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text="@string/user_tab_three_question_eight"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_8_yes"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_8_sometimes"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:id="@+id/tab3_question_8_no"
+                    />
+            </TableRow>
+
+        </TableLayout>
+    </LinearLayout>
 
 </ScrollView>
