@@ -1,9 +1,11 @@
 package com.example.rum8.fragments;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -29,6 +31,7 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
 
     private TextView firstName;
     private TextView academicYear;
+    private ImageView profilePicture;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -100,6 +103,12 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
     @Override
     public void setFragmentEmpty() {
 
+    }
+
+    @Override
+    public void setUserProfileImage(Bitmap bitmap) {
+        profilePicture = rootView.findViewById(R.id.user_profile_picture);
+        profilePicture.setImageBitmap(bitmap);
     }
 
 }

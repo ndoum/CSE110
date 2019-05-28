@@ -1,5 +1,6 @@
 package com.example.rum8.fragments;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -278,5 +279,10 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
 
     @Override
     public void chooseImage() {
+    }
+
+    @Override
+    public void setUserProfileImage(Bitmap bitmap) {
+
     }
 }

@@ -1,6 +1,7 @@
 package com.example.rum8.activities;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -131,6 +132,11 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         ft.replace(R.id.fragment_place, fragment);
         ft.addToBackStack(null);
         ft.commit();
+    }
+
+    @Override
+    public void setUserProfileImage(Bitmap bitmap) {
+
     }
 
     /**
