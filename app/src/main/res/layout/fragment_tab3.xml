@@ -228,9 +228,8 @@
             <TableRow>
 
                 <TextView
-                    android:id="@+id/tab3_question_4_question"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginHorizontal="1dp"
                     android:layout_marginBottom="1dp"
                     android:layout_weight="1"
@@ -281,6 +280,7 @@
                     />
             </TableRow>
 
+
             <TableRow>
 
                 <TextView
@@ -291,8 +291,7 @@
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:gravity="center"
-                    android:text="I smoke."
-                    android:id="@string/user_tab_three_question_five"
+                    android:text="@string/user_tab_three_question_five"
 
                     />
 
@@ -348,7 +347,6 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text="@string/user_tab_three_question_six"
-                    android:id="@+id/tab3_question_6_question"
 
                     />
 
@@ -404,7 +402,6 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text="@string/user_tab_three_question_seven"
-                    android:id="@+id/tab3_question_7_question"
 
                     />
 
@@ -460,7 +457,6 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text="@string/user_tab_three_question_eight"
-                    android:id="@+id/tab3_question_8_question"
 
                     />
 
