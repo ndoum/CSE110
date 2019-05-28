@@ -2,18 +2,28 @@ package com.example.rum8.controllers;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.rum8.R;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.RegistrationControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+
+import io.grpc.internal.SharedResourceHolder;
 
 import static android.content.ContentValues.TAG;
 
@@ -22,7 +32,7 @@ public class RegistrationController {
     private RegistrationControllerListener controllerListener;
     private Context context;
     private FirebaseAuth auth;
-
+    private FirebaseStorage storage;
     // Access a Cloud Firestore instance from your Activity
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -30,6 +40,7 @@ public class RegistrationController {
         this.controllerListener = controllerListener;
         this.context = context;
         auth = FirebaseAuth.getInstance();
+        storage = FirebaseStorage.getInstance();
     }
 
 
@@ -56,6 +67,13 @@ public class RegistrationController {
                         }};
 
                         final FirebaseUser user = auth.getCurrentUser();
+
+                        final Bitmap bmp = BitmapFactory.decodeResource(context.getResources(), R.drawable.images);
+                        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                        final byte[] data = baos.toByteArray();
+
+                        Db.UploadDefaultPicture(storage, user, data);
 
                         Db.createUser(db, user, userInfo)
                             .addOnSuccessListener(aVoid -> Log.d("Success", "createUserWithEmail:success"))
