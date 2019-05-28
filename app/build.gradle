@@ -23,18 +23,22 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.firebase:firebase-core:16.0.1'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //noinspection GradleCompatible
     implementation 'androidx.appcompat:appcompat:1.0.0'
 
     // firebase dependencies added
-    implementation 'com.google.firebase:firebase-core:16.0.8'
-    implementation 'com.google.firebase:firebase-database:16.1.0'
+    implementation 'com.google.firebase:firebase-core:16.0.9'
+    implementation 'com.google.firebase:firebase-database:17.0.0'
     implementation 'com.google.firebase:firebase-auth:17.0.0'
 
+    //firebase ui dependencies added
+    implementation 'com.firebaseui:firebase-ui-database:4.3.2'
+    implementation 'com.firebaseui:firebase-ui-firestore:4.1.0'
+
     // firestore dependencies added
-    implementation 'com.google.firebase:firebase-firestore:18.2.0'
+    implementation 'com.firebase:firebase-client-android:2.5.2'
+    implementation 'com.google.firebase:firebase-firestore:19.0.0'
 
     // firebase storage added
     implementation 'com.google.firebase:firebase-storage:17.0.0'
@@ -46,6 +50,12 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
 
     //material design dependencies
+
+    implementation 'com.android.support:design:28.0.0'
+    api 'com.google.android.material:material:1.1.0-alpha06'
+
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha05'
+
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'de.hdodenhof:circleimageview:3.0.0'
     api 'com.google.android.material:material:1.1.0-alpha05'

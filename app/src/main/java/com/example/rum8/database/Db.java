@@ -76,6 +76,11 @@ public class Db {
         return storage.getReference().child(PROFILE_PIC_PATH + user.getUid()).getBytes(ONE_MEGABYTE);
     }
 
+    public static Task<byte[]> fetchUserProfilePictureById(final FirebaseStorage storage,
+                                                       final String userId) {
+        return storage.getReference().child(PROFILE_PIC_PATH + userId).getBytes(ONE_MEGABYTE);
+    }
+
     public static Task<byte[]> fetchDefaultUserProfilePicture(final FirebaseStorage storage) {
         return storage.getReference().child(DEFAULT_PROFILE_PIC_PATH).getBytes(ONE_MEGABYTE);
     }
@@ -93,6 +98,8 @@ public class Db {
         return firestore.collection(USERS_COLLECTION_NAME)
                 .document(userId).get();
     }
+
+
 
     //public static Task<DocumentSnapshot> getUserPotentialList (final FirebaseFirestore firestore,
     //                                                           final @Nonnull FirebaseUser user){

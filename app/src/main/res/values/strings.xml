@@ -26,6 +26,8 @@
     <string name="menu_log_in_button">Log In</string>
     <string name="menu_log_out_button">Log Out</string>
     <string name="menu_profile_settings_button">Profile Settings</string>
+
+    <string name="menu_view_link_list_button">View Link List</string>
     <string name="menu_profile_user_name">User Name</string>
     <string name="menu_profile_user_year">User Year</string>
 

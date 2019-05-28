@@ -33,6 +33,13 @@ public class MainController {
         controllerListener.goToLogin();
     }
 
+
+    public void onGoToLinkListButtonClicked() {controllerListener.goToLinkList();}
+
+    public void onLinkButtonClicked() {
+        controllerListener.showToast("LIKED");
+    }
+
     /**
      * use user's potential list to find other other show other user's info
      */
@@ -63,11 +70,13 @@ public class MainController {
                 controllerListener.showToast("No potentials");
             }
 
+
         }).addOnFailureListener(exception -> {
             final String message = "Network error";
             controllerListener.showToast(message);
         });
     }
+
 
     public void onLikeClicked() {
         Db.fetchUserInfo(this.db, this.auth.getCurrentUser()).addOnSuccessListener(documentSnapshot -> {
