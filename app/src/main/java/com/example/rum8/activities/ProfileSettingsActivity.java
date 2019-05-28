@@ -20,6 +20,8 @@ import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.Map;
+
 public class ProfileSettingsActivity extends FragmentActivity
         implements ProfileSettingsControllerListener {
 
@@ -125,6 +127,11 @@ public class ProfileSettingsActivity extends FragmentActivity
 
     @Override
     public void setUserProfileImage(Bitmap bitmap) {
+
+    }
+
+    @Override
+    public void showCurrentUserInfo(Map<String, Object> data) {
 
     }
 
