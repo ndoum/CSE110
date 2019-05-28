@@ -107,6 +107,7 @@
     <string name="adv_settings_sub_header_2">Personal</string>
     <string name="adv_settings_sub_header_3">Contact</string>
     <string name="adv_settings_living_accommodations">Living accommodations:</string>
+    <string name="adv_settings_room_type">Room type:</string>
     <string name="adv_settings_other_things">Other things you should know:</string>
     <string name="adv_settings_bio">About me:</string>
     <string name="adv_settings_hobbies">Hobbies:</string>
@@ -114,6 +115,20 @@
     <string name="adv_settings_phone">Phone number:</string>
     <string name="adv_settings_budget">Budget:</string>
     <string name="adv_settings_button_save">Save</string>
+
+    <!-- User Tab 3 -->
+    <string name="user_tab_three_question_one">I keep my room clean.</string>
+    <string name="user_tab_three_question_two">I am a reserved person.</string>
+    <string name="user_tab_three_question_three">I plan to have parties.</string>
+    <string name="user_tab_three_question_four">I drink alcohol.</string>
+    <string name="user_tab_three_question_five">I smoke.</string>
+    <string name="user_tab_three_question_six">I go to bed lates.</string>
+    <string name="user_tab_three_question_seven">I am fine with guests.</string>
+    <string name="user_tab_three_question_eight">I plan to have a pet.</string>
+
+
+
+
 
 
 </resources>

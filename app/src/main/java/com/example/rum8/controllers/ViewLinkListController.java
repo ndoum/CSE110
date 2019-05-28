@@ -54,11 +54,12 @@ public class ViewLinkListController {
             if(task.isSuccessful()){
                 linkListUidMap = (HashMap<String, Object>) task.getResult().get("matched");
                 linkListUidSet = linkListUidMap.keySet();
-                for(String uid:linkListUidSet)
+                for(String uid:linkListUidSet){
                     Db.fetchUserInfoById(db, uid).addOnCompleteListener(task1 -> {
-                        if (task1.isSuccessful()) {
-                            String first_name = (String) task1.getResult().get("first_name");
-                            String last_name = (String) task1.getResult().get("last_name");
+                        if(task1.isSuccessful()){
+                            HashMap<String, Object> uidMap = (HashMap<String, Object>) task1.getResult().getData();
+                            String first_name = (String) uidMap.get("first_name");
+                            String last_name = (String) uidMap.get("last_name");
 
                             LinkListSingleLink newLink = new LinkListSingleLink(first_name, last_name, uid);
                             controllerListener.addNewLink(newLink);

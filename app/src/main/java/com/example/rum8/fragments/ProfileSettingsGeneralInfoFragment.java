@@ -3,7 +3,6 @@ package com.example.rum8.fragments;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -24,7 +23,6 @@ import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.storage.StorageException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,6 +36,9 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
     private Spinner genderSpinner;
     private Spinner academicYearSpinner;
     private Spinner collegeSpinner;
+    private ArrayAdapter<CharSequence> genderAdapter;
+    private ArrayAdapter<CharSequence> collegeAdapter;
+    private ArrayAdapter<CharSequence> academicYearAdapter;
     private Button buttonSave;
     private Button buttonNext;
     private Button buttonChoosePic;
@@ -84,66 +85,32 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
 
         //FILLING THE GENDER SPINNER
         genderSpinner = rootView.findViewById(R.id.general_info_gender_spinner);
-        final ArrayAdapter<CharSequence> genderAdapter = ArrayAdapter.createFromResource(this.getActivity(),
+        genderAdapter = ArrayAdapter.createFromResource(this.getActivity(),
                 R.array.ps_general_info_gender_items, android.R.layout.simple_spinner_item);
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         genderSpinner.setAdapter(genderAdapter);
 
         //FILLING THE ACADEMIC YEAR SPINNER
         academicYearSpinner = rootView.findViewById(R.id.general_info_academic_year_spinner);
-        final ArrayAdapter<CharSequence> academicYearAdapter = ArrayAdapter.createFromResource(this.getActivity(),
+        academicYearAdapter = ArrayAdapter.createFromResource(this.getActivity(),
                 R.array.ps_general_info_academic_year_items, android.R.layout.simple_spinner_item);
         academicYearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         academicYearSpinner.setAdapter(academicYearAdapter);
 
         //FILLING THE COLLEGE SPINNER
         collegeSpinner = rootView.findViewById(R.id.general_info_college_spinner);
-        final ArrayAdapter<CharSequence> collegeAdapter = ArrayAdapter.createFromResource(this.getActivity(),
+        collegeAdapter = ArrayAdapter.createFromResource(this.getActivity(),
                 R.array.ps_general_info_college_items, android.R.layout.simple_spinner_item);
         collegeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         collegeSpinner.setAdapter(collegeAdapter);
 
-        controller.loadUserInfo()
-                .addOnSuccessListener(documentSnapshot -> {
-                    final Map<String, Object> data = documentSnapshot.getData();
-                    final String userGender = (String) data.get(Db.Keys.GENDER);
-                    final String userYear = (String) data.get(Db.Keys.ACADEMIC_YEAR);
-                    final String userCollege = (String) data.get(Db.Keys.COLLEGE);
-                    final String userFirstName = (String) data.get(Db.Keys.FIRST_NAME);
-                    final String userLastName = (String) data.get(Db.Keys.LAST_NAME);
-
-                    genderSpinner.setSelection(genderAdapter.getPosition(userGender));
-                    academicYearSpinner.setSelection(academicYearAdapter.getPosition(userYear));
-                    collegeSpinner.setSelection(collegeAdapter.getPosition(userCollege));
-
-                    firstNameField.setText(userFirstName);
-                    lastNameField.setText(userLastName);
-                })
-                .addOnFailureListener(exception -> {
-                    final String message = "Network error";
-                    showToast(message);
-                });
+        controller.loadUserInfo();
 
         progressDialog = new ProgressDialog(getActivity());
         imageView = rootView.findViewById(R.id.general_info_profile_image_view);
 
         // fetch user's profile picture
-        controller.loadUserProfileImage().addOnSuccessListener(bytes -> {
-            Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-            imageView.setImageBitmap(bmp);
-        }).addOnFailureListener(exception -> {
-            // fetch default if the user does not upload
-            controller.loadDefaluUserProfileImage().addOnSuccessListener(bytes -> {
-                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                imageView.setImageBitmap(bmp);
-            });
-            // show error message if both way fails
-            int errorCode = ((StorageException) exception).getErrorCode();
-            if (errorCode != StorageException.ERROR_OBJECT_NOT_FOUND) {
-                final String message = "Network error";
-                showToast(message);
-            }
-        });
+        controller.loadUserProfileImage();
 
         buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
         buttonNext.setOnClickListener(v -> {
@@ -202,6 +169,27 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
         onResume();
 
+    }
+
+    @Override
+    public void setUserProfileImage(Bitmap bitmap) {
+        imageView.setImageBitmap(bitmap);
+    }
+
+    @Override
+    public void showCurrentUserInfo(Map<String, Object> data) {
+        final String userGender = (String) data.get(Db.Keys.GENDER);
+        final String userYear = (String) data.get(Db.Keys.ACADEMIC_YEAR);
+        final String userCollege = (String) data.get(Db.Keys.COLLEGE);
+        final String userFirstName = (String) data.get(Db.Keys.FIRST_NAME);
+        final String userLastName = (String) data.get(Db.Keys.LAST_NAME);
+
+        genderSpinner.setSelection(genderAdapter.getPosition(userGender));
+        academicYearSpinner.setSelection(academicYearAdapter.getPosition(userYear));
+        collegeSpinner.setSelection(collegeAdapter.getPosition(userCollege));
+
+        firstNameField.setText(userFirstName);
+        lastNameField.setText(userLastName);
     }
 
     @Override
