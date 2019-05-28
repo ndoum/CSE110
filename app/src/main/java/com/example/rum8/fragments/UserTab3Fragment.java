@@ -56,12 +56,6 @@ public class UserTab3Fragment extends Fragment implements MainControllerListener
     private TextView questionEightSometimesResponse;
     private TextView questionEightNoResponse;
 
-
-
-
-
-
-
     public UserTab3Fragment() {
 
     }

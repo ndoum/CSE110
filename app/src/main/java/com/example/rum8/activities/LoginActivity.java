@@ -50,6 +50,13 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
     }
 
     @Override
+    public void goToProfileSetting() {
+        final Intent intent = new Intent(LoginActivity.this, ProfileSettingsActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
     public void showToast(final String message) {
         Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
     }
