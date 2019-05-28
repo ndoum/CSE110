@@ -100,7 +100,7 @@ public class Db {
         return firestore.collection(USERS_COLLECTION_NAME)
                 .document(userId).get();
     }
-    
+
     public static class Keys {
 
         public static final String ACADEMIC_YEAR = "academic_year";
