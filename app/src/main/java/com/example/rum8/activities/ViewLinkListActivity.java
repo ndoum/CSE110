@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,7 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 
 
-public class ViewLinkListActivity extends AppCompatActivity
+        public class ViewLinkListActivity extends AppCompatActivity
         implements ViewLinkListControllerListener {
 
     private ViewLinkListController controller;
@@ -51,6 +52,11 @@ public class ViewLinkListActivity extends AppCompatActivity
     @Override
     public ArrayList<LinkListSingleLink> getLinks(){
         return links;
+    }
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(ViewLinkListActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
     private void initController() {
@@ -129,16 +135,5 @@ public class ViewLinkListActivity extends AppCompatActivity
         startActivity(intent);
         finish();
     }
-
-    /*@Override
-    public void addToLinks(LinkListSingleLink link) {
-        //System.out.println("ADDING TO LINKS!!!!!");
-        links.add(link);
-        System.out.println("IN FUNCTION ADD TO LINKS...");
-        System.out.println(links);
-    }*/
-
-
-
 
 }
