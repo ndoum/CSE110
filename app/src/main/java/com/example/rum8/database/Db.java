@@ -162,6 +162,7 @@ public class Db {
             put(Keys.LAST_NAME, EMPTY_STRING);
             put(Keys.MAJOR, "Computer Science");
             put(Keys.PHONE_NUMBER, EMPTY_STRING);
+            put(Keys.ROOM_TYPE, EMPTY_STRING);
 
             put(Keys.ABOUT_ME, EMPTY_STRING);
             put(Keys.HOBBIES, EMPTY_STRING);
