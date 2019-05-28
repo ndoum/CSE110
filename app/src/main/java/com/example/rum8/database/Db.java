@@ -46,11 +46,20 @@ public class Db {
     }
 
     public static Task<Void> updateUser(final FirebaseFirestore firestore,
-                                        final @Nonnull FirebaseUser user,
-                                        final Map<String, Object> userHash) {
+                                             final @Nonnull FirebaseUser user,
+                                             final Map<String, Object> userHash) {
 
         return firestore.collection(USERS_COLLECTION_NAME)
                 .document(user.getUid())
+                .update(userHash);
+    }
+
+    public static Task<Void> updateOtherUserById(final FirebaseFirestore firestore,
+                                                 final String userId,
+                                        final Map<String, Object> userHash) {
+
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(userId)
                 .update(userHash);
     }
 
