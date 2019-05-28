@@ -85,12 +85,6 @@ public class Db {
                 .document(userId).get();
     }
 
-    //public static Task<DocumentSnapshot> getUserPotentialList (final FirebaseFirestore firestore,
-    //                                                           final @Nonnull FirebaseUser user){
-    //    return firestore.collection(USERS_COLLECTION_NAME)
-    //            .document(user.getUid()).get();
-    //}
-
     public static class Keys {
 
         public static final String ACADEMIC_YEAR = "academic_year";
@@ -105,6 +99,7 @@ public class Db {
         public static final String PHONE_NUMBER = "phone_number";
 
         public static final String ABOUT_ME = "about_me";
+        public static final String ROOM_TYPE = "room_type";
         public static final String HOBBIES = "hobbies";
         public static final String INTERESTS = "interests";
         public static final String LIVING_ACCOMMODATIONS = "living_accommodations";
@@ -145,7 +140,7 @@ public class Db {
         private static final Map<String, Object> USER = new HashMap<String, Object>() {{
             put(Keys.ACADEMIC_YEAR, "First");
             put(Keys.AGE, 18);
-            put(Keys.BUDGET, ZERO);
+            put(Keys.BUDGET, EMPTY_STRING);
             put(Keys.COLLEGE, "Muir");
             put(Keys.EMAIL, EMPTY_STRING);
             put(Keys.FIRST_NAME, EMPTY_STRING);

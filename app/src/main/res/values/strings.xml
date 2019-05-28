@@ -105,6 +105,7 @@
     <string name="adv_settings_sub_header_2">Personal</string>
     <string name="adv_settings_sub_header_3">Contact</string>
     <string name="adv_settings_living_accommodations">Living accommodations:</string>
+    <string name="adv_settings_room_type">Room type:</string>
     <string name="adv_settings_other_things">Other things you should know:</string>
     <string name="adv_settings_bio">About me:</string>
     <string name="adv_settings_hobbies">Hobbies:</string>
