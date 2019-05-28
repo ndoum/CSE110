@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,16 +13,10 @@ import com.example.rum8.R;
 import com.example.rum8.adapters.ViewLinkListRecycleViewAdapter;
 import com.example.rum8.controllers.ViewLinkListController;
 import com.example.rum8.dataModels.LinkListSingleLink;
-import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ViewLinkListControllerListener;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Set;
 
 
 public class ViewLinkListActivity extends AppCompatActivity
@@ -143,24 +136,6 @@ public class ViewLinkListActivity extends AppCompatActivity
     }
 
     @Override
-    public void populateRecylcerViewContent(Set<String> uids){
-        //System.out.println("IN POPULATE RECYCLER VIEW CONTENT");
-        for(String uid:uids){
-            Db.fetchLinkInfo(db, uid).addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if(task.isSuccessful()){
-                        HashMap<String, Object> uidMap = (HashMap<String, Object>) task.getResult().getData();
-                        String name = (String) uidMap.get("first_name");
-                        System.out.println("FUNCTION CALL TO ADDNEWLINK for: "+name);
-                        //addNewLink(uidMap, uid);
-                    }
-                }
-            });
-        }
-    }
-
-    @Override
     public void onBackPressed(){
         finish();
     }
@@ -217,16 +192,5 @@ public class ViewLinkListActivity extends AppCompatActivity
         startActivity(intent);
         finish();
     }
-
-    /*@Override
-    public void addToLinks(LinkListSingleLink link) {
-        //System.out.println("ADDING TO LINKS!!!!!");
-        links.add(link);
-        System.out.println("IN FUNCTION ADD TO LINKS...");
-        System.out.println(links);
-    }*/
-
-
-
 
 }

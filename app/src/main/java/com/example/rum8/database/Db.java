@@ -45,12 +45,67 @@ public class Db {
         return batch.commit();
     }
 
+    public static Task<Void> updateUser(final FirebaseFirestore firestore,
+                                        final @Nonnull FirebaseUser user,
+                                        final Map<String, Object> userHash) {
+
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(user.getUid())
+                .update(userHash);
+    }
+
+    public static Task<Void> updateOtherUserById(final FirebaseFirestore firestore,
+                                                 final String userId,
+                                                 final Map<String, Object> userHash) {
+
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(userId)
+                .update(userHash);
+    }
+
+    public static UploadTask updateProfilePicture(final FirebaseStorage storage,
+                                                  final @Nonnull FirebaseUser user,
+                                                  final Uri filePath) {
+        return storage.getReference()
+                .child(PROFILE_PIC_PATH + user.getUid())
+                .putFile(filePath);
+    }
+
+    public static Task<byte[]> fetchUserProfilePicture(final FirebaseStorage storage,
+                                                       final @Nonnull FirebaseUser user) {
+        return storage.getReference().child(PROFILE_PIC_PATH + user.getUid()).getBytes(ONE_MEGABYTE);
+    }
+
+    public static Task<byte[]> fetchUserProfilePictureById(final FirebaseStorage storage,
+                                                           final String userId) {
+        return storage.getReference().child(PROFILE_PIC_PATH + userId).getBytes(ONE_MEGABYTE);
+    }
+
+    public static Task<byte[]> fetchDefaultUserProfilePicture(final FirebaseStorage storage) {
+        return storage.getReference().child(DEFAULT_PROFILE_PIC_PATH).getBytes(ONE_MEGABYTE);
+    }
+
+    public static Task<DocumentSnapshot> fetchUserInfo(final FirebaseFirestore firestore,
+                                                       final @Nonnull FirebaseUser user) {
+
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(user.getUid()).get();
+    }
+
     public static Task<DocumentSnapshot> fetchUserInfoById(final FirebaseFirestore firestore,
                                                            final String userId) {
 
         return firestore.collection(USERS_COLLECTION_NAME)
                 .document(userId).get();
     }
+
+
+
+    //public static Task<DocumentSnapshot> getUserPotentialList (final FirebaseFirestore firestore,
+    //                                                           final @Nonnull FirebaseUser user){
+    //    return firestore.collection(USERS_COLLECTION_NAME)
+    //            .document(user.getUid()).get();
+    //}
 
     public static class Keys {
 
@@ -102,14 +157,6 @@ public class Db {
         private static final String EMPTY_STRING = "";
         private static final Integer ZERO = 0;
         private static final Map<String, Object> EMPTY_MAP = new HashMap<>();
-        /**
-         * Default matched map for testing
-         * */
-        private static Map<String, Object> DEFAULT_MATCH = new HashMap<String, Object>(){{
-            put("ExMvVP3VZYdL88ebmLYt1Vld2Cu2", EMPTY_MAP);
-            put("Hk0pm4oNrSOUHVdHpUA9OqAH15s2", EMPTY_MAP);
-            put("JqamxUbuAXNPEmEHa5sHFohL8xm2", EMPTY_MAP);
-        }};
 
         private static final Map<String, Object> USER = new HashMap<String, Object>() {{
             put(Keys.ACADEMIC_YEAR, "First");
@@ -132,10 +179,7 @@ public class Db {
             put(Keys.POTENTIAL, EMPTY_MAP);
             put(Keys.LIKED, EMPTY_MAP);
             put(Keys.DISLIKED, EMPTY_MAP);
-
-            //put(Keys.MATCHED, EMPTY_MAP);
-            /** For testing*/
-            put(Keys.MATCHED, DEFAULT_MATCH); //TODO switch back to empty map
+            put(Keys.MATCHED, EMPTY_MAP);
 
             put(Keys.ALCOHOL_VALUE, ZERO);
             put(Keys.ALLOW_PETS_VALUE, ZERO);
@@ -159,49 +203,5 @@ public class Db {
 
     }
 
-
-    public static Task<Void> updateUser(final FirebaseFirestore firestore,
-                                        final @Nonnull FirebaseUser user,
-                                        final Map<String, Object> userHash) {
-
-        return firestore.collection(USERS_COLLECTION_NAME)
-                .document(user.getUid())
-                .update(userHash);
-    }
-
-    public static UploadTask updateProfilePicture(final FirebaseStorage storage,
-                                                  final @Nonnull FirebaseUser user,
-                                                  final Uri filePath) {
-        return storage.getReference()
-                .child(PROFILE_PIC_PATH + user.getUid())
-                .putFile(filePath);
-    }
-
-    public static Task<byte[]> fetchUserProfilePicture(final FirebaseStorage storage,
-                                                       final @Nonnull FirebaseUser user) {
-        return storage.getReference().child(PROFILE_PIC_PATH + user.getUid()).getBytes(ONE_MEGABYTE);
-    }
-
-    public static Task<byte[]> fetchDefaultUserProfilePicture(final FirebaseStorage storage) {
-        return storage.getReference().child(DEFAULT_PROFILE_PIC_PATH).getBytes(ONE_MEGABYTE);
-    }
-
-    public static Task<byte[]> fetchLinkProfilePicture (final FirebaseStorage storage,
-                                                        final String linkUid){
-        return storage.getReference().child(PROFILE_PIC_PATH + linkUid).getBytes(ONE_MEGABYTE);
-    }
-
-
-    public static Task<DocumentSnapshot> fetchUserInfo(final FirebaseFirestore firestore,
-                                                       final @Nonnull FirebaseUser user) {
-
-        return firestore.collection(USERS_COLLECTION_NAME)
-                .document(user.getUid()).get();
-    }
-
-    public static Task<DocumentSnapshot> fetchLinkInfo(final FirebaseFirestore firestore, final String linkUid){
-        return firestore.collection(USERS_COLLECTION_NAME)
-                .document(linkUid).get();
-    }
 
 }
