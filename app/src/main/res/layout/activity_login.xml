@@ -132,9 +132,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            app:layout_constraintTop_toBottomOf="@id/login_fields_linear_layout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/login_fields_linear_layout">
 
             <TextView
                 android:id="@+id/first_time_text_view"
@@ -149,10 +149,10 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
                 android:backgroundTint="@android:color/transparent"
                 android:paddingStart="5dp"
                 android:paddingEnd="0dp"
-                android:layout_marginBottom="0dp"
                 android:text="@string/login_register_button"
                 android:textColor="@color/menuBarColor" />
 
