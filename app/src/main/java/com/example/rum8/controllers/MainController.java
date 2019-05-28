@@ -86,6 +86,29 @@ public class MainController {
                 likes.put(userId, "");
                 data.put(Db.Keys.LIKED, likes);
                 Db.updateUser(this.db, this.auth.getCurrentUser(), data);
+
+                Db.fetchUserInfoById(this.db, userId).addOnSuccessListener(documentSnapshotOther -> {
+
+                    final Map<String, Object> otherUserData = documentSnapshotOther.getData();
+
+                    final HashMap<String, Object> otherUserLiked = (HashMap<String, Object>) otherUserData.get(Db.Keys.LIKED);
+
+                    final String currentUserId = this.auth.getCurrentUser().getUid();
+
+                    if (otherUserLiked.containsKey(currentUserId)) {
+                        final HashMap<String, Object> otherUserMatched = (HashMap<String, Object>) otherUserData.get(Db.Keys.MATCHED);
+                        final HashMap<String, Object> userMatched = (HashMap<String, Object>) data.get(Db.Keys.MATCHED);
+                        otherUserMatched.put(currentUserId, "");
+                        userMatched.put(userId, "");
+                        Db.updateUser(this.db, this.auth.getCurrentUser(), data);
+                        Db.updateOtherUserById(this.db, userId, otherUserData);
+                    }
+
+                }).addOnFailureListener(exception -> {
+                    final String message = "Network error";
+                    controllerListener.showToast(message);
+                });
+
                 if (potential.keySet().size() > 0) {
                     controllerListener.setFragment();
                 } else {

@@ -67,7 +67,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:id="@+id/tab3_question_1_question"
-                    android:text="I keep my room clean."
+                    android:text="@string/user_tab_three_question_one"
 
 
                     />
@@ -122,7 +122,7 @@
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:gravity="center"
-                    android:text="I am a reserved person."
+                    android:text="@string/user_tab_three_question_two"
                     android:id="@+id/tab3_question_2_question"
 
 
@@ -178,7 +178,7 @@
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:gravity="center"
-                    android:text="I plan to have parties."
+                    android:text="@string/user_tab_three_question_three"
                     android:id="@+id/tab3_question_3_question"
 
 
@@ -228,15 +228,15 @@
             <TableRow>
 
                 <TextView
+                    android:id="@+id/tab3_question_4_question"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
                     android:layout_marginHorizontal="1dp"
                     android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:gravity="center"
-                    android:text="I drink alcohol."
-                    android:id="@+id/tab3_question_4_question"
+                    android:text="@string/user_tab_three_question_four"
 
                     />
 
@@ -292,7 +292,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text="I smoke."
-                    android:id="@+id/tab3_question_5_question"
+                    android:id="@string/user_tab_three_question_five"
 
                     />
 
@@ -347,7 +347,7 @@
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:gravity="center"
-                    android:text="I go to bed lates."
+                    android:text="@string/user_tab_three_question_six"
                     android:id="@+id/tab3_question_6_question"
 
                     />
@@ -403,7 +403,7 @@
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:gravity="center"
-                    android:text="I am fine with guests."
+                    android:text="@string/user_tab_three_question_seven"
                     android:id="@+id/tab3_question_7_question"
 
                     />
@@ -459,7 +459,7 @@
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:gravity="center"
-                    android:text="I plan to have a pet."
+                    android:text="@string/user_tab_three_question_eight"
                     android:id="@+id/tab3_question_8_question"
 
                     />
