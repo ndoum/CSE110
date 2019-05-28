@@ -60,10 +60,6 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
 
         TextView firstNameView = linkHolder.nameView;
         firstNameView.setText(link.getfirst_name()+" "+link.getlast_name());
-
-        //ImageView imageView = linkHolder.imageView;
-        //TODO set image
-
     }
 
     @Override
