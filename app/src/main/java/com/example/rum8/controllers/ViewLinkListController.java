@@ -1,5 +1,8 @@
 package com.example.rum8.controllers;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
 import com.example.rum8.dataModels.LinkListSingleLink;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ViewLinkListControllerListener;
@@ -51,17 +54,36 @@ public class ViewLinkListController {
 
         Db.fetchUserInfo(db, auth.getCurrentUser()).addOnCompleteListener(task -> {
             if(task.isSuccessful()){
-                linkListUidMap = (HashMap<String, Object>) task.getResult().get("matched");
+                linkListUidMap = (HashMap<String, Object>) task.getResult().get(Db.Keys.MATCHED);
                 linkListUidSet = linkListUidMap.keySet();
                 for(String uid:linkListUidSet){
                     Db.fetchUserInfoById(db, uid).addOnCompleteListener(task1 -> {
                         if(task1.isSuccessful()){
-                            HashMap<String, Object> uidMap = (HashMap<String, Object>) task1.getResult().getData();
-                            String first_name = (String) uidMap.get("first_name");
-                            String last_name = (String) uidMap.get("last_name");
-                            LinkListSingleLink newLink = new LinkListSingleLink(first_name, last_name, uid);
-                            controllerListener.addNewLink(newLink);
-                            controllerListener.displayLinks(controllerListener.getLinks());
+                            Db.fetchUserProfilePictureById(storage, uid)
+                                    .addOnSuccessListener(bytes -> {
+                                HashMap<String, Object> uidMap = (HashMap<String, Object>) task1.getResult().getData();
+                                String first_name = (String) uidMap.get(Db.Keys.FIRST_NAME);
+                                String last_name = (String) uidMap.get(Db.Keys.LAST_NAME);
+
+                                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+
+                                LinkListSingleLink newLink = new LinkListSingleLink(first_name, last_name, uid, bmp);
+                                controllerListener.addNewLink(newLink);
+                                controllerListener.displayLinks(controllerListener.getLinks());
+                            })
+                                    .addOnFailureListener(e -> Db.fetchDefaultUserProfilePicture(storage)
+                                            .addOnSuccessListener(bytes -> {
+                                HashMap<String, Object> uidMap = (HashMap<String, Object>) task1.getResult().getData();
+                                String first_name = (String) uidMap.get(Db.Keys.FIRST_NAME);
+                                String last_name = (String) uidMap.get(Db.Keys.LAST_NAME);
+
+                                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                                LinkListSingleLink newLink = new LinkListSingleLink(first_name, last_name, uid, bmp);
+                                controllerListener.addNewLink(newLink);
+                                controllerListener.displayLinks(controllerListener.getLinks());
+                            })
+                                            .addOnFailureListener(e1 -> controllerListener.showToast("Network Error")));
+
                         }
                     });
             }

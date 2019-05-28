@@ -1,5 +1,6 @@
 package com.example.rum8.dataModels;
 
+import android.graphics.Bitmap;
 import android.widget.ImageView;
 
 public class LinkListSingleLink {
@@ -7,15 +8,17 @@ public class LinkListSingleLink {
     private String lastName;
     private String uid;
     private ImageView imageView;
+    private Bitmap bitMap;
 
     public LinkListSingleLink() {
     } //Needed for Firebase
 
-    public LinkListSingleLink(/*ImageView imageView, */String firstName, String lastName, String uid) {
+    public LinkListSingleLink(/*ImageView imageView, */String firstName, String lastName, String uid, Bitmap bitmap) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.uid = uid;
         //this.imageView= imageView;
+        this.bitMap = bitmap;
     }
 
     public void setfirst_name(String firstName) {
@@ -45,5 +48,9 @@ public class LinkListSingleLink {
     public void setImageView(ImageView imageView){ this.imageView = imageView; }
 
     public ImageView getImage_view(){ return this.imageView; }
+
+    public void setBitMap(Bitmap bitmap){ this.bitMap = bitmap; }
+
+    public Bitmap getBitMap(){ return this.bitMap; }
 
 }
