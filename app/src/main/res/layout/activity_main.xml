@@ -14,7 +14,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginTop="40dp"
         android:layout_marginRight="50dp"
-        tools:layout="@layout/fragment_potential_roommate_profile_default"
+        tools:layout="@layout/fragment_potential_roommate_profile_alt"
 
         >
 
