@@ -283,6 +283,11 @@ public class UserTab3Fragment extends Fragment implements MainControllerListener
     }
 
     @Override
+    public void goToLinkList() {
+
+    }
+
+    @Override
     public void goToAdvSettings() {
     }
 
