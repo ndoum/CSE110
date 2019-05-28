@@ -25,6 +25,7 @@ public class UserTab1Fragment extends Fragment implements MainControllerListener
     private TextView budgetField;
     private TextView livingAccommodationsField;
     private TextView otherThingsField;
+    private TextView roomTypeField;
 
     public UserTab1Fragment() {
     }
@@ -43,19 +44,26 @@ public class UserTab1Fragment extends Fragment implements MainControllerListener
         controller = new MainController(this);
         controller.loadUserInfo();
         budgetField = view.findViewById(R.id.budget_text);
+
+
         livingAccommodationsField = view.findViewById(R.id.living_accommodations_text);
         otherThingsField = view.findViewById(R.id.other_thing_text);
+        roomTypeField = view.findViewById(R.id.room_type_text);
+
     }
 
     @Override
     public void showCurrentUserInfo(final Map<String, Object> data) {
-        final long budget = (long) data.get(Db.Keys.BUDGET);
+        final String budget = (String) data.get(Db.Keys.BUDGET);
+        final String room_type = (String) data.get(Db.Keys.ROOM_TYPE);
+
         final String living_accommodations = (String) data.get(Db.Keys.LIVING_ACCOMMODATIONS);
         final String other_things_you_should_know = (String) data.get(Db.Keys.OTHER_THINGS_YOU_SHOULD_KNOW);
 
         budgetField.setText(String.valueOf(budget));
         livingAccommodationsField.setText(living_accommodations);
         otherThingsField.setText(other_things_you_should_know);
+        roomTypeField.setText(room_type);
 
         onResume();
     }
@@ -74,7 +82,22 @@ public class UserTab1Fragment extends Fragment implements MainControllerListener
     }
 
     @Override
+    public void goToLinkList() {
+
+    }
+
+    @Override
     public void goToAdvSettings() {
+    }
+
+    @Override
+    public void setFragment() {
+
+    }
+
+    @Override
+    public void setFragmentEmpty() {
+
     }
 
 }

@@ -8,10 +8,20 @@ public interface MainControllerListener {
 
     void goToLogin();
 
+
+
+
+
+    void goToLinkList();
     void goToAdvSettings();
 
     void showToast(final String message);
 
     void showCurrentUserInfo(final Map<String, Object> data);
+
+
+    void setFragment();
+
+    void setFragmentEmpty();
 
 }

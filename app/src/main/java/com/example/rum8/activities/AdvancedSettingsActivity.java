@@ -23,6 +23,8 @@ public class AdvancedSettingsActivity extends AppCompatActivity
 
     private AdvancedSettingsController controller;
     private TextInputEditText accommodationsField;
+    private TextInputEditText budgetField;
+    private TextInputEditText roomTypeField;
     private TextInputEditText otherThingsField;
     private TextInputEditText aboutMeField;
     private TextInputEditText hobbiesField;
@@ -46,6 +48,8 @@ public class AdvancedSettingsActivity extends AppCompatActivity
     public void initViews() {
 
         accommodationsField = findViewById(R.id.general_info_living_accommodations_field);
+        roomTypeField= findViewById(R.id.general_info_room_type_field);
+        budgetField  = findViewById(R.id.general_info_budget_field);
         otherThingsField = findViewById(R.id.general_info_other_things_field);
         aboutMeField = findViewById(R.id.personal_info_bio_field);
         hobbiesField = findViewById(R.id.personal_info_hobbies_field);
@@ -58,6 +62,8 @@ public class AdvancedSettingsActivity extends AppCompatActivity
         saveButton.setOnClickListener(v -> {
             final Map<String, Object> userHash = new HashMap<String, Object>() {{
                 put(Db.Keys.LIVING_ACCOMMODATIONS, accommodationsField.getText().toString());
+                put(Db.Keys.BUDGET,budgetField.getText().toString());
+                put(Db.Keys.ROOM_TYPE, roomTypeField.getText().toString());
                 put(Db.Keys.OTHER_THINGS_YOU_SHOULD_KNOW, otherThingsField.getText().toString());
                 put(Db.Keys.ABOUT_ME, aboutMeField.getText().toString());
                 put(Db.Keys.HOBBIES, hobbiesField.getText().toString());
@@ -99,12 +105,16 @@ public class AdvancedSettingsActivity extends AppCompatActivity
     @Override
     public void showCurrentUserInfo(final Map<String, Object> data) {
         final String about_me = (String) data.get(Db.Keys.ABOUT_ME);
+        final String room_type = (String) data.get(Db.Keys.ROOM_TYPE);
+        final String budget = (String) data.get(Db.Keys.BUDGET);
         final String hobbies = (String) data.get(Db.Keys.HOBBIES);
         final String interests = (String) data.get(Db.Keys.INTERESTS);
         final String living_accommodations = (String) data.get(Db.Keys.LIVING_ACCOMMODATIONS);
         final String other_things_you_should_know = (String) data.get(Db.Keys.OTHER_THINGS_YOU_SHOULD_KNOW);
         final String phone_number = (String) data.get(Db.Keys.PHONE_NUMBER);
         accommodationsField.setText(living_accommodations);
+        roomTypeField.setText(room_type);
+        budgetField.setText(budget);
         otherThingsField.setText(other_things_you_should_know);
         aboutMeField.setText(about_me);
         hobbiesField.setText(hobbies);
@@ -128,4 +138,5 @@ public class AdvancedSettingsActivity extends AppCompatActivity
     @Override
     public void goToAdvSettings() {
     }
+
 }

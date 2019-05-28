@@ -59,6 +59,54 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/adv_settings_room_type_header"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_weight="0"
+            android:gravity="center_vertical"
+            android:text="@string/adv_settings_room_type" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/general_info_room_type_field_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/ucsd_navy_blue">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/general_info_room_type_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:maxLines="4"
+                android:minLines="2" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/adv_settings_budget_header"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_weight="0"
+            android:gravity="center_vertical"
+            android:text="@string/adv_settings_budget"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/general_info_budget_field_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/ucsd_navy_blue">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/general_info_budget_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:maxLines="4"
+                android:minLines="2" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
             android:id="@+id/adv_settings_other_things"
             android:layout_width="match_parent"
             android:layout_height="25dp"

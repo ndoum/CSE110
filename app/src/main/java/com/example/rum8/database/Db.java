@@ -46,11 +46,20 @@ public class Db {
     }
 
     public static Task<Void> updateUser(final FirebaseFirestore firestore,
-                                        final @Nonnull FirebaseUser user,
-                                        final Map<String, Object> userHash) {
+                                             final @Nonnull FirebaseUser user,
+                                             final Map<String, Object> userHash) {
 
         return firestore.collection(USERS_COLLECTION_NAME)
                 .document(user.getUid())
+                .update(userHash);
+    }
+
+    public static Task<Void> updateOtherUserById(final FirebaseFirestore firestore,
+                                                 final String userId,
+                                        final Map<String, Object> userHash) {
+
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(userId)
                 .update(userHash);
     }
 
@@ -65,6 +74,11 @@ public class Db {
     public static Task<byte[]> fetchUserProfilePicture(final FirebaseStorage storage,
                                                        final @Nonnull FirebaseUser user) {
         return storage.getReference().child(PROFILE_PIC_PATH + user.getUid()).getBytes(ONE_MEGABYTE);
+    }
+
+    public static Task<byte[]> fetchUserProfilePictureById(final FirebaseStorage storage,
+                                                       final String userId) {
+        return storage.getReference().child(PROFILE_PIC_PATH + userId).getBytes(ONE_MEGABYTE);
     }
 
     public static Task<byte[]> fetchDefaultUserProfilePicture(final FirebaseStorage storage) {
@@ -99,6 +113,7 @@ public class Db {
         public static final String PHONE_NUMBER = "phone_number";
 
         public static final String ABOUT_ME = "about_me";
+        public static final String ROOM_TYPE = "room_type";
         public static final String HOBBIES = "hobbies";
         public static final String INTERESTS = "interests";
         public static final String LIVING_ACCOMMODATIONS = "living_accommodations";
@@ -139,7 +154,7 @@ public class Db {
         private static final Map<String, Object> USER = new HashMap<String, Object>() {{
             put(Keys.ACADEMIC_YEAR, "First");
             put(Keys.AGE, 18);
-            put(Keys.BUDGET, ZERO);
+            put(Keys.BUDGET, EMPTY_STRING);
             put(Keys.COLLEGE, "Muir");
             put(Keys.EMAIL, EMPTY_STRING);
             put(Keys.FIRST_NAME, EMPTY_STRING);
@@ -147,6 +162,7 @@ public class Db {
             put(Keys.LAST_NAME, EMPTY_STRING);
             put(Keys.MAJOR, "Computer Science");
             put(Keys.PHONE_NUMBER, EMPTY_STRING);
+            put(Keys.ROOM_TYPE, EMPTY_STRING);
 
             put(Keys.ABOUT_ME, EMPTY_STRING);
             put(Keys.HOBBIES, EMPTY_STRING);
