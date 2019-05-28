@@ -108,14 +108,6 @@ public class Db {
                 .document(userId).get();
     }
 
-
-
-    //public static Task<DocumentSnapshot> getUserPotentialList (final FirebaseFirestore firestore,
-    //                                                           final @Nonnull FirebaseUser user){
-    //    return firestore.collection(USERS_COLLECTION_NAME)
-    //            .document(user.getUid()).get();
-    //}
-
     public static class Keys {
 
         public static final String ACADEMIC_YEAR = "academic_year";
