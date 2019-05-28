@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="rüm8"
+                android:text="@string/app_name"
                 android:textColor="@color/menuBarColor"
                 android:textSize="25dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -142,7 +142,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="0dp"
-                android:text="First time?"
+                android:text="@string/login_first_time"
                 android:textColor="@color/colorAccent" />
 
             <Button
@@ -150,11 +150,11 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/first_time_text_view"
                 android:backgroundTint="@android:color/transparent"
-                android:padding="0dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="0dp"
                 android:layout_marginBottom="0dp"
-                android:text=" Register here"
+                android:text="@string/login_register_button"
                 android:textColor="@color/menuBarColor" />
 
         </LinearLayout>

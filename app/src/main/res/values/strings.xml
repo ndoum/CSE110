@@ -19,8 +19,9 @@
 
     <!-- activity_login -->
     <string name="login_header">Log In</string>
-    <string name="login_register_button">First time? Register here</string>
+    <string name="login_register_button">Register here</string>
     <string name="login_pr_button">Forgot password?</string>
+    <string name="login_first_time">First time?</string>
 
     <!-- activity_main -->
     <string name="menu_log_in_button">Log In</string>
