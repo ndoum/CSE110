@@ -8,6 +8,8 @@ public interface LoginControllerListener {
 
     void goToMainPage();
 
+    void goToProfileSetting();
+
     void showToast(final String message);
 
 }

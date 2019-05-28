@@ -49,7 +49,7 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
         viewPager = rootView.findViewById(R.id.potential_roommate_profile_default_viewpager_id);
 
         PotentialRoommateProfileDefaultAdapter adapter = new PotentialRoommateProfileDefaultAdapter(
-                getChildFragmentManager());
+            getChildFragmentManager());
         adapter.AddFragment(new UserTab1Fragment(), "General");
         adapter.AddFragment(new UserTab2Fragment(), "Personal");
         adapter.AddFragment(new UserTab3Fragment(), "Overview");
