@@ -42,6 +42,11 @@ public class ViewLinkListController {
     public void onGoToViewLinkListButtonClicked(){ controllerListener.goToViewLinkList();}
     public void onGoToAdvSettingsButtonClicked(){ controllerListener.goToAdvSettings();}
 
+    public void onGoToFullProfileButtonClicked(){
+        controllerListener.gotToFullProfile();
+    }
+
+
     /**
      * Fetch matched link uids from user's "matched" field
      */

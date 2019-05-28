@@ -9,6 +9,7 @@ public interface ViewLinkListControllerListener {
     void goToLogin();
     void goToViewLinkList();
     void goToAdvSettings();
+    void gotToFullProfile();
     void addNewLink(LinkListSingleLink link);
     void displayLinks(ArrayList<LinkListSingleLink> links);
     ArrayList<LinkListSingleLink> getLinks();

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -46,6 +47,11 @@ public class ViewLinkListActivity extends AppCompatActivity
         recyclerView = findViewById(R.id.activity_view_link_list_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ViewLinkListRecycleViewAdapter();
+
+        final Button button_goToFullProfileView = findViewById(R.id.go_to_matched_roommate_full);
+        button_goToFullProfileView.setOnClickListener(v -> controller.onGoToFullProfileButtonClicked());
+
+
     }
 
     @Override
@@ -128,6 +134,14 @@ public class ViewLinkListActivity extends AppCompatActivity
         final Intent intent  = new Intent(ViewLinkListActivity.this, AdvancedSettingsActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void gotToFullProfile() {
+        final Intent intent  = new Intent(ViewLinkListActivity.this, MatchedRoommateProfileActivity.class);
+        startActivity(intent);
+        finish();
+
     }
 
     /*@Override
