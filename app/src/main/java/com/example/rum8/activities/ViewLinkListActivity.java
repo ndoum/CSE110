@@ -143,24 +143,6 @@ public class ViewLinkListActivity extends AppCompatActivity
     }
 
     @Override
-    public void populateRecylcerViewContent(Set<String> uids){
-        //System.out.println("IN POPULATE RECYCLER VIEW CONTENT");
-        for(String uid:uids){
-            Db.fetchLinkInfo(db, uid).addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if(task.isSuccessful()){
-                        HashMap<String, Object> uidMap = (HashMap<String, Object>) task.getResult().getData();
-                        String name = (String) uidMap.get("first_name");
-                        System.out.println("FUNCTION CALL TO ADDNEWLINK for: "+name);
-                        //addNewLink(uidMap, uid);
-                    }
-                }
-            });
-        }
-    }
-
-    @Override
     public void onBackPressed(){
         finish();
     }

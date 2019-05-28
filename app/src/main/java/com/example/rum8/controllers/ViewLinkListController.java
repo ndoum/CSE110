@@ -53,7 +53,7 @@ public class ViewLinkListController {
                 linkListUidMap = (HashMap<String, Object>) task.getResult().get("matched");
                 linkListUidSet = linkListUidMap.keySet();
                 for(String uid:linkListUidSet){
-                    Db.fetchLinkInfo(db, uid).addOnCompleteListener(task1 -> {
+                    Db.fetchUserInfoById(db, uid).addOnCompleteListener(task1 -> {
                         if(task1.isSuccessful()){
                             HashMap<String, Object> uidMap = (HashMap<String, Object>) task1.getResult().getData();
                             String first_name = (String) uidMap.get("first_name");
@@ -73,7 +73,7 @@ public class ViewLinkListController {
     }
 
     public Task<byte[]> loadLinkProfileImage(final FirebaseStorage storage, final String linkUid){
-        return Db.fetchLinkProfilePicture(storage, linkUid);
+        return Db.fetchUserProfilePictureById(storage, linkUid);
     }
 
 }
