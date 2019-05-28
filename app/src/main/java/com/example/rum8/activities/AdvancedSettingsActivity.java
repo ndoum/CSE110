@@ -138,4 +138,5 @@ public class AdvancedSettingsActivity extends AppCompatActivity
     @Override
     public void goToAdvSettings() {
     }
+
 }

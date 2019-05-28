@@ -33,9 +33,15 @@ public class MainController {
         controllerListener.goToLogin();
     }
 
+
+    public void onGoToLinkListButtonClicked() {controllerListener.goToLinkList();}
+
+    public void onLinkButtonClicked() {
+        controllerListener.showToast("LIKED");
+    }
+
     /**
-     * use user's potential list to find other other
-     * show other user's info
+     * use user's potential list to find other other show other user's info
      */
     public void loadUserInfo() {
         Db.fetchUserInfo(this.db, this.auth.getCurrentUser()).addOnSuccessListener(documentSnapshot -> {
@@ -49,7 +55,7 @@ public class MainController {
                 // get other user's id
                 final String userId = (String) potential.keySet().toArray()[0];
                 Db.fetchUserInfoById(this.db, userId).addOnSuccessListener(documentSnapshotOther -> {
-                    controllerListener.showCurrentUserInfo(data);
+                    // controllerListener.showCurrentUserInfo(data);
 
                     // show other user's info
                     final Map<String, Object> otherUserdata = documentSnapshotOther.getData();
@@ -64,11 +70,13 @@ public class MainController {
                 controllerListener.showToast("No potentials");
             }
 
+
         }).addOnFailureListener(exception -> {
             final String message = "Network error";
             controllerListener.showToast(message);
         });
     }
+
 
     public void onLikeClicked() {
         Db.fetchUserInfo(this.db, this.auth.getCurrentUser()).addOnSuccessListener(documentSnapshot -> {
@@ -87,6 +95,29 @@ public class MainController {
                 likes.put(userId, "");
                 data.put(Db.Keys.LIKED, likes);
                 Db.updateUser(this.db, this.auth.getCurrentUser(), data);
+
+                Db.fetchUserInfoById(this.db, userId).addOnSuccessListener(documentSnapshotOther -> {
+
+                    final Map<String, Object> otherUserData = documentSnapshotOther.getData();
+
+                    final HashMap<String, Object> otherUserLiked = (HashMap<String, Object>) otherUserData.get(Db.Keys.LIKED);
+
+                    final String currentUserId = this.auth.getCurrentUser().getUid();
+
+                    if (otherUserLiked.containsKey(currentUserId)) {
+                        final HashMap<String, Object> otherUserMatched = (HashMap<String, Object>) otherUserData.get(Db.Keys.MATCHED);
+                        final HashMap<String, Object> userMatched = (HashMap<String, Object>) data.get(Db.Keys.MATCHED);
+                        otherUserMatched.put(currentUserId, "");
+                        userMatched.put(userId, "");
+                        Db.updateUser(this.db, this.auth.getCurrentUser(), data);
+                        Db.updateOtherUserById(this.db, userId, otherUserData);
+                    }
+
+                }).addOnFailureListener(exception -> {
+                    final String message = "Network error";
+                    controllerListener.showToast(message);
+                });
+
                 if (potential.keySet().size() > 0) {
                     controllerListener.setFragment();
                 } else {

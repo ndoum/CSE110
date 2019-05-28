@@ -46,11 +46,20 @@ public class Db {
     }
 
     public static Task<Void> updateUser(final FirebaseFirestore firestore,
-                                        final @Nonnull FirebaseUser user,
-                                        final Map<String, Object> userHash) {
+                                             final @Nonnull FirebaseUser user,
+                                             final Map<String, Object> userHash) {
 
         return firestore.collection(USERS_COLLECTION_NAME)
                 .document(user.getUid())
+                .update(userHash);
+    }
+
+    public static Task<Void> updateOtherUserById(final FirebaseFirestore firestore,
+                                                 final String userId,
+                                        final Map<String, Object> userHash) {
+
+        return firestore.collection(USERS_COLLECTION_NAME)
+                .document(userId)
                 .update(userHash);
     }
 
@@ -65,6 +74,11 @@ public class Db {
     public static Task<byte[]> fetchUserProfilePicture(final FirebaseStorage storage,
                                                        final @Nonnull FirebaseUser user) {
         return storage.getReference().child(PROFILE_PIC_PATH + user.getUid()).getBytes(ONE_MEGABYTE);
+    }
+
+    public static Task<byte[]> fetchUserProfilePictureById(final FirebaseStorage storage,
+                                                       final String userId) {
+        return storage.getReference().child(PROFILE_PIC_PATH + userId).getBytes(ONE_MEGABYTE);
     }
 
     public static Task<byte[]> fetchDefaultUserProfilePicture(final FirebaseStorage storage) {
@@ -84,7 +98,7 @@ public class Db {
         return firestore.collection(USERS_COLLECTION_NAME)
                 .document(userId).get();
     }
-
+    
     public static class Keys {
 
         public static final String ACADEMIC_YEAR = "academic_year";

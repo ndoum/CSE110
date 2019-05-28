@@ -13,4 +13,5 @@ public interface AdvancedSettingsControllerListener {
     void showToast(final String message);
 
     void showCurrentUserInfo(final Map<String, Object> data);
+
 }

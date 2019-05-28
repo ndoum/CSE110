@@ -31,9 +31,7 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
     private TextView academicYear;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         if (container != null) {
             container.removeAllViews();
@@ -47,7 +45,8 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
         appBarLayout = rootView.findViewById(R.id.potential_roommate_profile_default_appbarid);
         viewPager = rootView.findViewById(R.id.potential_roommate_profile_default_viewpager_id);
 
-        PotentialRoommateProfileDefaultAdapter adapter = new PotentialRoommateProfileDefaultAdapter(getChildFragmentManager());
+        PotentialRoommateProfileDefaultAdapter adapter = new PotentialRoommateProfileDefaultAdapter(
+                getChildFragmentManager());
         adapter.AddFragment(new UserTab1Fragment(), "General");
         adapter.AddFragment(new UserTab2Fragment(), "Personal");
         adapter.AddFragment(new UserTab3Fragment(), "Overview");
@@ -55,7 +54,6 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
         tablayout.setupWithViewPager(viewPager);
 
         controller.loadUserInfo();
-
 
         // Inflate the layout for this fragment
         return rootView;
@@ -68,6 +66,11 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
 
     @Override
     public void goToLogin() {
+
+    }
+
+    @Override
+    public void goToLinkList() {
 
     }
 
@@ -89,7 +92,6 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
         academicYear.setText((String) data.get(Db.Keys.ACADEMIC_YEAR) + "Year");
     }
 
-
     @Override
     public void setFragment() {
 
@@ -99,6 +101,5 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
     public void setFragmentEmpty() {
 
     }
-
 
 }

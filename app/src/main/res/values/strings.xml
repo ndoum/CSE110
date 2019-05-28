@@ -26,6 +26,8 @@
     <string name="menu_log_in_button">Log In</string>
     <string name="menu_log_out_button">Log Out</string>
     <string name="menu_profile_settings_button">Profile Settings</string>
+
+    <string name="menu_view_link_list_button">View Link List</string>
     <string name="menu_profile_user_name">User Name</string>
     <string name="menu_profile_user_year">User Year</string>
 
@@ -113,6 +115,20 @@
     <string name="adv_settings_phone">Phone number:</string>
     <string name="adv_settings_budget">Budget:</string>
     <string name="adv_settings_button_save">Save</string>
+
+    <!-- User Tab 3 -->
+    <string name="user_tab_three_question_one">I keep my room clean.</string>
+    <string name="user_tab_three_question_two">I am a reserved person.</string>
+    <string name="user_tab_three_question_three">I plan to have parties.</string>
+    <string name="user_tab_three_question_four">I drink alcohol.</string>
+    <string name="user_tab_three_question_five">I smoke.</string>
+    <string name="user_tab_three_question_six">I go to bed lates.</string>
+    <string name="user_tab_three_question_seven">I am fine with guests.</string>
+    <string name="user_tab_three_question_eight">I plan to have a pet.</string>
+
+
+
+
 
 
 </resources>
