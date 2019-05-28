@@ -1,16 +1,17 @@
 package com.example.rum8.controllers;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.util.Log;
 
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -88,16 +89,33 @@ public class ProfileSettingsController {
         }
     }
 
-    public Task<DocumentSnapshot> loadUserInfo() {
-        return Db.fetchUserInfo(this.db, auth.getCurrentUser());
+    public void loadUserInfo() {
+        Db.fetchUserInfo(this.db, auth.getCurrentUser()).addOnSuccessListener(documentSnapshot -> {
+            final Map<String, Object> data = documentSnapshot.getData();
+            controllerListener.showCurrentUserInfo(data);
+        }).addOnFailureListener(exception -> {
+            final String message = "Network error";
+            controllerListener.showToast(message);
+        });
     }
 
-    public Task<byte[]> loadDefaluUserProfileImage() {
-        return Db.fetchDefaultUserProfilePicture(this.storage);
-    }
-
-    public Task<byte[]> loadUserProfileImage() {
-        return Db.fetchUserProfilePicture(this.storage, this.auth.getCurrentUser());
+    public void loadUserProfileImage() {
+        Db.fetchUserProfilePicture(this.storage, this.auth.getCurrentUser()).addOnSuccessListener(bytes -> {
+            Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+            controllerListener.setUserProfileImage(bmp);
+        }).addOnFailureListener(exception -> {
+            // fetch default if the user does not upload
+            Db.fetchDefaultUserProfilePicture(this.storage).addOnSuccessListener(bytes -> {
+                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                controllerListener.setUserProfileImage(bmp);
+            });
+            // show error message if both way fails
+            int errorCode = ((StorageException) exception).getErrorCode();
+            if (errorCode != StorageException.ERROR_OBJECT_NOT_FOUND) {
+                final String message = "Network error";
+                controllerListener.showToast(message);
+            }
+        });
     }
 
     /**
@@ -117,10 +135,6 @@ public class ProfileSettingsController {
         Db.updateUser(db, auth.getCurrentUser(), userMap)
                 .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
                 .addOnFailureListener(e -> Log.d(TAG, "Error adding document"));
-
-        /**
-         * TODO: update here user's sets here
-         */
     }
 
 }

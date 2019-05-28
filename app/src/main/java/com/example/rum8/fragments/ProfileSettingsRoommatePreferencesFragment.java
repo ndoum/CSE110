@@ -1,5 +1,6 @@
 package com.example.rum8.fragments;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,103 +69,7 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
                 .findViewById(R.id.roommate_preferences_guests_preference_radio_group);
         radioGroupRoommateQuestionNine = rootView.findViewById(R.id.roommate_preferences_pets_preference_radio_group);
 
-        controller.loadUserInfo().addOnSuccessListener(documentSnapshot -> {
-            Map<String, Object> data = documentSnapshot.getData();
-            long gender = (long) data.get(Db.Keys.ROOMMATE_PREFER_SAME_GENDER_ROOMMATE_VALUE);
-            long clean = (long) data.get(Db.Keys.ROOMMATE_CLEAN_VALUE);
-            long reserve = (long) data.get(Db.Keys.ROOMMATE_RESERVED_VALUE);
-            long party = (long) data.get(Db.Keys.ROOMMATE_PARTY_VALUE);
-            long alcohol = (long) data.get(Db.Keys.ROOMMATE_ALCOHOL_VALUE);
-            long smoke = (long) data.get(Db.Keys.ROOMMATE_SMOKE_VALUE);
-            long stayLate = (long) data.get(Db.Keys.ROOMMATE_STAY_UP_LATE_ON_WEEKDAYS_VALUE);
-            long guests = (long) data.get(Db.Keys.ROOMMATE_OVERNIGHT_GUESTS_VALUE);
-            long pet = (long) data.get(Db.Keys.ROOMMATE_ALLOW_PETS_VALUE);
-
-            if (gender == 1) {
-                radioGroupRoommateQuestionOne.check(R.id.roommate_preferences_gender_preference_yes);
-            } else if (gender == 0) {
-                radioGroupRoommateQuestionOne.check(R.id.roommate_preferences_gender_preference_no_pref);
-            } else {
-                radioGroupRoommateQuestionOne.check(R.id.personal_preferences_cleanliness_preference_yes);
-            }
-
-            if (clean == 1) {
-                radioGroupRoommateQuestionTwo.check(R.id.roommate_preferences_cleanness_preference_yes);
-            } else if (clean == 0) {
-                radioGroupRoommateQuestionTwo.check(R.id.roommate_preferences_cleanness_preference_no_pref);
-            } else {
-                radioGroupRoommateQuestionTwo.check(R.id.roommate_preferences_cleanness_preference_no);
-            }
-
-            if (reserve == 1) {
-                radioGroupRoommateQuestionThree.check(R.id.roommate_preferences_reserved_preference_yes);
-            } else if (reserve == 0) {
-                radioGroupRoommateQuestionThree.check(R.id.roommate_preferences_reserved_preference_no_pref);
-            } else {
-                radioGroupRoommateQuestionThree.check(R.id.roommate_preferences_reserved_preference_no_);
-            }
-
-            if (party == 1) {
-                radioGroupRoommateQuestionFour.check(R.id.roommate_preferences_party_preference_yes);
-            } else if (party == 0) {
-                radioGroupRoommateQuestionFour.check(R.id.roommate_preferences_party_preference_no_pref);
-            } else {
-                radioGroupRoommateQuestionFour.check(R.id.roommate_preferences_party_preference_no);
-            }
-
-            if (alcohol == 1) {
-                radioGroupRoommateQuestionFive.check(R.id.roommate_preferences_alcohol_preference_yes);
-            } else if (alcohol == 0) {
-                radioGroupRoommateQuestionFive.check(R.id.roommate_preferences_alcohol_preference_no_pref);
-            } else {
-                radioGroupRoommateQuestionFive.check(R.id.roommate_preferences_alcohol_preference_no);
-            }
-
-            if (smoke == 1) {
-                radioGroupRoommateQuestionSix.check(R.id.roommate_preferences_smoking_preference_yes);
-            } else if (smoke == 0) {
-                radioGroupRoommateQuestionSix.check(R.id.roommate_preferences_smoking_preference_no_pref);
-            } else {
-                radioGroupRoommateQuestionSix.check(R.id.roommate_preferences_smoking_preference_no);
-            }
-
-            if (stayLate == 1) {
-                radioGroupRoommateQuestionSeven.check(R.id.roommate_preferences_sleep_preference_yes);
-            } else if (alcohol == 0) {
-                radioGroupRoommateQuestionSeven.check(R.id.roommate_preferences_sleep_preference_no_pref);
-            } else {
-                radioGroupRoommateQuestionSeven.check(R.id.roommate_preferences_sleep_preference_no);
-            }
-
-            if (guests == 1) {
-                radioGroupRoommateQuestionEight.check(R.id.roommate_preferences_guests_preference_yes);
-            } else if (alcohol == 0) {
-                radioGroupRoommateQuestionEight.check(R.id.roommate_preferences_guests_preference_no_pref);
-            } else {
-                radioGroupRoommateQuestionEight.check(R.id.roommate_preferences_guests_preference_no);
-            }
-
-            if (pet == 1) {
-                radioGroupRoommateQuestionNine.check(R.id.roommate_preferences_pets_preference_yes);
-            } else if (alcohol == 0) {
-                radioGroupRoommateQuestionNine.check(R.id.roommate_preferences_pets_preference_no_pref);
-            } else {
-                radioGroupRoommateQuestionNine.check(R.id.roommate_preferences_pets_preference_no);
-            }
-
-            radioGroupRoommateQuestionOne.jumpDrawablesToCurrentState();
-            radioGroupRoommateQuestionTwo.jumpDrawablesToCurrentState();
-            radioGroupRoommateQuestionThree.jumpDrawablesToCurrentState();
-            radioGroupRoommateQuestionFour.jumpDrawablesToCurrentState();
-            radioGroupRoommateQuestionFive.jumpDrawablesToCurrentState();
-            radioGroupRoommateQuestionSix.jumpDrawablesToCurrentState();
-            radioGroupRoommateQuestionSeven.jumpDrawablesToCurrentState();
-            radioGroupRoommateQuestionEight.jumpDrawablesToCurrentState();
-            radioGroupRoommateQuestionNine.jumpDrawablesToCurrentState();
-        }).addOnFailureListener(exception -> {
-            final String message = "Network error";
-            showToast(message);
-        });
+        controller.loadUserInfo();
 
         radioGroupRoommateQuestionOne.setOnCheckedChangeListener((group, checkedId) -> {
             // checkedId is the RadioButton selected
@@ -304,6 +209,106 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
 
     @Override
     public void chooseImage() {
+    }
+
+    @Override
+    public void setUserProfileImage(Bitmap bitmap) {
+
+    }
+
+    @Override
+    public void showCurrentUserInfo(Map<String, Object> data) {
+        long gender = (long) data.get(Db.Keys.ROOMMATE_PREFER_SAME_GENDER_ROOMMATE_VALUE);
+        long clean = (long) data.get(Db.Keys.ROOMMATE_CLEAN_VALUE);
+        long reserve = (long) data.get(Db.Keys.ROOMMATE_RESERVED_VALUE);
+        long party = (long) data.get(Db.Keys.ROOMMATE_PARTY_VALUE);
+        long alcohol = (long) data.get(Db.Keys.ROOMMATE_ALCOHOL_VALUE);
+        long smoke = (long) data.get(Db.Keys.ROOMMATE_SMOKE_VALUE);
+        long stayLate = (long) data.get(Db.Keys.ROOMMATE_STAY_UP_LATE_ON_WEEKDAYS_VALUE);
+        long guests = (long) data.get(Db.Keys.ROOMMATE_OVERNIGHT_GUESTS_VALUE);
+        long pet = (long) data.get(Db.Keys.ROOMMATE_ALLOW_PETS_VALUE);
+
+        if (gender == 1) {
+            radioGroupRoommateQuestionOne.check(R.id.roommate_preferences_gender_preference_yes);
+        } else if (gender == 0) {
+            radioGroupRoommateQuestionOne.check(R.id.roommate_preferences_gender_preference_no_pref);
+        } else {
+            radioGroupRoommateQuestionOne.check(R.id.personal_preferences_cleanliness_preference_yes);
+        }
+
+        if (clean == 1) {
+            radioGroupRoommateQuestionTwo.check(R.id.roommate_preferences_cleanness_preference_yes);
+        } else if (clean == 0) {
+            radioGroupRoommateQuestionTwo.check(R.id.roommate_preferences_cleanness_preference_no_pref);
+        } else {
+            radioGroupRoommateQuestionTwo.check(R.id.roommate_preferences_cleanness_preference_no);
+        }
+
+        if (reserve == 1) {
+            radioGroupRoommateQuestionThree.check(R.id.roommate_preferences_reserved_preference_yes);
+        } else if (reserve == 0) {
+            radioGroupRoommateQuestionThree.check(R.id.roommate_preferences_reserved_preference_no_pref);
+        } else {
+            radioGroupRoommateQuestionThree.check(R.id.roommate_preferences_reserved_preference_no_);
+        }
+
+        if (party == 1) {
+            radioGroupRoommateQuestionFour.check(R.id.roommate_preferences_party_preference_yes);
+        } else if (party == 0) {
+            radioGroupRoommateQuestionFour.check(R.id.roommate_preferences_party_preference_no_pref);
+        } else {
+            radioGroupRoommateQuestionFour.check(R.id.roommate_preferences_party_preference_no);
+        }
+
+        if (alcohol == 1) {
+            radioGroupRoommateQuestionFive.check(R.id.roommate_preferences_alcohol_preference_yes);
+        } else if (alcohol == 0) {
+            radioGroupRoommateQuestionFive.check(R.id.roommate_preferences_alcohol_preference_no_pref);
+        } else {
+            radioGroupRoommateQuestionFive.check(R.id.roommate_preferences_alcohol_preference_no);
+        }
+
+        if (smoke == 1) {
+            radioGroupRoommateQuestionSix.check(R.id.roommate_preferences_smoking_preference_yes);
+        } else if (smoke == 0) {
+            radioGroupRoommateQuestionSix.check(R.id.roommate_preferences_smoking_preference_no_pref);
+        } else {
+            radioGroupRoommateQuestionSix.check(R.id.roommate_preferences_smoking_preference_no);
+        }
+
+        if (stayLate == 1) {
+            radioGroupRoommateQuestionSeven.check(R.id.roommate_preferences_sleep_preference_yes);
+        } else if (alcohol == 0) {
+            radioGroupRoommateQuestionSeven.check(R.id.roommate_preferences_sleep_preference_no_pref);
+        } else {
+            radioGroupRoommateQuestionSeven.check(R.id.roommate_preferences_sleep_preference_no);
+        }
+
+        if (guests == 1) {
+            radioGroupRoommateQuestionEight.check(R.id.roommate_preferences_guests_preference_yes);
+        } else if (alcohol == 0) {
+            radioGroupRoommateQuestionEight.check(R.id.roommate_preferences_guests_preference_no_pref);
+        } else {
+            radioGroupRoommateQuestionEight.check(R.id.roommate_preferences_guests_preference_no);
+        }
+
+        if (pet == 1) {
+            radioGroupRoommateQuestionNine.check(R.id.roommate_preferences_pets_preference_yes);
+        } else if (alcohol == 0) {
+            radioGroupRoommateQuestionNine.check(R.id.roommate_preferences_pets_preference_no_pref);
+        } else {
+            radioGroupRoommateQuestionNine.check(R.id.roommate_preferences_pets_preference_no);
+        }
+
+        radioGroupRoommateQuestionOne.jumpDrawablesToCurrentState();
+        radioGroupRoommateQuestionTwo.jumpDrawablesToCurrentState();
+        radioGroupRoommateQuestionThree.jumpDrawablesToCurrentState();
+        radioGroupRoommateQuestionFour.jumpDrawablesToCurrentState();
+        radioGroupRoommateQuestionFive.jumpDrawablesToCurrentState();
+        radioGroupRoommateQuestionSix.jumpDrawablesToCurrentState();
+        radioGroupRoommateQuestionSeven.jumpDrawablesToCurrentState();
+        radioGroupRoommateQuestionEight.jumpDrawablesToCurrentState();
+        radioGroupRoommateQuestionNine.jumpDrawablesToCurrentState();
     }
 
 }
