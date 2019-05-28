@@ -372,18 +372,22 @@
                 android:layout_columnWeight="1"
                 android:orientation="horizontal">
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/personal_references_save_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/save" />
+                    android:background="@color/menuBarColor"
+                    android:text="@string/save"
+                    android:textColor="@color/white" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/personal_references_next_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:text="@string/next" />
+                    android:background="@color/menuBarColor"
+                    android:text="@string/next"
+                    android:textColor="@color/white" />
 
             </RelativeLayout>
         </GridLayout>

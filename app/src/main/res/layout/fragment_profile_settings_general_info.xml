@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="16dp"
     android:rowCount="9">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fragment_profile_settings_general_info_constraint_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp">
 
         <ImageView
             android:id="@+id/general_info_profile_image_view"
@@ -28,23 +28,31 @@
             app:layout_constraintTop_toBottomOf="@id/general_info_profile_image_view">
 
             <!-- PROFILE IMAGE -->
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/general_info_profile_image_upload_button"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="147dp"
                 android:layout_height="55dp"
                 android:layout_row="0"
                 android:layout_column="0"
-                android:layout_gravity="top|left"
-                android:text="@string/choose_from_device" />
+                android:layout_gravity="top|start"
+                android:text="@string/choose_from_device"
+                android:textColor="@color/colorAccent"
+                app:strokeColor="@color/colorAccent"
+                app:strokeWidth="2dp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/general_info_profile_image_save_button"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="147dp"
                 android:layout_height="55dp"
                 android:layout_row="0"
                 android:layout_column="1"
-                android:layout_gravity="top|left"
-                android:text="@string/upload_Photo" />
+                android:layout_gravity="top|end"
+                android:text="@string/upload_Photo"
+                android:textColor="@color/colorAccent"
+                app:strokeColor="@color/colorAccent"
+                app:strokeWidth="2dp" />
 
             <!-- NAME LABELS -->
             <TextView
@@ -68,40 +76,48 @@
             <!--NAME TEXT FIELDS -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/general_info_first_name_field_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_row="2"
                 android:layout_column="0"
                 android:layout_columnWeight="1"
                 android:paddingEnd="24dp"
-                app:boxStrokeColor="@color/ucsd_navy_blue">
+                android:textColorHint="@color/colorAccent"
+                app:boxStrokeColor="@color/colorAccent"
+                app:hintTextColor="@color/colorAccent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/general_info_first_name_field"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
-                    android:maxLines="1" />
+                    android:maxLines="1"
+                    android:textColor="@color/colorAccent"
+                    android:textColorHint="@color/menuBarColor" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/general_info_last_name_field_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_row="2"
                 android:layout_column="1"
                 android:layout_columnWeight="1"
                 android:paddingEnd="24dp"
-                app:boxStrokeColor="@color/ucsd_navy_blue">
+                android:textColorHint="@color/colorAccent"
+                app:boxStrokeColor="@color/colorAccent"
+                app:hintTextColor="@color/colorAccent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/general_info_last_name_field"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
-                    android:maxLines="1" />
+                    android:maxLines="1"
+                    android:textColor="@color/colorAccent"
+                    android:textColorHint="@color/menuBarColor" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- GENDER -->
@@ -159,23 +175,27 @@
                 android:layout_columnWeight="1" />
 
             <!-- SAVE -->
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/general_info_profile_save_button"
                 android:layout_width="147dp"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
                 android:layout_row="6"
                 android:layout_column="0"
                 android:layout_gravity="left"
-                android:text="Save" />
+                android:background="@color/menuBarColor"
+                android:text="Save"
+                android:textColor="@color/white" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/general_info_profile_next_button"
                 android:layout_width="147dp"
-                android:layout_height="55dp"
-                android:layout_row="7"
-                android:layout_column="0"
-                android:layout_gravity="left"
-                android:text="next" />
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_column="1"
+                android:layout_gravity="right"
+                android:background="@color/menuBarColor"
+                android:text="next"
+                android:textColor="@color/white" />
 
         </GridLayout>
 
