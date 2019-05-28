@@ -1,5 +1,6 @@
 package com.example.rum8.fragments;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -89,6 +90,11 @@ public class UserTab2Fragment extends Fragment implements MainControllerListener
 
     @Override
     public void setFragmentEmpty() {
+
+    }
+
+    @Override
+    public void setUserProfileImage(Bitmap bitmap) {
 
     }
 }

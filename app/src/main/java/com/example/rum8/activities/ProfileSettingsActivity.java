@@ -123,6 +123,11 @@ public class ProfileSettingsActivity extends FragmentActivity
     public void chooseImage() {
     }
 
+    @Override
+    public void setUserProfileImage(Bitmap bitmap) {
+
+    }
+
     /**
      * Setter method that set view pager to the given number
      * that represented the order of fragments page.

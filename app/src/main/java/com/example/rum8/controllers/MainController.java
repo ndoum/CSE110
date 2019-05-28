@@ -1,9 +1,14 @@
 package com.example.rum8.controllers;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.MainControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,11 +18,13 @@ public class MainController {
     private MainControllerListener controllerListener;
     private FirebaseFirestore db;
     private FirebaseAuth auth;
+    private FirebaseStorage storage;
 
     public MainController(final MainControllerListener controllerListener) {
         this.controllerListener = controllerListener;
         this.db = FirebaseFirestore.getInstance();
         this.auth = FirebaseAuth.getInstance();
+        this.storage = FirebaseStorage.getInstance();
     }
 
     public void onGoToProfileSettingsButtonClicked() {
@@ -36,10 +43,6 @@ public class MainController {
 
     public void onGoToLinkListButtonClicked() {controllerListener.goToLinkList();}
 
-    public void onLinkButtonClicked() {
-        controllerListener.showToast("LIKED");
-    }
-
     /**
      * use user's potential list to find other other show other user's info
      */
@@ -55,7 +58,24 @@ public class MainController {
                 // get other user's id
                 final String userId = (String) potential.keySet().toArray()[0];
                 Db.fetchUserInfoById(this.db, userId).addOnSuccessListener(documentSnapshotOther -> {
-                    // controllerListener.showCurrentUserInfo(data);
+
+                    // fetch other user's profile picture
+                    Db.fetchUserProfilePictureById(this.storage, userId).addOnSuccessListener(bytes -> {
+                        Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                        controllerListener.setUserProfileImage(bmp);
+                    }).addOnFailureListener(exception -> {
+                        // fetch default if the user does not upload
+                        Db.fetchDefaultUserProfilePicture(this.storage).addOnSuccessListener(bytes -> {
+                            Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                            controllerListener.setUserProfileImage(bmp);
+                        });
+                        // show error message if both way fails
+                        int errorCode = ((StorageException) exception).getErrorCode();
+                        if (errorCode != StorageException.ERROR_OBJECT_NOT_FOUND) {
+                            final String message = "Network error";
+                            controllerListener.showToast(message);
+                        }
+                    });
 
                     // show other user's info
                     final Map<String, Object> otherUserdata = documentSnapshotOther.getData();
