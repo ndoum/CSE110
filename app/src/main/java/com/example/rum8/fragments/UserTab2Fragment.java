@@ -81,4 +81,14 @@ public class UserTab2Fragment extends Fragment implements MainControllerListener
     @Override
     public void goToAdvSettings() {
     }
+
+    @Override
+    public void setFragment() {
+
+    }
+
+    @Override
+    public void setFragmentEmpty() {
+
+    }
 }
