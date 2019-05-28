@@ -23,12 +23,13 @@ public class PotentialRoommateProfileInit extends Fragment {
     private ViewPager viewPager;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         if (container != null) {
             container.removeAllViews();
         }
+
+
 
         View rootView = inflater.inflate(R.layout.fragment_potential_roommate_profile, container, false);
 
@@ -36,7 +37,8 @@ public class PotentialRoommateProfileInit extends Fragment {
         appBarLayout = rootView.findViewById(R.id.potential_roommate_profile_appbarid);
         viewPager = rootView.findViewById(R.id.potential_roommate_profile_viewpager_id);
 
-        PotentialRoommateProfileInitAdapter adapter = new PotentialRoommateProfileInitAdapter(getChildFragmentManager());
+        PotentialRoommateProfileInitAdapter adapter = new PotentialRoommateProfileInitAdapter(
+                getChildFragmentManager());
         adapter.AddFragment(new UserTab1Fragment(), "General");
         adapter.AddFragment(new UserTab2Fragment(), "Personal");
         adapter.AddFragment(new UserTab3Fragment(), "Overview");
