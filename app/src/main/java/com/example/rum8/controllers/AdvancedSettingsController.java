@@ -46,6 +46,7 @@ public class AdvancedSettingsController {
         controllerListener.goToAdvSettings();
     }
 
+
     public void onGoToViewLinkListButtonClicked(){
         controllerListener.goToViewLinkList();
     }

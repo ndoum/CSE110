@@ -1,6 +1,7 @@
 package com.example.rum8.adapters;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -10,71 +11,63 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rum8.R;
+import com.example.rum8.activities.ViewLinkListActivity;
 import com.example.rum8.dataModels.LinkListSingleLink;
-import com.example.rum8.viewHolders.LinkListSingleLinkHolder;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.Map;
+import java.util.List;
 
-//DONT KNOW WHAT IM DOING HERE
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLinkListRecycleViewAdapter.LinkListSingleLinkHolder> {
 
-public class ViewLinkListRecycleViewAdapter extends FirebaseRecyclerAdapter<LinkListSingleLink, LinkListSingleLinkHolder> {
-/*
-    private Context context;
-    private FirebaseRecyclerOptions<LinkListSingleLink> options;
-    private Map<String, Object> users;
+    private List<LinkListSingleLink> lLinks;
+    ViewLinkListActivity activity;
 
-    public class LinkListSingleLinkHolder extends RecyclerView.ViewHolder {
+    public class LinkListSingleLinkHolder extends RecyclerView.ViewHolder{
         public ImageView imageView;
-        public TextView firstName;
-        //id field?
+        public TextView nameView;
+        //public Button button_link;
 
-        public LinkListSingleLinkHolder(View itemView){
+        public LinkListSingleLinkHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.view_link_list_single_link_imageview);
-            firstName = itemView.findViewById(R.id.general_info_first_name_field);
+            imageView = (ImageView) itemView.findViewById(R.id.view_link_list_single_link_imageview);
+            nameView = (TextView) itemView.findViewById(R.id.view_link_list_single_link_textview);
         }
     }
 
+    public ViewLinkListRecycleViewAdapter(){}
 
-    public ViewLinkListRecycleViewAdapter(Map<String, Object> users){
-        this.users = users;
+    public ViewLinkListRecycleViewAdapter(List<LinkListSingleLink> lLinks){
+        this.lLinks = lLinks;
     }
-*/
-    /**
-     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
-     * {@link FirebaseRecyclerOptions} for configuration options.
-     *
-     * @param options
-     */
-    public ViewLinkListRecycleViewAdapter(@NonNull FirebaseRecyclerOptions<LinkListSingleLink> options) {
-        super(options);
+
+    public void setlLinks(List<LinkListSingleLink> lLinks){ this.lLinks = lLinks;}
+    public void setActivity(ViewLinkListActivity activity){this.activity = activity;}
+
+    @Override
+    public ViewLinkListRecycleViewAdapter.LinkListSingleLinkHolder onCreateViewHolder(ViewGroup parent, int viewType){
+        Context context = parent.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
+
+        View view;
+        view = inflater.inflate(R.layout.activity_view_link_list_single_link, parent, false);
+        LinkListSingleLinkHolder linkHolder = new LinkListSingleLinkHolder(view);
+
+        return linkHolder;
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull LinkListSingleLinkHolder linkListSingleLinkHolder, int i, @NonNull LinkListSingleLink linkListSingleLink) {
+    public void onBindViewHolder(LinkListSingleLinkHolder linkHolder, int position){
+        LinkListSingleLink link = lLinks.get(position);
+
+        TextView firstNameView = linkHolder.nameView;
+        firstNameView.setText(link.getfirst_name()+" "+link.getlast_name());
+
+        //ImageView imageView = linkHolder.imageView;
+        //TODO set image
 
     }
 
-    @NonNull
     @Override
-    public LinkListSingleLinkHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+    public int getItemCount(){
+        return lLinks.size();
     }
-
-    /*public ViewLinkListRecycleViewAdapter(Class<LinkListSingleLink> modelClass,
-                                          int modelLayout,
-                                          Class<LinkListSingleLinkHolder> viewHolderClass,
-                                          FirebaseDatabase ref,
-                                          Context context) {
-        super(new FirebaseRecyclerOptions.Builder<LinkListSingleLink>().setIndexedQuery();
-        this.context = context;
-    }*/
-
-
-
 }

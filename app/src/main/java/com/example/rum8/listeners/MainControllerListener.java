@@ -16,6 +16,7 @@ public interface MainControllerListener {
 
     void showCurrentUserInfo(final Map<String, Object> data);
 
+
     void setFragment();
 
     void setFragmentEmpty();

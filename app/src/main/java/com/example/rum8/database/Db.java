@@ -67,9 +67,16 @@ public class Db {
         return storage.getReference().child(PROFILE_PIC_PATH + user.getUid()).getBytes(ONE_MEGABYTE);
     }
 
+    public static Task<byte[]> fetchUserProfilePictureById(final FirebaseStorage storage,
+                                                       final String userId) {
+        return storage.getReference().child(PROFILE_PIC_PATH + userId).getBytes(ONE_MEGABYTE);
+    }
+
+
     public static Task<byte[]> fetchDefaultUserProfilePicture(final FirebaseStorage storage) {
         return storage.getReference().child(DEFAULT_PROFILE_PIC_PATH).getBytes(ONE_MEGABYTE);
     }
+
 
     public static Task<DocumentSnapshot> fetchUserInfo(final FirebaseFirestore firestore,
                                                        final @Nonnull FirebaseUser user) {
@@ -85,10 +92,7 @@ public class Db {
                 .document(userId).get();
     }
 
-    public static Task<byte[]> fetchLinkProfilePicture (final FirebaseStorage storage,
-                                                        final String linkUid){
-        return storage.getReference().child(PROFILE_PIC_PATH + linkUid).getBytes(ONE_MEGABYTE);
-    }
+
 
     public static class Keys {
 

@@ -134,4 +134,5 @@ public class AdvancedSettingsActivity extends AppCompatActivity
 
     public void goToAdvSettings() {
     }
+
 }

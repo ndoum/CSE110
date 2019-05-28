@@ -15,4 +15,5 @@ public interface AdvancedSettingsControllerListener {
     void goToViewLinkList();
 
     void showCurrentUserInfo(final Map<String, Object> data);
+
 }

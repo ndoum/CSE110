@@ -53,7 +53,6 @@ public class RegistrationController {
 
                             final Map<String, Object> userInfo = new HashMap<String, Object>() {{
                                 put(Db.Keys.EMAIL, email);
-                                put(Db.Keys.UID, auth.getCurrentUser().getUid());
                             }};
 
                             final FirebaseUser user = auth.getCurrentUser();

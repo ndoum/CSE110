@@ -91,6 +91,7 @@ public class ProfileSettingsActivity extends FragmentActivity
 
         tabLayout = findViewById(R.id.activity_profile_settings_tab_layout);
         tabLayout.setupWithViewPager(viewPager);
+
     }
 
     private void initController() {
