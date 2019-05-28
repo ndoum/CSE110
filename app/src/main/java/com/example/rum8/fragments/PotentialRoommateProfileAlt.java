@@ -9,12 +9,10 @@ import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
 
-
 public class PotentialRoommateProfileAlt extends Fragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         if (container != null) {
             container.removeAllViews();

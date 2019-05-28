@@ -9,5 +9,10 @@
     <color name="ucsd_blue">#006A96</color>
     <color name="ucsd_gold">#FFCD00</color>
     <color name="ucsd_grey">#B6B1A9</color>
+    <color name="light_orange">#FFDEBD</color>
+    <color name="light_light_yellow">#F9FADA</color>
+    <color name="dark_yellow">#DA9A2B</color>
+    <color name="brown">#A3652B</color>
+    <color name="white">#FFFFFF</color>
 
 </resources>
