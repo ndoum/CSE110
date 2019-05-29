@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rum8.R;
-import com.example.rum8.activities.ViewLinkListActivity;
 import com.example.rum8.dataModels.LinkListSingleLink;
 
 import java.util.List;
@@ -19,7 +18,6 @@ import java.util.List;
 public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLinkListRecycleViewAdapter.LinkListSingleLinkHolder> {
 
     private List<LinkListSingleLink> lLinks;
-    ViewLinkListActivity activity;
 
     //View Holder for a LinkListSingleLink object
     public class LinkListSingleLinkHolder extends RecyclerView.ViewHolder{
@@ -31,12 +29,12 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
             imageView = itemView.findViewById(R.id.view_link_list_single_link_imageview);
             nameView = itemView.findViewById(R.id.view_link_list_single_link_textview);
         }
+
     }
 
     public ViewLinkListRecycleViewAdapter(){}
 
     public void setlLinks(List<LinkListSingleLink> lLinks){ this.lLinks = lLinks;}
-    public void setActivity(ViewLinkListActivity activity){this.activity = activity;}
 
     @Override
     public ViewLinkListRecycleViewAdapter.LinkListSingleLinkHolder onCreateViewHolder(ViewGroup parent, int viewType){
