@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="16dp"
-    tools:layout_editor_absoluteY="81dp">
+    android:paddingHorizontal="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fragment_profile_settings_roommate_preferences_constraint_layout"
@@ -397,12 +395,13 @@
                     android:text="@string/no" />
             </RadioGroup>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/roommate_preferences_save_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="save and view your potential roommate" />
-
+                android:backgroundTint="@color/colorAccent"
+                android:text="save and view your potential roommate"
+                android:textColor="@color/white" />
         </GridLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -4,135 +4,158 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_yellow"
     tools:context=".activities.LoginActivity">
 
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:alpha="0.8"
-        android:background="@drawable/back" />
-
     <LinearLayout
-        android:layout_width="379dp"
-        android:layout_height="699dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:orientation="vertical"
+        android:id="@+id/login_logo_linear_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingTop="20dp"
+        app:layout_constraintBottom_toTopOf="@id/login_fields_linear_layout"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/login_r_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:text="r"
+            android:textColor="@color/colorAccentDark"
+            android:textSize="50dp" />
+
+        <ImageView
+            android:id="@+id/login_logo_imageview"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo_no_border_cropped" />
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/login_m8_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="m8"
+            android:textColor="@color/colorAccentDark"
+            android:textSize="50dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/login_fields_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_logo_linear_layout">
+
+        <TextView
+            android:id="@+id/login_header_textview"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_weight="0"
-            android:fontFamily="@font/rock_salt"
-            android:gravity="center_horizontal"
-            android:text="Log in"
-            android:textColor="#F8E8D0"
-            android:textSize="32dp"
-            android:textStyle="bold" />
+            android:layout_height="wrap_content"
+            android:text="@string/login_header"
+            android:textColor="@color/colorAccentDark" />
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginTop="200dp"
+            android:layout_height="wrap_content"
             android:hint="@string/ucsd_email_hint"
-            android:textColorHint="#F8E8D0"
-            app:boxStrokeColor="#F8E8D0"
-            app:hintTextColor="#F8E8D0">
+            android:textColorHint="@color/colorAccentDark"
+            app:boxStrokeColor="@color/colorAccentDark"
+            app:hintTextColor="@color/colorAccentDark">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/user_email"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:fontFamily="@font/annie_use_your_telescope"
+                android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:maxLines="1"
-                android:textColor="#F8E8D0"
-                android:textColorHint="#F8E8D0"
-                android:textSize="23dp"
-                android:textStyle="bold" />
+                android:textColor="@color/colorAccentDark"
+                android:textColorHint="@color/colorAccent" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:hint="@string/password_hint"
-            android:textColor="#93462c"
-            android:textColorHint="#F8E8D0"
-            app:boxStrokeColor="#F8E8D0"
+            android:textColor="@color/colorAccentDark"
+            android:textColorHint="@color/colorAccentDark"
+            app:boxStrokeColor="@color/colorAccentDark"
             app:endIconMode="password_toggle"
-            app:hintTextColor="#F8E8D0">
+            app:hintTextColor="@color/colorAccentDark">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/user_password"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:fontFamily="@font/annie_use_your_telescope"
+                android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:textColor="#F8E8D0"
-                android:textColorHint="#F8E8D0"
-                android:textSize="23dp"
-                android:textStyle="bold" />
+                android:textColor="@color/colorAccentDark"
+                android:textColorHint="@color/colorAccent" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/button_login"
+            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="158dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:alpha="0.7"
-            android:backgroundTint="#995050"
-            android:fontFamily="@font/annie_use_your_telescope"
-            android:text="@string/login_button"
-            android:textColor="#FFF3E0"
-            android:textSize="23dp"
-            android:textStyle="bold" />
+            android:backgroundTint="@color/colorAccent"
+            android:text="@string/login_button" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginTop="35dp"
-            android:orientation="vertical">
+        <Button
+            android:id="@+id/button_password_recovery"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@android:color/transparent"
+            android:text="@string/login_pr_button"
+            android:textColor="@color/colorAccent" />
 
-            <Button
-                android:id="@+id/button_register"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="270dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center_horizontal"
-                android:alpha="0.8"
-                android:background="@drawable/button_rounded"
-                android:backgroundTint="@android:color/transparent"
-                android:text="@string/login_register_button"
-                android:textColor="#F8E8D0"
-                android:textSize="15dp" />
+    </LinearLayout>
 
-            <Button
-                android:id="@+id/button_password_recovery"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="200dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/button_rounded"
-                android:backgroundTint="@android:color/transparent"
-                android:text="@string/login_pr_button"
-                android:textColor="#F8E8D0"
-                android:textSize="15dp"
+    <LinearLayout
+        android:id="@+id/register_linear_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-                />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/first_time_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="0dp"
+            android:text="@string/login_first_time"
+            android:textColor="@color/colorAccentDark" />
 
+        <Button
+            android:id="@+id/button_register"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:backgroundTint="@android:color/transparent"
+            android:paddingStart="5dp"
+            android:paddingEnd="0dp"
+            android:text="@string/login_register_button"
+            android:textColor="@color/colorAccent" />
 
     </LinearLayout>
 
