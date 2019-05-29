@@ -31,10 +31,6 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
         }
     }
 
-    public void setlLinks(List<LinkListSingleLink> lLinks) {
-        this.lLinks = lLinks;
-    }
-
     public void setlLinks(List<LinkListSingleLink> lLinks){ this.lLinks = lLinks;}
 
     @Override
@@ -63,17 +59,5 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
     @Override
     public int getItemCount() {
         return lLinks.size();
-    }
-
-    //View Holder for a LinkListSingleLink object
-    public class LinkListSingleLinkHolder extends RecyclerView.ViewHolder {
-        public ImageView imageView;
-        public TextView nameView;
-
-        public LinkListSingleLinkHolder(@NonNull View itemView) {
-            super(itemView);
-            imageView = itemView.findViewById(R.id.view_link_list_single_link_imageview);
-            nameView = itemView.findViewById(R.id.view_link_list_single_link_textview);
-        }
     }
 }
