@@ -39,7 +39,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
-                    android:background="@color/brown"
                     android:text="@string/yes" />
 
                 <RadioButton
@@ -47,7 +46,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:background="@color/ucsd_blue"
                     android:text="@string/sometimes" />
 
                 <RadioButton
@@ -55,7 +53,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@color/ucsd_grey"
                     android:text="@string/no" />
             </RadioGroup>
 
