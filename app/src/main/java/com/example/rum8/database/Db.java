@@ -71,9 +71,9 @@ public class Db {
                 .putFile(filePath);
     }
 
-    public static UploadTask UploadDefaultPicture (final FirebaseStorage storage,
-                                                   final @Nonnull FirebaseUser user,
-                                                   final byte[] data)
+    public static UploadTask uploadDefaultPicture(final FirebaseStorage storage,
+                                                  final @Nonnull FirebaseUser user,
+                                                  final byte[] data)
     {
         return storage.getReference()
             .child(PROFILE_PIC_PATH + user.getUid())
