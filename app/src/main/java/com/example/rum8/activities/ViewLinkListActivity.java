@@ -51,7 +51,6 @@ public class ViewLinkListActivity extends AppCompatActivity
         final Button button_goToFullProfileView = findViewById(R.id.go_to_matched_roommate_full);
         button_goToFullProfileView.setOnClickListener(v -> controller.onGoToFullProfileButtonClicked());
 
-
     }
 
     @Override
@@ -140,7 +139,6 @@ public class ViewLinkListActivity extends AppCompatActivity
     public void gotToFullProfile() {
         final Intent intent  = new Intent(ViewLinkListActivity.this, MatchedRoommateProfileActivity.class);
         startActivity(intent);
-        finish();
 
     }
 

@@ -3,11 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="#FFFFFF"
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:elevation="10dp"
+        android:background="#FFFFFF"
 
         android:orientation="vertical">
 
@@ -15,8 +17,10 @@
 
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="#00FFFFFF"
-            android:elevation="0dp">
+            android:background="#FFFFFF"
+            android:elevation="0dp"
+            android:id="@+id/full_view_app_bar"
+            >
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -46,7 +50,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="92dp"
-                    app:cardBackgroundColor="#5DB1A7">
+                    app:cardBackgroundColor="#FFDC87">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -81,14 +85,20 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#009688"
+            app:tabIndicatorColor="@android:color/white"
+            app:tabSelectedTextColor="#000000"
+            app:tabTextAppearance="@style/CustomTextStyleFull"
             app:tabGravity="fill"
-            app:tabMode="fixed" />
+            app:tabMode="scrollable"
+            android:background="@color/ucsd_gold"
+            android:id="@+id/full_view_tab_layout"/>
 
         <androidx.viewpager.widget.ViewPager
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#00644949" />
+            android:background="#00644949"
+            android:id="@+id/full_view_view_pager"
+            />
 
     </LinearLayout>
 
