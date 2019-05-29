@@ -78,29 +78,6 @@ public class AdvancedSettingsActivity extends AppCompatActivity
         controller = new AdvancedSettingsController(this);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(final Menu menu) {
-        //Creates the menu inside of the toolbar
-        getMenuInflater().inflate(R.menu.dropdown_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(final MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.main_activity_go_to_profile_settings:
-                controller.onGoToProfileSettingsButtonClicked();
-                return true;
-            case R.id.main_activity_log_out:
-                controller.onLogOutButtonClicked();
-                return true;
-            case R.id.main_activity_go_to_adv_settings:
-                controller.onAdvSettingsButtonClicked();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 
     @Override
     public void showCurrentUserInfo(final Map<String, Object> data) {
