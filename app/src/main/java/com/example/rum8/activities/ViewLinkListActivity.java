@@ -41,7 +41,7 @@ public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkL
     }
 
     @Override
-    public ArrayList<LinkListSingleLink> getLinks(){
+    public ArrayList<LinkListSingleLink> getLinks() {
         return links;
     }
 
@@ -66,7 +66,7 @@ public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkL
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         finish();
     }
 

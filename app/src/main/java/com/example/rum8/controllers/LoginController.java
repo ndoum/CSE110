@@ -3,21 +3,14 @@ package com.example.rum8.controllers;
 
 import android.util.Log;
 
-import com.example.rum8.dataModels.LinkListSingleLink;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.LoginControllerListener;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
-import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Map;
-import java.util.Set;
 
 public class LoginController {
 
@@ -54,17 +47,17 @@ public class LoginController {
             controllerListener.showToast(message);
         } else {
             auth.signInWithEmailAndPassword(email, password)
-                .addOnSuccessListener(authResult -> {
+                    .addOnSuccessListener(authResult -> {
 
-                    // check user verified their email
-                    if (!auth.getCurrentUser().isEmailVerified()) {
-                        final String message = "Please verify your email!";
-                        controllerListener.showToast(message);
-                    } else {
-                        onLoginSuccessful(email, password);
-                        Log.d("Success", "signInWithEmail:success");
-                    }
-                }).addOnFailureListener(e -> {
+                        // check user verified their email
+                        if (!auth.getCurrentUser().isEmailVerified()) {
+                            final String message = "Please verify your email!";
+                            controllerListener.showToast(message);
+                        } else {
+                            onLoginSuccessful(email, password);
+                            Log.d("Success", "signInWithEmail:success");
+                        }
+                    }).addOnFailureListener(e -> {
                 final String message;
                 if (e instanceof FirebaseAuthInvalidUserException) {
                     message = "Account does not exist";
@@ -93,7 +86,7 @@ public class LoginController {
             final Map<String, Object> data = documentSnapshot.getData();
 
             // check for name has not been entered, go to profilesetting page
-            if(data.get(Db.Keys.FIRST_NAME) == "") {
+            if (data.get(Db.Keys.FIRST_NAME) == "") {
                 controllerListener.goToProfileSetting();
             } else {
                 controllerListener.goToMainPage();
