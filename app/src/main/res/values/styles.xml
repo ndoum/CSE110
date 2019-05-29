@@ -15,4 +15,8 @@
 
     </style>
 
+    <style name="NoActionBar" parent = "Theme.MaterialComponents.NoActionBar">
+        <item name="android:windowActionBar">false</item>
+    </style>
+
 </resources>

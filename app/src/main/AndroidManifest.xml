@@ -21,12 +21,14 @@
         <activity android:name=".activities.MainActivity" />
         <activity android:name=".activities.ProfileSettingsActivity" />
         <activity android:name=".activities.ViewLinkListActivity" />
-        <activity android:name=".activities.AdvancedSettingsActivity" />
+        <activity
+            android:name=".activities.AdvancedSettingsActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 </manifest>
