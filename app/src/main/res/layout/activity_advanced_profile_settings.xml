@@ -22,7 +22,7 @@
             android:layout_weight="0"
             android:gravity="center_horizontal"
             android:text="@string/adv_settings_header"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorAccentDark"
             android:textSize="30sp" />
 
         <TextView
@@ -32,7 +32,7 @@
             android:layout_weight="0"
             android:gravity="center"
             android:text="@string/adv_settings_sub_header_1"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorAccentDark"
             android:textSize="20sp" />
 
         <TextView
@@ -42,7 +42,7 @@
             android:layout_weight="0"
             android:gravity="center_vertical"
             android:text="@string/adv_settings_living_accommodations"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccentDark" />
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -50,8 +50,8 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            app:boxStrokeColor="@color/colorAccent">
+            android:textColor="@color/colorAccentDark"
+            app:boxStrokeColor="@color/colorAccentDark">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/general_info_living_accommodations_field"
@@ -60,7 +60,7 @@
                 android:inputType="textMultiLine"
                 android:maxLines="4"
                 android:minLines="2"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -70,15 +70,15 @@
             android:layout_weight="0"
             android:gravity="center_vertical"
             android:text="@string/adv_settings_room_type"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccentDark" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/general_info_room_type_field_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            app:boxStrokeColor="@color/colorAccent">
+            android:textColor="@color/colorAccentDark"
+            app:boxStrokeColor="@color/colorAccentDark">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/general_info_room_type_field"
@@ -87,7 +87,7 @@
                 android:inputType="textMultiLine"
                 android:maxLines="4"
                 android:minLines="2"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -97,15 +97,15 @@
             android:layout_weight="0"
             android:gravity="center_vertical"
             android:text="@string/adv_settings_budget"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccentDark" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/general_info_budget_field_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            app:boxStrokeColor="@color/colorAccent">
+            android:textColor="@color/colorAccentDark"
+            app:boxStrokeColor="@color/colorAccentDark">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/general_info_budget_field"
@@ -114,7 +114,7 @@
                 android:inputType="textMultiLine"
                 android:maxLines="4"
                 android:minLines="2"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -124,7 +124,7 @@
             android:layout_weight="0"
             android:gravity="center_vertical"
             android:text="@string/adv_settings_other_things"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccentDark" />
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -132,8 +132,8 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            app:boxStrokeColor="@color/colorAccent">
+            android:textColor="@color/colorAccentDark"
+            app:boxStrokeColor="@color/colorAccentDark">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/general_info_other_things_field"
@@ -142,7 +142,7 @@
                 android:inputType="textMultiLine"
                 android:maxLines="4"
                 android:minLines="2"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -152,7 +152,7 @@
             android:layout_weight="0"
             android:gravity="center"
             android:text="@string/adv_settings_sub_header_2"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorAccentDark"
             android:textSize="20sp" />
 
         <TextView
@@ -162,7 +162,7 @@
             android:layout_weight="0"
             android:gravity="center_vertical"
             android:text="@string/adv_settings_bio"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccentDark" />
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -170,7 +170,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/colorAccent">
+            app:boxStrokeColor="@color/colorAccentDark">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/personal_info_bio_field"
@@ -179,7 +179,7 @@
                 android:inputType="textMultiLine"
                 android:maxLines="4"
                 android:minLines="2"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -189,7 +189,7 @@
             android:layout_weight="0"
             android:gravity="center_vertical"
             android:text="@string/adv_settings_hobbies"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccentDark" />
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -197,8 +197,8 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            app:boxStrokeColor="@color/colorAccent">
+            android:textColor="@color/colorAccentDark"
+            app:boxStrokeColor="@color/colorAccentDark">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/personal_info_hobbies_field"
@@ -207,7 +207,7 @@
                 android:inputType="textMultiLine"
                 android:maxLines="4"
                 android:minLines="2"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -217,15 +217,15 @@
             android:layout_weight="0"
             android:gravity="center_vertical"
             android:text="@string/adv_settings_interests"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccentDark" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/personal_info_interest_field_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            app:boxStrokeColor="@color/colorAccent">
+            android:textColor="@color/colorAccentDark"
+            app:boxStrokeColor="@color/colorAccentDark">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/personal_info_interest_field"
@@ -234,7 +234,7 @@
                 android:inputType="textMultiLine"
                 android:maxLines="4"
                 android:minLines="2"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -244,7 +244,7 @@
             android:layout_weight="0"
             android:gravity="center"
             android:text="@string/adv_settings_sub_header_3"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorAccentDark"
             android:textSize="20sp" />
 
         <TextView
@@ -254,15 +254,15 @@
             android:layout_weight="0"
             android:gravity="center_vertical"
             android:text="@string/adv_settings_phone"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccentDark" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/personal_info_phone_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            app:boxStrokeColor="@color/colorAccent">
+            android:textColor="@color/colorAccentDark"
+            app:boxStrokeColor="@color/colorAccentDark">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/personal_info_phone_field"
@@ -270,7 +270,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="phone"
                 android:maxLines="1"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton

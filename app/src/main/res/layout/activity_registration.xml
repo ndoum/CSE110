@@ -62,16 +62,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/registration_header"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccentDark" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/ucsd_email_hint"
-            android:textColorHint="@color/colorAccent"
-            app:boxStrokeColor="@color/colorAccent"
-            app:hintTextColor="@color/colorAccent">
+            android:textColorHint="@color/colorAccentDark"
+            app:boxStrokeColor="@color/colorAccentDark"
+            app:hintTextColor="@color/colorAccentDark">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_email"
@@ -79,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:maxLines="1"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/colorAccentDark"
                 android:textColorHint="@color/menuBarColor" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,10 +90,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:hint="@string/password_hint"
-            android:textColorHint="@color/colorAccent"
-            app:boxStrokeColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccentDark"
+            app:boxStrokeColor="@color/colorAccentDark"
             app:endIconMode="password_toggle"
-            app:hintTextColor="@color/colorAccent">
+            app:hintTextColor="@color/colorAccentDark">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_password"
@@ -101,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/colorAccentDark"
                 android:textColorHint="@color/menuBarColor" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -112,10 +112,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:hint="@string/password_hint"
-            android:textColorHint="@color/colorAccent"
-            app:boxStrokeColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccentDark"
+            app:boxStrokeColor="@color/colorAccentDark"
             app:endIconMode="password_toggle"
-            app:hintTextColor="@color/colorAccent">
+            app:hintTextColor="@color/colorAccentDark">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_password_confirm"
@@ -123,7 +123,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/colorAccentDark"
                 android:textColorHint="@color/menuBarColor" />
         </com.google.android.material.textfield.TextInputLayout>
 

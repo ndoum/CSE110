@@ -37,8 +37,8 @@
                 android:layout_column="0"
                 android:layout_gravity="top|start"
                 android:text="@string/choose_from_device"
-                android:textColor="@color/colorAccent"
-                app:strokeColor="@color/colorAccent"
+                android:textColor="@color/colorAccentDark"
+                app:strokeColor="@color/colorAccentDark"
                 app:strokeWidth="2dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -50,8 +50,8 @@
                 android:layout_column="1"
                 android:layout_gravity="top|end"
                 android:text="@string/upload_Photo"
-                android:textColor="@color/colorAccent"
-                app:strokeColor="@color/colorAccent"
+                android:textColor="@color/colorAccentDark"
+                app:strokeColor="@color/colorAccentDark"
                 app:strokeWidth="2dp" />
 
             <!-- NAME LABELS -->
@@ -83,9 +83,9 @@
                 android:layout_column="0"
                 android:layout_columnWeight="1"
                 android:paddingEnd="24dp"
-                android:textColorHint="@color/colorAccent"
-                app:boxStrokeColor="@color/colorAccent"
-                app:hintTextColor="@color/colorAccent">
+                android:textColorHint="@color/colorAccentDark"
+                app:boxStrokeColor="@color/colorAccentDark"
+                app:hintTextColor="@color/colorAccentDark">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/general_info_first_name_field"
@@ -93,7 +93,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:maxLines="1"
-                    android:textColor="@color/colorAccent"
+                    android:textColor="@color/colorAccentDark"
                     android:textColorHint="@color/menuBarColor" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -106,9 +106,9 @@
                 android:layout_column="1"
                 android:layout_columnWeight="1"
                 android:paddingEnd="24dp"
-                android:textColorHint="@color/colorAccent"
-                app:boxStrokeColor="@color/colorAccent"
-                app:hintTextColor="@color/colorAccent">
+                android:textColorHint="@color/colorAccentDark"
+                app:boxStrokeColor="@color/colorAccentDark"
+                app:hintTextColor="@color/colorAccentDark">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/general_info_last_name_field"
@@ -116,7 +116,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:maxLines="1"
-                    android:textColor="@color/colorAccent"
+                    android:textColor="@color/colorAccentDark"
                     android:textColorHint="@color/menuBarColor" />
             </com.google.android.material.textfield.TextInputLayout>
 
