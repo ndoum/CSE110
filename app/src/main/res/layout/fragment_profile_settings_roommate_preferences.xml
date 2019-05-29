@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="16dp"
     tools:layout_editor_absoluteY="81dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fragment_profile_settings_roommate_preferences_constraint_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp">
 
         <GridLayout
             android:id="@+id/roommate_preferences_grid"
