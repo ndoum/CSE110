@@ -15,7 +15,7 @@ public class RegistrationActivity extends AppCompatActivity
         implements RegistrationControllerListener {
 
     private RegistrationController controller;
-    private TextInputEditText editText_email, editText_password,editText_passwordConfirm;
+    private TextInputEditText editText_email, editText_password, editText_passwordConfirm;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -39,10 +39,10 @@ public class RegistrationActivity extends AppCompatActivity
     }
 
     private void initViews() {
-        editText_email = (TextInputEditText) findViewById(R.id.input_email);
-        editText_password = (TextInputEditText) findViewById(R.id.input_password);
-        editText_passwordConfirm = (TextInputEditText) findViewById(R.id.input_password_confirm);
-        final Button button_register = (Button) findViewById(R.id.button_register);
+        editText_email = findViewById(R.id.input_email);
+        editText_password = findViewById(R.id.input_password);
+        editText_passwordConfirm = findViewById(R.id.input_password_confirm);
+        final Button button_register = findViewById(R.id.button_register);
 
         button_register.setOnClickListener(v -> {
             final String email = editText_email.getText().toString();

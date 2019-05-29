@@ -6,7 +6,10 @@ import java.util.ArrayList;
 
 public interface ViewLinkListControllerListener {
     void addNewLink(LinkListSingleLink link);
+
     void displayLinks(ArrayList<LinkListSingleLink> links);
+
     ArrayList<LinkListSingleLink> getLinks();
+
     void showToast(final String message);
 }

@@ -30,7 +30,6 @@ public class PotentialRoommateProfileInit extends Fragment {
         }
 
 
-
         View rootView = inflater.inflate(R.layout.fragment_potential_roommate_profile, container, false);
 
         tablayout = rootView.findViewById(R.id.potential_roommate_profile_tablayout_id);

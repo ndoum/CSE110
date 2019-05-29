@@ -49,7 +49,7 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
         viewPager = rootView.findViewById(R.id.potential_roommate_profile_default_viewpager_id);
 
         PotentialRoommateProfileDefaultAdapter adapter = new PotentialRoommateProfileDefaultAdapter(
-            getChildFragmentManager());
+                getChildFragmentManager());
         adapter.AddFragment(new UserTab1Fragment(), "General");
         adapter.AddFragment(new UserTab2Fragment(), "Personal");
         adapter.AddFragment(new UserTab3Fragment(), "Overview");
@@ -92,7 +92,7 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
         firstName = rootView.findViewById(R.id.potential_first_name_default);
         firstName.setText((String) data.get(Db.Keys.FIRST_NAME));
         academicYear = rootView.findViewById(R.id.potential_academic_year_default);
-        academicYear.setText((String) data.get(Db.Keys.ACADEMIC_YEAR) + "Year");
+        academicYear.setText(data.get(Db.Keys.ACADEMIC_YEAR) + "Year");
     }
 
     @Override

@@ -37,20 +37,28 @@ public class LinkListSingleLink {
         return lastName;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
-    }
-
     public String getUid() {
         return uid;
     }
 
-    public void setImageView(ImageView imageView){ this.imageView = imageView; }
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
 
-    public ImageView getImage_view(){ return this.imageView; }
+    public void setImageView(ImageView imageView) {
+        this.imageView = imageView;
+    }
 
-    public void setBitMap(Bitmap bitmap){ this.bitMap = bitmap; }
+    public ImageView getImage_view() {
+        return this.imageView;
+    }
 
-    public Bitmap getBitMap(){ return this.bitMap; }
+    public Bitmap getBitMap() {
+        return this.bitMap;
+    }
+
+    public void setBitMap(Bitmap bitmap) {
+        this.bitMap = bitmap;
+    }
 
 }
