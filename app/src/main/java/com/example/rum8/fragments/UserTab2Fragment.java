@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
 import com.example.rum8.controllers.MainController;
-import com.example.rum8.controllers.MatchedRoommateProfileController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.MainControllerListener;
 import com.example.rum8.listeners.MatchedRoommateProfileControllerListener;
