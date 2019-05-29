@@ -18,19 +18,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/login_r_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:text="r"
+            android:textColor="@color/colorAccentDark"
+            android:textSize="50dp" />
+
         <ImageView
             android:id="@+id/login_logo_imageview"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/logo_no_margin_small" />
+            android:src="@drawable/logo_no_border"
+            />
 
         <TextView
-            android:id="@+id/login_app_name_text_view"
+            android:id="@+id/login_m8_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
-            android:text="rüm8"
-            android:textColor="@color/colorAccent"
+            android:text="m8"
+            android:textColor="@color/colorAccentDark"
             android:textSize="50dp" />
 
     </LinearLayout>
