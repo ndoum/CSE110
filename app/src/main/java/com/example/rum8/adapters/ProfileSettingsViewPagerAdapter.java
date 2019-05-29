@@ -10,53 +10,36 @@ import com.example.rum8.fragments.ProfileSettingsPersonalityLogisticsFragment;
 import com.example.rum8.fragments.ProfileSettingsRoommatePreferencesFragment;
 
 public class ProfileSettingsViewPagerAdapter extends FragmentPagerAdapter {
-    public static int FRAGMENT_COUNT = 3;
-    public static final int GENERAL_INFO_POSITION = 0;
-    public static final int PERSONALITY_LOGISTICS_POSITION = 1;
-    public static final int ROOMMATE_PREFERENCES_POSTIION = 2;
 
-    public ProfileSettingsViewPagerAdapter(FragmentManager fragmentManager) {
+    private final Fragment[] fragments = {
+            new ProfileSettingsGeneralInfoFragment(),
+            new ProfileSettingsPersonalityLogisticsFragment(),
+            new ProfileSettingsRoommatePreferencesFragment()
+    };
+    private final String[] fragmentTitles = {
+            "General Info",
+            "Personality Logistics",
+            "Roommate Preferences"
+    };
+
+    public ProfileSettingsViewPagerAdapter(final FragmentManager fragmentManager) {
         super(fragmentManager);
     }
 
     @NonNull
     @Override
-    public Fragment getItem(int position) {
-        switch (position) {
-            case GENERAL_INFO_POSITION:
-                return new ProfileSettingsGeneralInfoFragment();
-            case PERSONALITY_LOGISTICS_POSITION:
-                return new ProfileSettingsPersonalityLogisticsFragment();
-            case ROOMMATE_PREFERENCES_POSTIION:
-                return new ProfileSettingsRoommatePreferencesFragment();
-            default:
-                return null;
-        }
+    public Fragment getItem(final int position) {
+        return fragments[position];
     }
-
 
     @Override
     public int getCount() {
-        return FRAGMENT_COUNT;
+        return fragments.length;
     }
 
     @Override
-    public CharSequence getPageTitle(int position) {
-        String title;
-        switch (position) {
-            case GENERAL_INFO_POSITION:
-                title = "General Info";
-                break;
-            case PERSONALITY_LOGISTICS_POSITION:
-                title = "Personality Logistics";
-                break;
-            case ROOMMATE_PREFERENCES_POSTIION:
-                title = "Roommate Preferences";
-                break;
-            default:
-                title = "";
-                break;
-        }
-        return title;
+    public CharSequence getPageTitle(final int position) {
+        return fragmentTitles[position];
     }
+
 }
