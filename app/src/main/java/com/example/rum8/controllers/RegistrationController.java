@@ -82,7 +82,7 @@ public class RegistrationController {
 
                             final Bitmap bmp = BitmapFactory.decodeResource(context.getResources(), R.drawable.images);
                             final ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                            bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                            bmp.compress(Bitmap.CompressFormat.PNG, 100, baos);
                             final byte[] data = baos.toByteArray();
 
 <<<<<<< HEAD
