@@ -401,10 +401,9 @@
                 android:id="@+id/roommate_preferences_save_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/save"
                 android:background="@color/menuBarColor"
+                android:text="save and view your potential roommate"
                 android:textColor="@color/white" />
-
         </GridLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
