@@ -17,8 +17,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="30dp"
-            android:background="#ffffff"
-            >
+            android:background="#ffffff">
 
             <TableRow>
 
@@ -59,6 +58,7 @@
             <TableRow>
 
                 <TextView
+                    android:id="@+id/tab3_question_1_question"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="1dp"
@@ -66,26 +66,13 @@
                     android:layout_weight="1"
                     android:background="#f1f1f1"
                     android:gravity="center"
-                    android:id="@+id/tab3_question_1_question"
                     android:text="@string/user_tab_three_question_one"
 
 
                     />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_weight="1"
-                    android:background="#f1f1f1"
-                    android:gravity="center"
-                    android:text=" "
                     android:id="@+id/tab3_question_1_yes"
-
-                    />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="1dp"
@@ -94,11 +81,11 @@
                     android:background="#f1f1f1"
                     android:gravity="center"
                     android:text=" "
+
+                    />
+
+                <TextView
                     android:id="@+id/tab3_question_1_sometimes"
-
-                    />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="1dp"
@@ -107,7 +94,19 @@
                     android:background="#f1f1f1"
                     android:gravity="center"
                     android:text=" "
+
+                    />
+
+                <TextView
                     android:id="@+id/tab3_question_1_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
 
                     />
             </TableRow>
@@ -115,6 +114,7 @@
             <TableRow>
 
                 <TextView
+                    android:id="@+id/tab3_question_2_question"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="1dp"
@@ -123,25 +123,12 @@
                     android:background="#f1f1f1"
                     android:gravity="center"
                     android:text="@string/user_tab_three_question_two"
-                    android:id="@+id/tab3_question_2_question"
 
 
                     />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_weight="1"
-                    android:background="#f1f1f1"
-                    android:gravity="center"
-                    android:text=" "
                     android:id="@+id/tab3_question_2_yes"
-
-                    />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="1dp"
@@ -150,11 +137,11 @@
                     android:background="#f1f1f1"
                     android:gravity="center"
                     android:text=" "
+
+                    />
+
+                <TextView
                     android:id="@+id/tab3_question_2_sometimes"
-
-                    />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="1dp"
@@ -163,7 +150,19 @@
                     android:background="#f1f1f1"
                     android:gravity="center"
                     android:text=" "
+
+                    />
+
+                <TextView
                     android:id="@+id/tab3_question_2_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
 
                     />
             </TableRow>
@@ -171,6 +170,7 @@
             <TableRow>
 
                 <TextView
+                    android:id="@+id/tab3_question_3_question"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="1dp"
@@ -179,25 +179,12 @@
                     android:background="#f1f1f1"
                     android:gravity="center"
                     android:text="@string/user_tab_three_question_three"
-                    android:id="@+id/tab3_question_3_question"
 
 
                     />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_weight="1"
-                    android:background="#f1f1f1"
-                    android:gravity="center"
-                    android:text=" "
                     android:id="@+id/tab3_question_3_yes"
-
-                    />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="1dp"
@@ -206,11 +193,11 @@
                     android:background="#f1f1f1"
                     android:gravity="center"
                     android:text=" "
+
+                    />
+
+                <TextView
                     android:id="@+id/tab3_question_3_sometimes"
-
-                    />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="1dp"
@@ -219,7 +206,19 @@
                     android:background="#f1f1f1"
                     android:gravity="center"
                     android:text=" "
+
+                    />
+
+                <TextView
                     android:id="@+id/tab3_question_3_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
 
 
                     />
@@ -240,19 +239,7 @@
                     />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_weight="1"
-                    android:background="#f1f1f1"
-                    android:gravity="center"
-                    android:text=" "
                     android:id="@+id/tab3_question_4_yes"
-
-                    />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="1dp"
@@ -261,11 +248,11 @@
                     android:background="#f1f1f1"
                     android:gravity="center"
                     android:text=" "
+
+                    />
+
+                <TextView
                     android:id="@+id/tab3_question_4_sometimes"
-
-                    />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="1dp"
@@ -274,7 +261,19 @@
                     android:background="#f1f1f1"
                     android:gravity="center"
                     android:text=" "
+
+                    />
+
+                <TextView
                     android:id="@+id/tab3_question_4_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
 
 
                     />
@@ -296,19 +295,7 @@
                     />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_weight="1"
-                    android:background="#f1f1f1"
-                    android:gravity="center"
-                    android:text=" "
                     android:id="@+id/tab3_question_5_yes"
-
-                    />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="1dp"
@@ -317,11 +304,11 @@
                     android:background="#f1f1f1"
                     android:gravity="center"
                     android:text=" "
+
+                    />
+
+                <TextView
                     android:id="@+id/tab3_question_5_sometimes"
-
-                    />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="1dp"
@@ -330,7 +317,19 @@
                     android:background="#f1f1f1"
                     android:gravity="center"
                     android:text=" "
+
+                    />
+
+                <TextView
                     android:id="@+id/tab3_question_5_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
 
 
                     />
@@ -351,19 +350,7 @@
                     />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_weight="1"
-                    android:background="#f1f1f1"
-                    android:gravity="center"
-                    android:text=" "
                     android:id="@+id/tab3_question_6_yes"
-
-                    />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="1dp"
@@ -372,11 +359,11 @@
                     android:background="#f1f1f1"
                     android:gravity="center"
                     android:text=" "
+
+                    />
+
+                <TextView
                     android:id="@+id/tab3_question_6_sometimes"
-
-                    />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="1dp"
@@ -385,7 +372,19 @@
                     android:background="#f1f1f1"
                     android:gravity="center"
                     android:text=" "
+
+                    />
+
+                <TextView
                     android:id="@+id/tab3_question_6_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
 
 
                     />
@@ -406,19 +405,7 @@
                     />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_weight="1"
-                    android:background="#f1f1f1"
-                    android:gravity="center"
-                    android:text=" "
                     android:id="@+id/tab3_question_7_yes"
-
-                    />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="1dp"
@@ -427,11 +414,11 @@
                     android:background="#f1f1f1"
                     android:gravity="center"
                     android:text=" "
+
+                    />
+
+                <TextView
                     android:id="@+id/tab3_question_7_sometimes"
-
-                    />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="1dp"
@@ -440,7 +427,19 @@
                     android:background="#f1f1f1"
                     android:gravity="center"
                     android:text=" "
+
+                    />
+
+                <TextView
                     android:id="@+id/tab3_question_7_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" "
 
 
                     />
@@ -461,19 +460,7 @@
                     />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_weight="1"
-                    android:background="#f1f1f1"
-                    android:gravity="center"
-                    android:text=" "
                     android:id="@+id/tab3_question_8_yes"
-
-                    />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="1dp"
@@ -482,11 +469,11 @@
                     android:background="#f1f1f1"
                     android:gravity="center"
                     android:text=" "
+
+                    />
+
+                <TextView
                     android:id="@+id/tab3_question_8_sometimes"
-
-                    />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="1dp"
@@ -495,8 +482,19 @@
                     android:background="#f1f1f1"
                     android:gravity="center"
                     android:text=" "
-                    android:id="@+id/tab3_question_8_no"
+
                     />
+
+                <TextView
+                    android:id="@+id/tab3_question_8_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:text=" " />
             </TableRow>
 
         </TableLayout>

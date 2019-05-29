@@ -29,15 +29,16 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
             imageView = itemView.findViewById(R.id.view_link_list_single_link_imageview);
             nameView = itemView.findViewById(R.id.view_link_list_single_link_textview);
         }
-
     }
 
-    public ViewLinkListRecycleViewAdapter(){}
+    public void setlLinks(List<LinkListSingleLink> lLinks) {
+        this.lLinks = lLinks;
+    }
 
     public void setlLinks(List<LinkListSingleLink> lLinks){ this.lLinks = lLinks;}
 
     @Override
-    public ViewLinkListRecycleViewAdapter.LinkListSingleLinkHolder onCreateViewHolder(ViewGroup parent, int viewType){
+    public ViewLinkListRecycleViewAdapter.LinkListSingleLinkHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
@@ -49,18 +50,30 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
     }
 
     @Override
-    public void onBindViewHolder(LinkListSingleLinkHolder linkHolder, int position){
+    public void onBindViewHolder(LinkListSingleLinkHolder linkHolder, int position) {
         LinkListSingleLink link = lLinks.get(position);
 
         TextView firstNameView = linkHolder.nameView;
-        firstNameView.setText(link.getfirst_name()+" "+link.getlast_name());
+        firstNameView.setText(link.getfirst_name() + " " + link.getlast_name());
 
         ImageView imageView = linkHolder.imageView;
         imageView.setImageBitmap(link.getBitMap());
     }
 
     @Override
-    public int getItemCount(){
+    public int getItemCount() {
         return lLinks.size();
+    }
+
+    //View Holder for a LinkListSingleLink object
+    public class LinkListSingleLinkHolder extends RecyclerView.ViewHolder {
+        public ImageView imageView;
+        public TextView nameView;
+
+        public LinkListSingleLinkHolder(@NonNull View itemView) {
+            super(itemView);
+            imageView = itemView.findViewById(R.id.view_link_list_single_link_imageview);
+            nameView = itemView.findViewById(R.id.view_link_list_single_link_textview);
+        }
     }
 }

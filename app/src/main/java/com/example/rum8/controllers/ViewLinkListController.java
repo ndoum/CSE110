@@ -31,14 +31,14 @@ public class ViewLinkListController {
     }
 
     //Fetch links' info and images and display
-    public void prepareLinks(){
+    public void prepareLinks() {
         linkListUidMap = new HashMap<>();
         //fetch current user's documentation
         Db.fetchUserInfo(db, auth.getCurrentUser()).addOnCompleteListener((Task<DocumentSnapshot> task) -> {
             if(task.isSuccessful()){
                 //fetch current user's matched links
                 linkListUidMap = (HashMap<String, Object>) task.getResult().get(Db.Keys.MATCHED);
-                for(String uid:linkListUidMap.keySet()){
+                for (String uid : linkListUidMap.keySet()) {
                     //fetch link's profile image
                     Db.fetchUserInfoById(db, uid).addOnCompleteListener((Task<DocumentSnapshot> task1) -> {
                         if(task1.isSuccessful()){
@@ -54,6 +54,7 @@ public class ViewLinkListController {
                 }
             }
         });
+
     }
 
     //create LinkListSingleLink for link and display
@@ -65,5 +66,6 @@ public class ViewLinkListController {
         LinkListSingleLink newLink = new LinkListSingleLink(link_first_name, link_last_name, linkUid, bitmap);
         controllerListener.addNewLink(newLink);
         controllerListener.displayLinks(controllerListener.getLinks());
+
     }
 }
