@@ -3,9 +3,8 @@
     android:id="@+id/activity_view_link_list_single_link_linear_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:weightSum="10"
     android:background="@color/cardview_light_background"
-    >
+    android:weightSum="10">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/view_link_list_single_link_imageview"
@@ -18,5 +17,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="8" />
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>

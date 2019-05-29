@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         startActivity(intent);
         finish();
     }
+
     public void goToAdvSettings() {
         final Intent intent = new Intent(MainActivity.this, AdvancedSettingsActivity.class);
         startActivity(intent);

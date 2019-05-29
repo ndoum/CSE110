@@ -27,7 +27,7 @@ public class ProfileSettingsActivity extends FragmentActivity
 
     private static final int PICK_IMAGE_REQUEST = 65537;
     private static int result_load_image = 1;
-    FragmentPagerAdapter adapterViewPager;
+    private FragmentPagerAdapter adapterViewPager;
     private ProfileSettingsController controller;
     private ViewPager viewPager;
     private Uri filePath;

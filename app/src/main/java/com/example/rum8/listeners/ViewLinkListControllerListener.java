@@ -6,11 +6,20 @@ import java.util.ArrayList;
 
 public interface ViewLinkListControllerListener {
     void goToProfileSettings();
+
     void goToLogin();
+
     void goToViewLinkList();
+
     void goToAdvSettings();
+
     void gotToFullProfile();
+
     void addNewLink(LinkListSingleLink link);
+
     void displayLinks(ArrayList<LinkListSingleLink> links);
+
     ArrayList<LinkListSingleLink> getLinks();
+
+    void showToast(final String message);
 }

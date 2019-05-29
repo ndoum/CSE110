@@ -3,19 +3,25 @@ package com.example.rum8.controllers;
 
 import android.util.Log;
 
+import com.example.rum8.database.Db;
 import com.example.rum8.listeners.LoginControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Map;
 
 public class LoginController {
 
     private LoginControllerListener controllerListener;
     private FirebaseAuth auth;
+    private FirebaseFirestore db;
 
     public LoginController(final LoginControllerListener controllerListener) {
         this.controllerListener = controllerListener;
         auth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
     }
 
     private static boolean isValidEmail(final String email) {
@@ -48,7 +54,7 @@ public class LoginController {
                             final String message = "Please verify your email!";
                             controllerListener.showToast(message);
                         } else {
-                            onLoginSuccessful();
+                            onLoginSuccessful(email, password);
                             Log.d("Success", "signInWithEmail:success");
                         }
                     }).addOnFailureListener(e -> {
@@ -74,8 +80,22 @@ public class LoginController {
         controllerListener.goToPasswordRecovery();
     }
 
-    private void onLoginSuccessful() {
-        controllerListener.goToMainPage();
+    private void onLoginSuccessful(String email, String storedPassword) {
+
+        Db.fetchUserInfo(this.db, auth.getCurrentUser()).addOnSuccessListener(documentSnapshot -> {
+            final Map<String, Object> data = documentSnapshot.getData();
+
+            // check for name has not been entered, go to profilesetting page
+            if (data.get(Db.Keys.FIRST_NAME) == "") {
+                controllerListener.goToProfileSetting();
+            } else {
+                controllerListener.goToMainPage();
+            }
+        }).addOnFailureListener(exception -> {
+            final String message = "Network error";
+            controllerListener.showToast(message);
+        });
+
     }
 
 

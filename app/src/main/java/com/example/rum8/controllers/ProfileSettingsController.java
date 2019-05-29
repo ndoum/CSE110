@@ -135,6 +135,13 @@ public class ProfileSettingsController {
         Db.updateUser(db, auth.getCurrentUser(), userMap)
                 .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
                 .addOnFailureListener(e -> Log.d(TAG, "Error adding document"));
-    }
+        final String firstName = (String) userMap.get(Db.Keys.FIRST_NAME);
+        final String lastName = (String) userMap.get(Db.Keys.LAST_NAME);
 
+        // check for valid name
+        if ((!isPresent(firstName)) || !isPresent(lastName)) {
+            final String message = "Please enter your first and last name";
+            controllerListener.showToast(message);
+        }
+    }
 }
