@@ -157,6 +157,8 @@
                 android:textColor="@color/menuBarColor" />
 
         </LinearLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

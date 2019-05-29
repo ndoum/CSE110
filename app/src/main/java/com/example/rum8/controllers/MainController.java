@@ -41,7 +41,9 @@ public class MainController {
     }
 
 
-    public void onGoToLinkListButtonClicked() {controllerListener.goToLinkList();}
+    public void onGoToLinkListButtonClicked() {
+        controllerListener.goToLinkList();
+    }
 
     /**
      * use user's potential list to find other other show other user's info
