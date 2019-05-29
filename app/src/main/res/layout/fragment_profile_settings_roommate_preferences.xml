@@ -29,6 +29,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnSpan="4"
                 android:layout_columnWeight="1"
+                android:paddingTop="10dp"
                 android:text="@string/ps_roommate_preferences_gender" />
 
 
@@ -67,6 +68,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnSpan="4"
                 android:layout_columnWeight="1"
+                android:paddingTop="10dp"
                 android:text="@string/ps_roommate_preferences_cleanness" />
 
             <RadioGroup
@@ -110,6 +112,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnSpan="4"
                 android:layout_columnWeight="1"
+                android:paddingTop="10dp"
                 android:text="@string/ps_roommate_preferences_reserved" />
 
             <RadioGroup
@@ -152,6 +155,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnSpan="4"
                 android:layout_columnWeight="1"
+                android:paddingTop="10dp"
                 android:text="@string/ps_roommate_preference_comfortable_with_parties" />
 
             <RadioGroup
@@ -195,6 +199,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnSpan="4"
                 android:layout_columnWeight="1"
+                android:paddingTop="10dp"
                 android:text="@string/ps_roommate_preference_comfortable_with_alcohol" />
 
             <RadioGroup
@@ -237,6 +242,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnSpan="4"
                 android:layout_columnWeight="1"
+                android:paddingTop="10dp"
                 android:text="@string/ps_roommate_preference_comfortable_with_smoking" />
 
             <RadioGroup
@@ -279,6 +285,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnSpan="4"
                 android:layout_columnWeight="1"
+                android:paddingTop="10dp"
                 android:text="@string/ps_roommate_preference_sleep_late" />
 
             <RadioGroup
@@ -321,6 +328,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnSpan="4"
                 android:layout_columnWeight="1"
+                android:paddingTop="10dp"
                 android:text="@string/ps_roommate_preference_overnight_guests" />
 
             <RadioGroup
@@ -364,6 +372,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnSpan="4"
                 android:layout_columnWeight="1"
+                android:paddingTop="10dp"
                 android:text="@string/ps_roommate_preference_comfortable_with_pets" />
 
             <RadioGroup
@@ -401,6 +410,7 @@
                 android:id="@+id/roommate_preferences_save_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingTop="10dp"
                 android:text="save and view your potential roommate" />
 
         </GridLayout>

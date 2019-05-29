@@ -29,6 +29,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnSpan="4"
                 android:layout_columnWeight="1"
+                android:paddingTop="10dp"
                 android:text="@string/ps_personality_logistics_cleanness" />
 
             <RadioGroup
@@ -72,6 +73,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnSpan="4"
                 android:layout_columnWeight="1"
+                android:paddingTop="10dp"
                 android:text="@string/ps_personality_logistics_reserved" />
 
             <RadioGroup
@@ -116,6 +118,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnSpan="4"
                 android:layout_columnWeight="1"
+                android:paddingTop="10dp"
                 android:text="@string/ps_personality_logistics_comfortable_with_parties" />
 
             <RadioGroup
@@ -159,6 +162,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnSpan="4"
                 android:layout_columnWeight="1"
+                android:paddingTop="10dp"
                 android:text="@string/ps_personality_logistics_comfortable_with_alcohol" />
 
             <RadioGroup
@@ -202,6 +206,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnSpan="4"
                 android:layout_columnWeight="1"
+                android:paddingTop="10dp"
                 android:text="@string/ps_personality_logistics_comfortable_with_smoking" />
 
             <RadioGroup
@@ -245,6 +250,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnSpan="4"
                 android:layout_columnWeight="1"
+                android:paddingTop="10dp"
                 android:text="@string/ps_personality_logistics_sleep_late" />
 
             <RadioGroup
@@ -288,6 +294,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnSpan="4"
                 android:layout_columnWeight="1"
+                android:paddingTop="10dp"
                 android:text="@string/ps_personality_logistics_overnight_guests" />
 
             <RadioGroup
@@ -330,6 +337,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnSpan="4"
                 android:layout_columnWeight="1"
+                android:paddingTop="10dp"
                 android:text="@string/ps_personality_logistics_comfortable_with_pets" />
 
             <RadioGroup
@@ -370,6 +378,7 @@
                 android:layout_row="17"
                 android:layout_columnSpan="4"
                 android:layout_columnWeight="1"
+                android:paddingTop="10dp"
                 android:orientation="horizontal">
 
                 <Button
