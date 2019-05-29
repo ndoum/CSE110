@@ -55,7 +55,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/no_pref" />
+                    android:text="@string/no_preference" />
             </RadioGroup>
 
 
@@ -92,7 +92,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/no_pref" />
+                    android:text="@string/no_preference" />
 
                 <RadioButton
                     android:id="@+id/roommate_preferences_cleanness_preference_no"
@@ -136,7 +136,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/no_pref" />
+                    android:text="@string/no_preference" />
 
                 <RadioButton
                     android:id="@+id/roommate_preferences_reserved_preference_no_"
@@ -180,7 +180,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/no_pref" />
+                    android:text="@string/no_preference" />
 
                 <RadioButton
                     android:id="@+id/roommate_preferences_party_preference_no"
@@ -223,7 +223,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/no_pref" />
+                    android:text="@string/no_preference" />
 
                 <RadioButton
                     android:id="@+id/roommate_preferences_alcohol_preference_no"
@@ -266,7 +266,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/no_pref" />
+                    android:text="@string/no_preference" />
 
                 <RadioButton
                     android:id="@+id/roommate_preferences_smoking_preference_no"
@@ -309,7 +309,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/no_pref" />
+                    android:text="@string/no_preference" />
 
                 <RadioButton
                     android:id="@+id/roommate_preferences_sleep_preference_no"
@@ -352,7 +352,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/no_pref" />
+                    android:text="@string/no_preference" />
 
                 <RadioButton
                     android:id="@+id/roommate_preferences_guests_preference_no"
@@ -396,7 +396,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/no_pref" />
+                    android:text="@string/no_preference" />
 
                 <RadioButton
                     android:id="@+id/roommate_preferences_pets_preference_no"
