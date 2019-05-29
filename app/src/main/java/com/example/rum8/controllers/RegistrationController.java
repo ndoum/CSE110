@@ -85,7 +85,10 @@ public class RegistrationController {
                             bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                             final byte[] data = baos.toByteArray();
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> eb403f535c1c579845ff0fe3e8ea73aed943519c
                             Db.uploadDefaultPicture(storage, user, data);
 
                             Db.createUser(db, user, userInfo)
