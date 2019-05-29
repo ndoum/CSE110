@@ -256,7 +256,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="@string/adv_settings_button_save" />
+            android:text="@string/save" />
 
         <Space
             android:layout_width="match_parent"
