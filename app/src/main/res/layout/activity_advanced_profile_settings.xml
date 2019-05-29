@@ -60,7 +60,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:maxLines="4"
-                android:minLines="2" />
+                android:minLines="2"
+                android:textColor="@color/colorAccent" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -86,7 +87,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:maxLines="4"
-                android:minLines="2" />
+                android:minLines="2"
+                android:textColor="@color/colorAccent" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -112,7 +114,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:maxLines="4"
-                android:minLines="2" />
+                android:minLines="2"
+                android:textColor="@color/colorAccent" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -139,7 +142,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:maxLines="4"
-                android:minLines="2" />
+                android:minLines="2"
+                android:textColor="@color/colorAccent" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -175,7 +179,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:maxLines="4"
-                android:minLines="2" />
+                android:minLines="2"
+                android:textColor="@color/colorAccent" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -202,7 +207,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:maxLines="4"
-                android:minLines="2" />
+                android:minLines="2"
+                android:textColor="@color/colorAccent" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -228,7 +234,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:maxLines="4"
-                android:minLines="2" />
+                android:minLines="2"
+                android:textColor="@color/colorAccent" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -263,7 +270,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
-                android:maxLines="1" />
+                android:maxLines="1"
+                android:textColor="@color/colorAccent" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
