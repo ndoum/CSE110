@@ -15,7 +15,6 @@ import com.example.rum8.listeners.ViewLinkListControllerListener;
 
 import java.util.ArrayList;
 
-
 public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkListControllerListener {
 
     private ViewLinkListController controller;
@@ -29,7 +28,6 @@ public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkL
         initController();
         setContentView(R.layout.activity_view_link_list);
         controller.prepareLinks();
-
         initViews();
     }
 
