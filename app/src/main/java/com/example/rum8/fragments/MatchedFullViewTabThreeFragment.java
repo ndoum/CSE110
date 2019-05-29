@@ -1,6 +1,5 @@
 package com.example.rum8.fragments;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,18 +12,16 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
-import com.example.rum8.controllers.MainController;
 import com.example.rum8.controllers.MatchedRoommateProfileController;
 import com.example.rum8.database.Db;
-import com.example.rum8.listeners.MainControllerListener;
 import com.example.rum8.listeners.MatchedRoommateProfileControllerListener;
 
 import java.util.Map;
 
-public class UserTab3Fragment extends Fragment implements MainControllerListener, MatchedRoommateProfileControllerListener {
+public class MatchedFullViewTabThreeFragment extends Fragment implements MatchedRoommateProfileControllerListener {
     View view;
 
-    private MainController controller;
+    private MatchedRoommateProfileController matchedController;
 
     private TextView questionOneYesResponse;
     private TextView questionOneSometimesResponse;
@@ -61,13 +58,6 @@ public class UserTab3Fragment extends Fragment implements MainControllerListener
 
 
 
-
-
-
-    public UserTab3Fragment() {
-
-    }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -78,8 +68,8 @@ public class UserTab3Fragment extends Fragment implements MainControllerListener
 
     @Override
     public void onViewCreated(View rootView, Bundle savedInstanceState) {
-        controller = new MainController(this);
-        controller.loadUserInfo();
+        matchedController = new MatchedRoommateProfileController(this);
+        matchedController.loadMatchUserInfo("");
         questionOneYesResponse = view.findViewById(R.id.tab3_question_1_yes);
         questionOneSometimesResponse = view.findViewById(R.id.tab3_question_1_sometimes);
         questionOneNoResponse = view.findViewById(R.id.tab3_question_1_no);
@@ -117,164 +107,9 @@ public class UserTab3Fragment extends Fragment implements MainControllerListener
 
     }
 
-    @Override
-    public void showCurrentUserInfo(final Map<String, Object> data) {
-        final Long cleanVal = (Long) data.get(Db.Keys.CLEAN_VALUE);
-        final Long reservedVal = (Long) data.get(Db.Keys.RESERVED_VALUE);
-        final Long partyVal = (Long) data.get(Db.Keys.PARTY_VALUE);
-        final Long alcoholVal = (Long) data.get(Db.Keys.ALCOHOL_VALUE);
-        final Long smokeVal = (Long) data.get(Db.Keys.SMOKE_VALUE);
-        final Long stayUpVal = (Long) data.get(Db.Keys.STAY_UP_LATE_ON_WEEKDAYS_VALUE);
-        final Long guestsVal= (Long) data.get(Db.Keys.OVERNIGHT_GUESTS_VALUE);
-        final Long petsVal = (Long) data.get(Db.Keys.ALLOW_PETS_VALUE);
 
-        if (cleanVal == 1){
-            questionOneYesResponse.setText("X");
-            questionOneSometimesResponse.setText("");
-            questionOneNoResponse.setText("");
-        }
-        else if (cleanVal == -1){
-            questionOneYesResponse.setText("");
-            questionOneSometimesResponse.setText("");
-            questionOneNoResponse.setText("X");
 
-        }
-        else{
-            questionOneYesResponse.setText("");
-            questionOneSometimesResponse.setText("X");
-            questionOneNoResponse.setText("");
-        }
 
-        if (reservedVal == 1){
-            questionTwoYesResponse.setText("X");
-            questionTwoSometimesResponse.setText("");
-            questionTwoNoResponse.setText("");
-        }
-        else if (reservedVal == -1){
-            questionTwoYesResponse.setText("");
-            questionTwoSometimesResponse.setText("");
-            questionTwoNoResponse.setText("X");
-
-        }
-        else{
-            questionTwoYesResponse.setText("");
-            questionTwoSometimesResponse.setText("X");
-            questionTwoNoResponse.setText("");
-        }
-        if (partyVal == 1){
-            questionThreeYesResponse.setText("X");
-            questionThreeSometimesResponse.setText("");
-            questionThreeNoResponse.setText("");
-        }
-        else if (partyVal == -1){
-            questionThreeYesResponse.setText("");
-            questionThreeSometimesResponse.setText("");
-            questionThreeNoResponse.setText("X");
-
-        }
-        else{
-            questionThreeYesResponse.setText("");
-            questionThreeSometimesResponse.setText("X");
-            questionThreeNoResponse.setText("");
-        }
-        if (alcoholVal == 1){
-            questionFourYesResponse.setText("X");
-            questionFourSometimesResponse.setText("");
-            questionFourNoResponse.setText("");
-        }
-        else if (alcoholVal == -1){
-            questionFourYesResponse.setText("");
-            questionFourSometimesResponse.setText("");
-            questionFourNoResponse.setText("X");
-
-        }
-        else{
-            questionFourYesResponse.setText("");
-            questionFourSometimesResponse.setText("X");
-            questionFourNoResponse.setText("");
-        }
-        if (smokeVal == 1){
-            questionFiveYesResponse.setText("X");
-            questionFiveSometimesResponse.setText("");
-            questionFiveNoResponse.setText("");
-        }
-        else if (smokeVal == -1){
-            questionFiveYesResponse.setText("");
-            questionFiveSometimesResponse.setText("");
-            questionFiveNoResponse.setText("X");
-
-        }
-        else{
-            questionFiveYesResponse.setText("");
-            questionFiveSometimesResponse.setText("X");
-            questionFiveNoResponse.setText("");
-        }
-        if (stayUpVal == 1){
-            questionSixYesResponse.setText("X");
-            questionSixSometimesResponse.setText("");
-            questionSixNoResponse.setText("");
-        }
-        else if (stayUpVal == -1){
-            questionSixYesResponse.setText("");
-            questionSixSometimesResponse.setText("");
-            questionSixNoResponse.setText("X");
-
-        }
-        else{
-            questionSixYesResponse.setText("");
-            questionSixSometimesResponse.setText("X");
-            questionSixNoResponse.setText("");
-        }
-        if (guestsVal == 1){
-            questionSevenYesResponse.setText("X");
-            questionSevenSometimesResponse.setText("");
-            questionSevenNoResponse.setText("");
-        }
-        else if (guestsVal == -1){
-            questionSevenYesResponse.setText("");
-            questionSevenSometimesResponse.setText("");
-            questionSevenNoResponse.setText("X");
-
-        }
-        else{
-            questionSevenYesResponse.setText("");
-            questionSevenSometimesResponse.setText("X");
-            questionSevenNoResponse.setText("");
-        }
-        if (petsVal == 1){
-            questionEightYesResponse.setText("X");
-            questionEightSometimesResponse.setText("");
-            questionEightNoResponse.setText("");
-        }
-        else if (petsVal == -1){
-            questionEightYesResponse.setText("");
-            questionEightSometimesResponse.setText("");
-            questionEightNoResponse.setText("X");
-
-        }
-        else{
-            questionEightYesResponse.setText("");
-            questionEightSometimesResponse.setText("X");
-            questionEightNoResponse.setText("");
-        }
-
-        onResume();
-    }
-
-    @Override
-    public void setFragment() {
-
-    }
-
-    @Override
-    public void setFragmentEmpty() {
-
-    }
-
-    @Override
-    public void setUserProfileImage(Bitmap bitmap) {
-
-    }
 
 
     @Override
@@ -427,21 +262,7 @@ public class UserTab3Fragment extends Fragment implements MainControllerListener
 
     }
 
-    @Override
-    public void goToProfileSettings() {
-    }
 
-    @Override
-    public void goToLogin() {
-    }
 
-    @Override
-    public void goToLinkList() {
-
-    }
-
-    @Override
-    public void goToAdvSettings() {
-    }
 
 }

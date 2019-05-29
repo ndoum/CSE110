@@ -62,15 +62,17 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="55dp"
-                            android:text="User"
+                            android:text=" "
                             android:textSize="25sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:id="@+id/matched_roommate_first_name"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:text="UCSD Nth Year" />
+                            android:text="UCSD Nth Year"
+                            android:id="@+id/matched_roommate_year"/>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
