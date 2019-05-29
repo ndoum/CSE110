@@ -277,7 +277,7 @@
             android:id="@+id/button_advanced_settings_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/menuBarColor"
+            android:backgroundTint="@color/colorAccent"
             android:text="@string/adv_settings_button_save" />
 
         <androidx.legacy.widget.Space

@@ -399,7 +399,7 @@
                 android:id="@+id/roommate_preferences_save_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/menuBarColor"
+                android:backgroundTint="@color/colorAccent"
                 android:text="save and view your potential roommate"
                 android:textColor="@color/white" />
         </GridLayout>

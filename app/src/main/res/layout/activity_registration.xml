@@ -31,8 +31,7 @@
             android:id="@+id/login_logo_imageview"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/logo_no_border_cropped"
-            />
+            android:src="@drawable/logo_no_border_cropped" />
 
         <TextView
             android:id="@+id/login_m8_text_view"
@@ -53,9 +52,9 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/register_image_linear_layout"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/register_image_linear_layout">
 
         <TextView
             android:id="@+id/register_header_textview"
@@ -80,7 +79,7 @@
                 android:inputType="textPersonName"
                 android:maxLines="1"
                 android:textColor="@color/colorAccentDark"
-                android:textColorHint="@color/menuBarColor" />
+                android:textColorHint="@color/colorAccent" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -102,7 +101,7 @@
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:textColor="@color/colorAccentDark"
-                android:textColorHint="@color/menuBarColor" />
+                android:textColorHint="@color/colorAccent" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -124,7 +123,7 @@
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:textColor="@color/colorAccentDark"
-                android:textColorHint="@color/menuBarColor" />
+                android:textColorHint="@color/colorAccent" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -134,6 +133,7 @@
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
+            android:backgroundTint="@color/colorAccent"
             android:text="@string/register_button" />
 
     </LinearLayout>
