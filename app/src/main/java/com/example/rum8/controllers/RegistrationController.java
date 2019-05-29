@@ -2,12 +2,9 @@ package com.example.rum8.controllers;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.rum8.R;
 import com.example.rum8.database.Db;
@@ -19,11 +16,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-
-import io.grpc.internal.SharedResourceHolder;
 
 import static android.content.ContentValues.TAG;
 
@@ -73,7 +67,7 @@ public class RegistrationController {
                         bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                         final byte[] data = baos.toByteArray();
 
-                        Db.UploadDefaultPicture(storage, user, data);
+                        Db.uploadDefaultPicture(storage, user, data);
 
                         Db.createUser(db, user, userInfo)
                             .addOnSuccessListener(aVoid -> Log.d("Success", "createUserWithEmail:success"))
