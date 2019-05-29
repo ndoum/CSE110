@@ -57,7 +57,6 @@ public class MatchedFullViewTabOneFragment extends Fragment implements MatchedRo
 
     @Override
     public void showMatchedInfo(Map<String, Object> data) {
-        System.out.println("ooooooooooooooooooo");
         final String budget = (String) data.get(Db.Keys.BUDGET);
         final String room_type = (String) data.get(Db.Keys.ROOM_TYPE);
 
@@ -72,6 +71,10 @@ public class MatchedFullViewTabOneFragment extends Fragment implements MatchedRo
         onResume();
     }
 
+    @Override
+    public void setMatchedUserProfileImage(Bitmap bitmap) {
+
+    }
 
 
 }

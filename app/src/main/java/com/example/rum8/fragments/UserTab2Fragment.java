@@ -20,7 +20,7 @@ import com.example.rum8.listeners.MatchedRoommateProfileControllerListener;
 
 import java.util.Map;
 
-public class UserTab2Fragment extends Fragment implements MainControllerListener, MatchedRoommateProfileControllerListener {
+public class UserTab2Fragment extends Fragment implements MainControllerListener{
 
     private View view;
     private MainController controller;
@@ -67,19 +67,6 @@ public class UserTab2Fragment extends Fragment implements MainControllerListener
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void showMatchedInfo(Map<String, Object> data) {
-        final String about_me = (String) data.get(Db.Keys.ABOUT_ME);
-        final String interest = (String) data.get(Db.Keys.INTERESTS);
-        final String hobbies = (String) data.get(Db.Keys.HOBBIES);
-
-        aboutMeField.setText(about_me);
-        interestField.setText(interest);
-        hobbiesField.setText(hobbies);
-
-        onResume();
-
-    }
 
     @Override
     public void goToProfileSettings() {

@@ -21,7 +21,7 @@ import com.example.rum8.listeners.MatchedRoommateProfileControllerListener;
 
 import java.util.Map;
 
-public class UserTab1Fragment extends Fragment implements MainControllerListener, MatchedRoommateProfileControllerListener {
+public class UserTab1Fragment extends Fragment implements MainControllerListener {
 
     private View view;
     private MainController controller;
@@ -79,22 +79,6 @@ public class UserTab1Fragment extends Fragment implements MainControllerListener
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void showMatchedInfo(Map<String, Object> data) {
-        System.out.println("ooooooooooooooooooo");
-        final String budget = (String) data.get(Db.Keys.BUDGET);
-        final String room_type = (String) data.get(Db.Keys.ROOM_TYPE);
-
-        final String living_accommodations = (String) data.get(Db.Keys.LIVING_ACCOMMODATIONS);
-        final String other_things_you_should_know = (String) data.get(Db.Keys.OTHER_THINGS_YOU_SHOULD_KNOW);
-
-        budgetField.setText(String.valueOf(budget));
-        livingAccommodationsField.setText(living_accommodations);
-        otherThingsField.setText(other_things_you_should_know);
-        roomTypeField.setText(room_type);
-
-        onResume();
-    }
 
     @Override
     public void goToProfileSettings() {

@@ -66,6 +66,7 @@ public class Db {
     public static UploadTask updateProfilePicture(final FirebaseStorage storage,
                                                   final @Nonnull FirebaseUser user,
                                                   final Uri filePath) {
+
         return storage.getReference()
                 .child(PROFILE_PIC_PATH + user.getUid())
                 .putFile(filePath);
@@ -86,6 +87,7 @@ public class Db {
 
     public static Task<byte[]> fetchUserProfilePictureById(final FirebaseStorage storage,
                                                            final String userId) {
+        System.out.println("profile pic");
         return storage.getReference().child(PROFILE_PIC_PATH + userId).getBytes(ONE_MEGABYTE);
     }
 

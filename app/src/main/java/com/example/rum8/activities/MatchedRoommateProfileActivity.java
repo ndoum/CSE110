@@ -1,5 +1,6 @@
 package com.example.rum8.activities;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -48,7 +49,6 @@ public class MatchedRoommateProfileActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_matched_roommate_profile_full);
         initController();
 
-
         tablayout = (TabLayout) findViewById(R.id.full_view_tab_layout);
         appBarLayout = (AppBarLayout) findViewById(R.id.full_view_app_bar);
         viewPager = (ViewPager) findViewById(R.id.full_view_view_pager);
@@ -75,6 +75,13 @@ public class MatchedRoommateProfileActivity extends AppCompatActivity implements
         firstName.setText((String) data.get(Db.Keys.FIRST_NAME));
         academicYear = findViewById(R.id.matched_roommate_year);
         academicYear.setText((String) data.get(Db.Keys.ACADEMIC_YEAR) + "Year");
+    }
+
+    @Override
+    public void setMatchedUserProfileImage(Bitmap bitmap) {
+        profilePicture = findViewById(R.id.matched_user_profile_picture);
+        profilePicture.setImageBitmap(bitmap);
+
     }
 
 
