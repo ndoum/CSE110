@@ -2,12 +2,9 @@ package com.example.rum8.controllers;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.rum8.R;
 import com.example.rum8.database.Db;
@@ -19,11 +16,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-
-import io.grpc.internal.SharedResourceHolder;
 
 import static android.content.ContentValues.TAG;
 
@@ -41,6 +35,25 @@ public class RegistrationController {
         this.context = context;
         auth = FirebaseAuth.getInstance();
         storage = FirebaseStorage.getInstance();
+    }
+
+    private static boolean isValidEmail(final String email) {
+        if (email == null) {
+            return false;
+        }
+
+        final int minimumEmailLength = 10;
+        return email.length() >= minimumEmailLength && email.endsWith("@ucsd.edu");
+    }
+
+    // check the passwords match
+    private static boolean passWordMatch(final String password, final String passwordConfirm) {
+        return password.equals(passwordConfirm);
+    }
+
+    private static boolean isValidPassword(final String password) {
+        final int minimumPasswordLength = 6;
+        return password != null && password.length() >= minimumPasswordLength;
     }
 
     public void onSubmit(final String email, final String password, final String passwordConfirm) {
@@ -72,7 +85,8 @@ public class RegistrationController {
                             bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                             final byte[] data = baos.toByteArray();
 
-                            Db.UploadDefaultPicture(storage, user, data);
+
+                            Db.uploadDefaultPicture(storage, user, data);
 
                             Db.createUser(db, user, userInfo)
                                     .addOnSuccessListener(aVoid -> Log.d("Success", "createUserWithEmail:success"))
@@ -107,25 +121,6 @@ public class RegistrationController {
                         controllerListener.showToast(message);
                     }
                 });
-    }
-
-    private static boolean isValidEmail(final String email) {
-        if (email == null) {
-            return false;
-        }
-
-        final int minimumEmailLength = 10;
-        return email.length() >= minimumEmailLength && email.endsWith("@ucsd.edu");
-    }
-
-    // check the passwords match
-    private static boolean passWordMatch(final String password, final String passwordConfirm) {
-        return password.equals(passwordConfirm);
-    }
-
-    private static boolean isValidPassword(final String password) {
-        final int minimumPasswordLength = 6;
-        return password != null && password.length() >= minimumPasswordLength;
     }
 
     public void onGoBackToLoginButtonClicked() {

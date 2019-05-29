@@ -34,23 +34,23 @@
                 android:background="@drawable/grad"
 
 
-
                 >
+
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:elevation="4dp"
                     android:layout_centerHorizontal="true"
-                    >
+                    android:elevation="4dp">
+
                     <ImageView
                         android:layout_width="125dp"
                         android:layout_height="125dp"
                         android:layout_centerHorizontal="true"
                         android:layout_margin="10dp"
+                        android:background="@drawable/circle"
+                        android:elevation="5dp"
                         android:padding="5dp"
                         android:scaleType="centerInside"
-                        android:elevation="5dp"
-                        android:background="@drawable/circle"
                         android:src="@drawable/images" />
 
                 </RelativeLayout>
@@ -71,8 +71,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:elevation="3dp"
+                        android:orientation="vertical"
 
                         >
 
