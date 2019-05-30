@@ -26,9 +26,9 @@
            >
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/emaillogo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/email_outline"
                 />
             <TextView
 
@@ -70,9 +70,9 @@
             >
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/facebooklogo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/facebook_box"
                 />
             <TextView
 
@@ -113,9 +113,9 @@
             >
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/calllogo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/phone"
                 />
             <TextView
 
@@ -156,9 +156,9 @@
             >
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/snapchatlogo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/snapchat"
                 />
             <TextView
 
