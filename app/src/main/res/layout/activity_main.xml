@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|start"
         android:layout_margin="32dp"
-        android:backgroundTint="@color/colorAccent"
+        android:backgroundTint="@color/colorAccentDark"
         android:onClick="ChangeFragment"
         app:icon="@drawable/wrong" />
 
