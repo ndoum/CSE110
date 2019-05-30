@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_view_link_list_single_link_linear_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:weightSum="10"
     android:layout_gravity="center"
-    android:paddingTop="10dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingBottom="10dp"
-    android:layout_margin="@dimen/cardview_compat_inset_shadow"
     android:gravity="center_vertical"
-    >
+    android:paddingLeft="5dp"
+    android:paddingTop="5dp"
+    android:paddingRight="5dp"
+    android:paddingBottom="5dp"
+    android:weightSum="10">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/view_link_list_single_link_imageview"
@@ -28,39 +27,49 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingLeft="10dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+
         >
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/view_link_list_single_link_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24dp"
-            android:textStyle="bold"
             android:layout_gravity="left"
-            android:layout_weight="9" />
+            android:layout_weight="12"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/view_link_list_single_link_major_year_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="12"
             android:layout_gravity="left"
-            android:textSize="10dp" />
-
+            android:layout_weight="12"
+            android:paddingBottom="5dp"
+            android:textSize="16dp" />
 
 
     </LinearLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/view_link_list_single_link_button"
-        android:gravity="center_vertical"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="8"
-        android:text="View"
-        android:textAlignment="center"
-        android:background="@drawable/view_button_rounded"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
+        >
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/view_link_list_single_link_button"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/view_button_rounded"
+            android:gravity="center_vertical|right"
+            android:text="View"
+            android:textAlignment="center" />
+
+    </RelativeLayout>
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
