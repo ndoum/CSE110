@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,7 +39,6 @@ public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkL
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ViewLinkListRecycleViewAdapter();
 
-
     }
 
     @Override
@@ -65,6 +65,8 @@ public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkL
     public void displayLinks(ArrayList<LinkListSingleLink> links) {
         adapter.setlLinks(links);
         recyclerView.setAdapter(adapter);
+        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
+
     }
 
     @Override
