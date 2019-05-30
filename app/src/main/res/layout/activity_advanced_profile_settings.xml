@@ -10,16 +10,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="vertical">
+        android:layout_marginHorizontal="16dp"
+        android:orientation="vertical"
+        android:paddingVertical="16dp">
 
         <TextView
             android:id="@+id/adv_settings_header"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_weight="0"
+            android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="@string/adv_settings_header"
             android:textColor="@color/colorAccentDark"
@@ -28,8 +26,8 @@
         <TextView
             android:id="@+id/adv_settings_general_header"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_weight="0"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:gravity="center"
             android:text="@string/adv_settings_sub_header_1"
             android:textColor="@color/colorAccentDark"
@@ -38,8 +36,8 @@
         <TextView
             android:id="@+id/adv_settings_living_accommodations"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_weight="0"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:gravity="center_vertical"
             android:text="@string/adv_settings_living_accommodations"
             android:textColor="@color/colorAccentDark" />
@@ -66,8 +64,7 @@
         <TextView
             android:id="@+id/adv_settings_room_type_header"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_weight="0"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:text="@string/adv_settings_room_type"
             android:textColor="@color/colorAccentDark" />
@@ -93,8 +90,7 @@
         <TextView
             android:id="@+id/adv_settings_budget_header"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_weight="0"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:text="@string/adv_settings_budget"
             android:textColor="@color/colorAccentDark" />
@@ -120,8 +116,7 @@
         <TextView
             android:id="@+id/adv_settings_other_things"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_weight="0"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:text="@string/adv_settings_other_things"
             android:textColor="@color/colorAccentDark" />
@@ -148,8 +143,8 @@
         <TextView
             android:id="@+id/adv_settings_personal_header"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_weight="0"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:gravity="center"
             android:text="@string/adv_settings_sub_header_2"
             android:textColor="@color/colorAccentDark"
@@ -158,8 +153,7 @@
         <TextView
             android:id="@+id/adv_settings_bio_header"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_weight="0"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:text="@string/adv_settings_bio"
             android:textColor="@color/colorAccentDark" />
@@ -185,8 +179,7 @@
         <TextView
             android:id="@+id/adv_settings_hobbies_header"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_weight="0"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:text="@string/adv_settings_hobbies"
             android:textColor="@color/colorAccentDark" />
@@ -213,8 +206,7 @@
         <TextView
             android:id="@+id/adv_settings_interest_header"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_weight="0"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:text="@string/adv_settings_interests"
             android:textColor="@color/colorAccentDark" />
@@ -240,8 +232,8 @@
         <TextView
             android:id="@+id/adv_settings_contact_header"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_weight="0"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:gravity="center"
             android:text="@string/adv_settings_sub_header_3"
             android:textColor="@color/colorAccentDark"
@@ -250,8 +242,8 @@
         <TextView
             android:id="@+id/adv_settings_phone_header"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_weight="0"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:gravity="center_vertical"
             android:text="@string/adv_settings_phone"
             android:textColor="@color/colorAccentDark" />
@@ -278,12 +270,9 @@
             android:id="@+id/button_advanced_settings_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:backgroundTint="@color/colorAccent"
             android:text="@string/save" />
-
-        <androidx.legacy.widget.Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
 
     </LinearLayout>
 
