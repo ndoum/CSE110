@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,11 +24,13 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
     public class LinkListSingleLinkHolder extends RecyclerView.ViewHolder{
         public ImageView imageView;
         public TextView nameView;
+        public Button viewButton;
 
         public LinkListSingleLinkHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.view_link_list_single_link_imageview);
             nameView = itemView.findViewById(R.id.view_link_list_single_link_textview);
+            viewButton = itemView.findViewById(R.id.view_link_list_single_link_button);
         }
     }
 
@@ -54,6 +57,13 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
 
         ImageView imageView = linkHolder.imageView;
         imageView.setImageBitmap(link.getBitMap());
+
+        Button view = linkHolder.viewButton;
+        view.setOnClickListener(v -> {
+            System.out.println(link.getUid());
+
+            
+        });
     }
 
     @Override

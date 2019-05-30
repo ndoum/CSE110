@@ -27,4 +27,8 @@ public class LinkListSingleLink {
         return this.bitMap;
     }
 
+    public String getUid(){
+        return this.uid;
+    }
+
 }
