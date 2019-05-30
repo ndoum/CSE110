@@ -6,38 +6,7 @@
     android:layout_height="match_parent">
 
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
 
-        app:cardPreventCornerOverlap="true">
-        <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-
-            >
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/calllogo"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Facebook Link: 'https://www.facebook.com/'"
-                android:layout_centerVertical="true"
-                android:gravity="center_vertical"
-                />
-
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
 
 
     <androidx.cardview.widget.CardView
@@ -62,10 +31,20 @@
                 android:src="@drawable/emaillogo"
                 />
             <TextView
-                android:id="@+id/TextView"
-                android:layout_width="match_parent"
+
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Facebook Link: 'https://www.facebook.com/'"
+                android:text="Email: "
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:gravity="center_vertical"
+                />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="tempUser@gmail.com "
                 android:layout_centerVertical="true"
                 android:gravity="center_vertical"
                 />
@@ -97,9 +76,62 @@
                 />
             <TextView
 
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Facebook Link: 'https://www.facebook.com/'"
+                android:text="Facebook link: "
+                android:layout_marginLeft="5dp"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="www.facebook.com "
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                />
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
+        app:cardPreventCornerOverlap="true">
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/calllogo"
+                />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Phone number: "
+                android:layout_marginLeft="5dp"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="9999999999"
                 android:layout_centerVertical="true"
                 android:gravity="center_vertical"
                 />
@@ -130,9 +162,19 @@
                 />
             <TextView
 
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Facebook Link: 'https://www.facebook.com/'"
+                android:text="Snapchat username: "
+                android:layout_marginLeft="5dp"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="username"
                 android:layout_centerVertical="true"
                 android:gravity="center_vertical"
                 />
