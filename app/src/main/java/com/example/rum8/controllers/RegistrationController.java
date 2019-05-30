@@ -27,7 +27,6 @@ public class RegistrationController {
     private Context context;
     private FirebaseAuth auth;
     private FirebaseStorage storage;
-    // Access a Cloud Firestore instance from your Activity
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public RegistrationController(final RegistrationControllerListener controllerListener, final Context context) {
@@ -38,12 +37,8 @@ public class RegistrationController {
     }
 
     private static boolean isValidEmail(final String email) {
-        if (email == null) {
-            return false;
-        }
-
         final int minimumEmailLength = 10;
-        return email.length() >= minimumEmailLength && email.endsWith("@ucsd.edu");
+        return email != null && email.length() >= minimumEmailLength && email.endsWith("@ucsd.edu");
     }
 
     // check the passwords match
