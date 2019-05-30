@@ -19,7 +19,6 @@ public class AdvancedSettingsController {
 
     public AdvancedSettingsController(final AdvancedSettingsControllerListener controllerListener) {
         this.controllerListener = controllerListener;
-
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
     }
@@ -33,27 +32,16 @@ public class AdvancedSettingsController {
                 .addOnFailureListener(e -> controllerListener.showToast("Network error"));
     }
 
-    public void onGoToProfileSettingsButtonClicked() {
-        controllerListener.goToProfileSettings();
-    }
-
-    public void onLogOutButtonClicked() {
-        FirebaseAuth.getInstance().signOut();
-        controllerListener.goToLogin();
-    }
-
-    public void onAdvSettingsButtonClicked() {
-        controllerListener.goToAdvSettings();
-    }
-
     public void loadUserInfo() {
-        Db.fetchUserInfo(this.db, this.auth.getCurrentUser()).addOnSuccessListener(documentSnapshot -> {
-            final Map<String, Object> data = documentSnapshot.getData();
-            controllerListener.showCurrentUserInfo(data);
-        }).addOnFailureListener(exception -> {
-            final String message = "Network error";
-            controllerListener.showToast(message);
-        });
+        Db.fetchUserInfo(db, auth.getCurrentUser())
+                .addOnSuccessListener(documentSnapshot -> {
+                    final Map<String, Object> data = documentSnapshot.getData();
+                    controllerListener.showCurrentUserInfo(data);
+                })
+                .addOnFailureListener(e -> {
+                    final String message = "Network error";
+                    controllerListener.showToast(message);
+                });
     }
 
 }
