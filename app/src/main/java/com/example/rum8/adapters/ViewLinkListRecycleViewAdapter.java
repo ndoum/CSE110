@@ -1,6 +1,7 @@
 package com.example.rum8.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,13 +13,60 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rum8.R;
+import com.example.rum8.activities.MatchedRoommateProfileActivity;
+import com.example.rum8.controllers.ViewLinkListController;
 import com.example.rum8.dataModels.LinkListSingleLink;
+import com.example.rum8.listeners.ViewLinkListControllerListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLinkListRecycleViewAdapter.LinkListSingleLinkHolder> {
+public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLinkListRecycleViewAdapter.LinkListSingleLinkHolder> implements ViewLinkListControllerListener {
 
     private List<LinkListSingleLink> lLinks;
+    private ViewLinkListController linkListController = new ViewLinkListController(this);
+    private View view;
+
+    @Override
+    public void goToProfileSettings() {
+
+    }
+
+    @Override
+    public void goToLogin() {
+
+    }
+
+    @Override
+    public void goToViewLinkList() {
+
+    }
+
+    @Override
+    public void goToAdvSettings() {
+
+    }
+
+    @Override
+    public void addNewLink(LinkListSingleLink link) {
+
+    }
+
+    @Override
+    public void displayLinks(ArrayList<LinkListSingleLink> links) {
+
+    }
+
+    @Override
+    public ArrayList<LinkListSingleLink> getLinks() {
+        return null;
+    }
+
+    @Override
+    public void showToast(String message) {
+
+    }
+
 
     //View Holder for a LinkListSingleLink object
     public class LinkListSingleLinkHolder extends RecyclerView.ViewHolder{
@@ -41,7 +89,6 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View view;
         view = inflater.inflate(R.layout.activity_view_link_list_single_link, parent, false);
         LinkListSingleLinkHolder linkHolder = new LinkListSingleLinkHolder(view);
 
@@ -60,7 +107,13 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
 
         Button view = linkHolder.viewButton;
         view.setOnClickListener(v -> {
-            System.out.println(link.getUid());
+            System.out.println("adapter print " + link.getUid());
+
+            Context context = view.getContext();
+            Intent intent = new Intent(context, MatchedRoommateProfileActivity.class);
+            intent.putExtra("TheUserId",link.getUid());
+            context.startActivity(intent);
+
 
             
         });

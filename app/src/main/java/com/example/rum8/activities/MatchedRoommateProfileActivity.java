@@ -1,4 +1,5 @@
 package com.example.rum8.activities;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -33,17 +34,21 @@ public class MatchedRoommateProfileActivity extends AppCompatActivity implements
     private TextView firstName;
     private TextView academicYear;
     private ImageView profilePicture;
+    private String matchedUserId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matched_roommate_profile_full);
         initController();
+        Intent intent = getIntent();
+        matchedUserId = intent.getStringExtra("TheUserId");
+        System.out.println(matchedUserId);
 
         tablayout = (TabLayout) findViewById(R.id.full_view_tab_layout);
         appBarLayout = (AppBarLayout) findViewById(R.id.full_view_app_bar);
         viewPager = (ViewPager) findViewById(R.id.full_view_view_pager);
-        controller.loadMatchUserInfo("");
+        controller.loadMatchUserInfo(matchedUserId);
         MatchedRoommateFullProfileAdapter adapter = new  MatchedRoommateFullProfileAdapter(getSupportFragmentManager());
         adapter.AddFragment(new MatchedFullViewTabOneFragment(), "General");
         adapter.AddFragment(new MatchedFullViewTabTwoFragment(), "Personal");
@@ -52,6 +57,10 @@ public class MatchedRoommateProfileActivity extends AppCompatActivity implements
         viewPager.setAdapter(adapter);
         tablayout.setupWithViewPager(viewPager);
 
+    }
+
+    public String getMatchedUserId(){
+        return this.matchedUserId;
     }
 
 

@@ -42,7 +42,6 @@ public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkL
         adapter = new ViewLinkListRecycleViewAdapter();
 
         final Button button_goToFullProfileView = findViewById(R.id.go_to_matched_roommate_full);
-        button_goToFullProfileView.setOnClickListener(v -> controller.onGoToFullProfileButtonClicked());
 
     }
 
@@ -55,6 +54,7 @@ public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkL
     public void showToast(String message) {
         Toast.makeText(ViewLinkListActivity.this, message, Toast.LENGTH_SHORT).show();
     }
+
 
     private void initController() {
         controller = new ViewLinkListController(this);
@@ -96,12 +96,7 @@ public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkL
 
     }
 
-    @Override
-    public void gotToFullProfile() {
-        final Intent intent = new Intent(ViewLinkListActivity.this, MatchedRoommateProfileActivity.class);
-        startActivity(intent);
 
-    }
 
     /*
      * @Override public void addToLinks(LinkListSingleLink link) {

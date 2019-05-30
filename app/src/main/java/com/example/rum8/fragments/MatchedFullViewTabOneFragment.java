@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
+import com.example.rum8.activities.MatchedRoommateProfileActivity;
 import com.example.rum8.controllers.MatchedRoommateProfileController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.MatchedRoommateProfileControllerListener;
@@ -41,7 +42,7 @@ public class MatchedFullViewTabOneFragment extends Fragment implements MatchedRo
     @Override
     public void onViewCreated(View rootView, Bundle savedInstanceState) {
         matchedController = new MatchedRoommateProfileController(this);
-        matchedController.loadMatchUserInfo("");
+        matchedController.loadMatchUserInfo(((MatchedRoommateProfileActivity)getActivity()).getMatchedUserId());
         livingAccommodationsField = view.findViewById(R.id.living_accommodations_text);
         otherThingsField = view.findViewById(R.id.other_thing_text);
         roomTypeField = view.findViewById(R.id.room_type_text);

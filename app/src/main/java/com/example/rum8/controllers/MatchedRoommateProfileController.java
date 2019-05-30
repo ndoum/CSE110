@@ -33,7 +33,7 @@ public class MatchedRoommateProfileController {
      */
     public void loadMatchUserInfo(String userId) {
 
-        Db.fetchUserProfilePictureById(this.storage, "jTO5PTvDRQfo2PF7DbBF4ac9Tay2").addOnSuccessListener(bytes -> {
+        Db.fetchUserProfilePictureById(this.storage, userId).addOnSuccessListener(bytes -> {
 
             Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
 
@@ -54,7 +54,7 @@ public class MatchedRoommateProfileController {
         });
 
 
-        Db.fetchUserInfoById(this.db, "g7v3yHWDvVbLFKdqPuxAclvM0N82").addOnSuccessListener(documentSnapshot -> {
+        Db.fetchUserInfoById(this.db, userId).addOnSuccessListener(documentSnapshot -> {
 
 
             final Map<String, Object> matchedUserData = documentSnapshot.getData();

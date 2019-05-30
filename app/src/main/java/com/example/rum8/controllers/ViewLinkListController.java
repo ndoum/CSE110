@@ -50,9 +50,13 @@ public class ViewLinkListController {
         controllerListener.goToAdvSettings();
     }
 
-    public void onGoToFullProfileButtonClicked() {
-        controllerListener.gotToFullProfile();
-    }
+//    public void onGoToFullProfileButtonClicked(String userId) {
+//        controllerListener.goToMatchedUserProfile(userId);
+//        System.out.println("!!!!!!!!!!!!!!!!");
+//    }
+
+
+
 
     /**
      * Fetch matched link uids from user's "matched" field
