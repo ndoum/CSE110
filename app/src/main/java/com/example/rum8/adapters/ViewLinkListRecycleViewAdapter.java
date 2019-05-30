@@ -24,7 +24,6 @@ import java.util.List;
 public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLinkListRecycleViewAdapter.LinkListSingleLinkHolder> implements ViewLinkListControllerListener {
 
     private List<LinkListSingleLink> lLinks;
-    private ViewLinkListController linkListController = new ViewLinkListController(this);
     private View view;
     public static final String USER_ID_STRING = "passed_user_id";
 
@@ -114,8 +113,6 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
             intent.putExtra(USER_ID_STRING,link.getUid());
             context.startActivity(intent);
 
-
-            
         });
     }
 

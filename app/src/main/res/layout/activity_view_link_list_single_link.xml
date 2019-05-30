@@ -26,6 +26,16 @@
         android:textStyle="bold"
         android:layout_weight="8" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/view_link_list_single_link_major_year_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view_link_list_single_link_imageview"
+        android:layout_weight="9"
+        android:paddingLeft="10dp"
+        android:text="Computer Science"
+        android:textSize="10dp" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/view_link_list_single_link_button"
         android:layout_width="wrap_content"
