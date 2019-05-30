@@ -151,6 +151,31 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/personal_info_major_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="My major:"
+            android:textColor="@color/colorAccentDark"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/personal_info_major_field_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/colorAccentDark">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/personal_info_major_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:maxLines="4"
+                android:minLines="2"
+                android:textColor="@color/colorAccentDark" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
             android:id="@+id/adv_settings_bio_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
