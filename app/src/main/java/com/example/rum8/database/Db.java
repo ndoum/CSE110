@@ -21,7 +21,7 @@ public class Db {
     private static final String USERS_COLLECTION_NAME = "users";
     private static final String PROFILE_PIC_PATH = "profile_pictures/";
     private static final String DEFAULT_PROFILE_PIC_PATH = "profile_picture_default/default_profile_pic.png";
-    private static final long ONE_MEGABYTE = 1024 * 1024;
+    private static final long ONE_MEGABYTE = 10240 * 10240;
 
     public static Task<Void> createUser(final FirebaseFirestore firestore,
                                         final @Nonnull FirebaseUser user,
