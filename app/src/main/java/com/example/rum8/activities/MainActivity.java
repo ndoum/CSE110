@@ -146,15 +146,12 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
      *
      * @param view
      */
-    public void ChangeFragment(View view) {
-
-        // Actions when the link button is clicked
+    public void changeFragment(final View view) {
         if (view == findViewById(R.id.link_button)) {
+            // Actions when the link button is clicked
             controller.onLikeClicked();
-        }
-
-        // Actions when the not link button is clicked
-        if (view == findViewById(R.id.not_link_button)) {
+        } else if (view == findViewById(R.id.not_link_button)) {
+            // Actions when the not link button is clicked
             controller.onDisLikeClicked();
         }
     }
