@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.rum8.R;
@@ -27,11 +26,6 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity implements MainControllerListener {
 
     private MainController controller;
-
-    @Override
-    public void showToast(final String message) {
-        Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
-    }
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -51,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
             case R.id.main_activity_go_to_profile_settings:
-                controller.onGoToProfileSettingsButtonClicked();
+                controller.onProfileSettingsButtonClicked();
                 return true;
             case R.id.main_activity_log_out:
                 controller.onLogOutButtonClicked();
@@ -60,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
                 controller.onGoToLinkListButtonClicked();
                 return true;
             case R.id.main_activity_go_to_adv_settings:
-                controller.onGoToAdvSettingsButtonClicked();
+                controller.onAdvancedSettingsButtonClicked();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -93,7 +87,8 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         startActivity(intent);
     }
 
-    public void goToAdvSettings() {
+    @Override
+    public void goToAdvancedProfileSettings() {
         final Intent intent = new Intent(MainActivity.this, AdvancedSettingsActivity.class);
         startActivity(intent);
     }
@@ -107,37 +102,20 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
 
     @Override
     public void setFragment() {
-        Fragment fragment;
-        fragment = new PotentialRoommateProfileDefault();
-
-        FragmentManager fm = getSupportFragmentManager();
-
-        FragmentTransaction ft = fm.beginTransaction();
-
-        ft.setCustomAnimations(R.anim.exit_right, R.anim.exit_right);
-        ft.replace(R.id.fragment_place, fragment);
-        ft.addToBackStack(null);
-        ft.commit();
+        showFragment(new PotentialRoommateProfileDefault());
     }
 
     @Override
     public void setFragmentEmpty() {
-        Fragment fragment;
-        fragment = new PotentialRoommateProfileAlt();
-
-        FragmentManager fm = getSupportFragmentManager();
-
-        FragmentTransaction ft = fm.beginTransaction();
-
-        ft.setCustomAnimations(R.anim.exit_right, R.anim.exit_right);
-        ft.replace(R.id.fragment_place, fragment);
-        ft.addToBackStack(null);
-        ft.commit();
+        showFragment(new PotentialRoommateProfileAlt());
     }
 
-    @Override
-    public void setUserProfileImage(Bitmap bitmap) {
-
+    private void showFragment(final Fragment fragment) {
+        final FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.exit_right, R.anim.exit_right);
+        fragmentTransaction.replace(R.id.fragment_place, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 
     /**
@@ -158,6 +136,15 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
 
     @Override
     public void showCurrentUserInfo(final Map<String, Object> data) {
+    }
+
+    @Override
+    public void setUserProfileImage(Bitmap bitmap) {
+    }
+
+    @Override
+    public void showToast(final String message) {
+        Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
 }
