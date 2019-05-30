@@ -35,7 +35,7 @@ public class MatchedFullViewTabOneFragment extends Fragment implements MatchedRo
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_tab1, container, false);
+        view = inflater.inflate(R.layout.fragment_full_view_tab_one, container, false);
         return view;
     }
 

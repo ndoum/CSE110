@@ -62,7 +62,7 @@ public class MatchedFullViewTabThreeFragment extends Fragment implements Matched
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_tab3, container, false);
+        view = inflater.inflate(R.layout.fragment_full_view_tab_three, container, false);
 
         return view;
     }
