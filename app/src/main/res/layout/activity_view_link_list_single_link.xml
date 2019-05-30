@@ -4,18 +4,29 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/cardview_light_background"
-    android:weightSum="10">
+    android:weightSum="10"
+    android:layout_gravity="center"
+    android:paddingTop="10dp">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/view_link_list_single_link_imageview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_weight="2" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/view_link_list_single_link_textview"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_weight="8" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/view_link_list_single_link_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="View"
         android:layout_weight="8" />
 
 

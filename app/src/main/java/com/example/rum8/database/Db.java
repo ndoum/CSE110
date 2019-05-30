@@ -21,7 +21,7 @@ public class Db {
     private static final String USERS_COLLECTION_NAME = "users";
     private static final String PROFILE_PIC_PATH = "profile_pictures/";
     private static final String DEFAULT_PROFILE_PIC_PATH = "profile_picture_default/default_profile_pic.png";
-    private static final long ONE_MEGABYTE = 1024 * 1024;
+    private static final long HUNDRED_MEGABYTE = 10240 * 10240;
 
     public static Task<Void> createUser(final FirebaseFirestore firestore,
                                         final @Nonnull FirebaseUser user,
@@ -66,6 +66,7 @@ public class Db {
     public static UploadTask updateProfilePicture(final FirebaseStorage storage,
                                                   final @Nonnull FirebaseUser user,
                                                   final Uri filePath) {
+
         return storage.getReference()
                 .child(PROFILE_PIC_PATH + user.getUid())
                 .putFile(filePath);
@@ -81,16 +82,16 @@ public class Db {
 
     public static Task<byte[]> fetchUserProfilePicture(final FirebaseStorage storage,
                                                        final @Nonnull FirebaseUser user) {
-        return storage.getReference().child(PROFILE_PIC_PATH + user.getUid()).getBytes(ONE_MEGABYTE);
+        return storage.getReference().child(PROFILE_PIC_PATH + user.getUid()).getBytes(HUNDRED_MEGABYTE);
     }
 
     public static Task<byte[]> fetchUserProfilePictureById(final FirebaseStorage storage,
                                                            final String userId) {
-        return storage.getReference().child(PROFILE_PIC_PATH + userId).getBytes(ONE_MEGABYTE);
+        return storage.getReference().child(PROFILE_PIC_PATH + userId).getBytes(HUNDRED_MEGABYTE);
     }
 
     public static Task<byte[]> fetchDefaultUserProfilePicture(final FirebaseStorage storage) {
-        return storage.getReference().child(DEFAULT_PROFILE_PIC_PATH).getBytes(ONE_MEGABYTE);
+        return storage.getReference().child(DEFAULT_PROFILE_PIC_PATH).getBytes(HUNDRED_MEGABYTE);
     }
 
     public static Task<DocumentSnapshot> fetchUserInfo(final FirebaseFirestore firestore,

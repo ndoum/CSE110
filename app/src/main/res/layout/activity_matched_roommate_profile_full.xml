@@ -2,12 +2,14 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="#FFFFFF"
     android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:elevation="10dp"
+        android:background="#FFFFFF"
 
         android:orientation="vertical">
 
@@ -15,8 +17,10 @@
 
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="#00FFFFFF"
-            android:elevation="0dp">
+            android:background="#FFFFFF"
+            android:elevation="0dp"
+            android:id="@+id/full_view_app_bar"
+            >
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -28,7 +32,8 @@
                     android:layout_centerHorizontal="true"
                     android:elevation="4dp">
 
-                    <ImageView
+
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="125dp"
                         android:layout_height="125dp"
                         android:layout_centerHorizontal="true"
@@ -36,8 +41,9 @@
                         android:background="@drawable/circle"
                         android:elevation="5dp"
                         android:padding="5dp"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/images" />
+                        android:src="@drawable/images"
+                        android:id="@+id/matched_user_profile_picture"
+                        />
 
                 </RelativeLayout>
 
@@ -46,7 +52,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="92dp"
-                    app:cardBackgroundColor="#5DB1A7">
+                    app:cardBackgroundColor="#FFDC87">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -58,15 +64,17 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="55dp"
-                            android:text="User"
+                            android:text=" "
                             android:textSize="25sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:id="@+id/matched_roommate_first_name"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:text="UCSD Nth Year" />
+                            android:text="UCSD Nth Year"
+                            android:id="@+id/matched_roommate_year"/>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -81,14 +89,20 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#009688"
+            app:tabIndicatorColor="@android:color/white"
+            app:tabSelectedTextColor="#000000"
+            app:tabTextAppearance="@style/CustomTextStyleFull"
             app:tabGravity="fill"
-            app:tabMode="fixed" />
+            app:tabMode="scrollable"
+            android:background="@color/ucsd_gold"
+            android:id="@+id/full_view_tab_layout"/>
 
         <androidx.viewpager.widget.ViewPager
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#00644949" />
+            android:background="#00644949"
+            android:id="@+id/full_view_view_pager"
+            />
 
     </LinearLayout>
 
