@@ -1,5 +1,6 @@
 package com.example.rum8.activities;
 
+
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -36,6 +37,8 @@ public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkL
         recyclerView = findViewById(R.id.activity_view_link_list_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ViewLinkListRecycleViewAdapter();
+
+
     }
 
     @Override
@@ -47,6 +50,7 @@ public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkL
     public void showToast(String message) {
         Toast.makeText(ViewLinkListActivity.this, message, Toast.LENGTH_SHORT).show();
     }
+
 
     private void initController() {
         controller = new ViewLinkListController(this);
@@ -66,6 +70,26 @@ public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkL
     @Override
     public void onBackPressed() {
         finish();
+    }
+
+    @Override
+    public void goToProfileSettings() {
+
+    }
+
+    @Override
+    public void goToLogin() {
+
+    }
+
+    @Override
+    public void goToViewLinkList() {
+
+    }
+
+    @Override
+    public void goToAdvSettings() {
+
     }
 
 }

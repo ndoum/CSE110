@@ -42,7 +42,7 @@
                     android:layout_centerHorizontal="true"
                     android:elevation="4dp">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="125dp"
                         android:layout_height="125dp"
                         android:layout_centerHorizontal="true"
@@ -50,7 +50,6 @@
                         android:background="@drawable/circle"
                         android:elevation="5dp"
                         android:padding="5dp"
-                        android:scaleType="centerInside"
                         android:src="@drawable/images" />
 
                 </RelativeLayout>

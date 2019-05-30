@@ -30,25 +30,26 @@ public class ViewLinkListController {
         storage = FirebaseStorage.getInstance();
     }
 
-    //Fetch links' info and images and display
+    /**
+     * Fetch matched link uids from user's "matched" field
+     */
     public void prepareLinks() {
         linkListUidMap = new HashMap<>();
-        //fetch current user's documentation
+        // fetch current user's documentation
         Db.fetchUserInfo(db, auth.getCurrentUser()).addOnCompleteListener((Task<DocumentSnapshot> task) -> {
-            if(task.isSuccessful()){
-                //fetch current user's matched links
+            if (task.isSuccessful()) {
+                // fetch current user's matched links
                 linkListUidMap = (HashMap<String, Object>) task.getResult().get(Db.Keys.MATCHED);
                 for (String uid : linkListUidMap.keySet()) {
-                    //fetch link's profile image
+                    // fetch link's profile image
                     Db.fetchUserInfoById(db, uid).addOnCompleteListener((Task<DocumentSnapshot> task1) -> {
-                        if(task1.isSuccessful()){
-                            Db.fetchUserProfilePictureById(storage, uid)
-                                    .addOnSuccessListener((byte[] bytes) -> {
+                        if (task1.isSuccessful()) {
+                            Db.fetchUserProfilePictureById(storage, uid).addOnSuccessListener((byte[] bytes) -> {
                                 displayLink(uid, task1, bytes);
-                            }).addOnFailureListener(e -> Db.fetchDefaultUserProfilePicture(storage)
-                                    .addOnSuccessListener(bytes -> {
-                                displayLink(uid, task1, bytes);
-                            }).addOnFailureListener(e1 -> controllerListener.showToast("Network Error")));
+                            }).addOnFailureListener(
+                                    e -> Db.fetchDefaultUserProfilePicture(storage).addOnSuccessListener(bytes -> {
+                                        displayLink(uid, task1, bytes);
+                                    }).addOnFailureListener(e1 -> controllerListener.showToast("Network Error")));
                         }
                     });
                 }
@@ -57,8 +58,8 @@ public class ViewLinkListController {
 
     }
 
-    //create LinkListSingleLink for link and display
-    public void displayLink(String linkUid, Task<DocumentSnapshot> task, byte[] bytes){
+    // create LinkListSingleLink for link and display
+    public void displayLink(String linkUid, Task<DocumentSnapshot> task, byte[] bytes) {
         HashMap<String, Object> linkInfoData = (HashMap<String, Object>) task.getResult().getData();
         String link_first_name = (String) linkInfoData.get(Db.Keys.FIRST_NAME);
         String link_last_name = (String) linkInfoData.get(Db.Keys.LAST_NAME);

@@ -13,50 +13,49 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
-import com.example.rum8.controllers.MainController;
+import com.example.rum8.activities.MatchedRoommateProfileActivity;
 import com.example.rum8.controllers.MatchedRoommateProfileController;
 import com.example.rum8.database.Db;
-import com.example.rum8.listeners.MainControllerListener;
 import com.example.rum8.listeners.MatchedRoommateProfileControllerListener;
 
 import java.util.Map;
 
-public class UserTab1Fragment extends Fragment implements MainControllerListener {
+public class MatchedFullViewTabOneFragment extends Fragment implements MatchedRoommateProfileControllerListener {
 
     private View view;
-    private MainController controller;
+    private MatchedRoommateProfileController matchedController;
     private TextView budgetField;
     private TextView livingAccommodationsField;
     private TextView otherThingsField;
     private TextView roomTypeField;
 
-    public UserTab1Fragment() {
+    public MatchedFullViewTabOneFragment() {
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        view = inflater.inflate(R.layout.fragment_tab1, container, false);
-
+        view = inflater.inflate(R.layout.fragment_full_view_tab_one, container, false);
         return view;
     }
 
     @Override
     public void onViewCreated(View rootView, Bundle savedInstanceState) {
-        controller = new MainController(this);
-        controller.loadUserInfo();
-        budgetField = view.findViewById(R.id.budget_text);
-
-
+        matchedController = new MatchedRoommateProfileController(this);
+        matchedController.loadMatchUserInfo(((MatchedRoommateProfileActivity)getActivity()).getMatchedUserId());
         livingAccommodationsField = view.findViewById(R.id.living_accommodations_text);
         otherThingsField = view.findViewById(R.id.other_thing_text);
         roomTypeField = view.findViewById(R.id.room_type_text);
-
+        budgetField = view.findViewById(R.id.budget_text);
     }
 
     @Override
-    public void showCurrentUserInfo(final Map<String, Object> data) {
+    public void showToast(final String message) {
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showMatchedInfo(Map<String, Object> data) {
         final String budget = (String) data.get(Db.Keys.BUDGET);
         final String room_type = (String) data.get(Db.Keys.ROOM_TYPE);
 
@@ -71,44 +70,8 @@ public class UserTab1Fragment extends Fragment implements MainControllerListener
         onResume();
     }
 
-
-
-
     @Override
-    public void showToast(final String message) {
-        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-    }
-
-
-    @Override
-    public void goToProfileSettings() {
-    }
-
-    @Override
-    public void goToLogin() {
-    }
-
-    @Override
-    public void goToLinkList() {
-    }
-
-    @Override
-    public void goToAdvancedProfileSettings() {
-    }
-
-    @Override
-    public void setFragment() {
+    public void setMatchedUserProfileImage(Bitmap bitmap) {
 
     }
-
-    @Override
-    public void setFragmentEmpty() {
-
-    }
-
-    @Override
-    public void setUserProfileImage(Bitmap bitmap) {
-
-    }
-
 }
