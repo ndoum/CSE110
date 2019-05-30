@@ -2,8 +2,6 @@ package com.example.rum8.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -46,7 +44,6 @@ public class AdvancedSettingsActivity extends AppCompatActivity
     }
 
     public void initViews() {
-
         accommodationsField = findViewById(R.id.general_info_living_accommodations_field);
         roomTypeField = findViewById(R.id.general_info_room_type_field);
         budgetField = findViewById(R.id.general_info_budget_field);
@@ -55,8 +52,6 @@ public class AdvancedSettingsActivity extends AppCompatActivity
         hobbiesField = findViewById(R.id.personal_info_hobbies_field);
         interestsField = findViewById(R.id.personal_info_interest_field);
         phoneNumberField = findViewById(R.id.personal_info_phone_field);
-
-        controller.loadUserInfo();
 
         saveButton = findViewById(R.id.button_advanced_settings_save);
         saveButton.setOnClickListener(v -> {
@@ -72,12 +67,13 @@ public class AdvancedSettingsActivity extends AppCompatActivity
             }};
             controller.onSaveButtonClicked(userHash);
         });
+
+        controller.loadUserInfo();
     }
 
     public void initController() {
         controller = new AdvancedSettingsController(this);
     }
-
 
     @Override
     public void showCurrentUserInfo(final Map<String, Object> data) {
@@ -100,26 +96,10 @@ public class AdvancedSettingsActivity extends AppCompatActivity
     }
 
     @Override
-    public void goToProfileSettings() {
-        final Intent intent = new Intent(AdvancedSettingsActivity.this, ProfileSettingsActivity.class);
-        startActivity(intent);
-    }
-
-    @Override
     public void goToLogin() {
         final Intent intent = new Intent(AdvancedSettingsActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
-    }
-
-    @Override
-    public void goToViewLinkList(){
-        final Intent intent = new Intent(AdvancedSettingsActivity.this, ViewLinkListActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-    public void goToAdvSettings() {
     }
 
 }

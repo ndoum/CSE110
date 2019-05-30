@@ -4,15 +4,9 @@ import java.util.Map;
 
 public interface AdvancedSettingsControllerListener {
 
-    void goToProfileSettings();
-
     void goToLogin();
 
-    void goToAdvSettings();
-
     void showToast(final String message);
-
-    void goToViewLinkList();
 
     void showCurrentUserInfo(final Map<String, Object> data);
 

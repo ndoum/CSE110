@@ -25,12 +25,8 @@ public class LoginController {
     }
 
     private static boolean isValidEmail(final String email) {
-        if (email == null) {
-            return false;
-        }
-
         final int minimumEmailLength = 10;
-        return email.length() >= minimumEmailLength && email.endsWith("@ucsd.edu");
+        return email != null && email.length() >= minimumEmailLength && email.endsWith("@ucsd.edu");
     }
 
     private static boolean isValidPassword(final String password) {
@@ -48,27 +44,26 @@ public class LoginController {
         } else {
             auth.signInWithEmailAndPassword(email, password)
                     .addOnSuccessListener(authResult -> {
-
-                        // check user verified their email
-                        if (!auth.getCurrentUser().isEmailVerified()) {
+                        if (auth.getCurrentUser().isEmailVerified()) {
+                            Log.d("Success", "signInWithEmail:success");
+                            onLoginSuccessful();
+                        } else {
                             final String message = "Please verify your email!";
                             controllerListener.showToast(message);
-                        } else {
-                            onLoginSuccessful(email, password);
-                            Log.d("Success", "signInWithEmail:success");
                         }
-                    }).addOnFailureListener(e -> {
-                final String message;
-                if (e instanceof FirebaseAuthInvalidUserException) {
-                    message = "Account does not exist";
-                } else if (e instanceof FirebaseAuthInvalidCredentialsException) {
-                    message = "Incorrect password";
-                } else {
-                    message = "Network error";
-                }
-                controllerListener.showToast(message);
-                Log.d("Error", "signInWithEmail:failure", e);
-            });
+                    })
+                    .addOnFailureListener(e -> {
+                        final String message;
+                        if (e instanceof FirebaseAuthInvalidUserException) {
+                            message = "Account does not exist";
+                        } else if (e instanceof FirebaseAuthInvalidCredentialsException) {
+                            message = "Incorrect password";
+                        } else {
+                            message = "Network error";
+                        }
+                        Log.d("Error", "signInWithEmail:failure", e);
+                        controllerListener.showToast(message);
+                    });
         }
     }
 
@@ -80,21 +75,22 @@ public class LoginController {
         controllerListener.goToPasswordRecovery();
     }
 
-    private void onLoginSuccessful(String email, String storedPassword) {
+    private void onLoginSuccessful() {
+        Db.fetchUserInfo(db, auth.getCurrentUser())
+                .addOnSuccessListener(documentSnapshot -> {
+                    final Map<String, Object> data = documentSnapshot.getData();
 
-        Db.fetchUserInfo(this.db, auth.getCurrentUser()).addOnSuccessListener(documentSnapshot -> {
-            final Map<String, Object> data = documentSnapshot.getData();
-
-            // check for name has not been entered, go to profilesetting page
-            if (data.get(Db.Keys.FIRST_NAME) == "") {
-                controllerListener.goToProfileSetting();
-            } else {
-                controllerListener.goToMainPage();
-            }
-        }).addOnFailureListener(exception -> {
-            final String message = "Network error";
-            controllerListener.showToast(message);
-        });
+                    // If name has not been entered, go to profile settings
+                    if (((String) data.get(Db.Keys.FIRST_NAME)).isEmpty()) {
+                        controllerListener.goToProfileSettings();
+                    } else {
+                        controllerListener.goToMainPage();
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    final String message = "Network error";
+                    controllerListener.showToast(message);
+                });
 
     }
 
