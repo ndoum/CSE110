@@ -64,7 +64,6 @@ public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkL
     public void displayLinks(ArrayList<LinkListSingleLink> links) {
         adapter.setlLinks(links);
         recyclerView.setAdapter(adapter);
-        //recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
 
     }
 
