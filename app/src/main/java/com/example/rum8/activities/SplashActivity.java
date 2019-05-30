@@ -12,7 +12,7 @@ import com.example.rum8.listeners.SplashControllerListener;
 
 public class SplashActivity extends AppCompatActivity implements SplashControllerListener {
 
-    private final int SPLASH_DISPLAY_TIME_MS = 2000;
+    private static final int SPLASH_DISPLAY_TIME_MS = 2000;
     private SplashController controller;
 
     @Override

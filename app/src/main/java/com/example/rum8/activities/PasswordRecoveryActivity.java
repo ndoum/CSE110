@@ -17,7 +17,6 @@ public class PasswordRecoveryActivity extends AppCompatActivity implements Passw
     private PasswordRecoveryController controller;
     private TextInputEditText emailField;
     private Button button_resetPassword;
-    private Button button_goBackToLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +38,6 @@ public class PasswordRecoveryActivity extends AppCompatActivity implements Passw
 
     private void initController() {
         controller = new PasswordRecoveryController(this);
-    }
-
-    /**
-     * Finish this activity because {@link LoginActivity} is the parent activity of this activity.
-     */
-    @Override
-    public void goBackToLogin() {
-        finish();
     }
 
     @Override

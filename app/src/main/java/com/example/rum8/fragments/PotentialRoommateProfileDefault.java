@@ -35,14 +35,13 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         if (container != null) {
             container.removeAllViews();
         }
 
         controller = new MainController(this);
 
-        this.rootView = inflater.inflate(R.layout.fragment_potential_roommate_profile_default, container, false);
+        rootView = inflater.inflate(R.layout.fragment_potential_roommate_profile_default, container, false);
 
         tablayout = rootView.findViewById(R.id.potential_roommate_profile_default_tablayout_id);
         appBarLayout = rootView.findViewById(R.id.potential_roommate_profile_default_appbarid);
@@ -63,36 +62,37 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
     }
 
     @Override
-    public void goToProfileSettings() {
-
-    }
-
-    @Override
-    public void goToLogin() {
-
-    }
-
-    @Override
-    public void goToLinkList() {
-
-    }
-
-    @Override
-    public void goToAdvSettings() {
-
-    }
-
-    @Override
-    public void showToast(final String message) {
-
-    }
-
-    @Override
     public void showCurrentUserInfo(final Map<String, Object> data) {
         firstName = rootView.findViewById(R.id.potential_first_name_default);
         firstName.setText((String) data.get(Db.Keys.FIRST_NAME));
         academicYear = rootView.findViewById(R.id.potential_academic_year_default);
         academicYear.setText(data.get(Db.Keys.ACADEMIC_YEAR) + "Year");
+    }
+
+    @Override
+    public void setUserProfileImage(Bitmap bitmap) {
+        profilePicture = rootView.findViewById(R.id.user_profile_picture);
+        profilePicture.setImageBitmap(bitmap);
+    }
+
+    @Override
+    public void goToProfileSettings() {
+    }
+
+    @Override
+    public void goToLogin() {
+    }
+
+    @Override
+    public void goToLinkList() {
+    }
+
+    @Override
+    public void goToAdvancedProfileSettings() {
+    }
+
+    @Override
+    public void showToast(final String message) {
     }
 
     @Override
@@ -103,12 +103,6 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
     @Override
     public void setFragmentEmpty() {
 
-    }
-
-    @Override
-    public void setUserProfileImage(Bitmap bitmap) {
-        profilePicture = rootView.findViewById(R.id.user_profile_picture);
-        profilePicture.setImageBitmap(bitmap);
     }
 
 }

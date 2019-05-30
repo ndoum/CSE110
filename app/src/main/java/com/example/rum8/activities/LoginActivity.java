@@ -49,8 +49,11 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
         finish();
     }
 
+    /**
+     * Finish this activity because it should not be the parent activity of {@link ProfileSettingsActivity}.
+     */
     @Override
-    public void goToProfileSetting() {
+    public void goToProfileSettings() {
         final Intent intent = new Intent(LoginActivity.this, ProfileSettingsActivity.class);
         startActivity(intent);
         finish();
