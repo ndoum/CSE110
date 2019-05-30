@@ -72,12 +72,14 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
     public class LinkListSingleLinkHolder extends RecyclerView.ViewHolder{
         public ImageView imageView;
         public TextView nameView;
+        public TextView majorView;
         public Button viewButton;
 
         public LinkListSingleLinkHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.view_link_list_single_link_imageview);
             nameView = itemView.findViewById(R.id.view_link_list_single_link_textview);
+            majorView = itemView.findViewById(R.id.view_link_list_single_link_major_year_textview);
             viewButton = itemView.findViewById(R.id.view_link_list_single_link_button);
         }
     }
@@ -101,6 +103,9 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
 
         TextView firstNameView = linkHolder.nameView;
         firstNameView.setText(link.getfirst_name() + " " + link.getlast_name());
+
+        TextView majorView = linkHolder.majorView;
+        majorView.setText(link.getMajor());
 
         ImageView imageView = linkHolder.imageView;
         imageView.setImageBitmap(link.getBitMap());

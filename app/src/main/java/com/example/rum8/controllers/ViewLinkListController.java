@@ -63,8 +63,9 @@ public class ViewLinkListController {
         HashMap<String, Object> linkInfoData = (HashMap<String, Object>) task.getResult().getData();
         String link_first_name = (String) linkInfoData.get(Db.Keys.FIRST_NAME);
         String link_last_name = (String) linkInfoData.get(Db.Keys.LAST_NAME);
+        String link_major = (String) linkInfoData.get(Db.Keys.MAJOR);
         Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-        LinkListSingleLink newLink = new LinkListSingleLink(link_first_name, link_last_name, linkUid, bitmap);
+        LinkListSingleLink newLink = new LinkListSingleLink(link_first_name, link_last_name, linkUid,link_major,bitmap);
         controllerListener.addNewLink(newLink);
         controllerListener.displayLinks(controllerListener.getLinks());
 

@@ -5,13 +5,15 @@ import android.graphics.Bitmap;
 public class LinkListSingleLink {
     private String firstName;
     private String lastName;
+    private String major;
     private String uid;
     private Bitmap bitMap;
 
-    public LinkListSingleLink(String firstName, String lastName, String uid, Bitmap bitmap) {
+    public LinkListSingleLink(String firstName, String lastName, String uid, String major, Bitmap bitmap) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.uid = uid;
+        this.major = major;
         this.bitMap = bitmap;
     }
 
@@ -21,6 +23,10 @@ public class LinkListSingleLink {
 
     public String getlast_name() {
         return lastName;
+    }
+
+    public String getMajor() {
+        return major;
     }
 
     public Bitmap getBitMap() {
