@@ -28,6 +28,7 @@ public class AdvancedSettingsActivity extends AppCompatActivity
     private TextInputEditText hobbiesField;
     private TextInputEditText interestsField;
     private TextInputEditText phoneNumberField;
+    private TextInputEditText majorField;
     private Button saveButton;
 
     @Override
@@ -44,6 +45,7 @@ public class AdvancedSettingsActivity extends AppCompatActivity
     }
 
     public void initViews() {
+        majorField = findViewById(R.id.personal_info_major_field);
         accommodationsField = findViewById(R.id.general_info_living_accommodations_field);
         roomTypeField = findViewById(R.id.general_info_room_type_field);
         budgetField = findViewById(R.id.general_info_budget_field);
@@ -52,10 +54,10 @@ public class AdvancedSettingsActivity extends AppCompatActivity
         hobbiesField = findViewById(R.id.personal_info_hobbies_field);
         interestsField = findViewById(R.id.personal_info_interest_field);
         phoneNumberField = findViewById(R.id.personal_info_phone_field);
-
         saveButton = findViewById(R.id.button_advanced_settings_save);
         saveButton.setOnClickListener(v -> {
             final Map<String, Object> userHash = new HashMap<String, Object>() {{
+                put(Db.Keys.MAJOR, majorField.getText().toString());
                 put(Db.Keys.LIVING_ACCOMMODATIONS, accommodationsField.getText().toString());
                 put(Db.Keys.BUDGET, budgetField.getText().toString());
                 put(Db.Keys.ROOM_TYPE, roomTypeField.getText().toString());
@@ -77,6 +79,7 @@ public class AdvancedSettingsActivity extends AppCompatActivity
 
     @Override
     public void showCurrentUserInfo(final Map<String, Object> data) {
+        final String my_major = (String) data.get(Db.Keys.MAJOR);
         final String about_me = (String) data.get(Db.Keys.ABOUT_ME);
         final String room_type = (String) data.get(Db.Keys.ROOM_TYPE);
         final String budget = (String) data.get(Db.Keys.BUDGET);
@@ -85,6 +88,7 @@ public class AdvancedSettingsActivity extends AppCompatActivity
         final String living_accommodations = (String) data.get(Db.Keys.LIVING_ACCOMMODATIONS);
         final String other_things_you_should_know = (String) data.get(Db.Keys.OTHER_THINGS_YOU_SHOULD_KNOW);
         final String phone_number = (String) data.get(Db.Keys.PHONE_NUMBER);
+        majorField.setText(my_major);
         accommodationsField.setText(living_accommodations);
         roomTypeField.setText(room_type);
         budgetField.setText(budget);
