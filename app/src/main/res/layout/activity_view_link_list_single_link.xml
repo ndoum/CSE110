@@ -3,18 +3,20 @@
     android:id="@+id/activity_view_link_list_single_link_linear_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/cardview_light_background"
     android:weightSum="10"
     android:layout_gravity="center"
     android:paddingTop="10dp"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
-    android:paddingBottom="10dp">
+    android:paddingBottom="10dp"
+    android:layout_margin="@dimen/cardview_compat_inset_shadow"
+    android:gravity="center_vertical"
+    >
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/view_link_list_single_link_imageview"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
         android:elevation="5dp"
@@ -41,22 +43,24 @@
             android:id="@+id/view_link_list_single_link_major_year_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="9"
+            android:layout_weight="12"
             android:layout_gravity="left"
             android:textSize="10dp" />
 
 
-    </LinearLayout>
 
+    </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/view_link_list_single_link_button"
+        android:gravity="center_vertical"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingLeft="20dp"
+        android:layout_weight="8"
         android:text="View"
-        android:layout_weight="8" />
+        android:textAlignment="center"
+        android:background="@drawable/view_button_rounded"/>
+
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
