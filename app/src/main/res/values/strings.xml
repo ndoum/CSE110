@@ -5,6 +5,7 @@
     <!-- general strings -->
     <string name="ucsd_email_hint">Enter your UCSD email here</string>
     <string name="password_hint">Enter your password</string>
+    <string name="password_hint_reenter">Reenter your password</string>
     <string name="login_button">Log in</string>
     <string name="yes">Yes</string>
     <string name="no_preference">No preference</string>
