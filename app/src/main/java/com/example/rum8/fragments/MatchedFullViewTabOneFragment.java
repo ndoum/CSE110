@@ -22,7 +22,6 @@ import java.util.Map;
 public class MatchedFullViewTabOneFragment extends Fragment implements MatchedRoommateProfileControllerListener {
 
     private View view;
-
     private MatchedRoommateProfileController matchedController;
     private TextView budgetField;
     private TextView livingAccommodationsField;
@@ -49,7 +48,6 @@ public class MatchedFullViewTabOneFragment extends Fragment implements MatchedRo
         budgetField = view.findViewById(R.id.budget_text);
     }
 
-
     @Override
     public void showToast(final String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
@@ -75,6 +73,4 @@ public class MatchedFullViewTabOneFragment extends Fragment implements MatchedRo
     public void setMatchedUserProfileImage(Bitmap bitmap) {
 
     }
-
-
 }

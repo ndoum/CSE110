@@ -268,6 +268,4 @@ public class MatchedFullViewTabThreeFragment extends Fragment implements Matched
 
     }
 
-
-
 }

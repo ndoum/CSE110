@@ -43,7 +43,6 @@ public class MatchedFullViewTabTwoFragment extends Fragment implements MatchedRo
         hobbiesField = view.findViewById(R.id.hobbies_text);
     }
 
-
     @Override
     public void showToast(final String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
@@ -67,7 +66,4 @@ public class MatchedFullViewTabTwoFragment extends Fragment implements MatchedRo
     public void setMatchedUserProfileImage(Bitmap bitmap) {
 
     }
-
-
-
 }

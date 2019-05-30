@@ -26,9 +26,6 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
         return view;
     }
 
-
-
-
     @Override
     public void showToast(String message) {
 
@@ -43,5 +40,4 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
     public void setMatchedUserProfileImage(Bitmap bitmap) {
 
     }
-
 }

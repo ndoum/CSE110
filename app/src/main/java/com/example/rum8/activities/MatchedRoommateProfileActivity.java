@@ -1,13 +1,8 @@
 package com.example.rum8.activities;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -22,10 +17,6 @@ import com.example.rum8.fragments.MatchedFullViewTabFourFragment;
 import com.example.rum8.fragments.MatchedFullViewTabOneFragment;
 import com.example.rum8.fragments.MatchedFullViewTabThreeFragment;
 import com.example.rum8.fragments.MatchedFullViewTabTwoFragment;
-import com.example.rum8.fragments.UserTab1Fragment;
-import com.example.rum8.fragments.UserTab2Fragment;
-import com.example.rum8.fragments.UserTab3Fragment;
-import com.example.rum8.fragments.UserTab4Fragment;
 import com.example.rum8.listeners.MatchedRoommateProfileControllerListener;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
