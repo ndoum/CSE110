@@ -87,7 +87,7 @@ public class LoginController {
                         controllerListener.goToMainPage();
                     }
                 })
-                .addOnFailureListener(exception -> {
+                .addOnFailureListener(e -> {
                     final String message = "Network error";
                     controllerListener.showToast(message);
                 });
