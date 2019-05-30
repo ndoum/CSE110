@@ -24,7 +24,6 @@ import java.util.List;
 public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLinkListRecycleViewAdapter.LinkListSingleLinkHolder> implements ViewLinkListControllerListener {
 
     private List<LinkListSingleLink> lLinks;
-    private ViewLinkListController linkListController = new ViewLinkListController(this);
     private View view;
     public static final String USER_ID_STRING = "passed_user_id";
 
@@ -73,12 +72,14 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
     public class LinkListSingleLinkHolder extends RecyclerView.ViewHolder{
         public ImageView imageView;
         public TextView nameView;
+        public TextView majorView;
         public Button viewButton;
 
         public LinkListSingleLinkHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.view_link_list_single_link_imageview);
             nameView = itemView.findViewById(R.id.view_link_list_single_link_textview);
+            majorView = itemView.findViewById(R.id.view_link_list_single_link_major_year_textview);
             viewButton = itemView.findViewById(R.id.view_link_list_single_link_button);
         }
     }
@@ -86,27 +87,30 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
     public void setlLinks(List<LinkListSingleLink> lLinks){ this.lLinks = lLinks;}
 
     @Override
-    public ViewLinkListRecycleViewAdapter.LinkListSingleLinkHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
+    public ViewLinkListRecycleViewAdapter.LinkListSingleLinkHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
+        final Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
         view = inflater.inflate(R.layout.activity_view_link_list_single_link, parent, false);
-        LinkListSingleLinkHolder linkHolder = new LinkListSingleLinkHolder(view);
+        final LinkListSingleLinkHolder linkHolder = new LinkListSingleLinkHolder(view);
 
         return linkHolder;
     }
 
     @Override
-    public void onBindViewHolder(LinkListSingleLinkHolder linkHolder, int position) {
+    public void onBindViewHolder(final LinkListSingleLinkHolder linkHolder, final int position) {
         LinkListSingleLink link = lLinks.get(position);
 
-        TextView firstNameView = linkHolder.nameView;
+        final TextView firstNameView = linkHolder.nameView;
         firstNameView.setText(link.getfirst_name() + " " + link.getlast_name());
 
-        ImageView imageView = linkHolder.imageView;
+        final TextView majorView = linkHolder.majorView;
+        majorView.setText(link.getMajor());
+
+        final ImageView imageView = linkHolder.imageView;
         imageView.setImageBitmap(link.getBitMap());
 
-        Button view = linkHolder.viewButton;
+        final Button view = linkHolder.viewButton;
         view.setOnClickListener(v -> {
 
             Context context = view.getContext();
@@ -114,8 +118,6 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
             intent.putExtra(USER_ID_STRING,link.getUid());
             context.startActivity(intent);
 
-
-            
         });
     }
 
