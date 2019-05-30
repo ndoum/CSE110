@@ -45,10 +45,10 @@ public class ViewLinkListController {
                     Db.fetchUserInfoById(db, uid).addOnCompleteListener((Task<DocumentSnapshot> task1) -> {
                         if (task1.isSuccessful()) {
                             Db.fetchUserProfilePictureById(storage, uid).addOnSuccessListener((byte[] bytes) -> {
-                                displayLink(uid, task1, bytes);
+                                createLink(uid, task1, bytes);
                             }).addOnFailureListener(
                                     e -> Db.fetchDefaultUserProfilePicture(storage).addOnSuccessListener(bytes -> {
-                                        displayLink(uid, task1, bytes);
+                                        createLink(uid, task1, bytes);
                                     }).addOnFailureListener(e1 -> controllerListener.showToast("Network Error")));
                         }
                     });
@@ -59,7 +59,7 @@ public class ViewLinkListController {
     }
 
     // create LinkListSingleLink for link and display
-    public void displayLink(final String linkUid, final Task<DocumentSnapshot> task, final byte[] bytes) {
+    public void createLink(final String linkUid, final Task<DocumentSnapshot> task, final byte[] bytes) {
         HashMap<String, Object> linkInfoData = (HashMap<String, Object>) task.getResult().getData();
         String link_first_name = (String) linkInfoData.get(Db.Keys.FIRST_NAME);
         String link_last_name = (String) linkInfoData.get(Db.Keys.LAST_NAME);
