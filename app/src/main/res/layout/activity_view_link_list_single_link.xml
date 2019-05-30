@@ -39,7 +39,8 @@
             android:layout_gravity="left"
             android:layout_weight="12"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#616161"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/view_link_list_single_link_major_year_textview"
@@ -48,7 +49,8 @@
             android:layout_gravity="left"
             android:layout_weight="12"
             android:paddingBottom="5dp"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:textColor="#616161"/>
 
 
     </LinearLayout>
@@ -67,7 +69,8 @@
             android:background="@drawable/view_button_rounded"
             android:gravity="center_vertical|right"
             android:text="View"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="#616161"/>
 
     </RelativeLayout>
 
