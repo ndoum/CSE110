@@ -62,7 +62,7 @@
                 android:layout_height="55dp"
                 android:layout_row="0"
                 android:layout_column="1"
-                android:layout_gravity="top|end"
+                android:layout_gravity="top|left"
                 android:text="@string/upload_Photo"
                 android:textColor="@color/colorAccentDark"
                 app:strokeColor="@color/colorAccentDark"
@@ -208,7 +208,7 @@
                 android:layout_height="wrap_content"
                 android:layout_row="6"
                 android:layout_column="1"
-                android:layout_gravity="right"
+                android:layout_gravity="left"
                 android:backgroundTint="@color/colorAccent"
                 android:text="next"
                 android:textColor="@color/white" />
