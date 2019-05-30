@@ -65,12 +65,12 @@ public class MatchedRoommateProfileActivity extends AppCompatActivity implements
 
 
     @Override
-    public void showToast(String message) {
+    public void showToast(final String message) {
 
     }
 
     @Override
-    public void showMatchedInfo(Map<String, Object> data){
+    public void showMatchedInfo(final Map<String, Object> data){
         firstName = findViewById(R.id.matched_roommate_first_name);
         firstName.setText((String) data.get(Db.Keys.FIRST_NAME));
         academicYear = findViewById(R.id.matched_roommate_year);
@@ -78,7 +78,7 @@ public class MatchedRoommateProfileActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void setMatchedUserProfileImage(Bitmap bitmap) {
+    public void setMatchedUserProfileImage(final Bitmap bitmap) {
         profilePicture = findViewById(R.id.matched_user_profile_picture);
         profilePicture.setImageBitmap(bitmap);
 

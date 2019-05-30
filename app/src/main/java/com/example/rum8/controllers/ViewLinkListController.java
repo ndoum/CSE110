@@ -59,7 +59,7 @@ public class ViewLinkListController {
     }
 
     // create LinkListSingleLink for link and display
-    public void displayLink(String linkUid, Task<DocumentSnapshot> task, byte[] bytes) {
+    public void displayLink(final String linkUid, final Task<DocumentSnapshot> task, final byte[] bytes) {
         HashMap<String, Object> linkInfoData = (HashMap<String, Object>) task.getResult().getData();
         String link_first_name = (String) linkInfoData.get(Db.Keys.FIRST_NAME);
         String link_last_name = (String) linkInfoData.get(Db.Keys.LAST_NAME);

@@ -9,7 +9,7 @@ public class LinkListSingleLink {
     private String uid;
     private Bitmap bitMap;
 
-    public LinkListSingleLink(String firstName, String lastName, String uid, String major, Bitmap bitmap) {
+    public LinkListSingleLink(final String firstName, final String lastName, final String uid, final String major, final Bitmap bitmap) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.uid = uid;

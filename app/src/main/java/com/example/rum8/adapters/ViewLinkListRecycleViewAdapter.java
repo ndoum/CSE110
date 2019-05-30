@@ -87,30 +87,30 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
     public void setlLinks(List<LinkListSingleLink> lLinks){ this.lLinks = lLinks;}
 
     @Override
-    public ViewLinkListRecycleViewAdapter.LinkListSingleLinkHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
+    public ViewLinkListRecycleViewAdapter.LinkListSingleLinkHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
+        final Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
         view = inflater.inflate(R.layout.activity_view_link_list_single_link, parent, false);
-        LinkListSingleLinkHolder linkHolder = new LinkListSingleLinkHolder(view);
+        final LinkListSingleLinkHolder linkHolder = new LinkListSingleLinkHolder(view);
 
         return linkHolder;
     }
 
     @Override
-    public void onBindViewHolder(LinkListSingleLinkHolder linkHolder, int position) {
+    public void onBindViewHolder(final LinkListSingleLinkHolder linkHolder, final int position) {
         LinkListSingleLink link = lLinks.get(position);
 
-        TextView firstNameView = linkHolder.nameView;
+        final TextView firstNameView = linkHolder.nameView;
         firstNameView.setText(link.getfirst_name() + " " + link.getlast_name());
 
-        TextView majorView = linkHolder.majorView;
+        final TextView majorView = linkHolder.majorView;
         majorView.setText(link.getMajor());
 
-        ImageView imageView = linkHolder.imageView;
+        final ImageView imageView = linkHolder.imageView;
         imageView.setImageBitmap(link.getBitMap());
 
-        Button view = linkHolder.viewButton;
+        final Button view = linkHolder.viewButton;
         view.setOnClickListener(v -> {
 
             Context context = view.getContext();
