@@ -31,34 +31,6 @@ public class ViewLinkListController {
     }
 
     /**
-     * menu buttons
-     */
-    public void onGoToProfileSettingsButtonClicked() {
-        controllerListener.goToProfileSettings();
-    };
-
-    public void onLogoutButtonClicked() {
-        FirebaseAuth.getInstance().signOut();
-        controllerListener.goToLogin();
-    }
-
-    public void onGoToViewLinkListButtonClicked() {
-        controllerListener.goToViewLinkList();
-    }
-
-    public void onGoToAdvSettingsButtonClicked() {
-        controllerListener.goToAdvSettings();
-    }
-
-//    public void onGoToFullProfileButtonClicked(String userId) {
-//        controllerListener.goToMatchedUserProfile(userId);
-//        System.out.println("!!!!!!!!!!!!!!!!");
-//    }
-
-
-
-
-    /**
      * Fetch matched link uids from user's "matched" field
      */
     public void prepareLinks() {

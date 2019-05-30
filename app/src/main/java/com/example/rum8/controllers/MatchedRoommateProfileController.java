@@ -27,7 +27,6 @@ public class MatchedRoommateProfileController {
         this.storage = FirebaseStorage.getInstance();
     }
 
-
     /**
      * use user's potential list to find other other show other user's info
      */
@@ -59,29 +58,13 @@ public class MatchedRoommateProfileController {
 
             final Map<String, Object> matchedUserData = documentSnapshot.getData();
 
-
-            // fetch other user's profile picture
-
-
-
-
-
-
-
             controllerListener.showMatchedInfo(matchedUserData);
-
 
         }).addOnFailureListener(exception -> {
             final String message = "Network error";
             controllerListener.showToast(message);
         });
 
-
-
-
-
     }
-
-
 
 }

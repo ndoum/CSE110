@@ -26,6 +26,7 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
     private List<LinkListSingleLink> lLinks;
     private ViewLinkListController linkListController = new ViewLinkListController(this);
     private View view;
+    public static final String USER_ID_STRING = "passed_user_id";
 
     @Override
     public void goToProfileSettings() {
@@ -107,11 +108,10 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
 
         Button view = linkHolder.viewButton;
         view.setOnClickListener(v -> {
-            System.out.println("adapter print " + link.getUid());
 
             Context context = view.getContext();
             Intent intent = new Intent(context, MatchedRoommateProfileActivity.class);
-            intent.putExtra("TheUserId",link.getUid());
+            intent.putExtra(USER_ID_STRING,link.getUid());
             context.startActivity(intent);
 
 

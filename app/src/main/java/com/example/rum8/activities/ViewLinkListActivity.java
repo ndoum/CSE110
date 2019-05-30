@@ -1,10 +1,7 @@
 package com.example.rum8.activities;
 
-import android.content.Intent;
+
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,7 +38,6 @@ public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkL
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ViewLinkListRecycleViewAdapter();
 
-        final Button button_goToFullProfileView = findViewById(R.id.go_to_matched_roommate_full);
 
     }
 
@@ -95,14 +91,5 @@ public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkL
     public void goToAdvSettings() {
 
     }
-
-
-
-    /*
-     * @Override public void addToLinks(LinkListSingleLink link) {
-     * //System.out.println("ADDING TO LINKS!!!!!"); links.add(link);
-     * System.out.println("IN FUNCTION ADD TO LINKS..."); System.out.println(links);
-     * }
-     */
 
 }

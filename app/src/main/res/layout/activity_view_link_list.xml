@@ -14,15 +14,4 @@
         app:layout_constraintTop_toTopOf="parent">
 
     </androidx.recyclerview.widget.RecyclerView>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/activity_view_link_list_recycler_view"
-        app:layout_constraintTop_toTopOf="@+id/activity_view_link_list_recycler_view"
-        android:text="FROGS"
-        android:id="@+id/go_to_matched_roommate_full"
-        >
-    </Button>
 </androidx.constraintlayout.widget.ConstraintLayout>

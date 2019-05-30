@@ -12,6 +12,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.rum8.R;
 import com.example.rum8.adapters.MatchedRoommateFullProfileAdapter;
 
+import com.example.rum8.adapters.ViewLinkListRecycleViewAdapter;
 import com.example.rum8.controllers.MatchedRoommateProfileController;
 import com.example.rum8.database.Db;
 import com.example.rum8.fragments.MatchedFullViewTabFourFragment;
@@ -42,12 +43,11 @@ public class MatchedRoommateProfileActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_matched_roommate_profile_full);
         initController();
         Intent intent = getIntent();
-        matchedUserId = intent.getStringExtra("TheUserId");
-        System.out.println(matchedUserId);
+        matchedUserId = intent.getStringExtra(ViewLinkListRecycleViewAdapter.USER_ID_STRING);
 
-        tablayout = (TabLayout) findViewById(R.id.full_view_tab_layout);
-        appBarLayout = (AppBarLayout) findViewById(R.id.full_view_app_bar);
-        viewPager = (ViewPager) findViewById(R.id.full_view_view_pager);
+        tablayout = findViewById(R.id.full_view_tab_layout);
+        appBarLayout = findViewById(R.id.full_view_app_bar);
+        viewPager = findViewById(R.id.full_view_view_pager);
         controller.loadMatchUserInfo(matchedUserId);
         MatchedRoommateFullProfileAdapter adapter = new  MatchedRoommateFullProfileAdapter(getSupportFragmentManager());
         adapter.AddFragment(new MatchedFullViewTabOneFragment(), "General");
