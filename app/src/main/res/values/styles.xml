@@ -1,15 +1,15 @@
 <resources>
 
     <style name="AppThemeActionBar" parent="Theme.MaterialComponents.Light.DarkActionBar">
-        <item name="colorPrimary">#DA9785</item>
-        <item name="colorPrimaryDark">#DA9785</item>
-        <item name="colorAccent">#E65100</item>
+        <item name="colorPrimary">@color/colorAccentDark</item>
+        <item name="colorPrimaryDark">@color/colorAccentDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
     <style name="AppThemeNoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">#DA9785</item>
-        <item name="colorPrimaryDark">#DA9785</item>
-        <item name="colorAccent">#E65100</item>
+        <item name="colorPrimary">@color/colorAccentDark</item>
+        <item name="colorPrimaryDark">@color/colorAccentDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
     <style name="CustomTextStyle" parent="Widget.MaterialComponents.TabLayout">

@@ -90,32 +90,37 @@ public class ProfileSettingsController {
     }
 
     public void loadUserInfo() {
-        Db.fetchUserInfo(this.db, auth.getCurrentUser()).addOnSuccessListener(documentSnapshot -> {
-            final Map<String, Object> data = documentSnapshot.getData();
-            controllerListener.showCurrentUserInfo(data);
-        }).addOnFailureListener(exception -> {
-            final String message = "Network error";
-            controllerListener.showToast(message);
-        });
+        Db.fetchUserInfo(db, auth.getCurrentUser())
+                .addOnSuccessListener(documentSnapshot -> {
+                    final Map<String, Object> data = documentSnapshot.getData();
+                    controllerListener.showCurrentUserInfo(data);
+                })
+                .addOnFailureListener(e -> {
+                    final String message = "Network error";
+                    controllerListener.showToast(message);
+                });
     }
 
     public void loadUserProfileImage() {
-        Db.fetchUserProfilePicture(this.storage, this.auth.getCurrentUser()).addOnSuccessListener(bytes -> {
-            Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-            controllerListener.setUserProfileImage(bmp);
-        }).addOnFailureListener(exception -> {
-            // fetch default if the user does not upload
-            Db.fetchDefaultUserProfilePicture(this.storage).addOnSuccessListener(bytes -> {
-                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                controllerListener.setUserProfileImage(bmp);
-            });
-            // show error message if both way fails
-            int errorCode = ((StorageException) exception).getErrorCode();
-            if (errorCode != StorageException.ERROR_OBJECT_NOT_FOUND) {
-                final String message = "Network error";
-                controllerListener.showToast(message);
-            }
-        });
+        Db.fetchUserProfilePicture(storage, auth.getCurrentUser())
+                .addOnSuccessListener(bytes -> {
+                    final Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                    controllerListener.setUserProfileImage(bmp);
+                })
+                .addOnFailureListener(e -> {
+                    // fetch default if the user does not upload
+                    Db.fetchDefaultUserProfilePicture(storage)
+                            .addOnSuccessListener(bytes -> {
+                                final Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                                controllerListener.setUserProfileImage(bmp);
+                            });
+                    // show error message if both way fails
+                    int errorCode = ((StorageException) e).getErrorCode();
+                    if (errorCode != StorageException.ERROR_OBJECT_NOT_FOUND) {
+                        final String message = "Network error";
+                        controllerListener.showToast(message);
+                    }
+                });
     }
 
     /**

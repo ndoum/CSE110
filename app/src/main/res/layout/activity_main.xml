@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="32dp"
-        android:onClick="ChangeFragment"
+        android:onClick="changeFragment"
         app:icon="@drawable/correct" />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -35,8 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|start"
         android:layout_margin="32dp"
-        android:backgroundTint="@color/colorAccent"
-        android:onClick="ChangeFragment"
+        android:backgroundTint="@color/colorAccentDark"
+        android:onClick="changeFragment"
         app:icon="@drawable/wrong" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -15,7 +15,9 @@ public class RegistrationActivity extends AppCompatActivity
         implements RegistrationControllerListener {
 
     private RegistrationController controller;
-    private TextInputEditText editText_email, editText_password, editText_passwordConfirm;
+    private TextInputEditText editText_email;
+    private TextInputEditText editText_password;
+    private TextInputEditText editText_passwordConfirm;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {

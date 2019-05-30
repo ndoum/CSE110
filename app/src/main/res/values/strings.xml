@@ -22,8 +22,9 @@
 
     <!-- activity_login -->
     <string name="login_header">Log In</string>
-    <string name="login_register_button">First time? Register here</string>
+    <string name="login_register_button">Register here</string>
     <string name="login_pr_button">Forgot password?</string>
+    <string name="login_first_time">First time?</string>
 
     <!-- activity_main -->
     <string name="menu_log_in_button">Log In</string>
@@ -38,7 +39,7 @@
 
     <!-- activity_password_recovery -->
     <string name="pr_header">Password Recovery</string>
-    <string name="pr_reset_password_button">Send me an email to reset password</string>
+    <string name="pr_reset_password_button">Send me an email</string>
 
     <!-- activity_registration -->
     <string name="registration_header">Create an account</string>
