@@ -31,7 +31,14 @@
         <activity android:name=".activities.AdvancedSettingsActivity" />
         <activity android:name=".activities.MatchedRoommateProfileActivity"/>
 
-        <activity android:name=".activities.ViewLinkListActivity" />
+        <activity android:name=".activities.ViewLinkListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SENDTO" />
+                <data android:scheme="mailto" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"
