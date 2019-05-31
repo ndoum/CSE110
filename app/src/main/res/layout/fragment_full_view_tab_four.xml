@@ -2,18 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        app:cardPreventCornerOverlap="true">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    app:cardPreventCornerOverlap="true">
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/email_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -47,8 +48,9 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         app:cardPreventCornerOverlap="true">
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/facebook_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -84,8 +86,10 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         app:cardPreventCornerOverlap="true">
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/phone_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -121,8 +125,9 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         app:cardPreventCornerOverlap="true">
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/snapchat_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
