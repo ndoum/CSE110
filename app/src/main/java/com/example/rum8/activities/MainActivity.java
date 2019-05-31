@@ -65,6 +65,9 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
             case R.id.main_activity_go_to_adv_settings:
                 controller.onAdvancedSettingsButtonClicked();
                 return true;
+            case R.id.main_activity_go_to_preview_profile:
+                controller.onPreviewProfileButtonClicked();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

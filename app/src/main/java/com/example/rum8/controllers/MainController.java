@@ -44,6 +44,10 @@ public class MainController {
         controllerListener.goToLogin();
     }
 
+    public void onPreviewProfileButtonClicked(){
+        controllerListener.goToProfilePreview();
+    }
+
     /**
      * use user's potential list to find other other show other user's info
      */

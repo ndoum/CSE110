@@ -18,7 +18,7 @@
         android:title="@string/menu_log_out_button"
         app:showAsAction="never"/>
 
-    <item android:id="@+id/main_activity_preview_profile"
+    <item android:id="@+id/main_activity_go_to_preview_profile"
         android:title="@string/menu_preview_your_profile_button"
         app:showAsAction="never"/>
 
