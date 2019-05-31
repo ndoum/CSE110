@@ -14,6 +14,8 @@ public interface MainControllerListener {
 
     void goToAdvancedProfileSettings();
 
+    void goToProfilePreview();
+
     void showToast(final String message);
 
     void showCurrentUserInfo(final Map<String, Object> data);

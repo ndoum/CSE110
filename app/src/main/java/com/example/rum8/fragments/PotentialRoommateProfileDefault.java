@@ -92,6 +92,11 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
     }
 
     @Override
+    public void goToProfilePreview() {
+
+    }
+
+    @Override
     public void showToast(final String message) {
     }
 

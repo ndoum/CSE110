@@ -102,6 +102,11 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         startActivity(intent);
     }
 
+    @Override
+    public void goToProfilePreview() {
+
+    }
+
     /**
      * Method that initalize the controller for main activity.
      */

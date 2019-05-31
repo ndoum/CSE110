@@ -85,6 +85,11 @@ public class UserTab2Fragment extends Fragment implements MainControllerListener
     }
 
     @Override
+    public void goToProfilePreview() {
+
+    }
+
+    @Override
     public void setFragment() {
 
     }
