@@ -283,8 +283,4 @@ public class UserTab3Fragment extends Fragment implements MainControllerListener
     public void showPopup() {
     }
 
-    @Override
-    public void showDefaultImage() {
-
-    }
 }

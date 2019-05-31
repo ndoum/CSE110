@@ -77,12 +77,6 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
     }
 
     @Override
-    public void showDefaultImage() {
-        profilePicture.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.images));
-        onResume();
-    }
-
-    @Override
     public void goToProfileSettings() {
         profilePicture.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.images));
     }
