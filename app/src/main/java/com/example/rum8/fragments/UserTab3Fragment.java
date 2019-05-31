@@ -264,7 +264,6 @@ public class UserTab3Fragment extends Fragment implements MainControllerListener
     }
 
 
-
     @Override
     public void goToProfileSettings() {
     }
@@ -282,4 +281,7 @@ public class UserTab3Fragment extends Fragment implements MainControllerListener
     public void goToAdvancedProfileSettings() {
     }
 
+    @Override
+    public void showPopup() {
+    }
 }

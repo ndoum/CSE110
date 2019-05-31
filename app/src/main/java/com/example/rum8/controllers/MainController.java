@@ -143,10 +143,12 @@ public class MainController {
                         } else {
                             controllerListener.setFragmentEmpty();
                             controllerListener.showToast("No more potential");
+                            controllerListener.showPopup();
                         }
                     } else {
                         controllerListener.setFragmentEmpty();
                         controllerListener.showToast("No more potential");
+                        controllerListener.showPopup();
                     }
                 })
                 .addOnFailureListener(e -> {

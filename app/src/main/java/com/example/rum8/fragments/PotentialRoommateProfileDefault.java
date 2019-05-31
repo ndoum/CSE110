@@ -103,15 +103,12 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
     public void showToast(final String message) {
     }
 
-
-
-
-
     @Override
     public void setFragment() {
 
     }
-
+@Override
+public void showPopup() {}
     @Override
     public void setFragmentEmpty() {
 

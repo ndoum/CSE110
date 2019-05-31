@@ -104,4 +104,8 @@ public class UserTab2Fragment extends Fragment implements MainControllerListener
     public void showDefaultImage() {
 
     }
+
+    @Override
+    public void showPopup() {}
+
 }
