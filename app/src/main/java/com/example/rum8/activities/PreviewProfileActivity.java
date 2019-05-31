@@ -21,7 +21,6 @@ public class PreviewProfileActivity extends AppCompatActivity implements Preview
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
-        System.out.println("inside activity");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preview_profile);
         initController();
@@ -44,7 +43,6 @@ public class PreviewProfileActivity extends AppCompatActivity implements Preview
 
     @Override
     public void setFragment() {
-        System.out.println("setFragment called");
         showFragment(new PreviewProfileFragment());
     }
 

@@ -7,12 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.rum8.R;
-import com.example.rum8.adapters.PotentialRoommateProfileDefaultAdapter;
 import com.example.rum8.adapters.PreviewProfileAdapter;
 import com.example.rum8.controllers.PreviewProfileController;
 import com.example.rum8.database.Db;
@@ -42,7 +42,7 @@ public class PreviewProfileFragment extends Fragment implements PreviewProfileCo
 
         controller = new PreviewProfileController(this);
 
-        rootView = inflater.inflate(R.layout.fragment_potential_roommate_profile_default, container, false);
+        rootView = inflater.inflate(R.layout.fragment_preview_profile, container, false);
 
         tablayout = rootView.findViewById(R.id.potential_roommate_profile_default_tablayout_id);
         appBarLayout = rootView.findViewById(R.id.potential_roommate_profile_default_appbarid);
@@ -50,9 +50,12 @@ public class PreviewProfileFragment extends Fragment implements PreviewProfileCo
 
         PreviewProfileAdapter adapter = new PreviewProfileAdapter(
                 getChildFragmentManager());
-        adapter.AddFragment(new UserTab1Fragment(), "General");
-        adapter.AddFragment(new UserTab2Fragment(), "Personal");
-        adapter.AddFragment(new UserTab3Fragment(), "Overview");
+
+        System.out.println("adapter");
+        
+        adapter.AddFragment(new PreviewProfileTab1Fragment(), "General");
+        adapter.AddFragment(new PreviewProfileTab2Fragment(), "Personal");
+        adapter.AddFragment(new PreviewProfileTab3Fragment(), "Overview");
         viewPager.setAdapter(adapter);
         tablayout.setupWithViewPager(viewPager);
 
@@ -78,7 +81,7 @@ public class PreviewProfileFragment extends Fragment implements PreviewProfileCo
 
     @Override
     public void showToast(String message) {
-
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
