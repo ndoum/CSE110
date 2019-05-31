@@ -43,8 +43,7 @@
                         android:layout_margin="10dp"
                         android:background="@drawable/circle"
                         android:elevation="5dp"
-                        android:padding="5dp"
-                        android:src="@drawable/images" />
+                        android:padding="5dp" />
 
                 </RelativeLayout>
 
