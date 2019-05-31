@@ -1,11 +1,16 @@
 package com.example.rum8.activities;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +22,7 @@ import com.example.rum8.controllers.MainController;
 import com.example.rum8.fragments.PotentialRoommateProfileAlt;
 import com.example.rum8.fragments.PotentialRoommateProfileDefault;
 import com.example.rum8.listeners.MainControllerListener;
+import com.google.android.material.badge.BadgeUtils;
 
 import java.util.Map;
 
@@ -26,12 +32,16 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity implements MainControllerListener {
 
     private MainController controller;
+    Button gotit;
+    ImageView closePopup;
+    Dialog dia;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initController();
+        dia = new Dialog(this);
     }
 
     @Override
@@ -145,6 +155,24 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     @Override
     public void showToast(final String message) {
         Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showPopup() {
+        dia.setContentView(R.layout.popup_no_more_profile);
+        closePopup = (ImageView) dia.findViewById(R.id.close_popup);
+        gotit = (Button) dia.findViewById(R.id.close_popup_button);
+        dia.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dia.show();
+
+        // when user click on got it button,go to profilesetting
+        gotit.setOnClickListener(v->{
+            goToProfileSettings();
+        });
+
+        closePopup.setOnClickListener(v->{
+            dia.dismiss();
+        });
     }
 
 }
