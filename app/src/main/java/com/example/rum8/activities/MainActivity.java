@@ -107,7 +107,8 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
 
     @Override
     public void goToProfilePreview() {
-
+        final Intent intent = new Intent(MainActivity.this, PreviewProfileActivity.class);
+        startActivity(intent);
     }
 
     /**
