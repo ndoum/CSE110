@@ -46,10 +46,7 @@ public class ViewLinkListController {
                         if (task1.isSuccessful()) {
                             Db.fetchUserProfilePictureById(storage, uid).addOnSuccessListener((byte[] bytes) -> {
                                 createLink(uid, task1, bytes);
-                            }).addOnFailureListener(
-                                    e -> Db.fetchDefaultUserProfilePicture(storage).addOnSuccessListener(bytes -> {
-                                        createLink(uid, task1, bytes);
-                                    }).addOnFailureListener(e1 -> controllerListener.showToast("Network Error")));
+                            }).addOnFailureListener(e1 -> controllerListener.showDefaultImage());
                         }
                     });
                 }

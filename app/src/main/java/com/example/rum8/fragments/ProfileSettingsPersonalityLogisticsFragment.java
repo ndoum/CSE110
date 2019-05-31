@@ -26,6 +26,7 @@ import java.util.Map;
  * settings activity.
  */
 public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implements ProfileSettingsControllerListener {
+
     private ProfileSettingsController controller;
     private RadioGroup radioGroupPersonalQuestionOne;
     private RadioGroup radioGroupPersonalQuestionTwo;
@@ -281,5 +282,10 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
         radioGroupPersonalQuestionSix.jumpDrawablesToCurrentState();
         radioGroupPersonalQuestionSeven.jumpDrawablesToCurrentState();
         radioGroupPersonalQuestionEight.jumpDrawablesToCurrentState();
+    }
+
+    @Override
+    public void showDefaultImage() {
+
     }
 }

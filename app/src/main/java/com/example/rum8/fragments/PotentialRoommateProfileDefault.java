@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -74,6 +75,12 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
     public void setUserProfileImage(Bitmap bitmap) {
         profilePicture = rootView.findViewById(R.id.user_profile_picture);
         profilePicture.setImageBitmap(bitmap);
+    }
+
+    @Override
+    public void showDefaultImage() {
+        profilePicture.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.images));
+        onResume();
     }
 
     @Override

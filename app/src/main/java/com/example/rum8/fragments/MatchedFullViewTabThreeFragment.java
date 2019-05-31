@@ -269,4 +269,9 @@ public class MatchedFullViewTabThreeFragment extends Fragment implements Matched
 
     }
 
+    @Override
+    public void showDefaultImage() {
+
+    }
+
 }

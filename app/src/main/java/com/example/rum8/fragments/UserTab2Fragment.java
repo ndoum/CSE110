@@ -99,4 +99,9 @@ public class UserTab2Fragment extends Fragment implements MainControllerListener
     public void setUserProfileImage(Bitmap bitmap) {
 
     }
+
+    @Override
+    public void showDefaultImage() {
+
+    }
 }

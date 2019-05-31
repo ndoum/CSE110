@@ -67,6 +67,11 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
 
     }
 
+    @Override
+    public void showDefaultImage() {
+
+    }
+
 
     //View Holder for a LinkListSingleLink object
     public class LinkListSingleLinkHolder extends RecyclerView.ViewHolder{

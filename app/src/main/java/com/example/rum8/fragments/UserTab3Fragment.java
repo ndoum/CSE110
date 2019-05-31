@@ -252,6 +252,11 @@ public class UserTab3Fragment extends Fragment implements MainControllerListener
 
     }
 
+    @Override
+    public void showDefaultImage() {
+
+    }
+
 
     @Override
     public void showToast(final String message) {

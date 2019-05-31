@@ -50,6 +50,11 @@ public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkL
         Toast.makeText(ViewLinkListActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void showDefaultImage() {
+
+    }
+
 
     private void initController() {
         controller = new ViewLinkListController(this);

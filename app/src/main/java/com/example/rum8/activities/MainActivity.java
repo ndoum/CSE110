@@ -143,6 +143,10 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     }
 
     @Override
+    public void showDefaultImage() {
+    }
+
+    @Override
     public void showToast(final String message) {
         Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
     }

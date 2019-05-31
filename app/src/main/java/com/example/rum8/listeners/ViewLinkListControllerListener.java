@@ -22,4 +22,6 @@ public interface ViewLinkListControllerListener {
 
     void showToast(final String message);
 
+    void showDefaultImage();
+
 }
