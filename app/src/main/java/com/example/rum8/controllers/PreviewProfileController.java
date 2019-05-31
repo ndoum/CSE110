@@ -40,11 +40,8 @@ public class PreviewProfileController {
                                 controllerListener.setUserProfileImage(bmp);
                             })
                             .addOnFailureListener(e -> {
-                                // fetch default if the user does not upload
-                                Db.fetchDefaultUserProfilePicture(storage).addOnSuccessListener(bytes -> {
-                                    Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                                    controllerListener.setUserProfileImage(bmp);
-                                });
+                                // show default if the user does not upload
+                                controllerListener.showDefaultImage();
                                 // show error message if both way fails
                                 int errorCode = ((StorageException) e).getErrorCode();
                                 if (errorCode != StorageException.ERROR_OBJECT_NOT_FOUND) {
