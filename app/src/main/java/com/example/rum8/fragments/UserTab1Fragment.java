@@ -72,8 +72,6 @@ public class UserTab1Fragment extends Fragment implements MainControllerListener
     }
 
 
-
-
     @Override
     public void showToast(final String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
@@ -110,6 +108,10 @@ public class UserTab1Fragment extends Fragment implements MainControllerListener
     @Override
     public void setUserProfileImage(Bitmap bitmap) {
 
+    }
+
+    @Override
+    public void showPopup() {
     }
 
 }
