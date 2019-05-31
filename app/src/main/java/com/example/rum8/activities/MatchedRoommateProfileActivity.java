@@ -1,5 +1,4 @@
 package com.example.rum8.activities;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -9,8 +8,10 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+
 import com.example.rum8.R;
 import com.example.rum8.adapters.MatchedRoommateFullProfileAdapter;
+
 import com.example.rum8.adapters.ViewLinkListRecycleViewAdapter;
 import com.example.rum8.controllers.MatchedRoommateProfileController;
 import com.example.rum8.database.Db;
@@ -25,7 +26,7 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.Map;
 
 
-public class MatchedRoommateProfileActivity extends AppCompatActivity implements MatchedRoommateProfileControllerListener {
+public class MatchedRoommateProfileActivity extends AppCompatActivity implements MatchedRoommateProfileControllerListener{
 
     private TabLayout tablayout;
     private AppBarLayout appBarLayout;
@@ -48,7 +49,7 @@ public class MatchedRoommateProfileActivity extends AppCompatActivity implements
         appBarLayout = findViewById(R.id.full_view_app_bar);
         viewPager = findViewById(R.id.full_view_view_pager);
         controller.loadMatchUserInfo(matchedUserId);
-        MatchedRoommateFullProfileAdapter adapter = new MatchedRoommateFullProfileAdapter(getSupportFragmentManager());
+        MatchedRoommateFullProfileAdapter adapter = new  MatchedRoommateFullProfileAdapter(getSupportFragmentManager());
         adapter.AddFragment(new MatchedFullViewTabOneFragment(), "General");
         adapter.AddFragment(new MatchedFullViewTabTwoFragment(), "Personal");
         adapter.AddFragment(new MatchedFullViewTabThreeFragment(), "Overview");
@@ -58,7 +59,7 @@ public class MatchedRoommateProfileActivity extends AppCompatActivity implements
 
     }
 
-    public String getMatchedUserId() {
+    public String getMatchedUserId(){
         return this.matchedUserId;
     }
 
@@ -69,7 +70,7 @@ public class MatchedRoommateProfileActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void showMatchedInfo(final Map<String, Object> data) {
+    public void showMatchedInfo(final Map<String, Object> data){
         firstName = findViewById(R.id.matched_roommate_first_name);
         firstName.setText((String) data.get(Db.Keys.FIRST_NAME));
         academicYear = findViewById(R.id.matched_roommate_year);

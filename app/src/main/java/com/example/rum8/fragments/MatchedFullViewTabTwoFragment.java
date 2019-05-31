@@ -39,7 +39,7 @@ public class MatchedFullViewTabTwoFragment extends Fragment implements MatchedRo
     public void onViewCreated(View rootView, Bundle savedInstanceState) {
         matchedController = new MatchedRoommateProfileController(this);
 
-        matchedController.loadMatchUserInfo(((MatchedRoommateProfileActivity) getActivity()).getMatchedUserId());
+        matchedController.loadMatchUserInfo(((MatchedRoommateProfileActivity)getActivity()).getMatchedUserId());
         aboutMeField = view.findViewById(R.id.about_me_text);
         interestField = view.findViewById(R.id.interest_text);
         hobbiesField = view.findViewById(R.id.hobbies_text);

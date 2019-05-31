@@ -22,6 +22,7 @@ import com.example.rum8.controllers.MainController;
 import com.example.rum8.fragments.PotentialRoommateProfileAlt;
 import com.example.rum8.fragments.PotentialRoommateProfileDefault;
 import com.example.rum8.listeners.MainControllerListener;
+import com.google.android.material.badge.BadgeUtils;
 
 import java.util.Map;
 
@@ -165,11 +166,11 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         dia.show();
 
         // when user click on got it button,go to profilesetting
-        gotit.setOnClickListener(v -> {
+        gotit.setOnClickListener(v->{
             goToProfileSettings();
         });
 
-        closePopup.setOnClickListener(v -> {
+        closePopup.setOnClickListener(v->{
             dia.dismiss();
         });
     }

@@ -42,7 +42,7 @@ public class MatchedFullViewTabOneFragment extends Fragment implements MatchedRo
     @Override
     public void onViewCreated(View rootView, Bundle savedInstanceState) {
         matchedController = new MatchedRoommateProfileController(this);
-        matchedController.loadMatchUserInfo(((MatchedRoommateProfileActivity) getActivity()).getMatchedUserId());
+        matchedController.loadMatchUserInfo(((MatchedRoommateProfileActivity)getActivity()).getMatchedUserId());
         livingAccommodationsField = view.findViewById(R.id.living_accommodations_text);
         otherThingsField = view.findViewById(R.id.other_thing_text);
         roomTypeField = view.findViewById(R.id.room_type_text);

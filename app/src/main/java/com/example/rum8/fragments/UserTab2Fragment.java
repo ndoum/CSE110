@@ -16,10 +16,11 @@ import com.example.rum8.R;
 import com.example.rum8.controllers.MainController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.MainControllerListener;
+import com.example.rum8.listeners.MatchedRoommateProfileControllerListener;
 
 import java.util.Map;
 
-public class UserTab2Fragment extends Fragment implements MainControllerListener {
+public class UserTab2Fragment extends Fragment implements MainControllerListener{
 
     private View view;
     private MainController controller;
@@ -100,7 +101,6 @@ public class UserTab2Fragment extends Fragment implements MainControllerListener
     }
 
     @Override
-    public void showPopup() {
-    }
+    public void showPopup() {}
 
 }
