@@ -37,4 +37,8 @@ public class LinkListSingleLink {
         return this.uid;
     }
 
+    public void setBitMap(Bitmap bitMap){
+        this.bitMap = bitMap;
+    }
+
 }

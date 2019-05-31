@@ -68,4 +68,9 @@ public class MatchedFullViewTabTwoFragment extends Fragment implements MatchedRo
     public void setMatchedUserProfileImage(Bitmap bitmap) {
 
     }
+
+    @Override
+    public void showDefaultImage() {
+
+    }
 }

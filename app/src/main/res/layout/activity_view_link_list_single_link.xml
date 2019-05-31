@@ -21,8 +21,7 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
         android:elevation="5dp"
-        android:padding="5dp"
-        android:src="@drawable/images" />
+        android:padding="5dp" />
 
     <LinearLayout
         android:id="@+id/view_link_list_single_link_clickable"
