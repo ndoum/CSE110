@@ -5,25 +5,20 @@ import android.graphics.BitmapFactory;
 
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.MatchedRoommateProfileControllerListener;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageException;
-
 
 import java.util.Map;
 
 public class MatchedRoommateProfileController {
     private FirebaseFirestore db;
-    private FirebaseAuth auth;
     private FirebaseStorage storage;
     private MatchedRoommateProfileControllerListener controllerListener;
-    private String hardCodeUserId = "jTO5PTvDRQfo2PF7DbBF4ac9Tay2";
 
     public MatchedRoommateProfileController(final MatchedRoommateProfileControllerListener controllerListener) {
         this.controllerListener = controllerListener;
         this.db = FirebaseFirestore.getInstance();
-        this.auth = FirebaseAuth.getInstance();
         this.storage = FirebaseStorage.getInstance();
     }
 
