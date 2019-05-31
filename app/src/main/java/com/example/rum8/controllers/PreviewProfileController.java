@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import com.example.rum8.database.Db;
-import com.example.rum8.listeners.MainControllerListener;
+import com.example.rum8.listeners.PreviewProfileControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -13,12 +13,12 @@ import com.google.firebase.storage.StorageException;
 import java.util.Map;
 
 public class PreviewProfileController {
-    private MainControllerListener controllerListener;
+    private PreviewProfileControllerListener controllerListener;
     private FirebaseFirestore db;
     private FirebaseAuth auth;
     private FirebaseStorage storage;
 
-    public PreviewProfileController(final MainControllerListener controllerListener) {
+    public PreviewProfileController(final PreviewProfileControllerListener controllerListener) {
         this.controllerListener = controllerListener;
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
@@ -26,6 +26,8 @@ public class PreviewProfileController {
     }
 
     public void loadUserInfo() {
+
+        controllerListener.setFragment();
 
         final String userId = auth.getUid();
         Db.fetchUserInfoById(db, userId)

@@ -37,7 +37,6 @@ public class PotentialRoommateProfileDefaultAdapter extends FragmentPagerAdapter
     @Override
     public Fragment getItem(int position) {
         return fragmentList.get(position);
-
     }
 
     /**
