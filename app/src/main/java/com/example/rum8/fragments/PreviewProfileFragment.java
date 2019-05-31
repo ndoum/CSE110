@@ -48,6 +48,7 @@ public class PreviewProfileFragment extends Fragment implements PreviewProfileCo
         tablayout = rootView.findViewById(R.id.preview_profile_tablayout_id);
         appBarLayout = rootView.findViewById(R.id.preview_profile_appbarid);
         viewPager = rootView.findViewById(R.id.preview_profile_viewpager_id);
+        profilePicture = rootView.findViewById(R.id.user_profile_picture);
 
         PreviewProfileAdapter adapter = new PreviewProfileAdapter(
                 getChildFragmentManager());
@@ -70,13 +71,12 @@ public class PreviewProfileFragment extends Fragment implements PreviewProfileCo
     public void showCurrentUserInfo(final Map<String, Object> data) {
         firstName = rootView.findViewById(R.id.preview_first_name);
         firstName.setText((String) data.get(Db.Keys.FIRST_NAME));
-        academicYear = rootView.findViewById(R.id.potential_academic_year_default);
+        academicYear = rootView.findViewById(R.id.preview_academic_year);
         academicYear.setText(data.get(Db.Keys.ACADEMIC_YEAR) + " Year");
     }
 
     @Override
     public void setUserProfileImage(Bitmap bitmap) {
-        profilePicture = rootView.findViewById(R.id.user_profile_picture);
         profilePicture.setImageBitmap(bitmap);
     }
 
