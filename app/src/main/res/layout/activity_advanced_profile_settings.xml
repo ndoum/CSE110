@@ -311,6 +311,58 @@
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:id="@+id/adv_settings_facebook_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:text="@string/adv_settings_facebook"
+            android:textColor="@color/colorAccentDark" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/personal_info_facebook_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccentDark"
+            app:boxStrokeColor="@color/colorAccentDark">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/personal_info_facebook_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textColor="@color/colorAccentDark" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/adv_settings_snapchat_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:text="@string/adv_settings_snapchat"
+            android:textColor="@color/colorAccentDark" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/personal_info_snapchat_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccentDark"
+            app:boxStrokeColor="@color/colorAccentDark">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/personal_info_snapchat_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textColor="@color/colorAccentDark" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_advanced_settings_save"
             android:layout_width="match_parent"

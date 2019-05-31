@@ -1,4 +1,3 @@
-
 package com.example.rum8.adapters;
 
 import androidx.annotation.NonNull;
@@ -13,12 +12,12 @@ import java.util.List;
 /**
  * Class that manages the tabs for user info view page
  */
-public class MatchedRoommateFullProfileAdapter  extends FragmentPagerAdapter {
+public class MatchedRoommateFullProfileAdapter extends FragmentPagerAdapter {
 
     private final List<Fragment> fragmentList = new ArrayList<>();
     private final List<String> FragmentListTitles = new ArrayList<>();
 
-    public MatchedRoommateFullProfileAdapter (FragmentManager fm){
+    public MatchedRoommateFullProfileAdapter(FragmentManager fm) {
         super(fm);
     }
 
@@ -40,7 +39,7 @@ public class MatchedRoommateFullProfileAdapter  extends FragmentPagerAdapter {
         return FragmentListTitles.get(position);
     }
 
-    public void AddFragment(Fragment fragment, String Title){
+    public void AddFragment(Fragment fragment, String Title) {
         fragmentList.add(fragment);
         FragmentListTitles.add(Title);
     }

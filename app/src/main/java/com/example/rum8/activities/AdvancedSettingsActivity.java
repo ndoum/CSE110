@@ -29,6 +29,8 @@ public class AdvancedSettingsActivity extends AppCompatActivity
     private TextInputEditText interestsField;
     private TextInputEditText phoneNumberField;
     private TextInputEditText majorField;
+    private TextInputEditText facebookField;
+    private TextInputEditText snapchatField;
     private Button saveButton;
 
     @Override
@@ -54,6 +56,8 @@ public class AdvancedSettingsActivity extends AppCompatActivity
         hobbiesField = findViewById(R.id.personal_info_hobbies_field);
         interestsField = findViewById(R.id.personal_info_interest_field);
         phoneNumberField = findViewById(R.id.personal_info_phone_field);
+        facebookField = findViewById(R.id.personal_info_facebook_field);
+        snapchatField = findViewById(R.id.personal_info_snapchat_field);
         saveButton = findViewById(R.id.button_advanced_settings_save);
         saveButton.setOnClickListener(v -> {
             final Map<String, Object> userHash = new HashMap<String, Object>() {{
@@ -66,6 +70,8 @@ public class AdvancedSettingsActivity extends AppCompatActivity
                 put(Db.Keys.HOBBIES, hobbiesField.getText().toString());
                 put(Db.Keys.INTERESTS, interestsField.getText().toString());
                 put(Db.Keys.PHONE_NUMBER, phoneNumberField.getText().toString());
+                put(Db.Keys.FACEBOOK, facebookField.getText().toString());
+                put(Db.Keys.SNAPCHAT, snapchatField.getText().toString());
             }};
             controller.onSaveButtonClicked(userHash);
         });
@@ -88,6 +94,8 @@ public class AdvancedSettingsActivity extends AppCompatActivity
         final String living_accommodations = (String) data.get(Db.Keys.LIVING_ACCOMMODATIONS);
         final String other_things_you_should_know = (String) data.get(Db.Keys.OTHER_THINGS_YOU_SHOULD_KNOW);
         final String phone_number = (String) data.get(Db.Keys.PHONE_NUMBER);
+        final String facebook = (String) data.get(Db.Keys.FACEBOOK);
+        final String snapchat = (String) data.get(Db.Keys.SNAPCHAT);
         majorField.setText(my_major);
         accommodationsField.setText(living_accommodations);
         roomTypeField.setText(room_type);
@@ -97,6 +105,8 @@ public class AdvancedSettingsActivity extends AppCompatActivity
         hobbiesField.setText(hobbies);
         interestsField.setText(interests);
         phoneNumberField.setText(phone_number);
+        facebookField.setText(facebook);
+        snapchatField.setText(snapchat);
     }
 
     @Override

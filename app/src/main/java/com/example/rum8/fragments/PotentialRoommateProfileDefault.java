@@ -16,7 +16,6 @@ import com.example.rum8.adapters.PotentialRoommateProfileDefaultAdapter;
 import com.example.rum8.controllers.MainController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.MainControllerListener;
-import com.example.rum8.listeners.MatchedRoommateProfileControllerListener;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
 
@@ -67,7 +66,7 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
         firstName = rootView.findViewById(R.id.potential_first_name_default);
         firstName.setText((String) data.get(Db.Keys.FIRST_NAME));
         academicYear = rootView.findViewById(R.id.potential_academic_year_default);
-        academicYear.setText(data.get(Db.Keys.ACADEMIC_YEAR) + "Year");
+        academicYear.setText(data.get(Db.Keys.ACADEMIC_YEAR) + " Year");
     }
 
     @Override
@@ -96,13 +95,13 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
     public void showToast(final String message) {
     }
 
-
-
-
-
     @Override
     public void setFragment() {
 
+    }
+
+    @Override
+    public void showPopup() {
     }
 
     @Override
