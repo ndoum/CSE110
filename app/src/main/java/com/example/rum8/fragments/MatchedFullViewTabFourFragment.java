@@ -8,9 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
@@ -21,6 +24,9 @@ import java.util.Map;
 public class MatchedFullViewTabFourFragment extends Fragment implements MatchedRoommateProfileControllerListener {
     View view;
     private Button emailButton;
+
+    private LinearLayout facebookLinearLayout;
+    private TextView facebookTextView;
 
     @Nullable
     @Override
@@ -34,6 +40,13 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
             intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"tempUser@gmail.com"});
             startActivity(intent);
         });
+
+        facebookLinearLayout = view.findViewById(R.id.facebook_linear_layout);
+        facebookTextView = view.findViewById(R.id.text_view_phone_number);
+        facebookLinearLayout.setVisibility(View.GONE);
+
+
+
 
         return view;
     }
