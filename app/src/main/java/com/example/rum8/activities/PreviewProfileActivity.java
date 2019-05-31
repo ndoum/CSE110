@@ -1,4 +1,6 @@
 package com.example.rum8.activities;
 
-public class PreviewProfileActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class PreviewProfileActivity extends AppCompatActivity {
 }
