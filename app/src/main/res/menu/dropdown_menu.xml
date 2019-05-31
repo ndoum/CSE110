@@ -10,6 +10,10 @@
         android:title="@string/menu_adv_settings_button"
         app:showAsAction="never"/>
 
+    <item android:id="@+id/main_activity_go_to_preview_profile"
+        android:title="@string/menu_preview_your_profile_button"
+        app:showAsAction="never"/>
+
     <item android:id="@+id/main_activity_go_to_view_link_list"
         android:title="@string/menu_view_link_list_button"
         app:showAsAction="never" />
@@ -17,4 +21,5 @@
     <item android:id="@+id/main_activity_log_out"
         android:title="@string/menu_log_out_button"
         app:showAsAction="never"/>
+
 </menu>
