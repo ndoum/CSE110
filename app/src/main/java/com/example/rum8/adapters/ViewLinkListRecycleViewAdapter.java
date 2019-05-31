@@ -6,10 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rum8.R;
@@ -77,14 +77,14 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
         public ImageView imageView;
         public TextView nameView;
         public TextView majorView;
-        public LinearLayout linkClickable;
+        public LinearLayoutCompat linkClickable;
 
         public LinkListSingleLinkHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.view_link_list_single_link_imageview);
             nameView = itemView.findViewById(R.id.view_link_list_single_link_textview);
             majorView = itemView.findViewById(R.id.view_link_list_single_link_major_year_textview);
-            linkClickable = itemView.findViewById(R.id.view_link_list_single_link_clickable);
+            linkClickable = itemView.findViewById(R.id.activity_view_link_list_single_link_linear_layout);
         }
     }
 
@@ -116,7 +116,7 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
         final ImageView imageView = linkHolder.imageView;
         imageView.setImageBitmap(link.getBitMap());
 
-        final LinearLayout clickable = linkHolder.linkClickable;
+        final LinearLayoutCompat clickable = linkHolder.linkClickable;
         clickable.setOnClickListener(v -> {
             Context context = view.getContext();
             Intent intent = new Intent(context, MatchedRoommateProfileActivity.class);
