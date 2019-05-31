@@ -44,9 +44,9 @@ public class PreviewProfileFragment extends Fragment implements PreviewProfileCo
 
         rootView = inflater.inflate(R.layout.fragment_preview_profile, container, false);
 
-        tablayout = rootView.findViewById(R.id.potential_roommate_profile_default_tablayout_id);
-        appBarLayout = rootView.findViewById(R.id.potential_roommate_profile_default_appbarid);
-        viewPager = rootView.findViewById(R.id.potential_roommate_profile_default_viewpager_id);
+        tablayout = rootView.findViewById(R.id.preview_profile_tablayout_id);
+        appBarLayout = rootView.findViewById(R.id.preview_profile_appbarid);
+        viewPager = rootView.findViewById(R.id.preview_profile_viewpager_id);
 
         PreviewProfileAdapter adapter = new PreviewProfileAdapter(
                 getChildFragmentManager());
@@ -67,7 +67,7 @@ public class PreviewProfileFragment extends Fragment implements PreviewProfileCo
 
     @Override
     public void showCurrentUserInfo(final Map<String, Object> data) {
-        firstName = rootView.findViewById(R.id.potential_first_name_default);
+        firstName = rootView.findViewById(R.id.preview_first_name);
         firstName.setText((String) data.get(Db.Keys.FIRST_NAME));
         academicYear = rootView.findViewById(R.id.potential_academic_year_default);
         academicYear.setText(data.get(Db.Keys.ACADEMIC_YEAR) + " Year");

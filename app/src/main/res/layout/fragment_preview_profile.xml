@@ -18,7 +18,7 @@
         android:orientation="vertical">
 
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/potential_roommate_profile_default_appbarid"
+            android:id="@+id/preview_profile_appbarid"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:background="#FFFFFF"
@@ -63,7 +63,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/potential_first_name_default"
+                            android:id="@+id/preview_first_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
@@ -72,7 +72,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/potential_academic_year_default"
+                            android:id="@+id/preview_academic_year"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal" />
@@ -87,7 +87,7 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/potential_roommate_profile_default_tablayout_id"
+            android:id="@+id/preview_profile_tablayout_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/ucsd_gold"
@@ -98,7 +98,7 @@
             app:tabTextAppearance="@style/CustomTextStyle" />
 
         <androidx.viewpager.widget.ViewPager
-            android:id="@+id/potential_roommate_profile_default_viewpager_id"
+            android:id="@+id/preview_profile_viewpager_id"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#00644949" />
