@@ -26,4 +26,6 @@ public interface MainControllerListener {
 
     void showPopup();
 
+    void showDefaultImage();
+
 }
