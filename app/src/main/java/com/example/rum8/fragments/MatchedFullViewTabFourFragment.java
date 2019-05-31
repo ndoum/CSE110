@@ -52,4 +52,9 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
     public void setMatchedUserProfileImage(Bitmap bitmap) {
 
     }
+
+    @Override
+    public void showDefaultImage() {
+
+    }
 }
