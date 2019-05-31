@@ -82,25 +82,26 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         //NAME FIELDS
         firstNameField = rootView.findViewById(R.id.general_info_first_name_field);
         lastNameField = rootView.findViewById(R.id.general_info_last_name_field);
+        controller.usernameEntered = firstNameField.toString();
 
         //FILLING THE GENDER SPINNER
         genderSpinner = rootView.findViewById(R.id.general_info_gender_spinner);
         genderAdapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.ps_general_info_gender_items, android.R.layout.simple_spinner_item);
+            R.array.ps_general_info_gender_items, android.R.layout.simple_spinner_item);
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         genderSpinner.setAdapter(genderAdapter);
 
         //FILLING THE ACADEMIC YEAR SPINNER
         academicYearSpinner = rootView.findViewById(R.id.general_info_academic_year_spinner);
         academicYearAdapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.ps_general_info_academic_year_items, android.R.layout.simple_spinner_item);
+            R.array.ps_general_info_academic_year_items, android.R.layout.simple_spinner_item);
         academicYearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         academicYearSpinner.setAdapter(academicYearAdapter);
 
         //FILLING THE COLLEGE SPINNER
         collegeSpinner = rootView.findViewById(R.id.general_info_college_spinner);
         collegeAdapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.ps_general_info_college_items, android.R.layout.simple_spinner_item);
+            R.array.ps_general_info_college_items, android.R.layout.simple_spinner_item);
         collegeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         collegeSpinner.setAdapter(collegeAdapter);
 
@@ -211,4 +212,7 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void goToMainPage() {
+    }
 }

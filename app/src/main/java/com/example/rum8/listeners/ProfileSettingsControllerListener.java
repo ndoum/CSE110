@@ -18,4 +18,6 @@ public interface ProfileSettingsControllerListener {
     void setUserProfileImage(Bitmap bitmap);
 
     void showCurrentUserInfo(Map<String, Object> data);
+
+    void goToMainPage();
 }

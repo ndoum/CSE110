@@ -23,7 +23,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.util.Map;
 
 public class ProfileSettingsActivity extends FragmentActivity
-        implements ProfileSettingsControllerListener {
+    implements ProfileSettingsControllerListener {
 
     private static final int PICK_IMAGE_REQUEST = 65537;
     private static int result_load_image = 1;
@@ -133,6 +133,10 @@ public class ProfileSettingsActivity extends FragmentActivity
     @Override
     public void showCurrentUserInfo(Map<String, Object> data) {
 
+    }
+
+    @Override
+    public void goToMainPage() {
     }
 
     /**

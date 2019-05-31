@@ -19,6 +19,7 @@ import com.example.rum8.activities.MainActivity;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Map;
 
@@ -186,13 +187,14 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
         saveRoommateButton = rootView.findViewById(R.id.roommate_preferences_save_button);
         saveRoommateButton.setOnClickListener(v -> {
             controller.submitUserMap();
-            showToast("Roommate Preferences Saved");
+           // showToast("Roommate Preferences Saved");
             goToMainPage();
         });
 
         return rootView;
     }
 
+    @Override
     public void goToMainPage() {
         final Intent intent;
         intent = new Intent(getActivity(), MainActivity.class);
