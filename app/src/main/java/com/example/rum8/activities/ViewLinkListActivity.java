@@ -1,6 +1,8 @@
 package com.example.rum8.activities;
 
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -57,6 +59,11 @@ public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkL
 
     @Override
     public void addNewLink(LinkListSingleLink newLink) {
+        if (newLink.getBitMap() == null) {
+            Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(),
+                    R.drawable.images);
+            newLink.setBitMap(bitmap);
+        }
         links.add(newLink);
     }
 
@@ -64,7 +71,6 @@ public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkL
     public void displayLinks(ArrayList<LinkListSingleLink> links) {
         adapter.setlLinks(links);
         recyclerView.setAdapter(adapter);
-
     }
 
     @Override

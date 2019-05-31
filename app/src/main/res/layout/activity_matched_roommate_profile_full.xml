@@ -41,7 +41,6 @@
                         android:background="@drawable/circle"
                         android:elevation="5dp"
                         android:padding="5dp"
-                        android:src="@drawable/images"
                         android:id="@+id/matched_user_profile_picture"
                         />
 

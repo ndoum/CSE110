@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.rum8.R;
@@ -81,6 +82,11 @@ public class MatchedRoommateProfileActivity extends AppCompatActivity implements
         profilePicture = findViewById(R.id.matched_user_profile_picture);
         profilePicture.setImageBitmap(bitmap);
 
+    }
+
+    @Override
+    public void showDefaultImage() {
+        profilePicture.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.images));
     }
 
 

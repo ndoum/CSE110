@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
@@ -187,6 +188,11 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
 
         firstNameField.setText(userFirstName);
         lastNameField.setText(userLastName);
+    }
+
+    @Override
+    public void showDefaultImage() {
+        imageView.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.images));
     }
 
     @Override

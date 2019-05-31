@@ -183,4 +183,9 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         });
     }
 
+    @Override
+    public void showDefaultImage() {
+
+    }
+
 }
