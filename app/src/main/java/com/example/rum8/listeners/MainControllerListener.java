@@ -25,7 +25,7 @@ public interface MainControllerListener {
     void setUserProfileImage(Bitmap bitmap);
 
     void showDefaultImage();
-    
+
     void showPopup();
 
 }

@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rum8.R;
 import com.example.rum8.activities.MatchedRoommateProfileActivity;
-import com.example.rum8.controllers.ViewLinkListController;
 import com.example.rum8.dataModels.LinkListSingleLink;
 import com.example.rum8.listeners.ViewLinkListControllerListener;
 
@@ -74,7 +73,7 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
 
 
     //View Holder for a LinkListSingleLink object
-    public class LinkListSingleLinkHolder extends RecyclerView.ViewHolder{
+    public class LinkListSingleLinkHolder extends RecyclerView.ViewHolder {
         public ImageView imageView;
         public TextView nameView;
         public TextView majorView;
@@ -89,7 +88,9 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
         }
     }
 
-    public void setlLinks(List<LinkListSingleLink> lLinks){ this.lLinks = lLinks;}
+    public void setlLinks(List<LinkListSingleLink> lLinks) {
+        this.lLinks = lLinks;
+    }
 
     @Override
     public ViewLinkListRecycleViewAdapter.LinkListSingleLinkHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
@@ -120,7 +121,7 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
 
             Context context = view.getContext();
             Intent intent = new Intent(context, MatchedRoommateProfileActivity.class);
-            intent.putExtra(USER_ID_STRING,link.getUid());
+            intent.putExtra(USER_ID_STRING, link.getUid());
             context.startActivity(intent);
 
         });
