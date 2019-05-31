@@ -32,6 +32,7 @@ public class ProfileSettingsController {
     private FirebaseStorage storage;
     private Map<String, Object> userMap;
     public String usernameEntered;
+    public String usernameEntered_lastName;
 
 
     public ProfileSettingsController(final ProfileSettingsControllerListener controllerListener) {
@@ -138,19 +139,30 @@ public class ProfileSettingsController {
      * Method that saves/updates user in database.
      */
     public void submitUserMap() {
-        Db.updateUser(db, auth.getCurrentUser(), userMap)
+       /* Db.updateUser(db, auth.getCurrentUser(), userMap)
             .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
             .addOnFailureListener(e -> Log.d(TAG, "Error adding document"));
         final String firstName = (String) userMap.get(Db.Keys.FIRST_NAME);
         final String lastName = (String) userMap.get(Db.Keys.LAST_NAME);
 
-        // check for valid name
-        if (!isPresent(usernameEntered)) {
-            final String message = "Please enter your first and last name";
-            controllerListener.showToast(message);
-            return;
-        }
+*/
+        Db.fetchUserInfo(db, auth.getCurrentUser())
+            .addOnSuccessListener(documentSnapshot -> {
+                final Map<String, Object> data = documentSnapshot.getData();
+                final String firstName = (String) data.get(Db.Keys.FIRST_NAME);
+                final String lastName = (String) data.get(Db.Keys.LAST_NAME);
 
-        controllerListener.goToMainPage();
+                // check for valid name
+                if (!isPresent(firstName)|| !isPresent(lastName)) {
+                    final String message = "Please enter and save your first and last name";
+                    controllerListener.showToast(message);
+                } else {
+                    controllerListener.goToMainPage();
+                }
+            })
+            .addOnFailureListener(e -> {
+                final String message = "Network error";
+                controllerListener.showToast(message);
+            });
     }
 }

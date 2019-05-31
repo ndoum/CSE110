@@ -82,7 +82,8 @@ public class ProfileSettingsGeneralInfoFragment extends Fragment implements Prof
         //NAME FIELDS
         firstNameField = rootView.findViewById(R.id.general_info_first_name_field);
         lastNameField = rootView.findViewById(R.id.general_info_last_name_field);
-        controller.usernameEntered = firstNameField.toString();
+        controller.usernameEntered = firstNameField.getText().toString();
+        controller.usernameEntered_lastName = lastNameField.getText().toString();
 
         //FILLING THE GENDER SPINNER
         genderSpinner = rootView.findViewById(R.id.general_info_gender_spinner);
