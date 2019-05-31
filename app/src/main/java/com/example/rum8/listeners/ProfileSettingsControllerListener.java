@@ -19,5 +19,5 @@ public interface ProfileSettingsControllerListener {
 
     void showCurrentUserInfo(Map<String, Object> data);
 
-    void goToMainPage();
+    void showDefaultImage();
 }

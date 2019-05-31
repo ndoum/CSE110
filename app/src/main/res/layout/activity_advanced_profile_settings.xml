@@ -49,13 +49,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccentDark"
-            app:boxStrokeColor="@color/colorAccentDark">
+            app:boxStrokeColor="@color/colorAccentDark"
+            app:counterOverflowTextColor="@color/colorPrimary"
+            app:counterEnabled="true"
+            app:counterMaxLength="300">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/general_info_living_accommodations_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
+                android:maxLength="300"
                 android:maxLines="4"
                 android:minLines="2"
                 android:textColor="@color/colorAccentDark" />
@@ -75,13 +79,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccentDark"
-            app:boxStrokeColor="@color/colorAccentDark">
+            app:boxStrokeColor="@color/colorAccentDark"
+            app:counterEnabled="true"
+            app:counterMaxLength="200">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/general_info_room_type_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
+                android:maxLength="200"
                 android:maxLines="4"
                 android:minLines="2"
                 android:textColor="@color/colorAccentDark" />
@@ -107,9 +114,9 @@
                 android:id="@+id/general_info_budget_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
-                android:maxLines="4"
-                android:minLines="2"
+                android:inputType="textPersonName"
+                android:maxLength="50"
+                android:maxLines="1"
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -128,13 +135,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccentDark"
-            app:boxStrokeColor="@color/colorAccentDark">
+            app:boxStrokeColor="@color/colorAccentDark"
+            app:counterEnabled="true"
+            app:counterMaxLength="300">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/general_info_other_things_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
+                android:maxLength="300"
                 android:maxLines="4"
                 android:minLines="2"
                 android:textColor="@color/colorAccentDark" />
@@ -156,7 +166,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:text="My major:"
-            android:textColor="@color/colorAccentDark"/>
+            android:textColor="@color/colorAccentDark" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/personal_info_major_field_layout"
@@ -169,9 +179,9 @@
                 android:id="@+id/personal_info_major_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
-                android:maxLines="4"
-                android:minLines="2"
+                android:inputType="textPersonName"
+                android:maxLength="50"
+                android:maxLines="1"
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -189,13 +199,16 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/colorAccentDark">
+            app:boxStrokeColor="@color/colorAccentDark"
+            app:counterEnabled="true"
+            app:counterMaxLength="500">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/personal_info_bio_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
+                android:maxLength="500"
                 android:maxLines="4"
                 android:minLines="2"
                 android:textColor="@color/colorAccentDark" />
@@ -216,13 +229,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccentDark"
-            app:boxStrokeColor="@color/colorAccentDark">
+            app:boxStrokeColor="@color/colorAccentDark"
+            app:counterEnabled="true"
+            app:counterMaxLength="300">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/personal_info_hobbies_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
+                android:maxLength="300"
                 android:maxLines="4"
                 android:minLines="2"
                 android:textColor="@color/colorAccentDark" />
@@ -242,13 +258,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccentDark"
-            app:boxStrokeColor="@color/colorAccentDark">
+            app:boxStrokeColor="@color/colorAccentDark"
+            app:counterEnabled="true"
+            app:counterMaxLength="300">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/personal_info_interest_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
+                android:maxLength="300"
                 android:maxLines="4"
                 android:minLines="2"
                 android:textColor="@color/colorAccentDark" />
@@ -279,13 +298,67 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccentDark"
-            app:boxStrokeColor="@color/colorAccentDark">
+            app:boxStrokeColor="@color/colorAccentDark"
+            app:counterMaxLength="20">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/personal_info_phone_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
+                android:maxLength="20"
+                android:maxLines="1"
+                android:textColor="@color/colorAccentDark" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/adv_settings_facebook_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:text="@string/adv_settings_facebook"
+            android:textColor="@color/colorAccentDark" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/personal_info_facebook_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccentDark"
+            app:boxStrokeColor="@color/colorAccentDark">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/personal_info_facebook_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textColor="@color/colorAccentDark" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/adv_settings_snapchat_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:text="@string/adv_settings_snapchat"
+            android:textColor="@color/colorAccentDark" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/personal_info_snapchat_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccentDark"
+            app:boxStrokeColor="@color/colorAccentDark">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/personal_info_snapchat_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
                 android:maxLines="1"
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>

@@ -33,8 +33,12 @@ public class LinkListSingleLink {
         return this.bitMap;
     }
 
-    public String getUid(){
+    public String getUid() {
         return this.uid;
+    }
+
+    public void setBitMap(Bitmap bitMap){
+        this.bitMap = bitMap;
     }
 
 }

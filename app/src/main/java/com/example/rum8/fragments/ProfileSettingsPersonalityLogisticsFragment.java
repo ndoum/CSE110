@@ -286,4 +286,9 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
         radioGroupPersonalQuestionSeven.jumpDrawablesToCurrentState();
         radioGroupPersonalQuestionEight.jumpDrawablesToCurrentState();
     }
+
+    @Override
+    public void showDefaultImage() {
+
+    }
 }

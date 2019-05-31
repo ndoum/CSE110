@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -16,7 +17,6 @@ import com.example.rum8.adapters.PotentialRoommateProfileDefaultAdapter;
 import com.example.rum8.controllers.MainController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.MainControllerListener;
-import com.example.rum8.listeners.MatchedRoommateProfileControllerListener;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
 
@@ -100,8 +100,16 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
     public void setFragment() {
 
     }
-@Override
-public void showPopup() {}
+
+    @Override
+    public void showPopup() {
+    }
+
+    @Override
+    public void showDefaultImage() {
+        profilePicture.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.images));
+    }
+
     @Override
     public void setFragmentEmpty() {
 

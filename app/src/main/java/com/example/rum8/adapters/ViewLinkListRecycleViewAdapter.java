@@ -5,16 +5,15 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rum8.R;
 import com.example.rum8.activities.MatchedRoommateProfileActivity;
-import com.example.rum8.controllers.ViewLinkListController;
 import com.example.rum8.dataModels.LinkListSingleLink;
 import com.example.rum8.listeners.ViewLinkListControllerListener;
 
@@ -69,22 +68,24 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
 
 
     //View Holder for a LinkListSingleLink object
-    public class LinkListSingleLinkHolder extends RecyclerView.ViewHolder{
+    public class LinkListSingleLinkHolder extends RecyclerView.ViewHolder {
         public ImageView imageView;
         public TextView nameView;
         public TextView majorView;
-        public Button viewButton;
+        public LinearLayoutCompat linkClickable;
 
         public LinkListSingleLinkHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.view_link_list_single_link_imageview);
             nameView = itemView.findViewById(R.id.view_link_list_single_link_textview);
             majorView = itemView.findViewById(R.id.view_link_list_single_link_major_year_textview);
-            viewButton = itemView.findViewById(R.id.view_link_list_single_link_button);
+            linkClickable = itemView.findViewById(R.id.activity_view_link_list_single_link_linear_layout);
         }
     }
 
-    public void setlLinks(List<LinkListSingleLink> lLinks){ this.lLinks = lLinks;}
+    public void setlLinks(List<LinkListSingleLink> lLinks) {
+        this.lLinks = lLinks;
+    }
 
     @Override
     public ViewLinkListRecycleViewAdapter.LinkListSingleLinkHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
@@ -110,14 +111,12 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
         final ImageView imageView = linkHolder.imageView;
         imageView.setImageBitmap(link.getBitMap());
 
-        final Button view = linkHolder.viewButton;
-        view.setOnClickListener(v -> {
-
+        final LinearLayoutCompat clickable = linkHolder.linkClickable;
+        clickable.setOnClickListener(v -> {
             Context context = view.getContext();
             Intent intent = new Intent(context, MatchedRoommateProfileActivity.class);
-            intent.putExtra(USER_ID_STRING,link.getUid());
+            intent.putExtra(USER_ID_STRING, link.getUid());
             context.startActivity(intent);
-
         });
     }
 

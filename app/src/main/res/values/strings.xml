@@ -112,6 +112,8 @@
     <string name="adv_settings_hobbies">Hobbies:</string>
     <string name="adv_settings_interests">Interests:</string>
     <string name="adv_settings_phone">Phone number:</string>
+    <string name="adv_settings_facebook">Facebook:</string>
+    <string name="adv_settings_snapchat">Snapchat:</string>
     <string name="adv_settings_budget">Budget:</string>
 
     <!-- User Tab 3 -->

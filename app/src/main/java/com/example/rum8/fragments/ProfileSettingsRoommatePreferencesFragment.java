@@ -318,4 +318,9 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
         radioGroupRoommateQuestionNine.jumpDrawablesToCurrentState();
     }
 
+    @Override
+    public void showDefaultImage() {
+
+    }
+
 }

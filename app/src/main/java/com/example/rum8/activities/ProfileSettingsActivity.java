@@ -136,7 +136,7 @@ public class ProfileSettingsActivity extends FragmentActivity
     }
 
     @Override
-    public void goToMainPage() {
+    public void showDefaultImage() {
     }
 
     /**
