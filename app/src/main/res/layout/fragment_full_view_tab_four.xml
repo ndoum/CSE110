@@ -23,20 +23,18 @@
                 android:layout_height="40dp"
                 android:src="@drawable/email_outline" />
 
-            <TextView
+            <Button
+                android:id="@+id/contact_email_button"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="5dp"
-                android:gravity="center_vertical"
-                android:text="Email: " />
+                android:layout_height="wrap_content"
+                android:text="Launch email" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
                 android:gravity="center_vertical"
-                android:text="tempUser@gmail.com " />
+                android:text="tempUser@gmail.com" />
 
         </LinearLayout>
 
