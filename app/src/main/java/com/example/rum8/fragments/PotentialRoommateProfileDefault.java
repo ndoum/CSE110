@@ -16,7 +16,6 @@ import com.example.rum8.adapters.PotentialRoommateProfileDefaultAdapter;
 import com.example.rum8.controllers.MainController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.MainControllerListener;
-import com.example.rum8.listeners.MatchedRoommateProfileControllerListener;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
 
@@ -96,13 +95,13 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
     public void showToast(final String message) {
     }
 
-
-
-
-
     @Override
     public void setFragment() {
 
+    }
+
+    @Override
+    public void showPopup() {
     }
 
     @Override

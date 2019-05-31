@@ -120,6 +120,8 @@ public class Db {
         public static final String LAST_NAME = "last_name";
         public static final String MAJOR = "major";
         public static final String PHONE_NUMBER = "phone_number";
+        public static final String FACEBOOK = "facebook";
+        public static final String SNAPCHAT = "snapchat";
 
         public static final String ABOUT_ME = "about_me";
         public static final String ROOM_TYPE = "room_type";
@@ -151,7 +153,6 @@ public class Db {
         public static final String ROOMMATE_RESERVED_VALUE = String.format("roommate_%s", RESERVED_VALUE);
         public static final String ROOMMATE_SMOKE_VALUE = String.format("roommate_%s", SMOKE_VALUE);
         public static final String ROOMMATE_STAY_UP_LATE_ON_WEEKDAYS_VALUE = String.format("roommate_%s", STAY_UP_LATE_ON_WEEKDAYS_VALUE);
-
     }
 
     private static class InitialValues {
@@ -171,6 +172,8 @@ public class Db {
             put(Keys.LAST_NAME, EMPTY_STRING);
             put(Keys.MAJOR, "Computer Science");
             put(Keys.PHONE_NUMBER, EMPTY_STRING);
+            put(Keys.FACEBOOK, EMPTY_STRING);
+            put(Keys.SNAPCHAT, EMPTY_STRING);
             put(Keys.ROOM_TYPE, EMPTY_STRING);
 
             put(Keys.ABOUT_ME, EMPTY_STRING);
