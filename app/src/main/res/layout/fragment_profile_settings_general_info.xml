@@ -12,21 +12,11 @@
         android:paddingHorizontal="16dp"
         android:paddingTop="10dp">
 
-        <ImageView
+
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/general_info_profile_image_view"
             android:layout_width="180dp"
             android:layout_height="180dp"
-            app:layout_constraintBottom_toTopOf="@id/general_info_name_fields_grid"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
-
-        <ImageView
-            android:id="@+id/general_info_profile_image_view_frame"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/frame_crop"
-            android:scaleType="centerCrop"
             app:layout_constraintBottom_toTopOf="@id/general_info_name_fields_grid"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />

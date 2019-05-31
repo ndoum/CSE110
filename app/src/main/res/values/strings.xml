@@ -5,6 +5,7 @@
     <!-- general strings -->
     <string name="ucsd_email_hint">Enter your UCSD email here</string>
     <string name="password_hint">Enter your password</string>
+    <string name="password_hint_again">Enter your password again</string>
     <string name="login_button">Log in</string>
     <string name="yes">Yes</string>
     <string name="no_preference">No preference</string>
@@ -119,7 +120,7 @@
     <string name="user_tab_three_question_three">I plan to have parties.</string>
     <string name="user_tab_three_question_four">I drink alcohol.</string>
     <string name="user_tab_three_question_five">I smoke.</string>
-    <string name="user_tab_three_question_six">I go to bed lates.</string>
+    <string name="user_tab_three_question_six">I go to bed late.</string>
     <string name="user_tab_three_question_seven">I am fine with guests.</string>
     <string name="user_tab_three_question_eight">I plan to have a pet.</string>
 
