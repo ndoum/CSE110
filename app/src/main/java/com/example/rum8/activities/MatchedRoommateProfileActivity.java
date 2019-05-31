@@ -89,6 +89,11 @@ public class MatchedRoommateProfileActivity extends AppCompatActivity implements
         profilePicture.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.images));
     }
 
+    @Override
+    public void showDefaultImage() {
+        profilePicture.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.images));
+    }
+
 
     private void initController() {
         controller = new MatchedRoommateProfileController(this);

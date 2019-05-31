@@ -46,7 +46,9 @@ public class ViewLinkListController {
                         if (task1.isSuccessful()) {
                             Db.fetchUserProfilePictureById(storage, uid).addOnSuccessListener((byte[] bytes) -> {
                                 createLink(uid, task1, bytes);
-                            }).addOnFailureListener(e1 -> controllerListener.showDefaultImage());
+                            }).addOnFailureListener(
+                                    e -> createLink(uid, task1, null)
+                            );
                         }
                     });
                 }
@@ -61,7 +63,10 @@ public class ViewLinkListController {
         String link_first_name = (String) linkInfoData.get(Db.Keys.FIRST_NAME);
         String link_last_name = (String) linkInfoData.get(Db.Keys.LAST_NAME);
         String link_major = (String) linkInfoData.get(Db.Keys.MAJOR);
-        Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+        Bitmap bitmap = null;
+        if (bytes != null){
+            bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+        }
         LinkListSingleLink newLink = new LinkListSingleLink(link_first_name, link_last_name, linkUid, link_major, bitmap);
         controllerListener.addNewLink(newLink);
         controllerListener.displayLinks(controllerListener.getLinks());

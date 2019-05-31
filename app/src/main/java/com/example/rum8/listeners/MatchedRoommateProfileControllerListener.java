@@ -13,4 +13,5 @@ public interface MatchedRoommateProfileControllerListener {
     void setMatchedUserProfileImage(Bitmap bitmap);
 
     void showDefaultImage();
+
 }
