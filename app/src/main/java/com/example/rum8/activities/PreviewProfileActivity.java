@@ -57,4 +57,9 @@ public class PreviewProfileActivity extends AppCompatActivity implements Preview
     public void setUserProfileImage(Bitmap bitmap) {
 
     }
+
+    @Override
+    public void showDefaultImage() {
+
+    }
 }

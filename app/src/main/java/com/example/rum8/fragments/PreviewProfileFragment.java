@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -77,6 +78,11 @@ public class PreviewProfileFragment extends Fragment implements PreviewProfileCo
     public void setUserProfileImage(Bitmap bitmap) {
         profilePicture = rootView.findViewById(R.id.user_profile_picture);
         profilePicture.setImageBitmap(bitmap);
+    }
+
+    @Override
+    public void showDefaultImage() {
+        profilePicture.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.images));
     }
 
     @Override

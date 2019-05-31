@@ -248,4 +248,9 @@ public class PreviewProfileTab3Fragment extends Fragment implements PreviewProfi
     public void setUserProfileImage(Bitmap bitmap) {
 
     }
+
+    @Override
+    public void showDefaultImage() {
+
+    }
 }

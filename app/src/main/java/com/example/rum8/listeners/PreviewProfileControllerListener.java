@@ -14,4 +14,6 @@ public interface PreviewProfileControllerListener {
 
     void setUserProfileImage(Bitmap bitmap);
 
+    void showDefaultImage();
+
 }
