@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -72,14 +72,14 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
         public ImageView imageView;
         public TextView nameView;
         public TextView majorView;
-        public Button viewButton;
+        public LinearLayout linkClickable;
 
         public LinkListSingleLinkHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.view_link_list_single_link_imageview);
             nameView = itemView.findViewById(R.id.view_link_list_single_link_textview);
             majorView = itemView.findViewById(R.id.view_link_list_single_link_major_year_textview);
-            viewButton = itemView.findViewById(R.id.view_link_list_single_link_button);
+            linkClickable = itemView.findViewById(R.id.view_link_list_single_link_clickable);
         }
     }
 
@@ -111,14 +111,12 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
         final ImageView imageView = linkHolder.imageView;
         imageView.setImageBitmap(link.getBitMap());
 
-        final Button view = linkHolder.viewButton;
-        view.setOnClickListener(v -> {
-
+        final LinearLayout clickable = linkHolder.linkClickable;
+        clickable.setOnClickListener(v -> {
             Context context = view.getContext();
             Intent intent = new Intent(context, MatchedRoommateProfileActivity.class);
             intent.putExtra(USER_ID_STRING, link.getUid());
             context.startActivity(intent);
-
         });
     }
 
