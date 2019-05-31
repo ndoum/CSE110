@@ -135,6 +135,11 @@ public class ProfileSettingsActivity extends FragmentActivity
 
     }
 
+    @Override
+    public void showDefaultImage() {
+
+    }
+
     /**
      * Setter method that set view pager to the given number
      * that represented the order of fragments page.
