@@ -52,7 +52,7 @@ public class PreviewProfileFragment extends Fragment implements PreviewProfileCo
                 getChildFragmentManager());
 
         System.out.println("adapter");
-        
+
         adapter.AddFragment(new PreviewProfileTab1Fragment(), "General");
         adapter.AddFragment(new PreviewProfileTab2Fragment(), "Personal");
         adapter.AddFragment(new PreviewProfileTab3Fragment(), "Overview");

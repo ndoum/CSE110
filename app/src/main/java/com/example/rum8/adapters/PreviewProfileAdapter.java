@@ -21,12 +21,12 @@ public class PreviewProfileAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        return null;
+        return fragmentList.get(position);
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return FragmentListTitles.size();
     }
 
     @Nullable
