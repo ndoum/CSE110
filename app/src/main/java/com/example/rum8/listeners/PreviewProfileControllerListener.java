@@ -4,17 +4,7 @@ import android.graphics.Bitmap;
 
 import java.util.Map;
 
-public interface MainControllerListener {
-
-    void goToProfileSettings();
-
-    void goToLogin();
-
-    void goToLinkList();
-
-    void goToAdvancedProfileSettings();
-
-    void goToProfilePreview();
+public interface PreviewProfileControllerListener {
 
     void showToast(final String message);
 
@@ -22,11 +12,7 @@ public interface MainControllerListener {
 
     void setFragment();
 
-    void setFragmentEmpty();
-
     void setUserProfileImage(Bitmap bitmap);
-
-    void showPopup();
 
     void showDefaultImage();
 
