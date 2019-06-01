@@ -9,14 +9,9 @@
     <fragment
         android:id="@+id/fragment_place"
         android:name="com.example.rum8.fragments.PreviewProfileFragment"
-        android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="50dp"
-        tools:layout="@layout/fragment_potential_roommate_profile_alt"
-        >
-    </fragment>
+        android:layout_width="414dp"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_potential_roommate_profile_alt"></fragment>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
