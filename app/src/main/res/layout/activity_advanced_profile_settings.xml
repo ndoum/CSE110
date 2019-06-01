@@ -50,9 +50,9 @@
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccentDark"
             app:boxStrokeColor="@color/colorAccentDark"
-            app:counterOverflowTextColor="@color/colorPrimary"
             app:counterEnabled="true"
-            app:counterMaxLength="300">
+            app:counterMaxLength="300"
+            app:counterOverflowTextColor="@color/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/general_info_living_accommodations_field"
@@ -71,6 +71,62 @@
             android:gravity="center_vertical"
             android:text="@string/adv_settings_room_type"
             android:textColor="@color/colorAccentDark" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_weight="1.5"
+                android:src="@drawable/single"
+                android:layout_marginTop="10dp"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_weight="4"
+                android:src="@drawable/double_room"
+                android:layout_marginTop="10dp"
+                />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/tripple"
+                android:layout_weight="1"
+                />
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/room_type"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/room_single"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="single" />
+
+            <RadioButton
+                android:id="@+id/room_double"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="double" />
+
+            <RadioButton
+                android:id="@+id/room_triple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="triple" />
+        </RadioGroup>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/general_info_room_type_field_layout"
@@ -299,11 +355,11 @@
                 android:id="@+id/personal_info_phone_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="xxx-xxx-xxxx"
                 android:inputType="phone"
                 android:maxLength="14"
                 android:maxLines="1"
-                android:textColor="@color/colorAccentDark"
-                android:hint="xxx-xxx-xxxx"/>
+                android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -328,8 +384,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:maxLines="1"
                 android:maxLength="50"
+                android:maxLines="1"
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -348,16 +404,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccentDark"
-            app:boxStrokeColor="@color/colorAccentDark"
-            >
+            app:boxStrokeColor="@color/colorAccentDark">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/personal_info_snapchat_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:maxLines="1"
                 android:maxLength="50"
+                android:maxLines="1"
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
 
