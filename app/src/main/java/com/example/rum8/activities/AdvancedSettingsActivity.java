@@ -2,6 +2,7 @@ package com.example.rum8.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -59,6 +60,9 @@ public class AdvancedSettingsActivity extends AppCompatActivity
         facebookField = findViewById(R.id.personal_info_facebook_field);
         snapchatField = findViewById(R.id.personal_info_snapchat_field);
         saveButton = findViewById(R.id.button_advanced_settings_save);
+
+        phoneNumberField.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
+
         saveButton.setOnClickListener(v -> {
             final Map<String, Object> userHash = new HashMap<String, Object>() {{
                 put(Db.Keys.MAJOR, majorField.getText().toString());
