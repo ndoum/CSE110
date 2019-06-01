@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
 
         android:layout_height="match_parent"
-        android:background="#FFFFFF"
+        android:background="#d9e0e2"
         android:elevation="10dp"
 
         android:orientation="vertical">
@@ -53,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="80dp"
                     android:layout_marginBottom="-8dp"
-                    app:cardBackgroundColor="#FFDC87"
+                    app:cardBackgroundColor="#ddebec"
                     app:cardCornerRadius="8dp">
 
                     <LinearLayout
@@ -89,18 +89,18 @@
             android:id="@+id/potential_roommate_profile_default_tablayout_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/ucsd_gold"
+            android:background="#679d95"
             app:tabGravity="fill"
-            app:tabIndicatorColor="@android:color/white"
+            app:tabIndicatorColor="#faf6ed"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="#000000"
+            app:tabSelectedTextColor="#faf6ed"
             app:tabTextAppearance="@style/CustomTextStyle" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/potential_roommate_profile_default_viewpager_id"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#00644949" />
+            android:background="#679d95" />
 
     </LinearLayout>
 

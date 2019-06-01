@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#7192A5</color>
-    <color name="colorAccentDark">#253E67</color>
+    <color name="colorPrimary">#0d4241</color>
+    <color name="colorPrimaryDark">#679d95</color>
+    <color name="colorAccent">#71a5a4</color>
+    <color name="colorAccentDark">#256067</color>
 
     <color name="menuBarColor">#DA9785</color>
     <color name="background_color">#FFF</color>
