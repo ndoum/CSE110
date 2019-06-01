@@ -36,9 +36,11 @@ public class SplashController {
         Db.fetchUserInfo(db, auth.getCurrentUser())
             .addOnSuccessListener(documentSnapshot -> {
                 final Map<String, Object> data = documentSnapshot.getData();
+                final String firstName = (String) data.get(Db.Keys.FIRST_NAME);
+                final String lastName = (String) data.get(Db.Keys.LAST_NAME);
 
                 // If name has not been entered, go to profile settings
-                if (((String) data.get(Db.Keys.FIRST_NAME)).isEmpty()) {
+                if (!isPresent(firstName)||!isPresent(lastName)) {
                     controllerListener.goToProfileSettings();
                 } else {
                     controllerListener.goToMain();
@@ -48,5 +50,10 @@ public class SplashController {
                 final String message = "Network error";
                 controllerListener.showToast(message);
             });
+    }
+
+    // helper method to check if user input is present
+    private static boolean isPresent(final String name) {
+        return name != null && !name.isEmpty();
     }
 }
