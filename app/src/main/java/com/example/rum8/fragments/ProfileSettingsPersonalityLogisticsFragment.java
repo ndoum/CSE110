@@ -291,4 +291,6 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
     public void showDefaultImage() {
 
     }
+
+
 }

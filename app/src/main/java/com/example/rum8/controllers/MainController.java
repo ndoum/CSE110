@@ -145,12 +145,10 @@ public class MainController {
                             controllerListener.setFragment();
                         } else {
                             controllerListener.setFragmentEmpty();
-                            controllerListener.showToast("No more potential");
                             controllerListener.showPopup();
                         }
                     } else {
                         controllerListener.setFragmentEmpty();
-                        controllerListener.showToast("No more potential");
                         controllerListener.showPopup();
                     }
                 })
@@ -181,11 +179,11 @@ public class MainController {
                             controllerListener.setFragment();
                         } else {
                             controllerListener.setFragmentEmpty();
-                            controllerListener.showToast("No more potential");
+                            controllerListener.showPopup();
                         }
                     } else {
                         controllerListener.setFragmentEmpty();
-                        controllerListener.showToast("No more potential");
+                        controllerListener.showPopup();
                     }
                 })
                 .addOnFailureListener(e -> {

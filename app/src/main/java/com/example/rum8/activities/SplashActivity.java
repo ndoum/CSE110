@@ -3,6 +3,7 @@ package com.example.rum8.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -44,7 +45,20 @@ public class SplashActivity extends AppCompatActivity implements SplashControlle
         finish();
     }
 
+    /**
+     * Method navigates to the profile setting class.
+     */
+    @Override
+    public void goToProfileSettings() {
+        final Intent intent = new Intent(SplashActivity.this, ProfileSettingsActivity.class);
+        startActivity(intent);
+    }
     private void initController() {
         controller = new SplashController(this);
+    }
+
+    @Override
+    public void showToast(final String message) {
+        Toast.makeText(SplashActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 }

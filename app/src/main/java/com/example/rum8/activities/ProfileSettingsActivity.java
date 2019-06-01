@@ -149,5 +149,7 @@ public class ProfileSettingsActivity extends FragmentActivity
         viewPager.setCurrentItem(fragmentNumber);
     }
 
-
+    @Override
+    public void goToMainPage() {
+    }
 }
