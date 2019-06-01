@@ -93,7 +93,7 @@
             app:tabTextAppearance="@style/CustomTextStyleFull"
             app:tabGravity="fill"
             app:tabMode="scrollable"
-            android:background="@color/ucsd_gold"
+            android:background="@color/dribble_yellow"
             android:id="@+id/full_view_tab_layout"/>
 
         <androidx.viewpager.widget.ViewPager

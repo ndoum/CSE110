@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#7192A5</color>
-    <color name="colorAccentDark">#253E67</color>
-
-    <color name="menuBarColor">#DA9785</color>
-    <color name="background_color">#FFF</color>
-
     <color name="ucsd_navy_blue">#182B49</color>
-    <color name="ucsd_dark_gold">#C69214</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccentDark">#253E67</color>
     <color name="ucsd_blue">#006A96</color>
-    <color name="ucsd_gold">#FFCD00</color>
-    <color name="ucsd_grey">#B6B1A9</color>
-    <color name="light_orange">#FFDEBD</color>
-    <color name="light_light_yellow">#F9FADA</color>
-    <color name="dark_yellow">#DA9A2B</color>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorAccent">#7192A5</color>
+    <color name="dribble_green">#809E6A</color>
+
     <color name="brown">#A3652B</color>
+    <color name="menuBarColor">#DA9785</color>
+    <color name="ucsd_dark_gold">#C69214</color>
+    <color name="ucsd_grey">#B6B1A9</color>
+
+    <color name="dark_yellow">#DA9A2B</color>
+    <color name="ucsd_gold">#FFCD00</color>
+    <color name="dribble_yellow">#ECBD6D</color>
+    <color name="light_light_yellow">#F9FADA</color>
     <color name="white">#FFFFFF</color>
+    <color name="light_orange">#FFDEBD</color>
+
+    <color name="background_color">#FFF</color>
 
 </resources>

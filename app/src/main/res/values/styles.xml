@@ -1,8 +1,8 @@
 <resources>
 
     <style name="AppThemeActionBar" parent="Theme.MaterialComponents.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorAccentDark</item>
-        <item name="colorPrimaryDark">@color/colorAccentDark</item>
+        <item name="colorPrimary">@color/dribble_yellow</item>
+        <item name="colorPrimaryDark">@color/dribble_yellow</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
