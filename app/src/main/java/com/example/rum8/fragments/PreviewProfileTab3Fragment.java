@@ -13,16 +13,16 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
-import com.example.rum8.controllers.MainController;
+import com.example.rum8.controllers.PreviewProfileController;
 import com.example.rum8.database.Db;
-import com.example.rum8.listeners.MainControllerListener;
+import com.example.rum8.listeners.PreviewProfileControllerListener;
 
 import java.util.Map;
 
-public class UserTab3Fragment extends Fragment implements MainControllerListener {
-    View view;
+public class PreviewProfileTab3Fragment extends Fragment implements PreviewProfileControllerListener {
 
-    private MainController controller;
+    private View view;
+    private PreviewProfileController controller;
 
     private TextView questionOneYesResponse;
     private TextView questionOneSometimesResponse;
@@ -56,21 +56,21 @@ public class UserTab3Fragment extends Fragment implements MainControllerListener
     private TextView questionEightSometimesResponse;
     private TextView questionEightNoResponse;
 
-    public UserTab3Fragment() {
-
+    public PreviewProfileTab3Fragment(){
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_tab3, container, false);
+
+        view = inflater.inflate(R.layout.fragment_preview_profile_tab3, container, false);
 
         return view;
     }
 
     @Override
     public void onViewCreated(View rootView, Bundle savedInstanceState) {
-        controller = new MainController(this);
+        controller = new PreviewProfileController(this);
         controller.loadUserInfo();
         questionOneYesResponse = view.findViewById(R.id.tab3_question_1_yes);
         questionOneSometimesResponse = view.findViewById(R.id.tab3_question_1_sometimes);
@@ -104,7 +104,11 @@ public class UserTab3Fragment extends Fragment implements MainControllerListener
         questionEightSometimesResponse = view.findViewById(R.id.tab3_question_8_sometimes);
         questionEightNoResponse = view.findViewById(R.id.tab3_question_8_no);
 
+    }
 
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -241,46 +245,8 @@ public class UserTab3Fragment extends Fragment implements MainControllerListener
     }
 
     @Override
-    public void setFragmentEmpty() {
-
-    }
-
-    @Override
     public void setUserProfileImage(Bitmap bitmap) {
 
-    }
-
-
-    @Override
-    public void showToast(final String message) {
-        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-    }
-
-
-    @Override
-    public void goToProfileSettings() {
-    }
-
-    @Override
-    public void goToLogin() {
-    }
-
-    @Override
-    public void goToLinkList() {
-
-    }
-
-    @Override
-    public void goToAdvancedProfileSettings() {
-    }
-
-    @Override
-    public void goToProfilePreview() {
-
-    }
-
-    @Override
-    public void showPopup() {
     }
 
     @Override
