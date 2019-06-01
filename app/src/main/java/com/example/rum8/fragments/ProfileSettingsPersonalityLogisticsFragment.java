@@ -200,6 +200,10 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
     }
 
     @Override
+    public void goToMainPage() {
+    }
+
+    @Override
     public void showCurrentUserInfo(Map<String, Object> data) {
         long clean = (long) data.get(Db.Keys.CLEAN_VALUE);
         long reserve = (long) data.get(Db.Keys.RESERVED_VALUE);
@@ -288,4 +292,6 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
     public void showDefaultImage() {
 
     }
+
+
 }
