@@ -31,6 +31,8 @@ public class ProfileSettingsController {
     private FirebaseAuth auth;
     private FirebaseStorage storage;
     private Map<String, Object> userMap;
+    public String usernameEntered;
+    public String usernameEntered_lastName;
 
 
     public ProfileSettingsController(final ProfileSettingsControllerListener controllerListener) {
@@ -56,8 +58,8 @@ public class ProfileSettingsController {
             controllerListener.showToast(message);
         } else {
             Db.updateUser(db, auth.getCurrentUser(), userInfo)
-                    .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
-                    .addOnFailureListener(e -> Log.d(TAG, "Error adding document"));
+                .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
+                .addOnFailureListener(e -> Log.d(TAG, "Error adding document"));
         }
     }
 
@@ -71,34 +73,34 @@ public class ProfileSettingsController {
             final FirebaseStorage storage = FirebaseStorage.getInstance();
             controllerListener.showUploadImageProgress();
             Db.updateProfilePicture(storage, user, filePath)
-                    .addOnSuccessListener(taskSnapshot -> {
-                        controllerListener.hideUploadImageProgress();
-                        final String message = "Successfully uploaded";
-                        controllerListener.showToast(message);
-                    })
-                    .addOnFailureListener(e -> {
-                        controllerListener.hideUploadImageProgress();
-                        final String message = "Network error";
-                        controllerListener.showToast(message);
-                    })
-                    .addOnProgressListener(taskSnapshot -> {
-                        double progress = (ONE_HUNDRED_PERCENT * taskSnapshot.getBytesTransferred() / taskSnapshot
-                                .getTotalByteCount());
-                        controllerListener.updateUploadImagePercentage(progress);
-                    });
+                .addOnSuccessListener(taskSnapshot -> {
+                    controllerListener.hideUploadImageProgress();
+                    final String message = "Successfully uploaded";
+                    controllerListener.showToast(message);
+                })
+                .addOnFailureListener(e -> {
+                    controllerListener.hideUploadImageProgress();
+                    final String message = "Network error";
+                    controllerListener.showToast(message);
+                })
+                .addOnProgressListener(taskSnapshot -> {
+                    double progress = (ONE_HUNDRED_PERCENT * taskSnapshot.getBytesTransferred() / taskSnapshot
+                        .getTotalByteCount());
+                    controllerListener.updateUploadImagePercentage(progress);
+                });
         }
     }
 
     public void loadUserInfo() {
         Db.fetchUserInfo(db, auth.getCurrentUser())
-                .addOnSuccessListener(documentSnapshot -> {
-                    final Map<String, Object> data = documentSnapshot.getData();
-                    controllerListener.showCurrentUserInfo(data);
-                })
-                .addOnFailureListener(e -> {
-                    final String message = "Network error";
-                    controllerListener.showToast(message);
-                });
+            .addOnSuccessListener(documentSnapshot -> {
+                final Map<String, Object> data = documentSnapshot.getData();
+                controllerListener.showCurrentUserInfo(data);
+            })
+            .addOnFailureListener(e -> {
+                final String message = "Network error";
+                controllerListener.showToast(message);
+            });
     }
 
     public void loadUserProfileImage() {
@@ -133,16 +135,30 @@ public class ProfileSettingsController {
      * Method that saves/updates user in database.
      */
     public void submitUserMap() {
-        Db.updateUser(db, auth.getCurrentUser(), userMap)
-                .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
-                .addOnFailureListener(e -> Log.d(TAG, "Error adding document"));
+       /* Db.updateUser(db, auth.getCurrentUser(), userMap)
+            .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
+            .addOnFailureListener(e -> Log.d(TAG, "Error adding document"));
         final String firstName = (String) userMap.get(Db.Keys.FIRST_NAME);
         final String lastName = (String) userMap.get(Db.Keys.LAST_NAME);
 
-        // check for valid name
-        if ((!isPresent(firstName)) || !isPresent(lastName)) {
-            final String message = "Please enter your first and last name";
-            controllerListener.showToast(message);
-        }
+*/
+        Db.fetchUserInfo(db, auth.getCurrentUser())
+            .addOnSuccessListener(documentSnapshot -> {
+                final Map<String, Object> data = documentSnapshot.getData();
+                final String firstName = (String) data.get(Db.Keys.FIRST_NAME);
+                final String lastName = (String) data.get(Db.Keys.LAST_NAME);
+
+                // check for valid name
+                if (!isPresent(firstName)|| !isPresent(lastName)) {
+                    final String message = "Please enter and save your first and last name";
+                    controllerListener.showToast(message);
+                } else {
+                    controllerListener.goToMainPage();
+                }
+            })
+            .addOnFailureListener(e -> {
+                final String message = "Network error";
+                controllerListener.showToast(message);
+            });
     }
 }
