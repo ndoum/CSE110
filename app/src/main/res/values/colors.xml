@@ -7,6 +7,7 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorAccent">#7192A5</color>
     <color name="dribble_green">#809E6A</color>
+    <color name="light_green">#CCDBC0</color>
 
     <color name="brown">#A3652B</color>
     <color name="dribble_brown">#BB6C46</color>
