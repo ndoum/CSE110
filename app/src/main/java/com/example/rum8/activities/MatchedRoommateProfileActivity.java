@@ -86,6 +86,7 @@ public class MatchedRoommateProfileActivity extends AppCompatActivity implements
 
     @Override
     public void showDefaultImage() {
+        profilePicture = findViewById(R.id.matched_user_profile_picture);
         profilePicture.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.images));
     }
 
