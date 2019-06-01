@@ -13,44 +13,48 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
-import com.example.rum8.controllers.MainController;
+import com.example.rum8.controllers.PreviewProfileController;
 import com.example.rum8.database.Db;
-import com.example.rum8.listeners.MainControllerListener;
+import com.example.rum8.listeners.PreviewProfileControllerListener;
 
 import java.util.Map;
 
-public class UserTab1Fragment extends Fragment implements MainControllerListener {
+public class PreviewProfileTab1Fragment extends Fragment implements PreviewProfileControllerListener {
 
     private View view;
-    private MainController controller;
+    private PreviewProfileController controller;
     private TextView budgetField;
     private TextView livingAccommodationsField;
     private TextView otherThingsField;
     private TextView roomTypeField;
 
-    public UserTab1Fragment() {
+    public PreviewProfileTab1Fragment(){
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.fragment_tab1, container, false);
+        view = inflater.inflate(R.layout.fragment_preview_profile_tab1, container, false);
 
         return view;
     }
 
     @Override
     public void onViewCreated(View rootView, Bundle savedInstanceState) {
-        controller = new MainController(this);
+        controller = new PreviewProfileController(this);
         controller.loadUserInfo();
         budgetField = view.findViewById(R.id.budget_text);
-
 
         livingAccommodationsField = view.findViewById(R.id.living_accommodations_text);
         otherThingsField = view.findViewById(R.id.other_thing_text);
         roomTypeField = view.findViewById(R.id.room_type_text);
 
+    }
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -69,42 +73,8 @@ public class UserTab1Fragment extends Fragment implements MainControllerListener
         onResume();
     }
 
-
-    @Override
-    public void showToast(final String message) {
-        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-    }
-
-
-    @Override
-    public void goToProfileSettings() {
-    }
-
-    @Override
-    public void goToLogin() {
-    }
-
-    @Override
-    public void goToLinkList() {
-
-    }
-
-    @Override
-    public void goToAdvancedProfileSettings() {
-    }
-
-    @Override
-    public void goToProfilePreview() {
-
-    }
-
     @Override
     public void setFragment() {
-
-    }
-
-    @Override
-    public void setFragmentEmpty() {
 
     }
 
@@ -114,12 +84,7 @@ public class UserTab1Fragment extends Fragment implements MainControllerListener
     }
 
     @Override
-    public void showPopup() {
-    }
-
-    @Override
     public void showDefaultImage() {
 
     }
-
 }
