@@ -335,6 +335,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:maxLines="1"
+                android:maxLength="50"
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -353,7 +354,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccentDark"
-            app:boxStrokeColor="@color/colorAccentDark">
+            app:boxStrokeColor="@color/colorAccentDark"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/personal_info_snapchat_field"
@@ -361,6 +363,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:maxLines="1"
+                android:maxLength="50"
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
 
