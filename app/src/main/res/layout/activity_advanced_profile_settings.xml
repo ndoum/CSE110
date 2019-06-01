@@ -60,7 +60,6 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:maxLength="300"
-                android:maxLines="4"
                 android:minLines="2"
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -89,7 +88,6 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:maxLength="200"
-                android:maxLines="4"
                 android:minLines="2"
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -145,7 +143,6 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:maxLength="300"
-                android:maxLines="4"
                 android:minLines="2"
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -209,7 +206,6 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:maxLength="500"
-                android:maxLines="4"
                 android:minLines="2"
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -239,7 +235,6 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:maxLength="300"
-                android:maxLines="4"
                 android:minLines="2"
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -268,7 +263,6 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:maxLength="300"
-                android:maxLines="4"
                 android:minLines="2"
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
