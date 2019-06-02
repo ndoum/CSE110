@@ -66,24 +66,5 @@ public class PreferencesController {
        Db.updateUser(db, auth.getCurrentUser(), userMap)
             .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
            .addOnFailureListener(e -> Log.d(TAG, "Error adding document"));
-
-        Db.fetchUserInfo(db, auth.getCurrentUser())
-            .addOnSuccessListener(documentSnapshot -> {
-                final Map<String, Object> data = documentSnapshot.getData();
-                final String firstName = (String) data.get(Db.Keys.FIRST_NAME);
-                final String lastName = (String) data.get(Db.Keys.LAST_NAME);
-
-                // check for valid name
-                if (!isPresent(firstName)|| !isPresent(lastName)) {
-                    final String message = "Please enter and save your first and last name";
-                    controllerListener.showToast(message);
-                } else {
-                    controllerListener.goToMainPage();
-                }
-            })
-            .addOnFailureListener(e -> {
-                final String message = "Network error";
-                controllerListener.showToast(message);
-            });
     }
 }
