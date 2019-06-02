@@ -36,29 +36,24 @@ public class SettingsController {
     }
 
     public void onSaveButtonClicked(final Map<String, Object> userHash) {
-        Db.fetchUserInfo(db, auth.getCurrentUser())
-            .addOnSuccessListener(documentSnapshot -> {
-                final Map<String, Object> data = documentSnapshot.getData();
-                final String firstName = (String) data.get(Db.Keys.FIRST_NAME);
-                final String lastName = (String) data.get(Db.Keys.LAST_NAME);
-
-                // check for valid name
-                if (!isPresent(firstName) || !isPresent(lastName)) {
-                    final String message = "Please enter and save your first and last name";
-                    controllerListener.showToast(message);
-                } else {
-                    Db.updateUser(db, auth.getCurrentUser(), userHash)
-                        .addOnSuccessListener(aVoid -> {
-                            Log.d(TAG, "DocumentSnapshot successfully written");
-                            controllerListener.showToast("Saved");
-                        })
-                        .addOnFailureListener(e -> controllerListener.showToast("Network error"));
-                }
+        Db.updateUser(db, auth.getCurrentUser(), userHash)
+            .addOnSuccessListener(aVoid -> {
+                Log.d(TAG, "DocumentSnapshot successfully written");
+                controllerListener.showToast("Saved");
             })
-            .addOnFailureListener(e -> {
-                final String message = "Network error";
-                controllerListener.showToast(message);
-            });
+            .addOnFailureListener(e -> controllerListener.showToast("Network error"));
+
+    }
+
+    public void generalSaveButtonClicked(final Map<String, Object> userHash) {
+        String firstName = (String) userHash.get(Db.Keys.FIRST_NAME);
+        String lastName = (String) userHash.get(Db.Keys.LAST_NAME);
+        if (!isPresent(firstName) || isPresent(lastName)) {
+            final String message = "Please enter and save your first and last name";
+            controllerListener.showToast(message);
+            return;
+        }
+        onSaveButtonClicked(userHash);
     }
 
     public void loadUserInfo() {
@@ -72,6 +67,7 @@ public class SettingsController {
                 controllerListener.showToast(message);
             });
     }
+
     public void onGotoMainClicked() {
         Db.fetchUserInfo(db, auth.getCurrentUser())
             .addOnSuccessListener(documentSnapshot -> {
@@ -84,7 +80,7 @@ public class SettingsController {
                     final String message = "Please enter and save your first and last name";
                     controllerListener.showToast(message);
                 } else {
-                   controllerListener.goToMain();
+                    controllerListener.goToMain();
                 }
             })
             .addOnFailureListener(e -> {
@@ -92,6 +88,7 @@ public class SettingsController {
                 controllerListener.showToast(message);
             });
     }
+
     // helper method to check if user input is present
     private static boolean isPresent(final String name) {
         return name != null && !name.isEmpty();

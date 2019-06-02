@@ -1,5 +1,6 @@
 package com.example.rum8.fragments;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
+import com.example.rum8.activities.MainActivity;
 import com.example.rum8.controllers.SettingsController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.SettingsControllerListener;
@@ -105,5 +107,8 @@ public class SettingsContactFragment extends Fragment implements SettingsControl
 
     @Override
     public void goToMain() {
+        final Intent intent;
+        intent = new Intent(getActivity(), MainActivity.class);
+        startActivity(intent);
     }
 }

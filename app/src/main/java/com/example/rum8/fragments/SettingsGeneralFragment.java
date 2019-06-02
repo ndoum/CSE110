@@ -195,7 +195,7 @@ public class SettingsGeneralFragment extends Fragment implements SettingsControl
                 put(Db.Keys.ACADEMIC_YEAR, academicYearSpinner.getSelectedItem().toString());
                 put(Db.Keys.COLLEGE, collegeSpinner.getSelectedItem().toString());
             }};
-            controller.onSaveButtonClicked(userInfo);
+            controller.generalSaveButtonClicked(userInfo);
         });
     }
     private void initController() {
