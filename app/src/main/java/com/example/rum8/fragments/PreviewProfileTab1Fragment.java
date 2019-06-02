@@ -59,13 +59,13 @@ public class PreviewProfileTab1Fragment extends Fragment implements PreviewProfi
 
     @Override
     public void showCurrentUserInfo(final Map<String, Object> data) {
-        final String budget = (String) data.get(Db.Keys.BUDGET);
         final String room_type = (String) data.get(Db.Keys.ROOM_TYPE);
-
+        final String budget_min = String.valueOf(data.get(Db.Keys.BUDGET_MIN));
+        final String budget_max = String.valueOf(data.get(Db.Keys.BUDGET_MAX));
         final String living_accommodations = (String) data.get(Db.Keys.LIVING_ACCOMMODATIONS);
         final String other_things_you_should_know = (String) data.get(Db.Keys.OTHER_THINGS_YOU_SHOULD_KNOW);
 
-        budgetField.setText(String.valueOf(budget));
+        budgetField.setText("$" + budget_min + " - " + budget_max);
         livingAccommodationsField.setText(living_accommodations);
         otherThingsField.setText(other_things_you_should_know);
         roomTypeField.setText(room_type);

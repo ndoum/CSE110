@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity implements LoginControllerL
      */
     @Override
     public void goToProfileSettings() {
-        final Intent intent = new Intent(LoginActivity.this, PreferencesActivity.class);
+        final Intent intent = new Intent(LoginActivity.this, SettingsActivity.class);
         startActivity(intent);
         finish();
     }

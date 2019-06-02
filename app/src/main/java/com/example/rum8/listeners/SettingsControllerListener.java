@@ -21,5 +21,6 @@ public interface SettingsControllerListener {
     void setUserProfileImage(Bitmap bitmap);
 
     void showToast(final String message);
-    
+
+    void goToMain();
 }

@@ -20,5 +20,8 @@
     <color name="dark_yellow">#DA9A2B</color>
     <color name="brown">#A3652B</color>
     <color name="white">#FFFFFF</color>
+    <color name="dark_grey">#212121</color>
+
+
 
 </resources>

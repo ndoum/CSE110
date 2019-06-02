@@ -47,7 +47,7 @@ public class SplashActivity extends AppCompatActivity implements SplashControlle
 
     @Override
     public void goToProfileSettings() {
-        final Intent intent = new Intent(SplashActivity.this, PreferencesActivity.class);
+        final Intent intent = new Intent(SplashActivity.this, SettingsActivity.class);
         startActivity(intent);
     }
     private void initController() {
