@@ -35,6 +35,7 @@ public class PhoneContactDialog extends AppCompatDialogFragment implements Match
 
     private final static int SEND_SMS_PERMISSION_REQUEST_CODE = 111;
     private Button sendMsgButton;
+    private Button closePopupButton;
     private EditText messageContent;
     private MatchedRoommateProfileController controller;
     private TextView phoneNumberTextView;
@@ -50,24 +51,17 @@ public class PhoneContactDialog extends AppCompatDialogFragment implements Match
         messageContent = view.findViewById(R.id.pop_up_message_content);
         phoneNumberTextView = view.findViewById(R.id.phone_number_text_view);
         sendMsgButton = view.findViewById(R.id.pop_up_send_message_button);
+        closePopupButton = view.findViewById(R.id.pop_up_close_button);
         controller = new MatchedRoommateProfileController(this);
         controller.loadMatchUserContactInfo(((MatchedRoommateProfileActivity) getActivity()).getMatchedUserId());
 
         builder.setView(view)
-                .setTitle("Text Message")
-                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                .setTitle("Text Message");
 
-                    }
-                }).setPositiveButton("ok", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
 
-            }
+        closePopupButton.setOnClickListener(v -> {
+            dismiss();
         });
-
-
 
         sendMsgButton.setEnabled(false);
         if (checkPermission(Manifest.permission.SEND_SMS)){
@@ -90,6 +84,7 @@ public class PhoneContactDialog extends AppCompatDialogFragment implements Match
                     SmsManager smsManager = SmsManager.getDefault();
                     smsManager.sendTextMessage(phoneNumber, null, smsMessage,sentPI,deliveredPI);
                     showToast("Text message sent");
+                    dismiss();
 
                 }
                 else{
