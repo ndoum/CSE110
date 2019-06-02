@@ -37,7 +37,7 @@
     <string name="menu_profile_user_name">User Name</string>
     <string name="menu_profile_user_year">User Year</string>
 
-    <string name="menu_adv_settings_button">Advanced Settings</string>
+    <string name="menu_settings_button">Settings</string>
 
     <!-- activity_password_recovery -->
     <string name="pr_header">Password Recovery</string>
@@ -101,21 +101,18 @@
     <string name="ps_roommate_preference_overnight_guests">I prefer a roommate that is okay with overnight guests.</string>
     <string name="ps_roommate_preference_comfortable_with_pets">I prefer a roommate that is comfortable with pets.</string>
 
-    <!-- adv_settings-->
-    <string name="adv_settings_header">Advanced Settings</string>
-    <string name="adv_settings_sub_header_1">General</string>
-    <string name="adv_settings_sub_header_2">Personal</string>
-    <string name="adv_settings_sub_header_3">Contact</string>
-    <string name="adv_settings_living_accommodations">Living accommodations:</string>
-    <string name="adv_settings_room_type">Room type:</string>
-    <string name="adv_settings_other_things">Other things you should know:</string>
-    <string name="adv_settings_bio">About me:</string>
-    <string name="adv_settings_hobbies">Hobbies:</string>
-    <string name="adv_settings_interests">Interests:</string>
-    <string name="adv_settings_phone">Phone number:</string>
-    <string name="adv_settings_facebook">Facebook:</string>
-    <string name="adv_settings_snapchat">Snapchat:</string>
-    <string name="adv_settings_budget">Budget:</string>
+    <!-- settings-->
+    <string name="settings_living_accommodations">Living accommodations:</string>
+    <string name="settings_room_type">Room type:</string>
+    <string name="settings_other_things">Other things you should know:</string>
+    <string name="settings_major">Major:</string>
+    <string name="settings_bio">About me:</string>
+    <string name="settings_hobbies">Hobbies:</string>
+    <string name="settings_interests">Interests:</string>
+    <string name="settings_phone">Phone number:</string>
+    <string name="settings_facebook">Facebook:</string>
+    <string name="settings_snapchat">Snapchat:</string>
+    <string name="settings_budget">Budget:</string>
 
     <!-- User Tab 3 -->
     <string name="user_tab_three_question_one">I keep my room clean.</string>

@@ -6,8 +6,8 @@
         android:title="@string/menu_profile_settings_button"
         app:showAsAction="never"/>
 
-    <item android:id="@+id/main_activity_go_to_adv_settings"
-        android:title="@string/menu_adv_settings_button"
+    <item android:id="@+id/main_activity_go_to_settings"
+        android:title="@string/menu_settings_button"
         app:showAsAction="never"/>
 
     <item android:id="@+id/main_activity_go_to_preview_profile"

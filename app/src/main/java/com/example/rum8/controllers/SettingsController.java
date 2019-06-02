@@ -3,21 +3,21 @@ package com.example.rum8.controllers;
 import android.util.Log;
 
 import com.example.rum8.database.Db;
-import com.example.rum8.listeners.AdvancedSettingsControllerListener;
+import com.example.rum8.listeners.SettingsControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Map;
 
-import static android.content.ContentValues.TAG;
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
-public class AdvancedSettingsController {
+public class SettingsController {
 
-    private AdvancedSettingsControllerListener controllerListener;
+    private SettingsControllerListener controllerListener;
     private FirebaseFirestore db;
     private FirebaseAuth auth;
 
-    public AdvancedSettingsController(final AdvancedSettingsControllerListener controllerListener) {
+    public SettingsController(final SettingsControllerListener controllerListener) {
         this.controllerListener = controllerListener;
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
