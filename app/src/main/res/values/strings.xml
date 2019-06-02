@@ -48,35 +48,6 @@
     <string name="register_button">Register</string>
 
     <!-- activity_profile_settings -->
-    <!-- general_info -->
-    <string name="ps_general_info_header">General Info</string>
-    <string name="ps_general_info_first_name_label">First name</string>
-    <string name="ps_general_info_last_name_label">Last name</string>
-    <string name="ps_general_info_gender_label">Gender</string>
-    <string name="ps_general_info_academic_year_label">Academic year</string>
-
-    <string name="ps_general_info_college_label">College</string>
-    <string-array name="ps_general_info_gender_items">
-        <item>Male</item>
-        <item>Female</item>
-        <item>Non-binary</item>
-    </string-array>
-    <string-array name="ps_general_info_academic_year_items">
-        <item>First</item>
-        <item>Second</item>
-        <item>Third</item>
-        <item>Fourth</item>
-        <item>Other</item>
-    </string-array>
-    <string-array name="ps_general_info_college_items">
-        <item>Revelle</item>
-        <item>Muir</item>
-        <item>Marshall</item>
-        <item>Warren</item>
-        <item>ERC</item>
-        <item>Sixth</item>
-    </string-array>
-
     <!-- personality_logistics -->
     <string name="ps_personality_logistics_header">Personality and Logistics</string>
     <string name="ps_personality_logistics_cleanness">I make sure to keep my room clean all the time.</string>
@@ -102,13 +73,42 @@
     <string name="ps_roommate_preference_comfortable_with_pets">I prefer a roommate that is comfortable with pets.</string>
 
     <!-- settings-->
-    <string name="settings_living_accommodations">Living accommodations:</string>
-    <string name="settings_room_type">Room type:</string>
-    <string name="settings_other_things">Other things you should know:</string>
+    <!-- general tab -->
+    <string name="settings_first_name">First name</string>
+    <string name="settings_last_name">Last name</string>
+    <string name="settings_gender">Gender</string>
+    <string name="settings_academic_year">Academic year</string>
+    <string name="settings_college_label">College</string>
+    <string-array name="settings_gender_items">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Non-binary</item>
+    </string-array>
+    <string-array name="settings_academic_year_items">
+        <item>First</item>
+        <item>Second</item>
+        <item>Third</item>
+        <item>Fourth</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="settings_college_items">
+        <item>Revelle</item>
+        <item>Muir</item>
+        <item>Marshall</item>
+        <item>Warren</item>
+        <item>ERC</item>
+        <item>Sixth</item>
+    </string-array>
+    <!-- about me tab -->
     <string name="settings_major">Major:</string>
     <string name="settings_bio">About me:</string>
     <string name="settings_hobbies">Hobbies:</string>
     <string name="settings_interests">Interests:</string>
+    <!-- housing tab -->
+    <string name="settings_living_accommodations">Living accommodations:</string>
+    <string name="settings_room_type">Room type:</string>
+    <string name="settings_other_things">Other things you should know:</string>
+    <!-- contact tab -->
     <string name="settings_phone">Phone number:</string>
     <string name="settings_facebook">Facebook:</string>
     <string name="settings_snapchat">Snapchat:</string>
