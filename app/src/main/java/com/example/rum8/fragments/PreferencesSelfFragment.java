@@ -1,6 +1,5 @@
 package com.example.rum8.fragments;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,20 +13,15 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
-import com.example.rum8.activities.ProfileSettingsActivity;
-import com.example.rum8.controllers.ProfileSettingsController;
+import com.example.rum8.activities.PreferencesActivity;
+import com.example.rum8.controllers.PreferencesController;
 import com.example.rum8.database.Db;
-import com.example.rum8.listeners.ProfileSettingsControllerListener;
+import com.example.rum8.listeners.PreferencesControllerListener;
 
 import java.util.Map;
 
-/**
- * Class that implements profile settings general logistic question sets in profile
- * settings activity.
- */
-public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implements ProfileSettingsControllerListener {
-
-    private ProfileSettingsController controller;
+public class PreferencesSelfFragment extends Fragment implements PreferencesControllerListener {
+    private PreferencesController controller;
     private RadioGroup radioGroupPersonalQuestionOne;
     private RadioGroup radioGroupPersonalQuestionTwo;
     private RadioGroup radioGroupPersonalQuestionThree;
@@ -47,7 +41,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View rootView = inflater.inflate(R.layout.fragment_profile_settings_personality_logistics, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_preferences_self, container, false);
 
         radioGroupPersonalQuestionOne = rootView.findViewById(R.id.personal_preferences_cleanliness_preference_radio_group);
         radioGroupPersonalQuestionTwo = rootView.findViewById(R.id.personal_preferences_reserved_preference_radio_group);
@@ -58,7 +52,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
         radioGroupPersonalQuestionSeven = rootView.findViewById(R.id.personal_preferences_guests_preference_radio_group);
         radioGroupPersonalQuestionEight = rootView.findViewById(R.id.personal_preferences_pet_preference_radio_group);
 
-        controller = new ProfileSettingsController(this);
+        controller = new PreferencesController(this);
         controller.loadUserInfo();
 
         radioGroupPersonalQuestionOne.setOnCheckedChangeListener((group, checkedId) -> {
@@ -167,7 +161,7 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
 
         personalNextButton = rootView.findViewById(R.id.personal_references_next_button);
         personalNextButton.setOnClickListener(v -> {
-            ((ProfileSettingsActivity) getActivity()).setViewPager(2);
+            ((PreferencesActivity) getActivity()).setViewPager(2);
         });
 
         return rootView;
@@ -176,27 +170,6 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
     @Override
     public void showToast(final String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void showUploadImageProgress() {
-    }
-
-    @Override
-    public void hideUploadImageProgress() {
-    }
-
-    @Override
-    public void updateUploadImagePercentage(double percengate) {
-    }
-
-    @Override
-    public void chooseImage() {
-    }
-
-    @Override
-    public void setUserProfileImage(Bitmap bitmap) {
-
     }
 
     @Override
@@ -287,11 +260,5 @@ public class ProfileSettingsPersonalityLogisticsFragment extends Fragment implem
         radioGroupPersonalQuestionSeven.jumpDrawablesToCurrentState();
         radioGroupPersonalQuestionEight.jumpDrawablesToCurrentState();
     }
-
-    @Override
-    public void showDefaultImage() {
-
-    }
-
 
 }

@@ -5,17 +5,17 @@
     android:layout_height="match_parent"
     android:background="@color/background_color"
     android:orientation="vertical"
-    tools:context=".activities.ProfileSettingsActivity">
+    tools:context=".activities.PreferencesActivity">
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/activity_profile_settings_tab_layout"
+        android:id="@+id/preferences_tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/profile_settings_view_pager"
+        android:id="@+id/preferences_view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="8dp"

@@ -6,12 +6,10 @@
     android:rowCount="9">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/fragment_profile_settings_general_info_constraint_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="16dp"
         android:paddingTop="10dp">
-
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/general_info_profile_image_view"
@@ -20,7 +18,6 @@
             app:layout_constraintBottom_toTopOf="@id/general_info_name_fields_grid"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
-
 
         <GridLayout
             android:id="@+id/general_info_name_fields_grid"
@@ -60,24 +57,22 @@
 
             <!-- NAME LABELS -->
             <TextView
-                android:id="@+id/general_info_first_name_field_label"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_row="1"
                 android:layout_column="0"
                 android:layout_columnWeight="1"
                 android:paddingTop="15dp"
-                android:text="@string/ps_general_info_first_name_label" />
+                android:text="@string/settings_first_name" />
 
             <TextView
-                android:id="@+id/general_info_last_name_field_label"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_row="1"
                 android:layout_column="1"
                 android:layout_columnWeight="1"
                 android:paddingTop="15dp"
-                android:text="@string/ps_general_info_last_name_label" />
+                android:text="@string/settings_last_name" />
 
             <!--NAME TEXT FIELDS -->
             <com.google.android.material.textfield.TextInputLayout
@@ -130,13 +125,12 @@
 
             <!-- GENDER -->
             <TextView
-                android:id="@+id/general_info_gender_label"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_row="3"
                 android:layout_column="0"
                 android:layout_columnWeight="1"
-                android:text="@string/ps_general_info_gender_label" />
+                android:text="@string/settings_gender" />
 
             <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/general_info_gender_spinner"
@@ -148,13 +142,12 @@
 
             <!-- ACADEMIC YEAR -->
             <TextView
-                android:id="@+id/general_info_academic_year_label"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_row="4"
                 android:layout_column="0"
                 android:layout_columnWeight="1"
-                android:text="@string/ps_general_info_academic_year_label" />
+                android:text="@string/settings_academic_year" />
 
             <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/general_info_academic_year_spinner"
@@ -166,13 +159,12 @@
 
             <!-- COLLEGE -->
             <TextView
-                android:id="@+id/general_info_college_label"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_row="5"
                 android:layout_column="0"
                 android:layout_columnWeight="1"
-                android:text="@string/ps_general_info_college_label" />
+                android:text="@string/settings_college_label" />
 
             <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/general_info_college_spinner"
@@ -181,32 +173,14 @@
                 android:layout_row="5"
                 android:layout_column="1"
                 android:layout_columnWeight="1" />
-
-            <!-- SAVE -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/general_info_profile_save_button"
-                android:layout_width="147dp"
-                android:layout_height="wrap_content"
-                android:layout_row="6"
-                android:layout_column="0"
-                android:layout_gravity="left"
-                android:backgroundTint="@color/colorAccent"
-                android:text="Save"
-                android:textColor="@color/white" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/general_info_profile_next_button"
-                android:layout_width="147dp"
-                android:layout_height="wrap_content"
-                android:layout_row="6"
-                android:layout_column="1"
-                android:layout_gravity="left"
-                android:backgroundTint="@color/colorAccent"
-                android:text="next"
-                android:textColor="@color/white" />
-
         </GridLayout>
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/general_info_profile_save_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorAccent"
+            android:text="@string/save"
+            app:layout_constraintTop_toBottomOf="@+id/general_info_name_fields_grid" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </ScrollView>

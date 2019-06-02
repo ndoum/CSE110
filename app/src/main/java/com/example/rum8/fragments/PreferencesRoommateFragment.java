@@ -1,7 +1,6 @@
 package com.example.rum8.fragments;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,19 +15,14 @@ import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
 import com.example.rum8.activities.MainActivity;
-import com.example.rum8.controllers.ProfileSettingsController;
+import com.example.rum8.controllers.PreferencesController;
 import com.example.rum8.database.Db;
-import com.example.rum8.listeners.ProfileSettingsControllerListener;
-import com.google.android.material.textfield.TextInputEditText;
+import com.example.rum8.listeners.PreferencesControllerListener;
 
 import java.util.Map;
 
-/**
- * Class that implements profile settings rommmate preferences question sets in
- * profile settings activity.
- */
-public class ProfileSettingsRoommatePreferencesFragment extends Fragment implements ProfileSettingsControllerListener {
-    private ProfileSettingsController controller;
+public class PreferencesRoommateFragment extends Fragment implements PreferencesControllerListener {
+    private PreferencesController controller;
     private RadioGroup radioGroupRoommateQuestionOne;
     private RadioGroup radioGroupRoommateQuestionTwo;
     private RadioGroup radioGroupRoommateQuestionThree;
@@ -50,10 +44,10 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
                              @Nullable Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
-        final View rootView = inflater.inflate(R.layout.fragment_profile_settings_roommate_preferences, container,
+        final View rootView = inflater.inflate(R.layout.fragment_preferences_roommate, container,
             false);
 
-        controller = new ProfileSettingsController(this);
+        controller = new PreferencesController(this);
 
         // Initialize each corresponding radio group in roommate preferences
         // questionnaire
@@ -205,27 +199,6 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
     }
 
     @Override
-    public void showUploadImageProgress() {
-    }
-
-    @Override
-    public void hideUploadImageProgress() {
-    }
-
-    @Override
-    public void updateUploadImagePercentage(double percentage) {
-    }
-
-    @Override
-    public void chooseImage() {
-    }
-
-    @Override
-    public void setUserProfileImage(Bitmap bitmap) {
-
-    }
-
-    @Override
     public void showCurrentUserInfo(Map<String, Object> data) {
         long preferSameGenderRoommate = (long) data.get(Db.Keys.ROOMMATE_PREFER_SAME_GENDER_ROOMMATE_VALUE);
         long clean = (long) data.get(Db.Keys.ROOMMATE_CLEAN_VALUE);
@@ -316,11 +289,6 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
         radioGroupRoommateQuestionSeven.jumpDrawablesToCurrentState();
         radioGroupRoommateQuestionEight.jumpDrawablesToCurrentState();
         radioGroupRoommateQuestionNine.jumpDrawablesToCurrentState();
-    }
-
-    @Override
-    public void showDefaultImage() {
-
     }
 
 }
