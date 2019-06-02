@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="32dp"
+        android:backgroundTint="#a5d7c8"
         android:onClick="changeFragment"
         app:icon="@drawable/correct" />
 
@@ -36,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|start"
         android:layout_margin="32dp"
-        android:backgroundTint="@color/colorAccentDark"
+        android:backgroundTint="#fbd2be"
         android:onClick="changeFragment"
         app:icon="@drawable/wrong" />
 

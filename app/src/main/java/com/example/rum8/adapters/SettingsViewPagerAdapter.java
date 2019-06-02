@@ -5,24 +5,27 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.rum8.fragments.ProfileSettingsGeneralInfoFragment;
-import com.example.rum8.fragments.ProfileSettingsPersonalityLogisticsFragment;
-import com.example.rum8.fragments.ProfileSettingsRoommatePreferencesFragment;
+import com.example.rum8.fragments.SettingsAboutMeFragment;
+import com.example.rum8.fragments.SettingsContactFragment;
+import com.example.rum8.fragments.SettingsGeneralFragment;
+import com.example.rum8.fragments.SettingsHousingFragment;
 
-public class ProfileSettingsViewPagerAdapter extends FragmentPagerAdapter {
+public class SettingsViewPagerAdapter extends FragmentPagerAdapter {
 
     private final Fragment[] fragments = {
-            new ProfileSettingsGeneralInfoFragment(),
-            new ProfileSettingsPersonalityLogisticsFragment(),
-            new ProfileSettingsRoommatePreferencesFragment()
+            new SettingsGeneralFragment(),
+            new SettingsAboutMeFragment(),
+            new SettingsHousingFragment(),
+            new SettingsContactFragment()
     };
     private final String[] fragmentTitles = {
-            "General Info",
-            "Personality Logistics",
-            "Roommate Preferences"
+            "General",
+            "About me",
+            "Housing",
+            "Contact"
     };
 
-    public ProfileSettingsViewPagerAdapter(final FragmentManager fragmentManager) {
+    public SettingsViewPagerAdapter(final FragmentManager fragmentManager) {
         super(fragmentManager);
     }
 

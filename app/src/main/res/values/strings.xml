@@ -30,14 +30,14 @@
     <!-- activity_main -->
     <string name="menu_log_in_button">Log In</string>
     <string name="menu_log_out_button">Log Out</string>
-    <string name="menu_profile_settings_button">Profile Settings</string>
+    <string name="menu_preferences_button">Preferences</string>
 
     <string name="menu_view_link_list_button">View Link List</string>
-    <string name="menu_preview_your_profile_button">Preview Your Profile</string>
+    <string name="menu_preview_your_profile_button">View My Profile</string>
     <string name="menu_profile_user_name">User Name</string>
     <string name="menu_profile_user_year">User Year</string>
 
-    <string name="menu_adv_settings_button">Advanced Settings</string>
+    <string name="menu_settings_button">Settings</string>
 
     <!-- activity_password_recovery -->
     <string name="pr_header">Password Recovery</string>
@@ -47,28 +47,48 @@
     <string name="registration_header">Create an account</string>
     <string name="register_button">Register</string>
 
-    <!-- activity_profile_settings -->
-    <!-- general_info -->
-    <string name="ps_general_info_header">General Info</string>
-    <string name="ps_general_info_first_name_label">First name</string>
-    <string name="ps_general_info_last_name_label">Last name</string>
-    <string name="ps_general_info_gender_label">Gender</string>
-    <string name="ps_general_info_academic_year_label">Academic year</string>
+    <!-- activity_preferences -->
+    <!-- personality_logistics -->
+    <string name="preferences_self_cleanness">I make sure to keep my room clean all the time.</string>
+    <string name="preferences_self_reserved">I am a reserved person.</string>
+    <string name="preferences_self_comfortable_with_parties">I plan to have parties or gatherings.</string>
+    <string name="preferences_self_comfortable_with_alcohol">I drink alcohol.</string>
+    <string name="preferences_self_comfortable_with_smoking">I smoke.</string>
+    <string name="preferences_self_sleep_late">I go to bed late on weekdays.</string>
+    <string name="preferences_self_overnight_guests">I may have overnight guests.</string>
+    <string name="preferences_self_comfortable_with_pets">I plan to have a pet.</string>
 
-    <string name="ps_general_info_college_label">College</string>
-    <string-array name="ps_general_info_gender_items">
+    <!-- roommate_preferences -->
+    <string name="preferences_roommate_gender">I prefer my roommate to be the same gender as me.</string>
+    <string name="preferences_roommate_cleanness">I prefer a roommate that always keeps their part of the room clean.</string>
+    <string name="preferences_roommate_reserved">I prefer a reserved roommate.</string>
+    <string name="preferences_roommate_comfortable_with_parties">I prefer a roommate that  is comfortable with parties or gatherings.</string>
+    <string name="preferences_roommate_comfortable_with_alcohol">I prefer a roommate that is comfortable with alcohol.</string>
+    <string name="preferences_roommate_comfortable_with_smoking">I prefer that my roommate is comfortable with smoking.</string>
+    <string name="preferences_roommate_sleep_late">I prefer a roommate that goes to bed late on weekdays.</string>
+    <string name="preferences_roommate_overnight_guests">I prefer a roommate that is okay with overnight guests.</string>
+    <string name="preferences_roommate_comfortable_with_pets">I prefer a roommate that is comfortable with pets.</string>
+
+    <!-- settings -->
+    <!-- general tab -->
+    <string name="settings_first_name">First name</string>
+    <string name="settings_last_name">Last name</string>
+    <string name="settings_gender">Gender</string>
+    <string name="settings_academic_year">Academic year</string>
+    <string name="settings_college_label">College</string>
+    <string-array name="settings_gender_items">
         <item>Male</item>
         <item>Female</item>
         <item>Non-binary</item>
     </string-array>
-    <string-array name="ps_general_info_academic_year_items">
+    <string-array name="settings_academic_year_items">
         <item>First</item>
         <item>Second</item>
         <item>Third</item>
         <item>Fourth</item>
         <item>Other</item>
     </string-array>
-    <string-array name="ps_general_info_college_items">
+    <string-array name="settings_college_items">
         <item>Revelle</item>
         <item>Muir</item>
         <item>Marshall</item>
@@ -76,46 +96,20 @@
         <item>ERC</item>
         <item>Sixth</item>
     </string-array>
-
-    <!-- personality_logistics -->
-    <string name="ps_personality_logistics_header">Personality and Logistics</string>
-    <string name="ps_personality_logistics_cleanness">I make sure to keep my room clean all the time.</string>
-    <string name="ps_personality_logistics_reserved">I am a reserved person.</string>
-    <string name="ps_personality_logistics_comfortable_with_parties">I plan to have parties or gatherings.</string>
-    <string name="ps_personality_logistics_comfortable_with_alcohol">I drink alcohol.</string>
-    <string name="ps_personality_logistics_comfortable_with_smoking">I smoke.</string>
-    <string name="ps_personality_logistics_sleep_late">I go to bed late on weekdays.</string>
-    <string name="ps_personality_logistics_overnight_guests">I may have overnight guests.</string>
-    <string name="ps_personality_logistics_comfortable_with_pets">I plan to have a pet.</string>
-
-    <!-- roommate_preferences -->
-    <string name="ps_roommate_preferences_header">Roommate Preferences</string>
-    <!-- roommate_preferences_questions-->
-    <string name="ps_roommate_preferences_gender">I prefer my roommate to be the same gender as me.</string>
-    <string name="ps_roommate_preferences_cleanness">I prefer a roommate that always keeps their part of the room clean.</string>
-    <string name="ps_roommate_preferences_reserved">I prefer a reserved roommate.</string>
-    <string name="ps_roommate_preference_comfortable_with_parties">I prefer a roommate that  is comfortable with parties or gatherings.</string>
-    <string name="ps_roommate_preference_comfortable_with_alcohol">I prefer a roommate that is comfortable with alcohol.</string>
-    <string name="ps_roommate_preference_comfortable_with_smoking">I prefer that my roommate is comfortable with smoking.</string>
-    <string name="ps_roommate_preference_sleep_late">I prefer a roommate that goes to bed late on weekdays.</string>
-    <string name="ps_roommate_preference_overnight_guests">I prefer a roommate that is okay with overnight guests.</string>
-    <string name="ps_roommate_preference_comfortable_with_pets">I prefer a roommate that is comfortable with pets.</string>
-
-    <!-- adv_settings-->
-    <string name="adv_settings_header">Advanced Settings</string>
-    <string name="adv_settings_sub_header_1">General</string>
-    <string name="adv_settings_sub_header_2">Personal</string>
-    <string name="adv_settings_sub_header_3">Contact</string>
-    <string name="adv_settings_living_accommodations">Living accommodations:</string>
-    <string name="adv_settings_room_type">Room type:</string>
-    <string name="adv_settings_other_things">Other things you should know:</string>
-    <string name="adv_settings_bio">About me:</string>
-    <string name="adv_settings_hobbies">Hobbies:</string>
-    <string name="adv_settings_interests">Interests:</string>
-    <string name="adv_settings_phone">Phone number:</string>
-    <string name="adv_settings_facebook">Facebook:</string>
-    <string name="adv_settings_snapchat">Snapchat:</string>
-    <string name="adv_settings_budget">Budget:</string>
+    <!-- about me tab -->
+    <string name="settings_major">Major:</string>
+    <string name="settings_bio">About me:</string>
+    <string name="settings_hobbies">Hobbies:</string>
+    <string name="settings_interests">Interests:</string>
+    <!-- housing tab -->
+    <string name="settings_living_accommodations">Living accommodations:</string>
+    <string name="settings_room_type">Room type:</string>
+    <string name="settings_other_things">Other things you should know:</string>
+    <!-- contact tab -->
+    <string name="settings_phone">Phone number:</string>
+    <string name="settings_facebook">Facebook:</string>
+    <string name="settings_snapchat">Snapchat:</string>
+    <string name="settings_budget">Budget:</string>
 
     <!-- User Tab 3 -->
     <string name="user_tab_three_question_one">I keep my room clean.</string>

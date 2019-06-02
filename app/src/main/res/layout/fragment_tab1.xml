@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e0e0e0"
+    android:background="@color/light_yellow"
     android:orientation="vertical"
     android:paddingLeft="10dp"
     android:paddingTop="5dp"
@@ -21,7 +21,7 @@
             android:layout_row="1"
             android:layout_column="0"
             android:layout_columnWeight="1"
-            android:text="@string/adv_settings_budget"
+            android:text="@string/settings_budget"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -57,7 +57,7 @@
             android:layout_row="5"
             android:layout_column="0"
             android:layout_columnWeight="1"
-            android:text="@string/adv_settings_living_accommodations"
+            android:text="@string/settings_living_accommodations"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -76,7 +76,7 @@
             android:layout_row="7"
             android:layout_column="0"
             android:layout_columnWeight="1"
-            android:text="@string/adv_settings_other_things"
+            android:text="@string/settings_other_things"
             android:textSize="20sp"
             android:textStyle="bold" />
 

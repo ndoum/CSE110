@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.main_activity_go_to_profile_settings:
+            case R.id.main_activity_go_to_preferences:
                 controller.onProfileSettingsButtonClicked();
                 return true;
             case R.id.main_activity_log_out:
@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
             case R.id.main_activity_go_to_view_link_list:
                 controller.onGoToLinkListButtonClicked();
                 return true;
-            case R.id.main_activity_go_to_adv_settings:
-                controller.onAdvancedSettingsButtonClicked();
+            case R.id.main_activity_go_to_settings:
+                controller.onSettingsButtonClicked();
                 return true;
             case R.id.main_activity_go_to_preview_profile:
                 controller.onPreviewProfileButtonClicked();
@@ -73,12 +73,9 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         }
     }
 
-    /**
-     * Method navigates to the profile setting class.
-     */
     @Override
     public void goToProfileSettings() {
-        final Intent intent = new Intent(MainActivity.this, ProfileSettingsActivity.class);
+        final Intent intent = new Intent(MainActivity.this, PreferencesActivity.class);
         startActivity(intent);
     }
 
@@ -100,8 +97,8 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     }
 
     @Override
-    public void goToAdvancedProfileSettings() {
-        final Intent intent = new Intent(MainActivity.this, AdvancedSettingsActivity.class);
+    public void goToSettings() {
+        final Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
         startActivity(intent);
     }
 

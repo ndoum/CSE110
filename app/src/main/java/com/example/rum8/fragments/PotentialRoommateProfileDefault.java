@@ -89,7 +89,7 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
     }
 
     @Override
-    public void goToAdvancedProfileSettings() {
+    public void goToSettings() {
     }
 
     @Override

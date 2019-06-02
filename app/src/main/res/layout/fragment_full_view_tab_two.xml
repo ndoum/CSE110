@@ -2,8 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E0DEDA"
     android:orientation="vertical"
+    android:background="@color/light_yellow"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:paddingTop="5dp">
@@ -20,7 +20,7 @@
             android:layout_row="1"
             android:layout_column="0"
             android:layout_columnWeight="1"
-            android:text="@string/adv_settings_bio"
+            android:text="@string/settings_bio"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -41,7 +41,7 @@
             android:layout_row="3"
             android:layout_column="0"
             android:layout_columnWeight="1"
-            android:text="@string/adv_settings_interests"
+            android:text="@string/settings_interests"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -60,7 +60,7 @@
             android:layout_row="5"
             android:layout_column="0"
             android:layout_columnWeight="1"
-            android:text="@string/adv_settings_hobbies"
+            android:text="@string/settings_hobbies"
             android:textSize="20sp"
             android:textStyle="bold" />
 
