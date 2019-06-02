@@ -31,6 +31,7 @@
             android:id="@+id/login_logo_imageview"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:tint="@color/white"
             android:src="@drawable/logo_no_border_cropped" />
 
         <TextView
