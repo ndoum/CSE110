@@ -59,4 +59,16 @@ public class MatchedRoommateProfileController {
 
     }
 
+    public void loadMatchUserContactInfo(String userId){
+        Db.fetchUserInfoById(this.db, userId).addOnSuccessListener(documentSnapshot -> {
+            final Map<String, Object> matchedUserData = documentSnapshot.getData();
+            controllerListener.showMatchedInfo(matchedUserData);
+        }).addOnFailureListener(exception -> {
+            final String message = "Network error";
+            controllerListener.showToast(message);
+        });
+
+
+    }
+
 }
