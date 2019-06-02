@@ -80,7 +80,7 @@ public class LoginController {
                 .addOnSuccessListener(documentSnapshot -> {
                     final Map<String, Object> data = documentSnapshot.getData();
 
-                    // If name has not been entered, go to profile settings
+                    // If name has not been entered, go to preferences
                     if (((String) data.get(Db.Keys.FIRST_NAME)).isEmpty()) {
                         controllerListener.goToProfileSettings();
                     } else {

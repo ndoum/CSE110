@@ -4,8 +4,9 @@ import android.graphics.Bitmap;
 
 import java.util.Map;
 
-public interface ProfileSettingsControllerListener {
-    void showToast(final String message);
+public interface SettingsControllerListener {
+
+    void showCurrentUserInfo(final Map<String, Object> data);
 
     void showUploadImageProgress();
 
@@ -15,11 +16,10 @@ public interface ProfileSettingsControllerListener {
 
     void chooseImage();
 
-    void setUserProfileImage(Bitmap bitmap);
-
-    void showCurrentUserInfo(Map<String, Object> data);
-
     void showDefaultImage();
 
-    void goToMainPage();
+    void setUserProfileImage(Bitmap bitmap);
+
+    void showToast(final String message);
+    
 }
