@@ -19,7 +19,6 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
-import com.example.rum8.activities.ProfileSettingsActivity;
 import com.example.rum8.activities.SettingsActivity;
 import com.example.rum8.controllers.SettingsController;
 import com.example.rum8.database.Db;
@@ -42,7 +41,6 @@ public class SettingsGeneralFragment extends Fragment implements SettingsControl
     private ArrayAdapter<CharSequence> collegeAdapter;
     private ArrayAdapter<CharSequence> academicYearAdapter;
     private Button buttonSave;
-    private Button buttonNext;
     private Button buttonChoosePic;
     private Button buttonUploadPic;
     private SettingsController controller;
@@ -115,12 +113,6 @@ public class SettingsGeneralFragment extends Fragment implements SettingsControl
 
         // fetch user's profile picture
         controller.loadUserProfileImage();
-
-        buttonNext = rootView.findViewById(R.id.general_info_profile_next_button);
-        buttonNext.setOnClickListener(v -> {
-            ((ProfileSettingsActivity) getActivity()).setViewPager(1);
-
-        });
 
         buttonChoosePic = rootView.findViewById(R.id.general_info_profile_image_upload_button);
         buttonUploadPic = rootView.findViewById(R.id.general_info_profile_image_save_button);
