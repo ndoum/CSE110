@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_yellow"
+    android:background="@drawable/background_green"
     tools:context=".activities.LoginActivity">
 
     <LinearLayout
@@ -31,6 +31,7 @@
             android:id="@+id/login_logo_imageview"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:tint="@color/white"
             android:src="@drawable/logo_no_border_cropped" />
 
         <TextView
