@@ -16,8 +16,7 @@
         app:layout_constraintBottom_toTopOf="@id/login_fields_linear_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="vertical">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/login_r_text_view"
@@ -35,6 +34,14 @@
             android:tint="@color/white"
             android:src="@drawable/logo_no_border_cropped" />
 
+        <TextView
+            android:id="@+id/login_m8_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="m8"
+            android:textColor="@color/colorAccentDark"
+            android:textSize="50dp" />
 
     </LinearLayout>
 
