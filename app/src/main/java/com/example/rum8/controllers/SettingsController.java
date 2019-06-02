@@ -48,7 +48,8 @@ public class SettingsController {
     public void generalSaveButtonClicked(final Map<String, Object> userHash) {
         String firstName = (String) userHash.get(Db.Keys.FIRST_NAME);
         String lastName = (String) userHash.get(Db.Keys.LAST_NAME);
-        if (!isPresent(firstName) || isPresent(lastName)) {
+
+        if (!isPresent(firstName) || !isPresent(lastName)) {
             final String message = "Please enter and save your first and last name";
             controllerListener.showToast(message);
             return;
