@@ -81,10 +81,9 @@ public class PhoneContactDialog extends AppCompatDialogFragment implements Match
                     PendingIntent sentPI = PendingIntent.getBroadcast(getContext(),0, new Intent(SENT),0);
                     PendingIntent deliveredPI = PendingIntent.getBroadcast(getContext(),0, new Intent(DELIVERED),0);
                     SmsManager smsManager = SmsManager.getDefault();
-                    smsManager.sendTextMessage(phoneNumber, null, smsMessage,sentPI,deliveredPI);
+                    smsManager.sendTextMessage("+1"+phoneNumber, null, smsMessage,sentPI,deliveredPI);
                     showToast("Text message sent");
                     dismiss();
-
                 }
                 else{
                     showToast("Failed Permission denied");
