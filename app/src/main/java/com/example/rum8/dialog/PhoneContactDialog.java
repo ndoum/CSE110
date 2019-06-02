@@ -33,9 +33,8 @@ import java.util.Map;
 
 public class PhoneContactDialog extends AppCompatDialogFragment implements MatchedRoommateProfileControllerListener {
 
-
-    private Button sendMsgButton;
     private final static int SEND_SMS_PERMISSION_REQUEST_CODE = 111;
+    private Button sendMsgButton;
     private EditText messageContent;
     private MatchedRoommateProfileController controller;
     private TextView phoneNumberTextView;
@@ -80,8 +79,8 @@ public class PhoneContactDialog extends AppCompatDialogFragment implements Match
         }
 
         sendMsgButton.setOnClickListener(v -> {
-            String phoneNumber = "+19099089007";
             String smsMessage = messageContent.getText().toString();
+            String phoneNumber = phoneNumberTextView.getText().toString();
             if (!TextUtils.isEmpty(smsMessage) && !TextUtils.isEmpty(phoneNumber)){
                 if (checkPermission(Manifest.permission.SEND_SMS)){
                     String SENT = "Message Sent";
