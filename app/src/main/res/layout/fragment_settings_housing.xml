@@ -103,7 +103,9 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:text="@string/settings_budget"
-            android:textColor="@color/colorAccentDark" />
+            android:textColor="@color/colorAccentDark"
+            android:layout_marginTop="10dp"
+            />
 
 
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
