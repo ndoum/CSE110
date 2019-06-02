@@ -87,6 +87,39 @@
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_above="@+id/general_info_budget_field"
+            >
+
+            <com.jaygoo.widget.RangeSeekBar
+                android:id="@+id/general_info_budget_seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:rsb_mode="range"
+                app:rsb_min="0"
+                app:rsb_max="3000"
+                app:rsb_progress_color="@color/colorAccentDark"
+                app:rsb_progress_height="4dp"
+                app:rsb_progress_radius="0.8dp"
+                app:rsb_tick_mark_mode="number"
+                app:rsb_tick_mark_gravity="center"
+                app:rsb_indicator_height="10dp"
+                app:rsb_indicator_width="2dp"
+                app:rsb_indicator_show_mode="alwaysShow"
+                app:rsb_indicator_text_color="@color/colorAccentDark"
+                app:rsb_indicator_text_size="14dp"
+                app:rsb_indicator_arrow_size="8dp"
+                app:rsb_indicator_background_color="@color/white"
+                />
+
+        </RelativeLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
