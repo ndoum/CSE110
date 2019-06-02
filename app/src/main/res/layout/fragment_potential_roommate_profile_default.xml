@@ -89,18 +89,18 @@
             android:id="@+id/potential_roommate_profile_default_tablayout_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#679d95"
+            android:background="@color/colorAccent"
             app:tabGravity="fill"
-            app:tabIndicatorColor="#faf6ed"
+            app:tabIndicatorColor="@color/light_yellow"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="#faf6ed"
+            app:tabSelectedTextColor="@color/light_yellow"
             app:tabTextAppearance="@style/CustomTextStyle" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/potential_roommate_profile_default_viewpager_id"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#679d95" />
+            android:background="@color/colorAccent" />
 
     </LinearLayout>
 
