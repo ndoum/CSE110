@@ -7,14 +7,13 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.rum8.R;
-import com.example.rum8.adapters.ProfileSettingsViewPagerAdapter;
-import com.example.rum8.listeners.ProfileSettingsControllerListener;
+import com.example.rum8.adapters.PreferencesViewPagerAdapter;
+import com.example.rum8.listeners.PreferencesControllerListener;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.Map;
 
-public class ProfileSettingsActivity extends FragmentActivity
-    implements ProfileSettingsControllerListener {
+public class PreferencesActivity extends FragmentActivity implements PreferencesControllerListener {
 
     private ViewPager viewPager;
     private TabLayout tabLayout;
@@ -22,13 +21,13 @@ public class ProfileSettingsActivity extends FragmentActivity
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_settings);
+        setContentView(R.layout.activity_preferences);
         initViews();
     }
 
     @Override
     public void showToast(final String message) {
-        Toast.makeText(ProfileSettingsActivity.this, message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(PreferencesActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -37,9 +36,9 @@ public class ProfileSettingsActivity extends FragmentActivity
     }
 
     private void initViews() {
-        viewPager = findViewById(R.id.profile_settings_view_pager);
-        viewPager.setAdapter(new ProfileSettingsViewPagerAdapter(getSupportFragmentManager()));
-        tabLayout = findViewById(R.id.activity_profile_settings_tab_layout);
+        viewPager = findViewById(R.id.preferences_view_pager);
+        viewPager.setAdapter(new PreferencesViewPagerAdapter(getSupportFragmentManager()));
+        tabLayout = findViewById(R.id.preferences_tab_layout);
         tabLayout.setupWithViewPager(viewPager);
     }
 

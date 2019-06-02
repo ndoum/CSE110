@@ -1,33 +1,27 @@
 package com.example.rum8.controllers;
 
-import android.util.Log;
-
 import com.example.rum8.database.Db;
-import com.example.rum8.listeners.ProfileSettingsControllerListener;
+import com.example.rum8.listeners.PreferencesControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static android.content.ContentValues.TAG;
-
 /**
- * Class that implements the controller for profile settings activity.
+ * Class that implements the controller for preferences activity.
  * It serves as a communication between the view and the model in profile
  * settings activities.
  */
-public class ProfileSettingsController {
+public class PreferencesController {
 
-    private ProfileSettingsControllerListener controllerListener;
+    private PreferencesControllerListener controllerListener;
     private FirebaseFirestore db;
     private FirebaseAuth auth;
     private Map<String, Object> userMap;
-    public String usernameEntered;
-    public String usernameEntered_lastName;
 
 
-    public ProfileSettingsController(final ProfileSettingsControllerListener controllerListener) {
+    public PreferencesController(final PreferencesControllerListener controllerListener) {
         this.controllerListener = controllerListener;
         userMap = new HashMap<>();
         db = FirebaseFirestore.getInstance();
@@ -37,21 +31,6 @@ public class ProfileSettingsController {
     // helper method to check if user input is present
     private static boolean isPresent(final String name) {
         return name != null && !name.isEmpty();
-    }
-
-    public void onSubmit(final Map<String, Object> userInfo) {
-        final String firstName = (String) userInfo.get(Db.Keys.FIRST_NAME);
-        final String lastName = (String) userInfo.get(Db.Keys.LAST_NAME);
-
-        // check for valid name
-        if ((!isPresent(firstName)) || (!isPresent(lastName))) {
-            final String message = "Please enter your first and last name";
-            controllerListener.showToast(message);
-        } else {
-            Db.updateUser(db, auth.getCurrentUser(), userInfo)
-                .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
-                .addOnFailureListener(e -> Log.d(TAG, "Error adding document"));
-        }
     }
 
     public void loadUserInfo() {

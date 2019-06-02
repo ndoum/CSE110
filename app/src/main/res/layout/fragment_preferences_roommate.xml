@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/fragment_profile_settings_roommate_preferences_constraint_layout"
+        android:id="@+id/fragment_preferences_roommate_constraint_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="16dp">
@@ -26,7 +26,7 @@
                 android:id="@+id/roommate_preferences_gender_preference"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/ps_roommate_preferences_gender" />
+                android:text="@string/preferences_roommate_gender" />
 
             <RadioGroup
                 android:id="@+id/roommate_preferences_gender_preference_radio_group"
@@ -62,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/ps_roommate_preferences_cleanness" />
+                android:text="@string/preferences_roommate_cleanness" />
 
             <RadioGroup
                 android:id="@+id/roommate_preferences_cleanness_preference_radio_group"
@@ -99,7 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/ps_roommate_preferences_reserved" />
+                android:text="@string/preferences_roommate_reserved" />
 
             <RadioGroup
                 android:id="@+id/roommate_preferences_reserved_preference_radio_group"
@@ -135,7 +135,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/ps_roommate_preference_comfortable_with_parties" />
+                android:text="@string/preferences_roommate_comfortable_with_parties" />
 
             <RadioGroup
                 android:id="@+id/roommate_preferences_comfortable_party_preference_radio_group"
@@ -171,7 +171,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/ps_roommate_preference_comfortable_with_alcohol" />
+                android:text="@string/preferences_roommate_comfortable_with_alcohol" />
 
             <RadioGroup
                 android:id="@+id/roommate_preferences_alcohol_preference_radio_group"
@@ -207,7 +207,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/ps_roommate_preference_comfortable_with_smoking" />
+                android:text="@string/preferences_roommate_comfortable_with_smoking" />
 
             <RadioGroup
                 android:id="@+id/roommate_preferences_smoking_preference_radio_group"
@@ -243,7 +243,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/ps_roommate_preference_sleep_late" />
+                android:text="@string/preferences_roommate_sleep_late" />
 
             <RadioGroup
                 android:id="@+id/roommate_preferences_sleep_preference_radio_group"
@@ -279,7 +279,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/ps_roommate_preference_overnight_guests" />
+                android:text="@string/preferences_roommate_overnight_guests" />
 
             <RadioGroup
                 android:id="@+id/roommate_preferences_guests_preference_radio_group"
@@ -316,7 +316,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/ps_roommate_preference_comfortable_with_pets" />
+                android:text="@string/preferences_roommate_comfortable_with_pets" />
 
             <RadioGroup
                 android:id="@+id/roommate_preferences_pets_preference_radio_group"

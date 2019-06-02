@@ -39,7 +39,7 @@ public class SplashController {
                 final String firstName = (String) data.get(Db.Keys.FIRST_NAME);
                 final String lastName = (String) data.get(Db.Keys.LAST_NAME);
 
-                // If name has not been entered, go to profile settings
+                // If name has not been entered, go to preferences
                 if (!isPresent(firstName)||!isPresent(lastName)) {
                     controllerListener.goToProfileSettings();
                 } else {

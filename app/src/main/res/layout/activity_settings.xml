@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/background_color"
     android:orientation="vertical"
-    tools:context=".activities.ProfileSettingsActivity">
+    tools:context=".activities.PreferencesActivity">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/settings_tab_layout"

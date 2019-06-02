@@ -15,18 +15,14 @@ import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
 import com.example.rum8.activities.MainActivity;
-import com.example.rum8.controllers.ProfileSettingsController;
+import com.example.rum8.controllers.PreferencesController;
 import com.example.rum8.database.Db;
-import com.example.rum8.listeners.ProfileSettingsControllerListener;
+import com.example.rum8.listeners.PreferencesControllerListener;
 
 import java.util.Map;
 
-/**
- * Class that implements profile settings rommmate preferences question sets in
- * profile settings activity.
- */
-public class ProfileSettingsRoommatePreferencesFragment extends Fragment implements ProfileSettingsControllerListener {
-    private ProfileSettingsController controller;
+public class PreferencesRoommateFragment extends Fragment implements PreferencesControllerListener {
+    private PreferencesController controller;
     private RadioGroup radioGroupRoommateQuestionOne;
     private RadioGroup radioGroupRoommateQuestionTwo;
     private RadioGroup radioGroupRoommateQuestionThree;
@@ -48,10 +44,10 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
                              @Nullable Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
-        final View rootView = inflater.inflate(R.layout.fragment_profile_settings_roommate_preferences, container,
+        final View rootView = inflater.inflate(R.layout.fragment_preferences_roommate, container,
             false);
 
-        controller = new ProfileSettingsController(this);
+        controller = new PreferencesController(this);
 
         // Initialize each corresponding radio group in roommate preferences
         // questionnaire
