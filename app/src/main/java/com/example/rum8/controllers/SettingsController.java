@@ -69,7 +69,7 @@ public class SettingsController {
             });
     }
 
-    public void onGotoMainClicked() {
+    public void onGoToMainClicked() {
         Db.fetchUserInfo(db, auth.getCurrentUser())
             .addOnSuccessListener(documentSnapshot -> {
                 final Map<String, Object> data = documentSnapshot.getData();
