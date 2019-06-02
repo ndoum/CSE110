@@ -113,6 +113,8 @@ public class Db {
         public static final String ACADEMIC_YEAR = "academic_year";
         public static final String AGE = "age";
         public static final String BUDGET = "budget";
+        public static final String BUDGET_MIN = "budget_min";
+        public static final String BUDGET_MAX = "budget_max";
         public static final String COLLEGE = "college";
         public static final String EMAIL = "email";
         public static final String FIRST_NAME = "first_name";
@@ -165,6 +167,8 @@ public class Db {
             put(Keys.ACADEMIC_YEAR, "First");
             put(Keys.AGE, 18);
             put(Keys.BUDGET, EMPTY_STRING);
+            put(Keys.BUDGET_MIN, ZERO);
+            put(Keys.BUDGET_MAX, ZERO);
             put(Keys.COLLEGE, "Muir");
             put(Keys.EMAIL, EMPTY_STRING);
             put(Keys.FIRST_NAME, EMPTY_STRING);
