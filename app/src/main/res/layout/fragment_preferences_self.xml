@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/fragment_profile_settings_personality_logistics_constraint_layout"
+        android:id="@+id/fragment_preferences_self_constraint_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="16dp">
@@ -26,7 +26,7 @@
                 android:id="@+id/personal_preferences_cleanliness_preference"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/ps_personality_logistics_cleanness" />
+                android:text="@string/preferences_self_cleanness" />
 
             <RadioGroup
                 android:id="@+id/personal_preferences_cleanliness_preference_radio_group"
@@ -63,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/ps_personality_logistics_reserved" />
+                android:text="@string/preferences_self_reserved" />
 
             <RadioGroup
                 android:id="@+id/personal_preferences_reserved_preference_radio_group"
@@ -100,7 +100,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/ps_personality_logistics_comfortable_with_parties" />
+                android:text="@string/preferences_self_comfortable_with_parties" />
 
             <RadioGroup
                 android:id="@+id/personal_preferences_parties_preference_radio_group"
@@ -136,7 +136,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/ps_personality_logistics_comfortable_with_alcohol" />
+                android:text="@string/preferences_self_comfortable_with_alcohol" />
 
             <RadioGroup
                 android:id="@+id/personal_preferences_alcohol_preference_radio_group"
@@ -172,7 +172,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/ps_personality_logistics_comfortable_with_smoking" />
+                android:text="@string/preferences_self_comfortable_with_smoking" />
 
             <RadioGroup
                 android:id="@+id/personal_preferences_smoke_preference_radio_group"
@@ -208,7 +208,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/ps_personality_logistics_sleep_late" />
+                android:text="@string/preferences_self_sleep_late" />
 
             <RadioGroup
                 android:id="@+id/personal_preferences_sleep_preference_radio_group"
@@ -244,7 +244,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/ps_personality_logistics_overnight_guests" />
+                android:text="@string/preferences_self_overnight_guests" />
 
             <RadioGroup
                 android:id="@+id/personal_preferences_guests_preference_radio_group"
@@ -280,7 +280,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/ps_personality_logistics_comfortable_with_pets" />
+                android:text="@string/preferences_self_comfortable_with_pets" />
 
             <RadioGroup
                 android:id="@+id/personal_preferences_pet_preference_radio_group"

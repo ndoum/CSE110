@@ -1,5 +1,6 @@
 package com.example.rum8.fragments;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -73,6 +74,30 @@ public class SettingsHousingFragment extends Fragment implements SettingsControl
     @Override
     public void showToast(final String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showUploadImageProgress() {
+    }
+
+    @Override
+    public void hideUploadImageProgress() {
+    }
+
+    @Override
+    public void updateUploadImagePercentage(double percentage) {
+    }
+
+    @Override
+    public void chooseImage() {
+    }
+
+    @Override
+    public void showDefaultImage() {
+    }
+
+    @Override
+    public void setUserProfileImage(Bitmap bitmap) {
     }
 
 }
