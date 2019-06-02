@@ -1,7 +1,6 @@
 package com.example.rum8.fragments;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +18,6 @@ import com.example.rum8.activities.MainActivity;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
-import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Map;
 
@@ -205,27 +203,6 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
     }
 
     @Override
-    public void showUploadImageProgress() {
-    }
-
-    @Override
-    public void hideUploadImageProgress() {
-    }
-
-    @Override
-    public void updateUploadImagePercentage(double percentage) {
-    }
-
-    @Override
-    public void chooseImage() {
-    }
-
-    @Override
-    public void setUserProfileImage(Bitmap bitmap) {
-
-    }
-
-    @Override
     public void showCurrentUserInfo(Map<String, Object> data) {
         long preferSameGenderRoommate = (long) data.get(Db.Keys.ROOMMATE_PREFER_SAME_GENDER_ROOMMATE_VALUE);
         long clean = (long) data.get(Db.Keys.ROOMMATE_CLEAN_VALUE);
@@ -316,11 +293,6 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
         radioGroupRoommateQuestionSeven.jumpDrawablesToCurrentState();
         radioGroupRoommateQuestionEight.jumpDrawablesToCurrentState();
         radioGroupRoommateQuestionNine.jumpDrawablesToCurrentState();
-    }
-
-    @Override
-    public void showDefaultImage() {
-
     }
 
 }

@@ -1,17 +1,11 @@
 package com.example.rum8.controllers;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.util.Log;
 
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,11 +19,9 @@ import static android.content.ContentValues.TAG;
  */
 public class ProfileSettingsController {
 
-    private static final double ONE_HUNDRED_PERCENT = 100.0;
     private ProfileSettingsControllerListener controllerListener;
     private FirebaseFirestore db;
     private FirebaseAuth auth;
-    private FirebaseStorage storage;
     private Map<String, Object> userMap;
     public String usernameEntered;
     public String usernameEntered_lastName;
@@ -40,7 +32,6 @@ public class ProfileSettingsController {
         userMap = new HashMap<>();
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
-        storage = FirebaseStorage.getInstance();
     }
 
     // helper method to check if user input is present
@@ -63,34 +54,6 @@ public class ProfileSettingsController {
         }
     }
 
-    public void onChooseImageCliked() {
-        controllerListener.chooseImage();
-    }
-
-    public void onUploadImageClicked(final Uri filePath) {
-        if (filePath != null) {
-            final FirebaseUser user = auth.getCurrentUser();
-            final FirebaseStorage storage = FirebaseStorage.getInstance();
-            controllerListener.showUploadImageProgress();
-            Db.updateProfilePicture(storage, user, filePath)
-                .addOnSuccessListener(taskSnapshot -> {
-                    controllerListener.hideUploadImageProgress();
-                    final String message = "Successfully uploaded";
-                    controllerListener.showToast(message);
-                })
-                .addOnFailureListener(e -> {
-                    controllerListener.hideUploadImageProgress();
-                    final String message = "Network error";
-                    controllerListener.showToast(message);
-                })
-                .addOnProgressListener(taskSnapshot -> {
-                    double progress = (ONE_HUNDRED_PERCENT * taskSnapshot.getBytesTransferred() / taskSnapshot
-                        .getTotalByteCount());
-                    controllerListener.updateUploadImagePercentage(progress);
-                });
-        }
-    }
-
     public void loadUserInfo() {
         Db.fetchUserInfo(db, auth.getCurrentUser())
             .addOnSuccessListener(documentSnapshot -> {
@@ -101,24 +64,6 @@ public class ProfileSettingsController {
                 final String message = "Network error";
                 controllerListener.showToast(message);
             });
-    }
-
-    public void loadUserProfileImage() {
-        Db.fetchUserProfilePicture(storage, auth.getCurrentUser())
-                .addOnSuccessListener(bytes -> {
-                    final Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                    controllerListener.setUserProfileImage(bmp);
-                })
-                .addOnFailureListener(e -> {
-                    // fetch default if the user does not upload
-                    controllerListener.showDefaultImage();
-                    // show error message if both way fails
-                    int errorCode = ((StorageException) e).getErrorCode();
-                    if (errorCode != StorageException.ERROR_OBJECT_NOT_FOUND) {
-                        final String message = "Network error";
-                        controllerListener.showToast(message);
-                    }
-                });
     }
 
     /**
