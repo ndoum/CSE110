@@ -46,7 +46,6 @@ public class PreferencesRoommateFragment extends Fragment implements Preferences
         super.onCreateView(inflater, container, savedInstanceState);
         final View rootView = inflater.inflate(R.layout.fragment_preferences_roommate, container,
             false);
-
         controller = new PreferencesController(this);
 
         // Initialize each corresponding radio group in roommate preferences
@@ -181,6 +180,7 @@ public class PreferencesRoommateFragment extends Fragment implements Preferences
         saveRoommateButton = rootView.findViewById(R.id.roommate_preferences_save_button);
         saveRoommateButton.setOnClickListener(v -> {
             controller.submitUserMap();
+            showToast("Roommate preferences Saved");
         });
 
         return rootView;

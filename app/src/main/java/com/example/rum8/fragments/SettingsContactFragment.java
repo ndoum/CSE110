@@ -1,5 +1,6 @@
 package com.example.rum8.fragments;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
+import com.example.rum8.activities.MainActivity;
 import com.example.rum8.controllers.SettingsController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.SettingsControllerListener;
@@ -28,6 +30,7 @@ public class SettingsContactFragment extends Fragment implements SettingsControl
     private TextInputEditText facebookField;
     private TextInputEditText snapchatField;
     private Button saveButton;
+    private Button goToMainButton;
 
     @Nullable
     @Override
@@ -52,6 +55,7 @@ public class SettingsContactFragment extends Fragment implements SettingsControl
         facebookField = rootView.findViewById(R.id.personal_info_facebook_field);
         snapchatField = rootView.findViewById(R.id.personal_info_snapchat_field);
         saveButton = rootView.findViewById(R.id.settings_contact_save);
+        goToMainButton = rootView.findViewById(R.id.settings_go_to_main);
 
         saveButton.setOnClickListener(v -> {
             final Map<String, Object> userHash = new HashMap<String, Object>() {{
@@ -61,6 +65,11 @@ public class SettingsContactFragment extends Fragment implements SettingsControl
             }};
             controller.onSaveButtonClicked(userHash);
         });
+
+        goToMainButton.setOnClickListener(v -> {
+            controller.onGoToMainClicked();
+        });
+
     }
 
     private void initController() {
@@ -96,4 +105,10 @@ public class SettingsContactFragment extends Fragment implements SettingsControl
     public void setUserProfileImage(Bitmap bitmap) {
     }
 
+    @Override
+    public void goToMain() {
+        final Intent intent;
+        intent = new Intent(getActivity(), MainActivity.class);
+        startActivity(intent);
+    }
 }

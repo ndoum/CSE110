@@ -95,6 +95,10 @@ public class SettingsHousingFragment extends Fragment implements SettingsControl
     }
 
     @Override
+    public void goToMain() {
+    }
+
+    @Override
     public void showToast(final String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }

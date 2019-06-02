@@ -195,16 +195,17 @@ public class SettingsGeneralFragment extends Fragment implements SettingsControl
                 put(Db.Keys.ACADEMIC_YEAR, academicYearSpinner.getSelectedItem().toString());
                 put(Db.Keys.COLLEGE, collegeSpinner.getSelectedItem().toString());
             }};
-            controller.onSaveButtonClicked(userInfo);
+            controller.generalSaveButtonClicked(userInfo);
         });
     }
-
     private void initController() {
         controller = new SettingsController(this);
         controller.usernameEntered = firstNameField.getText().toString();
         controller.usernameEntered_lastName = lastNameField.getText().toString();
     }
-
+    @Override
+    public void goToMain() {
+    }
     @Override
     public void showToast(final String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();

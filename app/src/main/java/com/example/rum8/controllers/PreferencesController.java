@@ -1,5 +1,7 @@
 package com.example.rum8.controllers;
 
+import android.util.Log;
+
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.PreferencesControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -7,6 +9,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 /**
  * Class that implements the controller for preferences activity.
@@ -59,30 +63,8 @@ public class PreferencesController {
      * Method that saves/updates user in database.
      */
     public void submitUserMap() {
-       /* Db.updateUser(db, auth.getCurrentUser(), userMap)
+       Db.updateUser(db, auth.getCurrentUser(), userMap)
             .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
-            .addOnFailureListener(e -> Log.d(TAG, "Error adding document"));
-        final String firstName = (String) userMap.get(Db.Keys.FIRST_NAME);
-        final String lastName = (String) userMap.get(Db.Keys.LAST_NAME);
-
-*/
-        Db.fetchUserInfo(db, auth.getCurrentUser())
-            .addOnSuccessListener(documentSnapshot -> {
-                final Map<String, Object> data = documentSnapshot.getData();
-                final String firstName = (String) data.get(Db.Keys.FIRST_NAME);
-                final String lastName = (String) data.get(Db.Keys.LAST_NAME);
-
-                // check for valid name
-                if (!isPresent(firstName)|| !isPresent(lastName)) {
-                    final String message = "Please enter and save your first and last name";
-                    controllerListener.showToast(message);
-                } else {
-                    controllerListener.goToMainPage();
-                }
-            })
-            .addOnFailureListener(e -> {
-                final String message = "Network error";
-                controllerListener.showToast(message);
-            });
+           .addOnFailureListener(e -> Log.d(TAG, "Error adding document"));
     }
 }

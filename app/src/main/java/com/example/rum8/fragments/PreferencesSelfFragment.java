@@ -158,12 +158,6 @@ public class PreferencesSelfFragment extends Fragment implements PreferencesCont
             controller.submitUserMap();
             showToast("Personal logistics Saved");
         });
-
-        personalNextButton = rootView.findViewById(R.id.personal_references_next_button);
-        personalNextButton.setOnClickListener(v -> {
-            ((PreferencesActivity) getActivity()).setViewPager(2);
-        });
-
         return rootView;
     }
 
