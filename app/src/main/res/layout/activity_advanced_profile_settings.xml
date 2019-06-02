@@ -128,26 +128,6 @@
                 android:text="triple" />
         </RadioGroup>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/general_info_room_type_field_layout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccentDark"
-            app:boxStrokeColor="@color/colorAccentDark"
-            app:counterEnabled="true"
-            app:counterMaxLength="200">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/general_info_room_type_field"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
-                android:maxLength="200"
-                android:minLines="2"
-                android:textColor="@color/colorAccentDark" />
-        </com.google.android.material.textfield.TextInputLayout>
-
         <TextView
             android:id="@+id/adv_settings_budget_header"
             android:layout_width="match_parent"

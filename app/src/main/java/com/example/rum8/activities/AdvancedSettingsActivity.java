@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,7 +25,7 @@ public class AdvancedSettingsActivity extends AppCompatActivity
     private AdvancedSettingsController controller;
     private TextInputEditText accommodationsField;
     private TextInputEditText budgetField;
-    private TextInputEditText roomTypeField;
+    private RadioGroup roomType;
     private TextInputEditText otherThingsField;
     private TextInputEditText aboutMeField;
     private TextInputEditText hobbiesField;
@@ -50,7 +52,7 @@ public class AdvancedSettingsActivity extends AppCompatActivity
     public void initViews() {
         majorField = findViewById(R.id.personal_info_major_field);
         accommodationsField = findViewById(R.id.general_info_living_accommodations_field);
-        roomTypeField = findViewById(R.id.general_info_room_type_field);
+        roomType = findViewById(R.id.room_type);
         budgetField = findViewById(R.id.general_info_budget_field);
         otherThingsField = findViewById(R.id.general_info_other_things_field);
         aboutMeField = findViewById(R.id.personal_info_bio_field);
@@ -61,6 +63,19 @@ public class AdvancedSettingsActivity extends AppCompatActivity
         snapchatField = findViewById(R.id.personal_info_snapchat_field);
         saveButton = findViewById(R.id.button_advanced_settings_save);
 
+
+
+        roomType.setOnCheckedChangeListener((group, checkedId) -> {
+            // checkedId is the RadioButton selected
+            RadioButton rb = group.findViewById(checkedId);
+            final Map<String, Object> userHash = new HashMap<String, Object>() {
+                {
+                    put(Db.Keys.ROOM_TYPE, rb.getText().toString());
+                }
+            };
+            controller.onSaveButtonClicked(userHash);
+        });
+
         phoneNumberField.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
 
         saveButton.setOnClickListener(v -> {
@@ -68,7 +83,6 @@ public class AdvancedSettingsActivity extends AppCompatActivity
                 put(Db.Keys.MAJOR, majorField.getText().toString());
                 put(Db.Keys.LIVING_ACCOMMODATIONS, accommodationsField.getText().toString());
                 put(Db.Keys.BUDGET, budgetField.getText().toString());
-                put(Db.Keys.ROOM_TYPE, roomTypeField.getText().toString());
                 put(Db.Keys.OTHER_THINGS_YOU_SHOULD_KNOW, otherThingsField.getText().toString());
                 put(Db.Keys.ABOUT_ME, aboutMeField.getText().toString());
                 put(Db.Keys.HOBBIES, hobbiesField.getText().toString());
@@ -102,7 +116,7 @@ public class AdvancedSettingsActivity extends AppCompatActivity
         final String snapchat = (String) data.get(Db.Keys.SNAPCHAT);
         majorField.setText(my_major);
         accommodationsField.setText(living_accommodations);
-        roomTypeField.setText(room_type);
+        //roomType.check(R.id.room_type_);
         budgetField.setText(budget);
         otherThingsField.setText(other_things_you_should_know);
         aboutMeField.setText(about_me);

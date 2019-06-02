@@ -6,8 +6,11 @@
     <color name="ucsd_blue">#006A96</color>
     <color name="colorPrimary">#008577</color>
     <color name="colorAccent">#7192A5</color>
+    <color name="light_purple">#A4AAD1</color>
+    <color name="blue_hao">#71a5a4</color>
     <color name="dribble_green">#809E6A</color>
     <color name="light_green">#CCDBC0</color>
+
 
     <color name="brown">#A3652B</color>
     <color name="dribble_brown">#BB6C46</color>
@@ -17,8 +20,9 @@
 
     <color name="dark_yellow">#DA9A2B</color>
     <color name="ucsd_gold">#FFCD00</color>
-    <color name="dribble_yellow">#ECBD6D</color>
+    <color name="dribble_yellow">#F0C566</color>
     <color name="light_light_yellow">#F9FADA</color>
+    <color name="light_white">#F4F1E2</color>
     <color name="white">#FFFFFF</color>
     <color name="light_orange">#FFDEBD</color>
 
