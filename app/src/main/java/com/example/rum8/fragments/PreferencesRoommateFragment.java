@@ -179,8 +179,8 @@ public class PreferencesRoommateFragment extends Fragment implements Preferences
 
         saveRoommateButton = rootView.findViewById(R.id.roommate_preferences_save_button);
         saveRoommateButton.setOnClickListener(v -> {
-            System.out.println("I am hereeee, button saved ");
             controller.submitUserMap();
+            showToast("Roommate preferences Saved");
         });
 
         return rootView;
