@@ -56,8 +56,8 @@ public class MatchedFullViewTabOneFragment extends Fragment implements MatchedRo
 
     @Override
     public void showMatchedInfo(Map<String, Object> data) {
-        final String budgetMin = (String) data.get(Db.Keys.BUDGET_MIN);
-        final String budgetMax = (String) data.get(Db.Keys.BUDGET_MAX);
+        final String budgetMin = String.valueOf(data.get(Db.Keys.BUDGET_MIN));
+        final String budgetMax = String.valueOf(data.get(Db.Keys.BUDGET_MAX));
         final String room_type = (String) data.get(Db.Keys.ROOM_TYPE);
 
         final String living_accommodations = (String) data.get(Db.Keys.LIVING_ACCOMMODATIONS);
