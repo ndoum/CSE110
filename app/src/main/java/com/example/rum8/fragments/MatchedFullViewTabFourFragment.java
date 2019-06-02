@@ -80,6 +80,16 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
 
         });
 
+        snapchatLinearLayout.setClickable(true);
+        snapchatLinearLayout.setOnClickListener(v -> {
+            String text = snapchatTextView.getText().toString();
+            ClipData clipData = ClipData.newPlainText("text", text );
+            clipboardManager.setPrimaryClip(clipData);
+            showToast("Snapchat username: " + text + " copied to clipboard");
+
+        });
+
+
 
         phoneNumberLinearLayout.setClickable(true);
         phoneNumberLinearLayout.setOnClickListener(v -> {
@@ -94,6 +104,8 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
             intent.putExtra(Intent.EXTRA_EMAIL, new String[]{emailPassed});
             startActivity(intent);
         });
+
+
 
 
         return view;
@@ -147,7 +159,7 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
             snapchatLinearLayout.setVisibility(View.GONE);
         }
         else{
-            snapchatTextView.setText(facebook);
+            snapchatTextView.setText(snapchat);
         }
 
 
