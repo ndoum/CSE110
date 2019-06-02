@@ -1,7 +1,8 @@
 package com.example.rum8.fragments;
 
-
-import android.app.Dialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -45,6 +46,8 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
     private Button popUp;
     public String matchedUserPhoneNumber;
 
+    ClipboardManager clipboardManager;
+
 
 
     @Nullable
@@ -63,16 +66,26 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
         snapchatTextView = view.findViewById(R.id.snapchat_text_view);
         emailLinearLayout = view.findViewById(R.id.email_linear_layout);
 
+        clipboardManager = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+
         controller = new MatchedRoommateProfileController(this);
         controller.loadMatchUserContactInfo(((MatchedRoommateProfileActivity) getActivity()).getMatchedUserId());
-        popUp = view.findViewById(R.id.frag_pop_up);
 
-        popUp.setOnClickListener(v ->{
-            openDialog();
+        facebookLinearLayout.setClickable(true);
+        facebookLinearLayout.setOnClickListener(v -> {
+            String text = facebookTextView.getText().toString();
+            ClipData clipData = ClipData.newPlainText("text", text );
+            clipboardManager.setPrimaryClip(clipData);
+            showToast("Facebook link: " + text + " copied to clipboard");
+
         });
 
-        emailLinearLayout.setClickable(true);
 
+        phoneNumberLinearLayout.setClickable(true);
+        phoneNumberLinearLayout.setOnClickListener(v -> {
+            openDialog();
+        });
+        emailLinearLayout.setClickable(true);
 
 
         emailLinearLayout.setOnClickListener(v -> {
@@ -81,14 +94,6 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
             intent.putExtra(Intent.EXTRA_EMAIL, new String[]{emailPassed});
             startActivity(intent);
         });
-
-
-
-
-
-
-
-
 
 
         return view;

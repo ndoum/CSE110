@@ -1,11 +1,9 @@
 package com.example.rum8.activities;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -67,9 +65,6 @@ public class MatchedRoommateProfileActivity extends AppCompatActivity implements
         return this.matchedUserId;
     }
 
-
-
-
     @Override
     public void showToast(final String message) {
 
@@ -87,7 +82,6 @@ public class MatchedRoommateProfileActivity extends AppCompatActivity implements
     public void setMatchedUserProfileImage(final Bitmap bitmap) {
         profilePicture = findViewById(R.id.matched_user_profile_picture);
         profilePicture.setImageBitmap(bitmap);
-
     }
 
     @Override
@@ -100,6 +94,5 @@ public class MatchedRoommateProfileActivity extends AppCompatActivity implements
     private void initController() {
         controller = new MatchedRoommateProfileController(this);
     }
-
 
 }

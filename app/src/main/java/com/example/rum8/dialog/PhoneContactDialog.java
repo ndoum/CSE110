@@ -4,7 +4,6 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.PendingIntent;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -110,7 +109,6 @@ public class PhoneContactDialog extends AppCompatDialogFragment implements Match
         return checkPermission == PackageManager.PERMISSION_GRANTED;
 
     }
-
 
 
     @Override
