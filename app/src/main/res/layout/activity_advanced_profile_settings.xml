@@ -60,7 +60,6 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:maxLength="300"
-                android:maxLines="4"
                 android:minLines="2"
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -89,7 +88,6 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:maxLength="200"
-                android:maxLines="4"
                 android:minLines="2"
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -145,7 +143,6 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:maxLength="300"
-                android:maxLines="4"
                 android:minLines="2"
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -209,7 +206,6 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:maxLength="500"
-                android:maxLines="4"
                 android:minLines="2"
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -239,7 +235,6 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:maxLength="300"
-                android:maxLines="4"
                 android:minLines="2"
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -268,7 +263,6 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:maxLength="300"
-                android:maxLines="4"
                 android:minLines="2"
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -306,9 +300,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
-                android:maxLength="20"
+                android:maxLength="14"
                 android:maxLines="1"
-                android:textColor="@color/colorAccentDark" />
+                android:textColor="@color/colorAccentDark"
+                android:hint="xxx-xxx-xxxx"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -334,6 +329,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:maxLines="1"
+                android:maxLength="50"
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -352,7 +348,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccentDark"
-            app:boxStrokeColor="@color/colorAccentDark">
+            app:boxStrokeColor="@color/colorAccentDark"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/personal_info_snapchat_field"
@@ -360,6 +357,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:maxLines="1"
+                android:maxLength="50"
                 android:textColor="@color/colorAccentDark" />
         </com.google.android.material.textfield.TextInputLayout>
 

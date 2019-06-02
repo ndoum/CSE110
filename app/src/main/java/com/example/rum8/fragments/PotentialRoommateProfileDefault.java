@@ -47,6 +47,7 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
         tablayout = rootView.findViewById(R.id.potential_roommate_profile_default_tablayout_id);
         appBarLayout = rootView.findViewById(R.id.potential_roommate_profile_default_appbarid);
         viewPager = rootView.findViewById(R.id.potential_roommate_profile_default_viewpager_id);
+        profilePicture = rootView.findViewById(R.id.user_profile_picture);
 
         PotentialRoommateProfileDefaultAdapter adapter = new PotentialRoommateProfileDefaultAdapter(
                 getChildFragmentManager());
@@ -72,7 +73,6 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
 
     @Override
     public void setUserProfileImage(Bitmap bitmap) {
-        profilePicture = rootView.findViewById(R.id.user_profile_picture);
         profilePicture.setImageBitmap(bitmap);
     }
 
@@ -90,6 +90,11 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
 
     @Override
     public void goToAdvancedProfileSettings() {
+    }
+
+    @Override
+    public void goToProfilePreview() {
+
     }
 
     @Override
@@ -114,5 +119,6 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
     public void setFragmentEmpty() {
 
     }
+
 
 }

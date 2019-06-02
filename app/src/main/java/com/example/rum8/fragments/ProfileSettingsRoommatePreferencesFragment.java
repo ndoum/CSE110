@@ -19,6 +19,7 @@ import com.example.rum8.activities.MainActivity;
 import com.example.rum8.controllers.ProfileSettingsController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.ProfileSettingsControllerListener;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Map;
 
@@ -50,7 +51,7 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
 
         super.onCreateView(inflater, container, savedInstanceState);
         final View rootView = inflater.inflate(R.layout.fragment_profile_settings_roommate_preferences, container,
-                false);
+            false);
 
         controller = new ProfileSettingsController(this);
 
@@ -58,17 +59,17 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
         // questionnaire
         radioGroupRoommateQuestionOne = rootView.findViewById(R.id.roommate_preferences_gender_preference_radio_group);
         radioGroupRoommateQuestionTwo = rootView
-                .findViewById(R.id.roommate_preferences_cleanness_preference_radio_group);
+            .findViewById(R.id.roommate_preferences_cleanness_preference_radio_group);
         radioGroupRoommateQuestionThree = rootView
-                .findViewById(R.id.roommate_preferences_reserved_preference_radio_group);
+            .findViewById(R.id.roommate_preferences_reserved_preference_radio_group);
         radioGroupRoommateQuestionFour = rootView
-                .findViewById(R.id.roommate_preferences_comfortable_party_preference_radio_group);
+            .findViewById(R.id.roommate_preferences_comfortable_party_preference_radio_group);
         radioGroupRoommateQuestionFive = rootView
-                .findViewById(R.id.roommate_preferences_alcohol_preference_radio_group);
+            .findViewById(R.id.roommate_preferences_alcohol_preference_radio_group);
         radioGroupRoommateQuestionSix = rootView.findViewById(R.id.roommate_preferences_smoking_preference_radio_group);
         radioGroupRoommateQuestionSeven = rootView.findViewById(R.id.roommate_preferences_sleep_preference_radio_group);
         radioGroupRoommateQuestionEight = rootView
-                .findViewById(R.id.roommate_preferences_guests_preference_radio_group);
+            .findViewById(R.id.roommate_preferences_guests_preference_radio_group);
         radioGroupRoommateQuestionNine = rootView.findViewById(R.id.roommate_preferences_pets_preference_radio_group);
 
         controller.loadUserInfo();
@@ -186,13 +187,12 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
         saveRoommateButton = rootView.findViewById(R.id.roommate_preferences_save_button);
         saveRoommateButton.setOnClickListener(v -> {
             controller.submitUserMap();
-            showToast("Roommate Preferences Saved");
-            goToMainPage();
         });
 
         return rootView;
     }
 
+    @Override
     public void goToMainPage() {
         final Intent intent;
         intent = new Intent(getActivity(), MainActivity.class);
@@ -213,7 +213,7 @@ public class ProfileSettingsRoommatePreferencesFragment extends Fragment impleme
     }
 
     @Override
-    public void updateUploadImagePercentage(double percengate) {
+    public void updateUploadImagePercentage(double percentage) {
     }
 
     @Override

@@ -6,4 +6,7 @@ public interface SplashControllerListener {
 
     void goToLogin();
 
+    void goToProfileSettings();
+
+    void showToast(final String message);
 }
