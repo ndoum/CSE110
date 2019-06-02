@@ -1,13 +1,18 @@
 package com.example.rum8.fragments;
 
+import android.Manifest;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +20,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
@@ -38,6 +45,11 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
     private TextView emailTextView;
     private TextView snapchatTextView;
     private String emailPassed;
+    private final static int SEND_SMS_PERMISSION_REQUEST_CODE = 111;
+    private EditText phone;
+    private EditText msg;
+    private Button b;
+
 
 
     @Nullable
@@ -55,6 +67,7 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
         snapchatLinearLayout = view.findViewById(R.id.snapchat_linear_layout);
         snapchatTextView = view.findViewById(R.id.snapchat_text_view);
         emailLinearLayout = view.findViewById(R.id.email_linear_layout);
+        b = view.findViewById(R.id.text_message_button);
 
         controller = new MatchedRoommateProfileController(this);
         controller.loadMatchUserContactInfo(((MatchedRoommateProfileActivity) getActivity()).getMatchedUserId());
@@ -71,7 +84,66 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
         });
 
 
+        b.setEnabled(false);
+        if (checkPermission(Manifest.permission.SEND_SMS)){
+            b.setEnabled(true);
+        }
+        else{
+            ActivityCompat.requestPermissions(getActivity(), new String[] {Manifest.permission.SEND_SMS}, SEND_SMS_PERMISSION_REQUEST_CODE);
+
+        }
+
+
+
+
+
+        //phoneNumberLinearLayout.setClickable(true);
+
+
+
+
+        b.setOnClickListener(v -> {
+            showToast("bye");
+            String phoneNumber = "+19099089007";
+            String smsMessage = "what up";
+            if(phoneNumber == null || phoneNumber.length() == 0 || smsMessage == null || smsMessage.length() == 0 ){
+                showToast("Invalid input");
+            }else{
+                if(checkPermission(Manifest.permission.SEND_SMS)){
+                    String SENT = "Message Sent";
+                    String DELIVERED = "Message Delivered";
+                    PendingIntent sentPI = PendingIntent.getBroadcast(getContext(),0, new Intent(SENT),0);
+                    PendingIntent deliveredPI = PendingIntent.getBroadcast(getContext(),0, new Intent(DELIVERED),0);
+                    SmsManager smsManager = SmsManager.getDefault();
+                    smsManager.sendTextMessage(phoneNumber, null, smsMessage,sentPI,deliveredPI);
+                    showToast("Success");
+                }
+                else{
+                    showToast("Failed");
+                }
+            }
+
+        });
+
+
         return view;
+    }
+
+    private boolean checkPermission(String permission){
+        int checkPermission = ContextCompat.checkSelfPermission(( getActivity()), permission);
+        return checkPermission == PackageManager.PERMISSION_GRANTED;
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch(requestCode){
+            case SEND_SMS_PERMISSION_REQUEST_CODE:
+                if(grantResults.length > 0 && (grantResults[0] == PackageManager.PERMISSION_GRANTED)){
+                    b.setEnabled(true);
+
+                }
+        }
     }
 
     @Override
