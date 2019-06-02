@@ -44,24 +44,58 @@
             android:text="@string/settings_room_type"
             android:textColor="@color/colorAccentDark" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccentDark"
-            app:boxStrokeColor="@color/colorAccentDark"
-            app:counterEnabled="true"
-            app:counterMaxLength="200">
+            android:layout_height="wrap_content">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/general_info_room_type_field"
-                android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1.5"
+                android:src="@drawable/single" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="4"
+                android:src="@drawable/double_room" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/tripple" />
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/room_type"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/room_single"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
-                android:maxLength="200"
-                android:minLines="2"
-                android:textColor="@color/colorAccentDark" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_weight="4"
+                android:text="single" />
+
+            <RadioButton
+                android:id="@+id/room_double"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="double" />
+
+            <RadioButton
+                android:id="@+id/room_triple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="triple" />
+        </RadioGroup>
 
         <TextView
             android:layout_width="match_parent"
@@ -76,31 +110,29 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:layout_above="@+id/general_info_budget_field"
-            >
+            android:layout_gravity="center_horizontal">
 
             <com.jaygoo.widget.RangeSeekBar
                 android:id="@+id/general_info_budget_seekBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                app:rsb_mode="range"
-                app:rsb_min="0"
-                app:rsb_max="3000"
-                app:rsb_progress_color="@color/colorAccentDark"
-                app:rsb_progress_height="4dp"
-                app:rsb_progress_radius="0.8dp"
-                app:rsb_tick_mark_mode="number"
-                app:rsb_tick_mark_gravity="center"
+                app:rsb_indicator_arrow_size="8dp"
+                app:rsb_indicator_background_color="@color/white"
                 app:rsb_indicator_height="10dp"
-                app:rsb_indicator_width="2dp"
                 app:rsb_indicator_show_mode="alwaysShow"
                 app:rsb_indicator_text_color="@color/colorAccentDark"
                 app:rsb_indicator_text_size="14dp"
-                app:rsb_indicator_arrow_size="8dp"
-                app:rsb_indicator_background_color="@color/white"
-                />
+                app:rsb_indicator_width="2dp"
+                app:rsb_max="3000"
+                app:rsb_min="0"
+                app:rsb_mode="range"
+                app:rsb_progress_color="@color/colorAccentDark"
+                app:rsb_progress_height="4dp"
+                app:rsb_progress_radius="0.8dp"
+                app:rsb_tick_mark_gravity="center"
+                app:rsb_tick_mark_mode="number" />
 
         </RelativeLayout>
 
