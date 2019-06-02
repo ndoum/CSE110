@@ -130,10 +130,10 @@
                 android:layout_height="40dp"
                 android:src="@drawable/phone" />
             <Button
-                android:id="@+id/text_message_button"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Launch call" />
+                android:text="hi"
+                android:id="@+id/frag_pop_up"/>
 
             <TextView
                 android:layout_width="wrap_content"
