@@ -11,7 +11,7 @@ public interface ViewLinkListControllerListener {
 
     void goToViewLinkList();
 
-    void goToAdvSettings();
+    void goToSettings();
 
 
     void addNewLink(LinkListSingleLink link);

@@ -99,7 +99,7 @@ public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkL
     }
 
     @Override
-    public void goToAdvSettings() {
+    public void goToSettings() {
 
     }
 

@@ -42,7 +42,7 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
     }
 
     @Override
-    public void goToAdvSettings() {
+    public void goToSettings() {
 
     }
 
