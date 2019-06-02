@@ -53,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="80dp"
                     android:layout_marginBottom="-8dp"
-                    app:cardBackgroundColor="#FFDC87"
+                    app:cardBackgroundColor="#ddebec"
                     app:cardCornerRadius="8dp">
 
                     <LinearLayout
@@ -89,18 +89,18 @@
             android:id="@+id/preview_profile_tablayout_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/ucsd_gold"
+            android:background="@color/colorAccent"
             app:tabGravity="fill"
-            app:tabIndicatorColor="@android:color/white"
+            app:tabIndicatorColor="@color/light_yellow"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="#000000"
+            app:tabSelectedTextColor="@color/light_yellow"
             app:tabTextAppearance="@style/CustomTextStyle" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/preview_profile_viewpager_id"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#00644949" />
+            android:background="@color/colorAccent" />
 
     </LinearLayout>
 
