@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
 
     @Override
     public void goToAdvancedProfileSettings() {
-        final Intent intent = new Intent(MainActivity.this, AdvancedSettingsActivity.class);
+        final Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
         startActivity(intent);
     }
 
