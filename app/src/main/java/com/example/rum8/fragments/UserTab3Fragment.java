@@ -271,7 +271,7 @@ public class UserTab3Fragment extends Fragment implements MainControllerListener
     }
 
     @Override
-    public void goToAdvancedProfileSettings() {
+    public void goToSettings() {
     }
 
     @Override

@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:text="@string/adv_settings_living_accommodations"
+            android:text="@string/settings_living_accommodations"
             android:textColor="@color/colorAccentDark" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:text="@string/adv_settings_room_type"
+            android:text="@string/settings_room_type"
             android:textColor="@color/colorAccentDark" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -67,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:text="@string/adv_settings_budget"
+            android:text="@string/settings_budget"
             android:textColor="@color/colorAccentDark" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -91,7 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:text="@string/adv_settings_other_things"
+            android:text="@string/settings_other_things"
             android:textColor="@color/colorAccentDark" />
 
         <com.google.android.material.textfield.TextInputLayout

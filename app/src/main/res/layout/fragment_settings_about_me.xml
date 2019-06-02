@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:text="@string/adv_settings_major"
+            android:text="@string/settings_major"
             android:textColor="@color/colorAccentDark" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:text="@string/adv_settings_bio"
+            android:text="@string/settings_bio"
             android:textColor="@color/colorAccentDark" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -62,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:text="@string/adv_settings_hobbies"
+            android:text="@string/settings_hobbies"
             android:textColor="@color/colorAccentDark" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -88,7 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:text="@string/adv_settings_interests"
+            android:text="@string/settings_interests"
             android:textColor="@color/colorAccentDark" />
 
         <com.google.android.material.textfield.TextInputLayout

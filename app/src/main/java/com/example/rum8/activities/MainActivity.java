@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
             case R.id.main_activity_go_to_view_link_list:
                 controller.onGoToLinkListButtonClicked();
                 return true;
-            case R.id.main_activity_go_to_adv_settings:
-                controller.onAdvancedSettingsButtonClicked();
+            case R.id.main_activity_go_to_settings:
+                controller.onSettingsButtonClicked();
                 return true;
             case R.id.main_activity_go_to_preview_profile:
                 controller.onPreviewProfileButtonClicked();
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     }
 
     @Override
-    public void goToAdvancedProfileSettings() {
+    public void goToSettings() {
         final Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
         startActivity(intent);
     }

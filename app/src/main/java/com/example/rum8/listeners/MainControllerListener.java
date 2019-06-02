@@ -12,7 +12,7 @@ public interface MainControllerListener {
 
     void goToLinkList();
 
-    void goToAdvancedProfileSettings();
+    void goToSettings();
 
     void goToProfilePreview();
 

@@ -31,8 +31,8 @@ public class MainController {
         controllerListener.goToProfileSettings();
     }
 
-    public void onAdvancedSettingsButtonClicked() {
-        controllerListener.goToAdvancedProfileSettings();
+    public void onSettingsButtonClicked() {
+        controllerListener.goToSettings();
     }
 
     public void onGoToLinkListButtonClicked() {
