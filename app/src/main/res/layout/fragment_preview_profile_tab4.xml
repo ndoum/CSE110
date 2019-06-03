@@ -39,7 +39,7 @@
                     android:layout_centerVertical="true"
                     android:gravity="center_vertical"
 
-                    android:text="Email: "
+                    android:text="  Email: "
                     />
 
                 <TextView
