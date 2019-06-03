@@ -1,16 +1,12 @@
 package com.example.rum8.fragments;
 
-import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,7 +18,6 @@ import androidx.fragment.app.Fragment;
 import com.example.rum8.R;
 import com.example.rum8.controllers.PreviewProfileController;
 import com.example.rum8.database.Db;
-import com.example.rum8.dialog.PhoneContactDialog;
 import com.example.rum8.listeners.PreviewProfileControllerListener;
 
 import java.util.Map;
@@ -41,9 +36,6 @@ public class PreviewProfileTab4Fragment extends Fragment implements PreviewProfi
     private TextView emailTextView;
     private TextView snapchatTextView;
     private String emailPassed;
-    private final static int SEND_SMS_PERMISSION_REQUEST_CODE = 111;
-    private Button popUp;
-    public String matchedUserPhoneNumber;
 
     ClipboardManager clipboardManager;
 
@@ -67,48 +59,8 @@ public class PreviewProfileTab4Fragment extends Fragment implements PreviewProfi
         controller = new PreviewProfileController (this);
         controller.loadUserInfo();
 
-//        facebookLinearLayout.setClickable(true);
-//        facebookLinearLayout.setOnClickListener(v -> {
-//            String text = facebookTextView.getText().toString();
-//            ClipData clipData = ClipData.newPlainText("text", text );
-//            clipboardManager.setPrimaryClip(clipData);
-//            showToast("Facebook link: " + text + " copied to clipboard");
-//
-//        });
-
-//        snapchatLinearLayout.setClickable(true);
-//        snapchatLinearLayout.setOnClickListener(v -> {
-//            String text = snapchatTextView.getText().toString();
-//            ClipData clipData = ClipData.newPlainText("text", text );
-//            clipboardManager.setPrimaryClip(clipData);
-//            showToast("Snapchat username: " + text + " copied to clipboard");
-//
-//        });
-
-
-//        phoneNumberLinearLayout.setClickable(true);
-//        phoneNumberLinearLayout.setOnClickListener(v -> {
-//            openDialog();
-//        });
-//        emailLinearLayout.setClickable(true);
-//
-//
-//        emailLinearLayout.setOnClickListener(v -> {
-//            Intent intent = new Intent(Intent.ACTION_SENDTO);
-//            intent.setData(Uri.parse("mailto:"));
-//            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{emailPassed});
-//            startActivity(intent);
-//        });
-
         return view;
     }
-
-
-//    public void openDialog(){
-//        PhoneContactDialog phoneContactDialog = new PhoneContactDialog();
-//        phoneContactDialog.show(getFragmentManager(), "pop up");
-//
-//    }
 
 
     @Override
