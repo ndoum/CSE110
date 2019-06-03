@@ -67,48 +67,48 @@ public class PreviewProfileTab4Fragment extends Fragment implements PreviewProfi
         controller = new PreviewProfileController (this);
         controller.loadUserInfo();
 
-        facebookLinearLayout.setClickable(true);
-        facebookLinearLayout.setOnClickListener(v -> {
-            String text = facebookTextView.getText().toString();
-            ClipData clipData = ClipData.newPlainText("text", text );
-            clipboardManager.setPrimaryClip(clipData);
-            showToast("Facebook link: " + text + " copied to clipboard");
+//        facebookLinearLayout.setClickable(true);
+//        facebookLinearLayout.setOnClickListener(v -> {
+//            String text = facebookTextView.getText().toString();
+//            ClipData clipData = ClipData.newPlainText("text", text );
+//            clipboardManager.setPrimaryClip(clipData);
+//            showToast("Facebook link: " + text + " copied to clipboard");
+//
+//        });
 
-        });
-
-        snapchatLinearLayout.setClickable(true);
-        snapchatLinearLayout.setOnClickListener(v -> {
-            String text = snapchatTextView.getText().toString();
-            ClipData clipData = ClipData.newPlainText("text", text );
-            clipboardManager.setPrimaryClip(clipData);
-            showToast("Snapchat username: " + text + " copied to clipboard");
-
-        });
-
-
-        phoneNumberLinearLayout.setClickable(true);
-        phoneNumberLinearLayout.setOnClickListener(v -> {
-            openDialog();
-        });
-        emailLinearLayout.setClickable(true);
+//        snapchatLinearLayout.setClickable(true);
+//        snapchatLinearLayout.setOnClickListener(v -> {
+//            String text = snapchatTextView.getText().toString();
+//            ClipData clipData = ClipData.newPlainText("text", text );
+//            clipboardManager.setPrimaryClip(clipData);
+//            showToast("Snapchat username: " + text + " copied to clipboard");
+//
+//        });
 
 
-        emailLinearLayout.setOnClickListener(v -> {
-            Intent intent = new Intent(Intent.ACTION_SENDTO);
-            intent.setData(Uri.parse("mailto:"));
-            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{emailPassed});
-            startActivity(intent);
-        });
+//        phoneNumberLinearLayout.setClickable(true);
+//        phoneNumberLinearLayout.setOnClickListener(v -> {
+//            openDialog();
+//        });
+//        emailLinearLayout.setClickable(true);
+//
+//
+//        emailLinearLayout.setOnClickListener(v -> {
+//            Intent intent = new Intent(Intent.ACTION_SENDTO);
+//            intent.setData(Uri.parse("mailto:"));
+//            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{emailPassed});
+//            startActivity(intent);
+//        });
 
         return view;
     }
 
 
-    public void openDialog(){
-        PhoneContactDialog phoneContactDialog = new PhoneContactDialog();
-        phoneContactDialog.show(getFragmentManager(), "pop up");
-
-    }
+//    public void openDialog(){
+//        PhoneContactDialog phoneContactDialog = new PhoneContactDialog();
+//        phoneContactDialog.show(getFragmentManager(), "pop up");
+//
+//    }
 
 
     @Override
