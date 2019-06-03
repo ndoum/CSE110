@@ -59,4 +59,14 @@ public class PreviewProfileController {
                     controllerListener.showToast(message);
                 });
     }
+
+    public void loadMatchUserContactInfo() {
+        Db.fetchUserInfoById(this.db, this.auth.getUid()).addOnSuccessListener(documentSnapshot -> {
+            final Map<String, Object> matchedUserData = documentSnapshot.getData();
+            controllerListener.showCurrentUserInfo(matchedUserData);
+        }).addOnFailureListener(exception -> {
+            final String message = "Network error";
+            controllerListener.showToast(message);
+        });
+    }
 }
