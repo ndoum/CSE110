@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/email_linear_layout"
-        android:clickable="true"
         >
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -60,7 +59,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/phone_number_linear_layout"
-        android:clickable="true"
         >
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -109,7 +107,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/facebook_linear_layout"
-        android:clickable="true"
         >
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -160,7 +157,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/snapchat_linear_layout"
-        android:clickable="true"
         >
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
