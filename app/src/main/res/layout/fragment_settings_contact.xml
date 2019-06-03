@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccentDark"
             app:boxStrokeColor="@color/colorAccentDark"
-            app:counterMaxLength="20"
+            app:counterMaxLength="14"
             app:hintEnabled="false">
 
             <com.google.android.material.textfield.TextInputEditText
