@@ -20,9 +20,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
-import com.example.rum8.activities.MatchedRoommateProfileActivity;
-import com.example.rum8.activities.PreviewProfileActivity;
-import com.example.rum8.controllers.MatchedRoommateProfileController;
 import com.example.rum8.controllers.PreviewProfileController;
 import com.example.rum8.database.Db;
 import com.example.rum8.dialog.PhoneContactDialog;
@@ -31,56 +28,6 @@ import com.example.rum8.listeners.PreviewProfileControllerListener;
 import java.util.Map;
 
 public class PreviewProfileTab4Fragment extends Fragment implements PreviewProfileControllerListener {
-//
-//    private View view;
-//    private PreviewProfileController controller;
-//    private TextView aboutMeField;
-//    private TextView interestField;
-//    private TextView hobbiesField;
-//
-//    public PreviewProfileTab4Fragment(){
-//    }
-//
-//    @Nullable
-//    @Override
-//    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//
-//        view = inflater.inflate(R.layout.fragment_preview_profile_tab4, container, false);
-//
-//        return view;
-//    }
-//
-//    @Override
-//    public void onViewCreated(View rootView, Bundle savedInstanceState) {
-//        controller = new PreviewProfileController(this);
-//        controller.loadUserInfo();
-//        aboutMeField = view.findViewById(R.id.about_me_text);
-//        interestField = view.findViewById(R.id.interest_text);
-//        hobbiesField = view.findViewById(R.id.hobbies_text);
-//    }
-//
-//    @Override
-//    public void showToast(String message) {
-//        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-//    }
-//
-//    @Override
-//    public void showCurrentUserInfo(final Map<String, Object> data) {
-//    }
-//
-//    @Override
-//    public void setFragment() {
-//
-//    }
-//
-//    @Override
-//    public void setUserProfileImage(Bitmap bitmap) {
-//
-//    }
-//
-//    @Override
-//    public void showDefaultImage() {
-//
 
     View view;
     private PreviewProfileController controller;
@@ -101,13 +48,10 @@ public class PreviewProfileTab4Fragment extends Fragment implements PreviewProfi
     ClipboardManager clipboardManager;
 
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_full_view_tab_four, container, false);
-
-
 
         facebookLinearLayout = view.findViewById(R.id.facebook_linear_layout);
         phoneNumberLinearLayout = view.findViewById(R.id.phone_number_linear_layout);
@@ -142,7 +86,6 @@ public class PreviewProfileTab4Fragment extends Fragment implements PreviewProfi
         });
 
 
-
         phoneNumberLinearLayout.setClickable(true);
         phoneNumberLinearLayout.setOnClickListener(v -> {
             openDialog();
@@ -157,9 +100,6 @@ public class PreviewProfileTab4Fragment extends Fragment implements PreviewProfi
             startActivity(intent);
         });
 
-
-
-
         return view;
     }
 
@@ -169,10 +109,6 @@ public class PreviewProfileTab4Fragment extends Fragment implements PreviewProfi
         phoneContactDialog.show(getFragmentManager(), "pop up");
 
     }
-
-
-
-
 
 
     @Override
@@ -227,7 +163,6 @@ public class PreviewProfileTab4Fragment extends Fragment implements PreviewProfi
     public void setUserProfileImage(Bitmap bitmap) {
 
     }
-
 
     @Override
     public void showDefaultImage() {
