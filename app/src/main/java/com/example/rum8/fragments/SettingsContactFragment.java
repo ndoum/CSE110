@@ -3,6 +3,7 @@ package com.example.rum8.fragments;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,7 +57,7 @@ public class SettingsContactFragment extends Fragment implements SettingsControl
         snapchatField = rootView.findViewById(R.id.personal_info_snapchat_field);
         saveButton = rootView.findViewById(R.id.settings_contact_save);
         goToMainButton = rootView.findViewById(R.id.settings_go_to_main);
-
+        phoneNumberField.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
         saveButton.setOnClickListener(v -> {
             final Map<String, Object> userHash = new HashMap<String, Object>() {{
                 put(Db.Keys.PHONE_NUMBER, phoneNumberField.getText().toString());
