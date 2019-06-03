@@ -14,33 +14,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:text="@string/settings_living_accommodations"
-            android:textColor="@color/colorAccentDark" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccentDark"
-            app:boxStrokeColor="@color/colorAccentDark"
-            app:counterEnabled="true"
-            app:counterMaxLength="300"
-            app:counterOverflowTextColor="@color/colorPrimary">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/general_info_living_accommodations_field"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
-                android:maxLength="300"
-                android:minLines="2"
-                android:textColor="@color/colorAccentDark" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:text="@string/settings_room_type"
             android:textColor="@color/colorAccentDark" />
 
@@ -139,6 +112,33 @@
                 app:rsb_tick_mark_mode="number" />
 
         </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/settings_living_accommodations"
+            android:textColor="@color/colorAccentDark" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccentDark"
+            app:boxStrokeColor="@color/colorAccentDark"
+            app:counterEnabled="true"
+            app:counterMaxLength="300"
+            app:counterOverflowTextColor="@color/colorPrimary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/general_info_living_accommodations_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:maxLength="300"
+                android:minLines="2"
+                android:textColor="@color/colorAccentDark" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:layout_width="match_parent"
