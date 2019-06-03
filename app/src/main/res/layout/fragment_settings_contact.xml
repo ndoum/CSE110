@@ -93,5 +93,12 @@
             android:layout_marginTop="24dp"
             android:backgroundTint="@color/colorAccent"
             android:text="@string/save" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/settings_go_to_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/colorAccent"
+            android:text="go to view potential" />
     </LinearLayout>
 </ScrollView>

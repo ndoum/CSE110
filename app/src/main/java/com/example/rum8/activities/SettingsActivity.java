@@ -71,6 +71,13 @@ public class SettingsActivity extends AppCompatActivity implements SettingsContr
     }
 
     @Override
+    public void goToMain() {
+        final Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
     public void showCurrentUserInfo(final Map<String, Object> data) {
     }
 

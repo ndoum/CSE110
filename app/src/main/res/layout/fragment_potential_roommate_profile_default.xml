@@ -53,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="80dp"
                     android:layout_marginBottom="-8dp"
-                    app:cardBackgroundColor="#ddebec"
+                    app:cardBackgroundColor="@color/light_blue"
                     app:cardCornerRadius="8dp">
 
                     <LinearLayout

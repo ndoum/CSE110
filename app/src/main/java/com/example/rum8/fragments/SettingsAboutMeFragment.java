@@ -100,4 +100,7 @@ public class SettingsAboutMeFragment extends Fragment implements SettingsControl
     public void setUserProfileImage(Bitmap bitmap) {
     }
 
+    @Override
+    public void goToMain() {
+    }
 }

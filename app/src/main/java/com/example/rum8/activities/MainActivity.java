@@ -31,9 +31,9 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity implements MainControllerListener {
 
     private MainController controller;
-    Button gotit;
-    ImageView closePopup;
-    Dialog dia;
+    private Button gotit;
+    private ImageView closePopup;
+    private Dialog dia;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {

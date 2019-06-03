@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -30,9 +32,11 @@ public class SettingsHousingFragment extends Fragment implements SettingsControl
     private RangeSeekBar budgetSeekBar;
     private long budgetMin;
     private long budgetMax;
+    private String room;
     private TextInputEditText roomTypeField;
     private TextInputEditText otherThingsField;
     private Button saveButton;
+    private RadioGroup roomType;
 
     @Nullable
     @Override
@@ -47,19 +51,37 @@ public class SettingsHousingFragment extends Fragment implements SettingsControl
 
     @Override
     public void showCurrentUserInfo(final Map<String, Object> data) {
+        String room = (String) data.get(Db.Keys.ROOM_TYPE);
+
         accommodationsField.setText((String) data.get(Db.Keys.LIVING_ACCOMMODATIONS));
-        roomTypeField.setText((String) data.get(Db.Keys.ROOM_TYPE));
-        budgetSeekBar.setValue( (long) data.get(Db.Keys.BUDGET_MIN), (long) data.get(Db.Keys.BUDGET_MAX));
+
+       // set roomtype
+        if(room.equals("single")) {
+            roomType.check(R.id.room_single);
+        } else if (room.equals("double")){
+            roomType.check(R.id.room_double);
+        } else if (room.equals("triple")) {
+            roomType.check(R.id.room_triple);
+        }
+        budgetSeekBar.setValue((long) data.get(Db.Keys.BUDGET_MIN), (long) data.get(Db.Keys.BUDGET_MAX));
         otherThingsField.setText((String) data.get(Db.Keys.OTHER_THINGS_YOU_SHOULD_KNOW));
     }
 
     private void initViews(final View rootView) {
         accommodationsField = rootView.findViewById(R.id.general_info_living_accommodations_field);
-        roomTypeField = rootView.findViewById(R.id.general_info_room_type_field);
+        roomType = rootView.findViewById(R.id.room_type);
         otherThingsField = rootView.findViewById(R.id.general_info_other_things_field);
         saveButton = rootView.findViewById(R.id.settings_housing_save);
         budgetSeekBar = rootView.findViewById(R.id.general_info_budget_seekBar);
         budgetSeekBar.setIndicatorTextDecimalFormat("0");
+
+        roomType.setOnCheckedChangeListener((group, checkedId) -> {
+            // checkedId is the RadioButton selected
+            RadioButton rb = group.findViewById(checkedId);
+            room = rb.getText().toString();
+        });
+
+
         budgetSeekBar.setOnRangeChangedListener(new OnRangeChangedListener() {
             @Override
             public void onRangeChanged(RangeSeekBar view, float leftValue, float rightValue, boolean isFromUser) {
@@ -83,7 +105,7 @@ public class SettingsHousingFragment extends Fragment implements SettingsControl
                 put(Db.Keys.LIVING_ACCOMMODATIONS, accommodationsField.getText().toString());
                 put(Db.Keys.BUDGET_MIN, budgetMin);
                 put(Db.Keys.BUDGET_MAX, budgetMax);
-                put(Db.Keys.ROOM_TYPE, roomTypeField.getText().toString());
+                put(Db.Keys.ROOM_TYPE, room);
                 put(Db.Keys.OTHER_THINGS_YOU_SHOULD_KNOW, otherThingsField.getText().toString());
             }};
             controller.onSaveButtonClicked(userHash);
@@ -92,6 +114,10 @@ public class SettingsHousingFragment extends Fragment implements SettingsControl
 
     private void initController() {
         controller = new SettingsController(this);
+    }
+
+    @Override
+    public void goToMain() {
     }
 
     @Override
