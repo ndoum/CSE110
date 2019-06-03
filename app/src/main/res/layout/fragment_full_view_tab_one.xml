@@ -39,7 +39,7 @@
             android:layout_row="3"
             android:layout_column="0"
             android:layout_columnWeight="1"
-            android:text="Room Type:"
+            android:text="Room type"
             android:textSize="20sp"
             android:textStyle="bold" />
 
