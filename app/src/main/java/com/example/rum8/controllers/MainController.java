@@ -2,11 +2,14 @@ package com.example.rum8.controllers;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.MainControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageException;
 
@@ -25,6 +28,7 @@ public class MainController {
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
         storage = FirebaseStorage.getInstance();
+        updateInstanceIdToken();
     }
 
     public void onProfileSettingsButtonClicked() {
@@ -193,4 +197,19 @@ public class MainController {
                 });
     }
 
+
+    private void updateInstanceIdToken(){
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnSuccessListener(instanceIdResult -> {
+                    final String token = instanceIdResult.getToken();
+                    Map<String, Object> userHash = new HashMap<String, Object>() {{
+                        put("instance_id_token", token);
+                    }};
+                    Log.d("Dorian","sendRegistrationToServer" + token);
+                    Db.updateUser(db, auth.getCurrentUser(), userHash)
+                            .addOnSuccessListener(aVoid -> Log.d("Dorian", "Success"))
+                            .addOnFailureListener(error -> Log.d("Dorian", "Failure"));
+                })
+                .addOnFailureListener(error -> Log.d("Dorian", "Get instance id failure"));
+    }
 }
