@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.rum8">
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -10,39 +12,31 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppThemeNoActionBar"
-        >
+        android:theme="@style/AppThemeNoActionBar">
+        <activity android:name=".activities.RandomLink"></activity>
         <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".activities.RegistrationActivity" />
-
         <activity android:name=".activities.LoginActivity" />
-
         <activity android:name=".activities.PasswordRecoveryActivity" />
-
         <activity
             android:name=".activities.MainActivity"
             android:theme="@style/AppThemeActionBar" />
-
         <activity android:name=".activities.PreferencesActivity" />
-
         <activity android:name=".activities.SettingsActivity" />
-
         <activity android:name=".activities.PreviewProfileActivity" />
-
-        <activity android:name=".activities.MatchedRoommateProfileActivity"/>
-
+        <activity android:name=".activities.MatchedRoommateProfileActivity" />
         <activity android:name=".activities.ViewLinkListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SENDTO" />
+
                 <data android:scheme="mailto" />
             </intent-filter>
-
         </activity>
 
         <meta-data
@@ -50,5 +44,4 @@
             android:resource="@array/preloaded_fonts" />
     </application>
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 </manifest>
