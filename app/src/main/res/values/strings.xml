@@ -121,4 +121,6 @@
     <string name="user_tab_three_question_seven">I am fine with guests.</string>
     <string name="user_tab_three_question_eight">I plan to have a pet.</string>
 
+    <string name="default_notification_channel_id">default channel id</string>
+
 </resources>
