@@ -13,6 +13,7 @@ public interface ViewLinkListControllerListener {
 
     void goToSettings();
 
+    void goToRandomLink();
 
     void addNewLink(LinkListSingleLink link);
 
@@ -21,5 +22,4 @@ public interface ViewLinkListControllerListener {
     ArrayList<LinkListSingleLink> getLinks();
 
     void showToast(final String message);
-
 }

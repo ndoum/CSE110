@@ -7,16 +7,17 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/link_button"
+        android:id="@+id/random_link_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:alpha="0.8"
-        android:backgroundTint="#a5d7c8"
-        android:onClick="changeFragment"
+        android:alpha="0.6"
+        android:backgroundTint="#E06F4C"
         android:text="Surprise!"
-        tools:layout_editor_absoluteX="284dp"
-        tools:layout_editor_absoluteY="55dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="10dp"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/activity_view_link_list_recycler_view"
