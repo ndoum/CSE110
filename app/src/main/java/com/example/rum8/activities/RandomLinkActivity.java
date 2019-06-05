@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.rum8.R;
 
-public class RandomLink extends AppCompatActivity {
+public class RandomLinkActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
