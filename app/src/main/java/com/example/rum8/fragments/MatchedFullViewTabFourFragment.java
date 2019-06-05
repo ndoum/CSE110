@@ -48,14 +48,11 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
 
     ClipboardManager clipboardManager;
 
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         view = inflater.inflate(R.layout.fragment_full_view_tab_four, container, false);
-
-
 
         facebookLinearLayout = view.findViewById(R.id.facebook_linear_layout);
         phoneNumberLinearLayout = view.findViewById(R.id.phone_number_linear_layout);
@@ -89,8 +86,6 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
 
         });
 
-
-
         phoneNumberLinearLayout.setClickable(true);
         phoneNumberLinearLayout.setOnClickListener(v -> {
             openDialog();
@@ -104,10 +99,6 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
             intent.putExtra(Intent.EXTRA_EMAIL, new String[]{emailPassed});
             startActivity(intent);
         });
-
-
-
-
         return view;
     }
 
@@ -117,11 +108,6 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
         phoneContactDialog.show(getFragmentManager(), "pop up");
 
     }
-
-
-
-
-
 
     @Override
     public void showToast(String message) {
@@ -161,7 +147,6 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
         else{
             snapchatTextView.setText(snapchat);
         }
-
 
         onResume();
 
