@@ -163,6 +163,7 @@ public class Db {
 
         private static final String EMPTY_STRING = "";
         private static final Integer ZERO = 0;
+        private static final Integer BUDGET_MAX = 3000;
         private static final Map<String, Object> EMPTY_MAP = new HashMap<>();
 
         private static final Map<String, Object> USER = new HashMap<String, Object>() {{
@@ -170,7 +171,7 @@ public class Db {
             put(Keys.AGE, 18);
             put(Keys.BUDGET, EMPTY_STRING);
             put(Keys.BUDGET_MIN, ZERO);
-            put(Keys.BUDGET_MAX, ZERO);
+            put(Keys.BUDGET_MAX, BUDGET_MAX);
             put(Keys.COLLEGE, "Muir");
             put(Keys.EMAIL, EMPTY_STRING);
             put(Keys.FIRST_NAME, EMPTY_STRING);
