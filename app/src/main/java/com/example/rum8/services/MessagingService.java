@@ -23,15 +23,10 @@ public class MessagingService extends FirebaseMessagingService {
 
     private static final String TAG = "MyFirebaseMsgService";
 
-    /**
-     * Called when message is received.
-     *
-     * @param remoteMessage Object representing the message received from Firebase Cloud Messaging.
-     */
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
-        Log.d("Dorian", "From: " + remoteMessage.getFrom());
+        Log.d("Success", "Message recieved from: " + remoteMessage.getFrom());
 
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();
@@ -39,30 +34,12 @@ public class MessagingService extends FirebaseMessagingService {
         if (user == null)
             return;
 
-        if (remoteMessage.getData().size() > 0) {
-            Log.d("Dorian", "Message data payload: " + remoteMessage.getData());
-            handleNow();
-        }
-
         if (remoteMessage.getNotification() != null) {
-            Log.d("Dorian", "Message Notification Body: " + remoteMessage.getNotification().getBody());
+            Log.d("Success", "Message Notification Body: " + remoteMessage.getNotification().getBody());
             sendNotification(remoteMessage.getNotification().getBody());
         }
     }
 
-    /**
-     * Handle time allotted to BroadcastReceivers.
-     */
-    private void handleNow() {
-        Log.d("Dorian", "Short lived task is done.");
-    }
-
-
-    /**
-     * Create and show a simple notification containing the received FCM message.
-     *
-     * @param messageBody FCM message body received.
-     */
     private void sendNotification(String messageBody) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
