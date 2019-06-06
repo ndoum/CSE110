@@ -38,12 +38,13 @@ public class RandomLinkController {
                     HashMap.Entry<String, Object> randomEntry;
                     Iterator<HashMap.Entry<String, Object>> mapItr = linkListUidMap.entrySet().iterator();
                     randomEntry = mapItr.next();
+                    randomNum--;
                     while(mapItr.hasNext() && randomNum >= 0){
                         randomEntry = mapItr.next();
                         randomNum--;
                     }
                     String randomUid = randomEntry.getKey();
-                    System.out.println("RANDOM UID: "+randomUid);
+                    controllerListener.setRandomUid(randomUid);
                 }
 
             }

@@ -9,12 +9,15 @@
     android:layout_width="match_parent"
     android:layout_height="200dp">
     <ImageButton
+        android:id="@+id/random_link_button_1"
         android:layout_width="100dp"
         android:layout_height="100dp" />
     <ImageButton
+        android:id="@+id/random_link_button_2"
         android:layout_width="100dp"
         android:layout_height="100dp" />
     <ImageButton
+        android:id="@+id/random_link_button_3"
         android:layout_width="100dp"
         android:layout_height="100dp" />
 </LinearLayout>
