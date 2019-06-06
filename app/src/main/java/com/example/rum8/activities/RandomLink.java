@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,7 +20,6 @@ public class RandomLink extends AppCompatActivity implements RandomLinkControlle
     private String randomUid;
 
     public static final String USER_ID_STRING = "passed_user_id";
-    private ImageView closePopup;
     private Dialog dia;
     private Button surpriseButton;
 
@@ -63,7 +61,6 @@ public class RandomLink extends AppCompatActivity implements RandomLinkControlle
 
     public void showPopup() {
         dia.setContentView(R.layout.surprise_me);
-        closePopup = (ImageView) dia.findViewById(R.id.close_popup_surprise);
         surpriseButton = (Button) dia.findViewById(R.id.surprise_button);
         dia.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dia.show();
@@ -73,9 +70,6 @@ public class RandomLink extends AppCompatActivity implements RandomLinkControlle
             intent.putExtra(USER_ID_STRING, getRandomUid());
             startActivity(intent);
             finish();
-        });
-        closePopup.setOnClickListener(v -> {
-            dia.dismiss();
         });
     }
 
