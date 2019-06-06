@@ -1,11 +1,9 @@
 package com.example.rum8.activities;
 
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,7 +24,6 @@ public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkL
     private RecyclerView recyclerView;
     private ArrayList<LinkListSingleLink> links;
     private ViewLinkListRecycleViewAdapter adapter;
-    private View surprise;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -42,17 +39,7 @@ public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkL
         recyclerView = findViewById(R.id.activity_view_link_list_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ViewLinkListRecycleViewAdapter();
-        surprise = findViewById(R.id.random_link_button);
 
-        surprise.setOnClickListener(v -> {
-            controller.onSurpriseClicked();
-        });
-    }
-
-    @Override
-    public void goToRandomLink() {
-            final Intent intent = new Intent(ViewLinkListActivity.this, RandomLink.class);
-            startActivity(intent);
     }
 
     @Override

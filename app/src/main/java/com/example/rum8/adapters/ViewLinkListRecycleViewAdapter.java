@@ -42,10 +42,6 @@ public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLin
     }
 
     @Override
-    public void goToRandomLink() {
-    }
-
-    @Override
     public void goToSettings() {
 
     }
