@@ -5,6 +5,9 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.os.Build;
 import android.util.Log;
@@ -41,6 +44,8 @@ public class MessagingService extends FirebaseMessagingService {
     }
 
     private void sendNotification(final String title, final String body, final String matchedUserId) {
+        Bitmap logoBmp = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher_web);
+
         final Intent intent = new Intent(this, MatchedRoommateProfileActivity.class);
         intent.putExtra(ViewLinkListRecycleViewAdapter.USER_ID_STRING, matchedUserId);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -48,10 +53,12 @@ public class MessagingService extends FirebaseMessagingService {
 
         final String channelId = getString(R.string.default_notification_channel_id);
         final NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, channelId)
-                .setSmallIcon(R.drawable.logo_no_margin_small)
+                .setLargeIcon(logoBmp)
+                .setSmallIcon(R.drawable.link_variant)
                 .setContentTitle(title)
                 .setContentText(body)
                 .setAutoCancel(true)
+                .setColor(Color.rgb(112, 164, 162))
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                 .setContentIntent(pendingIntent);
 
