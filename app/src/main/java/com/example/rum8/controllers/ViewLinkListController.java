@@ -72,8 +72,4 @@ public class ViewLinkListController {
         controllerListener.displayLinks(controllerListener.getLinks());
 
     }
-    public void onSurpriseClicked() {
-        controllerListener.goToRandomLink();
-    }
-
 }
