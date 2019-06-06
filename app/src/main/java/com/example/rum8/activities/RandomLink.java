@@ -1,16 +1,12 @@
 package com.example.rum8.activities;
 
-import android.os.Bundle;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -72,7 +68,11 @@ public class RandomLink extends AppCompatActivity implements RandomLinkControlle
         dia.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dia.show();
         surpriseButton.setOnClickListener(v -> {
-//go to the profile
+            //go to the profile
+            final Intent intent = new Intent(RandomLink.this, MatchedRoommateProfileActivity.class);
+            intent.putExtra(USER_ID_STRING, getRandomUid());
+            startActivity(intent);
+            finish();
         });
         closePopup.setOnClickListener(v -> {
             dia.dismiss();
