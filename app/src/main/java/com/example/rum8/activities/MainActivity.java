@@ -1,6 +1,6 @@
 package com.example.rum8.activities;
 
-import android.app.ActionBar;
+
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -35,14 +36,18 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     private Button gotit;
     private ImageView closePopup;
     private Dialog dia;
-    private ActionBar actionBar;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        actionBar = getActionBar();
+
         initController();
+        final ActionBar actionBar = getSupportActionBar();
+
+        actionBar.setCustomView(R.layout.actionbar_cusom_view_home);
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayShowCustomEnabled(true);
         dia = new Dialog(this);
     }
 
