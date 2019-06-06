@@ -60,6 +60,9 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.0.0'
     api 'com.google.android.material:material:1.1.0-alpha07'
     implementation 'com.github.Jay-Goo:RangeSeekBar:2.0.6'
+
+    //add libraries for random link
+    implementation 'com.wajahatkarim3.EasyFlipView:EasyFlipView:2.1.2'
 }
 
 apply plugin: 'com.google.gms.google-services'
