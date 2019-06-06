@@ -1,8 +1,6 @@
 package com.example.rum8.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,9 +14,7 @@ public class RandomLink extends AppCompatActivity implements RandomLinkControlle
 
     private RandomLinkController controller;
     private String randomUid;
-    private ImageButton random_button_1;
-    private ImageButton random_button_2;
-    private ImageButton random_button_3;
+
     public static final String USER_ID_STRING = "passed_user_id";
     private EasyFlipView mYourFlipView;
 
@@ -26,7 +22,9 @@ public class RandomLink extends AppCompatActivity implements RandomLinkControlle
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_link);
+        initController();
         this.randomUid = "";
+        controller.getRandomLink();
         initController();
         initViews();
         mYourFlipView = (EasyFlipView) findViewById(R.id.easyFlipView);

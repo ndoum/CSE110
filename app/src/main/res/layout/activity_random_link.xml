@@ -14,17 +14,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="200dp"
             android:layout_centerInParent="true"
+            android:clickable="true"
             app:flipDuration="200"
             app:flipType="vertical"
             >
 
             <ImageView
+                android:id="@+id/random_link_coin_1"
                 android:layout_width="100dp"
                 android:layout_height="200dp"
                 android:gravity="center"
                 android:src="@drawable/logo_no_margin" />
 
             <ImageView
+                android:id="@+id/random_link_coin_2"
                 android:layout_width="100dp"
                 android:layout_height="200dp"
                 android:gravity="center"
