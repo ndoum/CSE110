@@ -1,17 +1,22 @@
 package com.example.rum8.activities;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.Button;
+import android.widget.TextView;
+import android.view.animation.AnimationUtils;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.rum8.R;
 import com.example.rum8.controllers.RandomLinkController;
 import com.example.rum8.listeners.RandomLinkControllerListener;
+
 import com.wajahatkarim3.easyflipview.EasyFlipView;
 
 public class RandomLink extends AppCompatActivity implements RandomLinkControllerListener {
@@ -22,6 +27,7 @@ public class RandomLink extends AppCompatActivity implements RandomLinkControlle
     public static final String USER_ID_STRING = "passed_user_id";
     private Dialog dia;
     private Button surpriseButton;
+    private TextView pickOne;
 
 
     @Override
@@ -36,7 +42,7 @@ public class RandomLink extends AppCompatActivity implements RandomLinkControlle
         this.randomUid = "";
         controller.getRandomLink();
         initController();
-
+        //pickOne.startAnimation(AnimationUtils.loadAnimation(this,R.anim.text_anime ));
         findViewById(R.id.front1).setOnClickListener(v -> {
             easyFlipView1.flipTheView();
             showPopup();
@@ -60,17 +66,10 @@ public class RandomLink extends AppCompatActivity implements RandomLinkControlle
 
 
     public void showPopup() {
-        dia.setContentView(R.layout.surprise_me);
-        surpriseButton = (Button) dia.findViewById(R.id.surprise_button);
-        dia.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dia.show();
-        surpriseButton.setOnClickListener(v -> {
-            //go to the profile
-            final Intent intent = new Intent(RandomLink.this, MatchedRoommateProfileActivity.class);
-            intent.putExtra(USER_ID_STRING, getRandomUid());
-            startActivity(intent);
-            finish();
-        });
+        final Intent intent = new Intent(RandomLink.this, MatchedRoommateProfileActivity.class);
+        intent.putExtra(USER_ID_STRING, getRandomUid());
+        startActivity(intent);
+        finish();
     }
 
     private void initViews() {

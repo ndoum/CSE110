@@ -27,7 +27,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/colorAccent"
-                android:text="Surprise Me!"
+                android:text="Show Me"
+                style="bold"
                 android:textColor="@color/white"/>
         </LinearLayout>
 
