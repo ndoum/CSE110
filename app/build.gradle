@@ -61,8 +61,14 @@ dependencies {
     api 'com.google.android.material:material:1.1.0-alpha07'
     implementation 'com.github.Jay-Goo:RangeSeekBar:2.0.6'
 
+
     //add libraries for random link
     implementation 'com.wajahatkarim3.EasyFlipView:EasyFlipView:2.1.2'
+    //cloud messaging
+    implementation 'com.google.firebase:firebase-messaging:18.0.0'
+
+    implementation 'androidx.work:work-runtime:2.0.1'
+
 }
 
 apply plugin: 'com.google.gms.google-services'
