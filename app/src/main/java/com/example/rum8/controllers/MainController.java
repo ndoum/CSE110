@@ -196,19 +196,16 @@ public class MainController {
                 });
     }
 
-
     private void updateInstanceIdToken() {
         FirebaseInstanceId.getInstance().getInstanceId()
                 .addOnSuccessListener(instanceIdResult -> {
-                    final String token = instanceIdResult.getToken();
-                    Map<String, Object> userHash = new HashMap<String, Object>() {{
-                        put("instance_id_token", token);
+                    final String instanceIdToken = instanceIdResult.getToken();
+                    final Map<String, Object> userHash = new HashMap<String, Object>() {{
+                        put(Db.Keys.INSTANCE_ID_TOKEN, instanceIdToken);
                     }};
-                    Log.d("Success", "sendRegistrationToServer" + token);
-                    Db.updateUser(db, auth.getCurrentUser(), userHash)
-                            .addOnSuccessListener(aVoid -> Log.d("Success", "Success"))
-                            .addOnFailureListener(error -> Log.d("Error", "Failure"));
+                    Db.updateUser(db, auth.getCurrentUser(), userHash);
+                    Log.d("Success", String.format("Update instance_id_token to %s", instanceIdToken));
                 })
-                .addOnFailureListener(error -> Log.d("Error", "Get instance id failure"));
+                .addOnFailureListener(error -> Log.d("Error", "getInstanceId() failure in MainController::updateInstanceIdToken()"));
     }
 }
