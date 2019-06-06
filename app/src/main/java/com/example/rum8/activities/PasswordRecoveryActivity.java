@@ -1,5 +1,6 @@
 package com.example.rum8.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
@@ -33,6 +34,8 @@ public class PasswordRecoveryActivity extends AppCompatActivity implements Passw
         button_resetPassword.setOnClickListener(v -> {
             final String email = emailField.getText().toString();
             controller.onSubmit(email);
+            showToast("Password reset email sent!");
+            goToLogin();
         });
     }
 
@@ -43,6 +46,13 @@ public class PasswordRecoveryActivity extends AppCompatActivity implements Passw
     @Override
     public void showToast(final String message) {
         Toast.makeText(PasswordRecoveryActivity.this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void goToLogin() {
+        final Intent intent = new Intent(PasswordRecoveryActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 }
