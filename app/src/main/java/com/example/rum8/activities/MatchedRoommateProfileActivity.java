@@ -90,6 +90,18 @@ public class MatchedRoommateProfileActivity extends AppCompatActivity implements
         profilePicture.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.images));
     }
 
+    @Override
+    public void onBackPressed(){
+        if (isTaskRoot()){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        else{
+            super.onBackPressed();
+        }
+    }
+
 
     private void initController() {
         controller = new MatchedRoommateProfileController(this);
