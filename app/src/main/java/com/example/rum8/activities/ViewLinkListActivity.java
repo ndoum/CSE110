@@ -51,7 +51,7 @@ public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkL
 
     @Override
     public void goToRandomLink() {
-            final Intent intent = new Intent(ViewLinkListActivity.this, RandomLink.class);
+            final Intent intent = new Intent(ViewLinkListActivity.this, RandomLinkActivity.class);
             startActivity(intent);
     }
 

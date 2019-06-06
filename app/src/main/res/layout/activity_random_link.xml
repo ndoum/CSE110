@@ -4,18 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.RandomLink">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="200dp">
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
-</LinearLayout>
+    tools:context=".activities.RandomLinkActivity">
+
+    <com.wajahatkarim3.easyflipview.EasyFlipView
+        android:id="@+id/easyFlipView"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:flipOnTouch = "true"
+        app:flipDuration="500"
+        app:flipEnabled="true"
+        >
+        <ImageView
+            android:gravity="center"
+            android:src="@drawable/logo"
+            android:layout_width="100dp"
+            android:layout_height="200dp" />
+
+    </com.wajahatkarim3.easyflipview.EasyFlipView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
