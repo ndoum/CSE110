@@ -118,6 +118,7 @@ public class Db {
         public static final String EMAIL = "email";
         public static final String FIRST_NAME = "first_name";
         public static final String GENDER = "gender";
+        public static final String INSTANCE_ID_TOKEN = "instance_id_token";
         public static final String LAST_NAME = "last_name";
         public static final String MAJOR = "major";
         public static final String PHONE_NUMBER = "phone_number";
@@ -172,6 +173,7 @@ public class Db {
             put(Keys.EMAIL, EMPTY_STRING);
             put(Keys.FIRST_NAME, EMPTY_STRING);
             put(Keys.GENDER, "Female");
+            put(Keys.INSTANCE_ID_TOKEN, EMPTY_STRING);  //Empty string will be updated every time you log in
             put(Keys.LAST_NAME, EMPTY_STRING);
             put(Keys.MAJOR, "Computer Science");
             put(Keys.PHONE_NUMBER, EMPTY_STRING);
