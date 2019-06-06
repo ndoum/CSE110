@@ -29,31 +29,6 @@ public class RandomLink extends AppCompatActivity implements RandomLinkControlle
     }
 
     private void initViews() {
-        random_button_1 = (ImageButton) findViewById(R.id.random_link_button_1);
-        random_button_2 = (ImageButton) findViewById(R.id.random_link_button_2);
-        random_button_3 = (ImageButton) findViewById(R.id.random_link_button_3);
-        controller.getRandomLink();
-
-        random_button_1.setOnClickListener(v -> {
-            Intent intent = new Intent(RandomLink.this, MatchedRoommateProfileActivity.class);
-            intent.putExtra(USER_ID_STRING, getRandomUid());
-            startActivity(intent);
-            finish();
-        });
-
-        random_button_2.setOnClickListener(v -> {
-            Intent intent = new Intent(RandomLink.this, MatchedRoommateProfileActivity.class);
-            intent.putExtra(USER_ID_STRING, getRandomUid());
-            startActivity(intent);
-            finish();
-        });
-
-        random_button_3.setOnClickListener(v -> {
-            Intent intent = new Intent(RandomLink.this, MatchedRoommateProfileActivity.class);
-            intent.putExtra(USER_ID_STRING, getRandomUid());
-            startActivity(intent);
-            finish();
-        });
     }
 
     private void initController() {
