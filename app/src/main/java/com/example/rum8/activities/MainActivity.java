@@ -1,5 +1,6 @@
 package com.example.rum8.activities;
 
+import android.app.ActionBar;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -34,11 +35,13 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     private Button gotit;
     private ImageView closePopup;
     private Dialog dia;
+    private ActionBar actionBar;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        actionBar = getActionBar();
         initController();
         dia = new Dialog(this);
     }
