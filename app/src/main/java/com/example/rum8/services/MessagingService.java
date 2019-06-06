@@ -12,6 +12,8 @@ import android.util.Log;
 import androidx.core.app.NotificationCompat;
 
 import com.example.rum8.R;
+import com.example.rum8.activities.MatchedRoommateProfileActivity;
+import com.example.rum8.activities.SettingsActivity;
 import com.example.rum8.activities.ViewLinkListActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -20,6 +22,7 @@ import com.google.firebase.messaging.RemoteMessage;
 import java.util.Map;
 
 public class MessagingService extends FirebaseMessagingService {
+    public static final String USER_ID_STRING = "passed_user_id";
 
     @Override
     public void onMessageReceived(final RemoteMessage remoteMessage) {
@@ -30,16 +33,18 @@ public class MessagingService extends FirebaseMessagingService {
         final Map<String, String> data = remoteMessage.getData();
         final String title = data.get("title");
         final String body = data.get("body");
+        final String matchUserId = data.get("newMatchId");
 
         Log.d("Success", String.format("Message received from: %s", remoteMessage.getFrom()));
         Log.d("Message title", title);
         Log.d("Message body", body);
 
-        sendNotification(title, body);
+        sendNotification(title, body, matchUserId);
     }
 
-    private void sendNotification(final String title, final String body) {
-        final Intent intent = new Intent(this, ViewLinkListActivity.class);
+    private void sendNotification(final String title, final String body, final String matchedUserId) {
+        final Intent intent = new Intent(this, MatchedRoommateProfileActivity.class);
+        intent.putExtra(USER_ID_STRING, matchedUserId);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         final PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent, PendingIntent.FLAG_ONE_SHOT);
 
