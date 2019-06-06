@@ -58,16 +58,21 @@ public class MatchedRoommateProfileActivity extends AppCompatActivity implements
         adapter.AddFragment(new MatchedFullViewTabFourFragment(), "Contacts");
         viewPager.setAdapter(adapter);
         tablayout.setupWithViewPager(viewPager);
+    }
 
+    @Override
+    public void onBackPressed() {
+        if (isTaskRoot()) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            super.onBackPressed();
+        }
     }
 
     public String getMatchedUserId() {
         return this.matchedUserId;
-    }
-
-    @Override
-    public void showToast(final String message) {
-
     }
 
     @Override
@@ -90,9 +95,12 @@ public class MatchedRoommateProfileActivity extends AppCompatActivity implements
         profilePicture.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.images));
     }
 
-
     private void initController() {
         controller = new MatchedRoommateProfileController(this);
+    }
+
+    @Override
+    public void showToast(final String message) {
     }
 
 }
