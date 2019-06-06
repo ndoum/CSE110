@@ -112,7 +112,6 @@ public class Db {
 
         public static final String ACADEMIC_YEAR = "academic_year";
         public static final String AGE = "age";
-        public static final String BUDGET = "budget";
         public static final String BUDGET_MIN = "budget_min";
         public static final String BUDGET_MAX = "budget_max";
         public static final String COLLEGE = "college";
@@ -161,15 +160,14 @@ public class Db {
 
         private static final String EMPTY_STRING = "";
         private static final Integer ZERO = 0;
-        private static final Integer BUDGET_MAX = 3000;
+        private static final Integer BUDGET_MAX_VAL = 3000;
         private static final Map<String, Object> EMPTY_MAP = new HashMap<>();
 
         private static final Map<String, Object> USER = new HashMap<String, Object>() {{
             put(Keys.ACADEMIC_YEAR, "First");
             put(Keys.AGE, 18);
-            put(Keys.BUDGET, EMPTY_STRING);
             put(Keys.BUDGET_MIN, ZERO);
-            put(Keys.BUDGET_MAX, BUDGET_MAX);
+            put(Keys.BUDGET_MAX, BUDGET_MAX_VAL);
             put(Keys.COLLEGE, "Muir");
             put(Keys.EMAIL, EMPTY_STRING);
             put(Keys.FIRST_NAME, EMPTY_STRING);
