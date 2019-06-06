@@ -3,12 +3,14 @@ package com.example.rum8.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.rum8.R;
 import com.example.rum8.controllers.RandomLinkController;
 import com.example.rum8.listeners.RandomLinkControllerListener;
+import com.wajahatkarim3.easyflipview.EasyFlipView;
 
 public class RandomLink extends AppCompatActivity implements RandomLinkControllerListener {
 
@@ -18,6 +20,7 @@ public class RandomLink extends AppCompatActivity implements RandomLinkControlle
     private ImageButton random_button_2;
     private ImageButton random_button_3;
     public static final String USER_ID_STRING = "passed_user_id";
+    private EasyFlipView mYourFlipView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +29,15 @@ public class RandomLink extends AppCompatActivity implements RandomLinkControlle
         this.randomUid = "";
         initController();
         initViews();
+        mYourFlipView = (EasyFlipView) findViewById(R.id.easyFlipView);
+        mYourFlipView.flipTheView();
+        Toast.makeText(RandomLink.this, "Front Card", Toast.LENGTH_SHORT).show();
+        mYourFlipView.flipTheView();
     }
 
     private void initViews() {
+
+        //mYourFlipView.flipTheView(false);
     }
 
     private void initController() {

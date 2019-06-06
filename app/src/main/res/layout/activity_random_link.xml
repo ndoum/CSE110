@@ -14,10 +14,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="200dp"
             android:layout_centerInParent="true"
-            app:flipDuration="500"
-            app:flipEnabled="true"
-            app:flipOnTouch="true"
-            app:flipType="horizontal"
+            app:flipDuration="200"
+            app:flipType="vertical"
             >
 
             <ImageView
@@ -30,7 +28,7 @@
                 android:layout_width="100dp"
                 android:layout_height="200dp"
                 android:gravity="center"
-                android:src="@drawable/logo_no_margin" />
+                android:src="@drawable/logo_no_border_cropped" />
 
         </com.wajahatkarim3.easyflipview.EasyFlipView>
 
