@@ -34,8 +34,6 @@ public class PasswordRecoveryActivity extends AppCompatActivity implements Passw
         button_resetPassword.setOnClickListener(v -> {
             final String email = emailField.getText().toString();
             controller.onSubmit(email);
-            showToast("Password reset email sent!");
-            goToLogin();
         });
     }
 
