@@ -21,7 +21,12 @@ public class PasswordRecoveryController {
      */
     public void onSubmit(final String email) {
         auth.sendPasswordResetEmail(email)
-                .addOnSuccessListener(aVoid -> Log.d("Success", "Reset Password Email sent"))
+                .addOnSuccessListener(aVoid -> {
+                    Log.d("Success", "Reset Password Email sent");
+                    final String message = "Password reset email sent";
+                    controllerListener.showToast(message);
+                    controllerListener.goToLogin();
+                })
                 .addOnFailureListener(e -> {
                     String message;
                     if (e instanceof FirebaseAuthInvalidUserException) {
