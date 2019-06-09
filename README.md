@@ -32,6 +32,8 @@ Clone this repository in Android Studio and build the application on your device
 Log in using a registered ucsd email account and corresponding password.
 
 ### Known bugs
+1. User can't change their picture more than once on the Settings Page. 
+    Workaround: leave the settings page and try again.
 
 ---------------------------------------------------------------------------------------------------------
 
