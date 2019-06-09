@@ -46,9 +46,8 @@ public class PhoneContactDialog extends AppCompatDialogFragment implements Match
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState){
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-
 
         LayoutInflater inflator = getActivity().getLayoutInflater();
         View view = inflator.inflate(R.layout.text_message_pop_up, null);
@@ -95,9 +94,8 @@ public class PhoneContactDialog extends AppCompatDialogFragment implements Match
                 }
             }
             else{
-                showToast("Eneter a valid message");
+                showToast("Enter a valid message");
             }
-
 
         });
 
@@ -121,7 +119,6 @@ public class PhoneContactDialog extends AppCompatDialogFragment implements Match
             case SEND_SMS_PERMISSION_REQUEST_CODE:
                 if(grantResults.length > 0 && (grantResults[0] == PackageManager.PERMISSION_GRANTED)){
                     sendMsgButton.setEnabled(true);
-
                 }
         }
     }
