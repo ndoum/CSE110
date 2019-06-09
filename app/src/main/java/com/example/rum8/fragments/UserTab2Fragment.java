@@ -68,7 +68,7 @@ public class UserTab2Fragment extends Fragment implements MainControllerListener
 
 
     @Override
-    public void goToProfileSettings() {
+    public void goToPreferencesSetting() {
     }
 
     @Override

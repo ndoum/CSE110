@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
             case R.id.main_activity_go_to_preferences:
-                controller.onProfileSettingsButtonClicked();
+                controller.onPreferencesButtonClicked();
                 return true;
             case R.id.main_activity_log_out:
                 controller.onLogOutButtonClicked();
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     }
 
     @Override
-    public void goToProfileSettings() {
+    public void goToPreferencesSetting() {
         final Intent intent = new Intent(MainActivity.this, PreferencesActivity.class);
         startActivity(intent);
     }
@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
 
         // when user click on got it button,go to profilesetting
         gotit.setOnClickListener(v -> {
-            goToProfileSettings();
+            goToPreferencesSetting();
         });
 
         closePopup.setOnClickListener(v -> {
