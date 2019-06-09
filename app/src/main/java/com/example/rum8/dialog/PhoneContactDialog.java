@@ -59,7 +59,7 @@ public class PhoneContactDialog extends AppCompatDialogFragment implements Match
 
         closePopupButton.setOnClickListener(v -> dismiss());
 
-        sendMsgButton.setEnabled(false);
+        sendMsgButton.setEnabled(true);
         if (checkPermission(Manifest.permission.SEND_SMS)) {
             sendMsgButton.setEnabled(true);
         } else {
