@@ -56,7 +56,7 @@ public class PreviewProfileTab3Fragment extends Fragment implements PreviewProfi
     private TextView questionEightSometimesResponse;
     private TextView questionEightNoResponse;
 
-    public PreviewProfileTab3Fragment(){
+    public PreviewProfileTab3Fragment() {
     }
 
     @Nullable

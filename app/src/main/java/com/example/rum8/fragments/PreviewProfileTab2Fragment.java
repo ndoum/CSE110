@@ -27,7 +27,7 @@ public class PreviewProfileTab2Fragment extends Fragment implements PreviewProfi
     private TextView interestField;
     private TextView hobbiesField;
 
-    public PreviewProfileTab2Fragment(){
+    public PreviewProfileTab2Fragment() {
     }
 
     @Nullable

@@ -177,19 +177,15 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     @Override
     public void showPopup() {
         dia.setContentView(R.layout.popup_no_more_profile);
-        closePopup = (ImageView) dia.findViewById(R.id.close_popup);
-        gotit = (Button) dia.findViewById(R.id.close_popup_button);
+        closePopup = dia.findViewById(R.id.close_popup);
+        gotit = dia.findViewById(R.id.close_popup_button);
         dia.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dia.show();
 
         // when user click on got it button,go to profilesetting
-        gotit.setOnClickListener(v -> {
-            goToProfileSettings();
-        });
+        gotit.setOnClickListener(v -> goToProfileSettings());
 
-        closePopup.setOnClickListener(v -> {
-            dia.dismiss();
-        });
+        closePopup.setOnClickListener(v -> dia.dismiss());
     }
 
 }

@@ -13,7 +13,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
-import com.example.rum8.activities.PreferencesActivity;
 import com.example.rum8.controllers.PreferencesController;
 import com.example.rum8.database.Db;
 import com.example.rum8.listeners.PreferencesControllerListener;
