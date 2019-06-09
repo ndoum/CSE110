@@ -16,8 +16,11 @@
 | [Cassie Yu](https://github.com/CassieYud)                     | Software Development Lead |
 
 ### Introduction
+UCSD students can forgo the unknowns of randomly assinged roommates and difficult to navigate websites and take matters into their own hands with rüm8: an android app for UCSD students to find your perfect roommate. Users are guided in the profile setup process to make sure vital information is provided, and a series of lifestyle and preference questions are asked in order to only show users compatible potential roommates. When browsing through profiles, users can "link" with a user if they like their. If there is a mutual "link," then rüm8 sends a notification to both users (if they are logged in). From there, users can view all their mutual links in their "link list" as well as review their profile again and view previously hidden contact information.
 
 ### Login credentials
+1. Username: ndoumbal@ucsd.edu
+    Password: cse110isgr8
 
 ### Requirements
 
