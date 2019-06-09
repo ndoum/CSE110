@@ -16,17 +16,20 @@
 | [Cassie Yu](https://github.com/CassieYud)                     | Software Development Lead |
 
 ### Introduction
-UCSD students can forgo the unknowns of randomly assinged roommates and difficult to navigate websites and take matters into their own hands with rüm8: an android app for UCSD students to find your perfect roommate. Users are guided in the profile setup process to make sure vital information is provided, and a series of lifestyle and preference questions are asked in order to only show users compatible potential roommates. When browsing through profiles, users can "link" with a user if they like their. If there is a mutual "link," then rüm8 sends a notification to both users (if they are logged in). From there, users can view all their mutual links in their "link list" as well as review their profile again and view previously hidden contact information.
+UCSD students can forgo the unknowns of randomly assinged roommates and difficult to navigate websites and take matters into their own hands with rüm8: an android app for UCSD students to find the perfect roommate. Users are guided in the profile setup process to make sure vital information is provided, and a series of lifestyle and preference questions are asked in order to only show users compatible potential roommates. When browsing through profiles, users can "link" with a user if they like their profile. If there is a mutual "link," then rüm8 sends a notification to both users (if they are logged in). From there, users can view all their mutual links in their "link list" as well as review their profile again and view previously hidden contact information. Using rüm8, students can find and reach out to their ideal roommate and make their housing experience the best it can be.
 
 ### Login credentials
-1. Username: ndoumbal@ucsd.edu
+1. Username: ndoumbalska@ucsd.edu
     Password: cse110isgr8
 
 ### Requirements
+You should have Java 8 running in an updated Android Studio. Level 26 or higher Emulator API.
 
 ### Installation instructions
+Clone this repository in Android Studio and build the application on your device or emulator in order to run the app. 
 
 ### How to run
+Log in using a registered ucsd email account and corresponding password.
 
 ### Known bugs
 
