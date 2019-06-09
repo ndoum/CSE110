@@ -18,6 +18,56 @@
 ### Introduction
 UCSD students can forgo the unknowns of randomly assigned roommates and difficult to navigate websites and take matters into their own hands with rüm8: an android app for UCSD students to find the perfect roommate. Users are guided in the profile setup process to make sure vital information is provided, and a series of lifestyle and preference questions are asked in order to only show users compatible potential roommates. When browsing through profiles, users can "link" with a user if they like their profile. If there is a mutual "link," then rüm8 sends a notification to both users (if they are logged in). From there, users can view all their mutual links in their "link list" as well as review their profile again and view previously hidden contact information. Using rüm8, students can find and reach out to their ideal roommate and make their housing experience the best it can be.
 
+### Code samples
+This is an example of LoginActivity View, having no logic, that passes
+informations to the controller so that it can make decisions.
+```
+buttonLogin = findViewById(R.id.button_login);
+buttonLogin.setOnClickListener(v -> {
+    final String email = emailField.getText().toString();
+    final String pw = passwordField.getText().toString();
+    controller.onSubmit(email, pw);
+});
+```
+In this code snipet of LoginController, LoginActivity simply passes actions
+onto the controller so that it can handle them. As you can see, when the login
+button is pressed, controller will validate user input and make decision of what
+to do next for a successful login.
+```
+public void onSubmit(final String email, final String password) {
+    if (!isValidEmail(email)) {
+        final String message = "Please use your UCSD email (i.e. abc@ucsd.edu)";
+        controllerListener.showToast(message);
+    } else if (!isValidPassword(password)) {
+        final String message = "Your password need to be more than 6 characters";
+        controllerListener.showToast(message);
+    } else {
+        auth.signInWithEmailAndPassword(email, password)
+                .addOnSuccessListener(authResult -> {
+                    if (auth.getCurrentUser().isEmailVerified()) {
+                        Log.d("Success", "signInWithEmail:success");
+                        onLoginSuccessful();
+                    } else {
+                        final String message = "Please verify your email!";
+                        controllerListener.showToast(message);
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    final String message;
+                    if (e instanceof FirebaseAuthInvalidUserException) {
+                        message = "Account does not exist";
+                    } else if (e instanceof FirebaseAuthInvalidCredentialsException) {
+                        message = "Incorrect password";
+                    } else {
+                        message = "Network error";
+                    }
+                    Log.d("Error", "signInWithEmail:failure", e);
+                    controllerListener.showToast(message);
+                });
+    }
+}
+```
+
 ### Login credentials
 Email: ndoumbalska@ucsd.edu </br>
 Password: cse110isgr8
@@ -33,6 +83,10 @@ A Pixel 2 or 3 emulator or hardware Pixel 2 or 3 device running at an API level 
 
 ### How to run
 Launch the app and log in using a registered UCSD email account and password.
+
+### Software Desgin (MVC)
+In this poject, we followed the Model View Controller design pattern to enforce modular code that is maintainable and readable. For each activity in our app, the acitivity itself represents the view and we defined a controller for each activity to handle the logic and serves as the communicator between each activity and the database model. By follwing this pattern of putting all the logic of an app page in a controller, we can separate the user interface implementation and the logic. If all the logic code is in the controller, then we can easily test the controller.
+
 
 ### Known bugs
 - User can only change their picture ("choose image") once per visit to the settings page. Subsequent attempts to change their picture will not update the image displayed.
