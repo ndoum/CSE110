@@ -21,7 +21,13 @@ import com.example.rum8.listeners.PreferencesControllerListener;
 
 import java.util.Map;
 
+/**
+ * Class that contains the preferences roommate fragment for preferences
+ * Activity.
+ */
 public class PreferencesRoommateFragment extends Fragment implements PreferencesControllerListener {
+
+    // Initialize class variable
     private PreferencesController controller;
     private RadioGroup radioGroupRoommateQuestionOne;
     private RadioGroup radioGroupRoommateQuestionTwo;
@@ -45,24 +51,24 @@ public class PreferencesRoommateFragment extends Fragment implements Preferences
 
         super.onCreateView(inflater, container, savedInstanceState);
         final View rootView = inflater.inflate(R.layout.fragment_preferences_roommate, container,
-            false);
+                false);
         controller = new PreferencesController(this);
 
         // Initialize each corresponding radio group in roommate preferences
         // questionnaire
         radioGroupRoommateQuestionOne = rootView.findViewById(R.id.roommate_preferences_gender_preference_radio_group);
         radioGroupRoommateQuestionTwo = rootView
-            .findViewById(R.id.roommate_preferences_cleanness_preference_radio_group);
+                .findViewById(R.id.roommate_preferences_cleanness_preference_radio_group);
         radioGroupRoommateQuestionThree = rootView
-            .findViewById(R.id.roommate_preferences_reserved_preference_radio_group);
+                .findViewById(R.id.roommate_preferences_reserved_preference_radio_group);
         radioGroupRoommateQuestionFour = rootView
-            .findViewById(R.id.roommate_preferences_comfortable_party_preference_radio_group);
+                .findViewById(R.id.roommate_preferences_comfortable_party_preference_radio_group);
         radioGroupRoommateQuestionFive = rootView
-            .findViewById(R.id.roommate_preferences_alcohol_preference_radio_group);
+                .findViewById(R.id.roommate_preferences_alcohol_preference_radio_group);
         radioGroupRoommateQuestionSix = rootView.findViewById(R.id.roommate_preferences_smoking_preference_radio_group);
         radioGroupRoommateQuestionSeven = rootView.findViewById(R.id.roommate_preferences_sleep_preference_radio_group);
         radioGroupRoommateQuestionEight = rootView
-            .findViewById(R.id.roommate_preferences_guests_preference_radio_group);
+                .findViewById(R.id.roommate_preferences_guests_preference_radio_group);
         radioGroupRoommateQuestionNine = rootView.findViewById(R.id.roommate_preferences_pets_preference_radio_group);
 
         controller.loadUserInfo();

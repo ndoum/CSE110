@@ -4,6 +4,9 @@ import android.graphics.Bitmap;
 
 import java.util.Map;
 
+/**
+ * Interface for main controller
+ */
 public interface MainControllerListener {
 
     void goToPreferencesSetting();

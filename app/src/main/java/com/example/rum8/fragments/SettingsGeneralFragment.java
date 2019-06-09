@@ -28,8 +28,13 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class that contains the fragment that display the general tab
+ * for setting activity.
+ */
 public class SettingsGeneralFragment extends Fragment implements SettingsControllerListener {
 
+    // Initialize class variable
     private final static int MAX_SIZE = 180; // height of imageView
     private final static String PROGRESS_TITLE = "Uploading...";
 
@@ -198,14 +203,17 @@ public class SettingsGeneralFragment extends Fragment implements SettingsControl
             controller.generalSaveButtonClicked(userInfo);
         });
     }
+
     private void initController() {
         controller = new SettingsController(this);
         controller.usernameEntered = firstNameField.getText().toString();
         controller.usernameEntered_lastName = lastNameField.getText().toString();
     }
+
     @Override
     public void goToMain() {
     }
+
     @Override
     public void showToast(final String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();

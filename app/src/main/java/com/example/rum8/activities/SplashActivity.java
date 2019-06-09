@@ -11,8 +11,12 @@ import com.example.rum8.R;
 import com.example.rum8.controllers.SplashController;
 import com.example.rum8.listeners.SplashControllerListener;
 
+/**
+ * Class that display render screen before the app start.
+ */
 public class SplashActivity extends AppCompatActivity implements SplashControllerListener {
 
+    // Initialize class variable
     private static final int SPLASH_DISPLAY_TIME_MS = 2000;
     private SplashController controller;
 
@@ -50,6 +54,7 @@ public class SplashActivity extends AppCompatActivity implements SplashControlle
         final Intent intent = new Intent(SplashActivity.this, SettingsActivity.class);
         startActivity(intent);
     }
+
     private void initController() {
         controller = new SplashController(this);
     }

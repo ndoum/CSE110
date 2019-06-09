@@ -3,7 +3,6 @@ package com.example.rum8.activities;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,9 +25,13 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.Map;
 
-
+/**
+ * Class that show matched roommate profile after user and potential
+ * roommate linked with one another.
+ */
 public class MatchedRoommateProfileActivity extends AppCompatActivity implements MatchedRoommateProfileControllerListener {
 
+    // Initialize class variable
     private TabLayout tablayout;
     private AppBarLayout appBarLayout;
     private ViewPager viewPager;
@@ -80,7 +83,7 @@ public class MatchedRoommateProfileActivity extends AppCompatActivity implements
         firstName = findViewById(R.id.matched_roommate_first_name);
         firstName.setText((String) data.get(Db.Keys.FIRST_NAME));
         academicYear = findViewById(R.id.matched_roommate_year);
-        academicYear.setText((String) data.get(Db.Keys.ACADEMIC_YEAR) + "Year");
+        academicYear.setText(data.get(Db.Keys.ACADEMIC_YEAR) + "Year");
     }
 
     @Override

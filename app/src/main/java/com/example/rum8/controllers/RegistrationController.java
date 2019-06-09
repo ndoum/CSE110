@@ -21,8 +21,13 @@ import java.util.Map;
 
 import static android.content.ContentValues.TAG;
 
+/**
+ * Class that contains the controller that serves as a communication
+ * between Registration Activity and the database model.
+ */
 public class RegistrationController {
 
+    // Initialize class variable
     private RegistrationControllerListener controllerListener;
     private Context context;
     private FirebaseAuth auth;

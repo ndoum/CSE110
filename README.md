@@ -1,4 +1,46 @@
-# Rüm8
+# Rüm8 - created by roommate Matching Experts (rME)
+
+![rum8 logo](https://github.com/ndoum/CSE110/blob/master/app/src/main/ic_launcher-web.png)
+
+| Contributor                                                   | Role                      |
+| ---                                                           | ---                       |
+| [Nia Doumbalska](https://github.com/ndoum)                    | Senior System Analyst     |
+| [Tina Hsieh](https://github.com/aiiitingx)                    | Business Analyst          |
+| [Alvin Li](https://github.com/alvinli222)                     | Software Architect        |
+| [Hao Luo](https://github.com/hl219)                           | Software Development Lead |
+| [Dorian Maldonado](https://github.com/dorianm7)               | User Interface Specialist |
+| [Iris Nayki](https://github.com/inayki)                       | Project Manager           |
+| [Shayan Raisi](https://github.com/shayan900)                  | Quality Assurance Lead    |
+| [Chase Sriprajittichai](https://github.com/cksriprajittichai) | Algorithm Specialist      |
+| [Ethan Yuan](https://github.com/Ethan-Yuan-ZY)                | Database Specialist       |
+| [Cassie Yu](https://github.com/CassieYud)                     | Software Development Lead |
+
+### Introduction
+UCSD students can forgo the unknowns of randomly assinged roommates and difficult to navigate websites and take matters into their own hands with rüm8: an android app for UCSD students to find the perfect roommate. Users are guided in the profile setup process to make sure vital information is provided, and a series of lifestyle and preference questions are asked in order to only show users compatible potential roommates. When browsing through profiles, users can "link" with a user if they like their profile. If there is a mutual "link," then rüm8 sends a notification to both users (if they are logged in). From there, users can view all their mutual links in their "link list" as well as review their profile again and view previously hidden contact information. Using rüm8, students can find and reach out to their ideal roommate and make their housing experience the best it can be.
+
+### Login credentials
+Email: ndoumbalska@ucsd.edu </br>
+Password: cse110isgr8
+
+### Requirements
+A Pixel 2 or 3 emulator or hardware Pixel 2 or 3 device running at an API level of 26 or higher.
+
+### Installation instructions
+1. Clone this repository.
+2. Run a Pixel 2 or 3 emulator or connect a hardware Pixel 2 or 3 device.
+3. Navigate to the top-level directory of the cloned repository.
+3. Install the app on the emulator or device using ADB: `adb install app-debug.apk`.
+
+### How to run
+Launch the app and log in using a registered UCSD email account and password.
+
+### Known bugs
+- User can only change their picture ("choose image") once per visit to the settings page. Subsequent attempts to change their picture will not update the image displayed.
+    - Workaround: leave the settings page and reopen it if you want to choose an image more than once.
+
+---------------------------------------------------------------------------------------------------------
+
+# Developer guide
 
 ### Things to remember:
 - __Never create a branch off of `dev`!__ <br/>
@@ -80,27 +122,27 @@
 ---------------------------------------------------------------------------------------------------------
 
 ### Git commands:
-| Command | Description |
-| ------- | ----------- |
-| `git status` | Check status |
-| `git add [file-name.txt]` | Add a file to the staging area |
-| `git add -A` | Add all new and changed files to the staging area |
-| `git commit` | Commit changes - must enter message in prompt |
-| `git commit -m "[commit message]"` | Commit changes with inline message |
-| `git rm -r [file-name.txt]` | Remove a file (or folder) |
-| `git branch` | List branches (the asterisk denotes the current branch) |
-| `git branch -a` | List all branches (local and remote) |
-| `git branch [branch name]` | Create a new branch |
-| `git branch -d [branch name]` | Delete a branch |
-| `git checkout -b [branch name]` | Create a new branch and switch to it |
-| `git checkout [branch name]` | Checkout a branch (local or remote branch) |
-| `git checkout -b [branch name] origin/[branch name]` | Clone a remote branch and switch to it |
-| `git checkout [branch name]` | Switch to a branch |
-| `git merge [branch name]` | Merge a branch into the active branch |
-| `git merge [source branch] [target branch]` | Merge a branch into a target branch |
-| `git stash` | Stash changes in a dirty working directory |
-| `git push` | Push changes to remote repository |
-| `git pull` | Update local repository to the newest commit |
-| `git log` | View commit history |
-| `git log --summary` | View detailed commit history |
-| `git diff [source branch] [target branch]` | Show diff of two branches |
+| Command                                              | Description                                             |
+| ---                                                  | ---                                                     |
+| `git status`                                         | Check status                                            |
+| `git add [file-name.txt]`                            | Add a file to the staging area                          |
+| `git add -A`                                         | Add all new and changed files to the staging area       |
+| `git commit`                                         | Commit changes - must enter message in prompt           |
+| `git commit -m "[commit message]"`                   | Commit changes with inline message                      |
+| `git rm -r [file-name.txt]`                          | Remove a file (or folder)                               |
+| `git branch`                                         | List branches (the asterisk denotes the current branch) |
+| `git branch -a`                                      | List all branches (local and remote)                    |
+| `git branch [branch name]`                           | Create a new branch                                     |
+| `git branch -d [branch name]`                        | Delete a branch                                         |
+| `git checkout -b [branch name]`                      | Create a new branch and switch to it                    |
+| `git checkout [branch name]`                         | Checkout a branch (local or remote branch)              |
+| `git checkout -b [branch name] origin/[branch name]` | Clone a remote branch and switch to it                  |
+| `git checkout [branch name]`                         | Switch to a branch                                      |
+| `git merge [branch name]`                            | Merge a branch into the active branch                   |
+| `git merge [source branch] [target branch]`          | Merge a branch into a target branch                     |
+| `git stash`                                          | Stash changes in a dirty working directory              |
+| `git push`                                           | Push changes to remote repository                       |
+| `git pull`                                           | Update local repository to the newest commit            |
+| `git log`                                            | View commit history                                     |
+| `git log --summary`                                  | View detailed commit history                            |
+| `git diff [source branch] [target branch]`           | Show diff of two branches                               |

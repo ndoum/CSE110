@@ -11,6 +11,10 @@ import com.google.firebase.storage.StorageException;
 
 import java.util.Map;
 
+/**
+ * Class that contains the controller that serves as a communication
+ * between Matched Roommate Profile Activity and the database model.
+ */
 public class MatchedRoommateProfileController {
     private FirebaseFirestore db;
     private FirebaseStorage storage;
@@ -59,7 +63,7 @@ public class MatchedRoommateProfileController {
 
     }
 
-    public void loadMatchUserContactInfo(String userId){
+    public void loadMatchUserContactInfo(String userId) {
         Db.fetchUserInfoById(this.db, userId).addOnSuccessListener(documentSnapshot -> {
             final Map<String, Object> matchedUserData = documentSnapshot.getData();
             controllerListener.showMatchedInfo(matchedUserData);

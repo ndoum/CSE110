@@ -13,8 +13,13 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.Map;
 
+/**
+ * Class that contains preferences questionnaire for potential roommate
+ * algorithm.
+ */
 public class PreferencesActivity extends FragmentActivity implements PreferencesControllerListener {
 
+    // Initialize class variable
     private ViewPager viewPager;
     private TabLayout tabLayout;
 

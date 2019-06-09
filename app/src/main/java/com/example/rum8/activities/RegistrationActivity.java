@@ -11,9 +11,14 @@ import com.example.rum8.controllers.RegistrationController;
 import com.example.rum8.listeners.RegistrationControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
 
+/**
+ * Class that handles registration of user by checking input
+ * of user and authenticate user in the fire base.
+ */
 public class RegistrationActivity extends AppCompatActivity
         implements RegistrationControllerListener {
 
+    //Initialize class variable
     private RegistrationController controller;
     private TextInputEditText editText_email;
     private TextInputEditText editText_password;

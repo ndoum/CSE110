@@ -22,8 +22,13 @@ import com.example.rum8.listeners.PreviewProfileControllerListener;
 
 import java.util.Map;
 
+/**
+ * Class that contains the preview profile tab four for preview
+ * profile activity.
+ */
 public class PreviewProfileTab4Fragment extends Fragment implements PreviewProfileControllerListener {
 
+    // Initialize class variable
     View view;
     private PreviewProfileController controller;
 
@@ -56,7 +61,7 @@ public class PreviewProfileTab4Fragment extends Fragment implements PreviewProfi
 
         clipboardManager = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
 
-        controller = new PreviewProfileController (this);
+        controller = new PreviewProfileController(this);
         controller.loadUserInfo();
 
         return view;
@@ -81,24 +86,21 @@ public class PreviewProfileTab4Fragment extends Fragment implements PreviewProfi
         emailTextView.setText(email);
 
 
-        if (facebook.equals("") && facebook.length() <= 0){
+        if (facebook.equals("") && facebook.length() <= 0) {
             facebookLinearLayout.setVisibility(View.GONE);
-        }
-        else{
+        } else {
             facebookTextView.setText(facebook);
         }
 
-        if (phoneNumber.equals("") && phoneNumber.length() <= 0){
+        if (phoneNumber.equals("") && phoneNumber.length() <= 0) {
             phoneNumberLinearLayout.setVisibility(View.GONE);
-        }
-        else{
+        } else {
             phoneNumberTextView.setText(phoneNumber);
         }
 
-        if (snapchat.equals("") && snapchat.length() <= 0){
+        if (snapchat.equals("") && snapchat.length() <= 0) {
             snapchatLinearLayout.setVisibility(View.GONE);
-        }
-        else{
+        } else {
             snapchatTextView.setText(snapchat);
         }
 

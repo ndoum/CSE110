@@ -25,15 +25,19 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
+/**
+ * Class that contains the fragment that display the housing tab
+ * for setting activity.
+ */
 public class SettingsHousingFragment extends Fragment implements SettingsControllerListener {
 
+    // Initialize class variable
     private SettingsController controller;
     private TextInputEditText accommodationsField;
     private RangeSeekBar budgetSeekBar;
     private long budgetMin;
     private long budgetMax;
     private String room;
-    private TextInputEditText roomTypeField;
     private TextInputEditText otherThingsField;
     private Button saveButton;
     private RadioGroup roomType;
@@ -55,13 +59,17 @@ public class SettingsHousingFragment extends Fragment implements SettingsControl
 
         accommodationsField.setText((String) data.get(Db.Keys.LIVING_ACCOMMODATIONS));
 
-       // set roomtype
-        if(room.equals("single")) {
-            roomType.check(R.id.room_single);
-        } else if (room.equals("double")){
-            roomType.check(R.id.room_double);
-        } else if (room.equals("triple")) {
-            roomType.check(R.id.room_triple);
+        // set roomtype
+        switch (room) {
+            case "single":
+                roomType.check(R.id.room_single);
+                break;
+            case "double":
+                roomType.check(R.id.room_double);
+                break;
+            case "triple":
+                roomType.check(R.id.room_triple);
+                break;
         }
         budgetSeekBar.setValue((long) data.get(Db.Keys.BUDGET_MIN), (long) data.get(Db.Keys.BUDGET_MAX));
         otherThingsField.setText((String) data.get(Db.Keys.OTHER_THINGS_YOU_SHOULD_KNOW));

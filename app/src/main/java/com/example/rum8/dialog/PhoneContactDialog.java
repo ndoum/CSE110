@@ -30,8 +30,12 @@ import com.example.rum8.listeners.MatchedRoommateProfileControllerListener;
 
 import java.util.Map;
 
+/**
+ * Class that create a popUp view for user to send message to matched user.
+ */
 public class PhoneContactDialog extends AppCompatDialogFragment implements MatchedRoommateProfileControllerListener {
 
+    // Initialize class variable
     private final static int SEND_SMS_PERMISSION_REQUEST_CODE = 111;
     private Button sendMsgButton;
     private Button closePopupButton;
@@ -40,10 +44,8 @@ public class PhoneContactDialog extends AppCompatDialogFragment implements Match
     private TextView phoneNumberTextView;
 
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState){
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-
 
         LayoutInflater inflator = getActivity().getLayoutInflater();
         View view = inflator.inflate(R.layout.text_message_pop_up, null);
@@ -54,70 +56,59 @@ public class PhoneContactDialog extends AppCompatDialogFragment implements Match
         controller = new MatchedRoommateProfileController(this);
         controller.loadMatchUserContactInfo(((MatchedRoommateProfileActivity) getActivity()).getMatchedUserId());
 
-        builder.setView(view)
-                .setTitle("Text Message");
+        builder.setView(view).setTitle("Text Message");
 
+        closePopupButton.setOnClickListener(v -> dismiss());
 
-        closePopupButton.setOnClickListener(v -> {
-            dismiss();
-        });
-
-        sendMsgButton.setEnabled(false);
-        if (checkPermission(Manifest.permission.SEND_SMS)){
+        sendMsgButton.setEnabled(true);
+        if (checkPermission(Manifest.permission.SEND_SMS)) {
             sendMsgButton.setEnabled(true);
-        }
-        else{
-            ActivityCompat.requestPermissions(getActivity(), new String[] {Manifest.permission.SEND_SMS}, SEND_SMS_PERMISSION_REQUEST_CODE);
+        } else {
+            ActivityCompat.requestPermissions(getActivity(), new String[] { Manifest.permission.SEND_SMS },
+                    SEND_SMS_PERMISSION_REQUEST_CODE);
 
         }
 
         sendMsgButton.setOnClickListener(v -> {
             String smsMessage = messageContent.getText().toString();
             String phoneNumber = phoneNumberTextView.getText().toString();
-            if (!TextUtils.isEmpty(smsMessage) && !TextUtils.isEmpty(phoneNumber)){
-                if (checkPermission(Manifest.permission.SEND_SMS)){
+            if (!TextUtils.isEmpty(smsMessage) && !TextUtils.isEmpty(phoneNumber)) {
+                if (checkPermission(Manifest.permission.SEND_SMS)) {
                     String SENT = "Message Sent";
                     String DELIVERED = "Message Delivered";
-                    PendingIntent sentPI = PendingIntent.getBroadcast(getContext(),0, new Intent(SENT),0);
-                    PendingIntent deliveredPI = PendingIntent.getBroadcast(getContext(),0, new Intent(DELIVERED),0);
+                    PendingIntent sentPI = PendingIntent.getBroadcast(getContext(), 0, new Intent(SENT), 0);
+                    PendingIntent deliveredPI = PendingIntent.getBroadcast(getContext(), 0, new Intent(DELIVERED), 0);
                     SmsManager smsManager = SmsManager.getDefault();
-                    smsManager.sendTextMessage("+1"+phoneNumber, null, smsMessage,sentPI,deliveredPI);
+                    smsManager.sendTextMessage("+1" + phoneNumber, null, smsMessage, sentPI, deliveredPI);
                     showToast("Text message sent");
                     dismiss();
-                }
-                else{
+                } else {
                     showToast("Failed Permission denied");
                 }
-            }
-            else{
+            } else {
                 showToast("Eneter a valid message");
             }
 
-
         });
-
-
-
 
         return builder.create();
 
     }
 
-    private boolean checkPermission(String permission){
-        int checkPermission = ContextCompat.checkSelfPermission(( getActivity()), permission);
+    private boolean checkPermission(String permission) {
+        int checkPermission = ContextCompat.checkSelfPermission((getActivity()), permission);
         return checkPermission == PackageManager.PERMISSION_GRANTED;
 
     }
 
-
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch(requestCode){
-            case SEND_SMS_PERMISSION_REQUEST_CODE:
-                if(grantResults.length > 0 && (grantResults[0] == PackageManager.PERMISSION_GRANTED)){
-                    sendMsgButton.setEnabled(true);
-
-                }
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+            @NonNull int[] grantResults) {
+        switch (requestCode) {
+        case SEND_SMS_PERMISSION_REQUEST_CODE:
+            if (grantResults.length > 0 && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                sendMsgButton.setEnabled(true);
+            }
         }
     }
 

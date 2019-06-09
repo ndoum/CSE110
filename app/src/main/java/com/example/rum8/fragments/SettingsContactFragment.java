@@ -24,8 +24,13 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
+/**
+ * Class that contains the fragment that display the contact tab
+ * for setting activity.
+ */
 public class SettingsContactFragment extends Fragment implements SettingsControllerListener {
 
+    // Initialization for class variable
     private SettingsController controller;
     private TextInputEditText phoneNumberField;
     private TextInputEditText facebookField;
@@ -67,9 +72,7 @@ public class SettingsContactFragment extends Fragment implements SettingsControl
             controller.onSaveButtonClicked(userHash);
         });
 
-        goToMainButton.setOnClickListener(v -> {
-            controller.onGoToMainClicked();
-        });
+        goToMainButton.setOnClickListener(v -> controller.onGoToMainClicked());
 
     }
 

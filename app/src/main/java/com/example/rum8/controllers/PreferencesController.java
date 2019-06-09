@@ -14,8 +14,8 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 
 /**
  * Class that implements the controller for preferences activity.
- * It serves as a communication between the view and the model in profile
- * settings activities.
+ * It serves as a communication between the view and the model in preference
+ * activities.
  */
 public class PreferencesController {
 
@@ -39,14 +39,14 @@ public class PreferencesController {
 
     public void loadUserInfo() {
         Db.fetchUserInfo(db, auth.getCurrentUser())
-            .addOnSuccessListener(documentSnapshot -> {
-                final Map<String, Object> data = documentSnapshot.getData();
-                controllerListener.showCurrentUserInfo(data);
-            })
-            .addOnFailureListener(e -> {
-                final String message = "Network error";
-                controllerListener.showToast(message);
-            });
+                .addOnSuccessListener(documentSnapshot -> {
+                    final Map<String, Object> data = documentSnapshot.getData();
+                    controllerListener.showCurrentUserInfo(data);
+                })
+                .addOnFailureListener(e -> {
+                    final String message = "Network error";
+                    controllerListener.showToast(message);
+                });
     }
 
     /**
@@ -63,8 +63,8 @@ public class PreferencesController {
      * Method that saves/updates user in database.
      */
     public void submitUserMap() {
-       Db.updateUser(db, auth.getCurrentUser(), userMap)
-            .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
-           .addOnFailureListener(e -> Log.d(TAG, "Error adding document"));
+        Db.updateUser(db, auth.getCurrentUser(), userMap)
+                .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
+                .addOnFailureListener(e -> Log.d(TAG, "Error adding document"));
     }
 }

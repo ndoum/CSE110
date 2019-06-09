@@ -15,8 +15,13 @@ import com.google.firebase.storage.StorageException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class that contains the controller that serves as a communication
+ * between Main Activity and the database model.
+ */
 public class MainController {
 
+    // Initialize class variable
     private MainControllerListener controllerListener;
     private FirebaseFirestore db;
     private FirebaseAuth auth;

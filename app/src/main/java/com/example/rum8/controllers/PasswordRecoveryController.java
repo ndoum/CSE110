@@ -6,8 +6,13 @@ import com.example.rum8.listeners.PasswordRecoveryControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 
+/**
+ * Class that contains the controller that serves as a communication
+ * between Password Recovery Activity and the database model.
+ */
 public class PasswordRecoveryController {
 
+    // Initialize class variable
     private PasswordRecoveryControllerListener controllerListener;
     private FirebaseAuth auth;
 
@@ -21,7 +26,12 @@ public class PasswordRecoveryController {
      */
     public void onSubmit(final String email) {
         auth.sendPasswordResetEmail(email)
-                .addOnSuccessListener(aVoid -> Log.d("Success", "Reset Password Email sent"))
+                .addOnSuccessListener(aVoid -> {
+                    Log.d("Success", "Reset Password Email sent");
+                    final String message = "Password reset email sent";
+                    controllerListener.showToast(message);
+                    controllerListener.goToLogin();
+                })
                 .addOnFailureListener(e -> {
                     String message;
                     if (e instanceof FirebaseAuthInvalidUserException) {

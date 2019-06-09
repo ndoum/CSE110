@@ -15,6 +15,10 @@ import com.google.firebase.storage.FirebaseStorage;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class that contains the controller that serves as a communication
+ * between ViewLinkList Activity and the database model.
+ */
 public class ViewLinkListController {
 
     private FirebaseFirestore db;
@@ -44,9 +48,7 @@ public class ViewLinkListController {
                     // fetch link's profile image
                     Db.fetchUserInfoById(db, uid).addOnCompleteListener((Task<DocumentSnapshot> task1) -> {
                         if (task1.isSuccessful()) {
-                            Db.fetchUserProfilePictureById(storage, uid).addOnSuccessListener((byte[] bytes) -> {
-                                createLink(uid, task1, bytes);
-                            }).addOnFailureListener(
+                            Db.fetchUserProfilePictureById(storage, uid).addOnSuccessListener((byte[] bytes) -> createLink(uid, task1, bytes)).addOnFailureListener(
                                     e -> createLink(uid, task1, null)
                             );
                         }
@@ -64,7 +66,7 @@ public class ViewLinkListController {
         String link_last_name = (String) linkInfoData.get(Db.Keys.LAST_NAME);
         String link_major = (String) linkInfoData.get(Db.Keys.MAJOR);
         Bitmap bitmap = null;
-        if (bytes != null){
+        if (bytes != null) {
             bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
         }
         LinkListSingleLink newLink = new LinkListSingleLink(link_first_name, link_last_name, linkUid, link_major, bitmap);

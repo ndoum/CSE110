@@ -20,6 +20,10 @@ import com.example.rum8.listeners.ViewLinkListControllerListener;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class that manage recycle view for each matched user of the
+ * current user
+ */
 public class ViewLinkListRecycleViewAdapter extends RecyclerView.Adapter<ViewLinkListRecycleViewAdapter.LinkListSingleLinkHolder> implements ViewLinkListControllerListener {
 
     private List<LinkListSingleLink> lLinks;
