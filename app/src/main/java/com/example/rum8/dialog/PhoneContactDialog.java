@@ -30,8 +30,13 @@ import com.example.rum8.listeners.MatchedRoommateProfileControllerListener;
 
 import java.util.Map;
 
+/**
+ * Class that create a popUp view for user to send message
+ * to matched user.
+ */
 public class PhoneContactDialog extends AppCompatDialogFragment implements MatchedRoommateProfileControllerListener {
 
+    // Initialize class variable
     private final static int SEND_SMS_PERMISSION_REQUEST_CODE = 111;
     private Button sendMsgButton;
     private Button closePopupButton;

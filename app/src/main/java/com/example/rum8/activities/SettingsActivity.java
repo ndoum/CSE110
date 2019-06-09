@@ -16,10 +16,13 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.Map;
 
+/**
+ * Class that handles basic user settings.
+ */
 public class SettingsActivity extends AppCompatActivity implements SettingsControllerListener {
 
+    // Initialize class variable
     private static final int PICK_IMAGE_REQUEST = 65537;
-
     private Uri filePath;
     private Bitmap bitmap;
     private ViewPager viewPager;

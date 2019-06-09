@@ -18,6 +18,10 @@ import com.example.rum8.listeners.ViewLinkListControllerListener;
 
 import java.util.ArrayList;
 
+/**
+ * Class that handles view link list that display all users that linked
+ * with current user.
+ */
 public class ViewLinkListActivity extends AppCompatActivity implements ViewLinkListControllerListener {
 
     private ViewLinkListController controller;

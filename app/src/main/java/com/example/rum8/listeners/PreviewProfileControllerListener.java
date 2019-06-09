@@ -4,6 +4,9 @@ import android.graphics.Bitmap;
 
 import java.util.Map;
 
+/**
+ * Interface for preview profile controller
+ */
 public interface PreviewProfileControllerListener {
 
     void showToast(final String message);

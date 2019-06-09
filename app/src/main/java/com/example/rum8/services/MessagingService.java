@@ -23,6 +23,10 @@ import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.Map;
 
+/**
+ * Class that manages sending notification to user device by
+ * listening to changes in fire base of current user.
+ */
 public class MessagingService extends FirebaseMessagingService {
 
     @Override

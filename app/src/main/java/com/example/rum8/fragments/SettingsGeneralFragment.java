@@ -28,8 +28,13 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class that contains the fragment that display the general tab
+ * for setting activity.
+ */
 public class SettingsGeneralFragment extends Fragment implements SettingsControllerListener {
 
+    // Initialize class variable
     private final static int MAX_SIZE = 180; // height of imageView
     private final static String PROGRESS_TITLE = "Uploading...";
 

@@ -21,7 +21,13 @@ import com.example.rum8.listeners.PreferencesControllerListener;
 
 import java.util.Map;
 
+/**
+ * Class that contains the preferences roommate fragment for preferences
+ * Activity.
+ */
 public class PreferencesRoommateFragment extends Fragment implements PreferencesControllerListener {
+
+    // Initialize class variable
     private PreferencesController controller;
     private RadioGroup radioGroupRoommateQuestionOne;
     private RadioGroup radioGroupRoommateQuestionTwo;

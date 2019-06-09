@@ -15,6 +15,10 @@ import com.google.firebase.storage.FirebaseStorage;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class that contains the controller that serves as a communication
+ * between ViewLinkList Activity and the database model.
+ */
 public class ViewLinkListController {
 
     private FirebaseFirestore db;

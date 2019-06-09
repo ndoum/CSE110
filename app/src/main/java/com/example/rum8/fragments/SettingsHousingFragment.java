@@ -25,15 +25,19 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
+/**
+ * Class that contains the fragment that display the housing tab
+ * for setting activity.
+ */
 public class SettingsHousingFragment extends Fragment implements SettingsControllerListener {
 
+    // Initialize class variable
     private SettingsController controller;
     private TextInputEditText accommodationsField;
     private RangeSeekBar budgetSeekBar;
     private long budgetMin;
     private long budgetMax;
     private String room;
-    private TextInputEditText roomTypeField;
     private TextInputEditText otherThingsField;
     private Button saveButton;
     private RadioGroup roomType;

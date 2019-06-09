@@ -4,6 +4,9 @@ import android.graphics.Bitmap;
 
 import java.util.Map;
 
+/**
+ * Interface for matched roommate profile controller
+ */
 public interface MatchedRoommateProfileControllerListener {
 
     void showToast(final String message);

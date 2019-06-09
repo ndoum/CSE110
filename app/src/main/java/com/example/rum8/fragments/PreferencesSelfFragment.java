@@ -20,7 +20,13 @@ import com.example.rum8.listeners.PreferencesControllerListener;
 
 import java.util.Map;
 
+/**
+ * Class that contains the preferences self fragment for preferences
+ * Activity.
+ */
 public class PreferencesSelfFragment extends Fragment implements PreferencesControllerListener {
+
+    // Initialize class variable
     private PreferencesController controller;
     private RadioGroup radioGroupPersonalQuestionOne;
     private RadioGroup radioGroupPersonalQuestionTwo;
@@ -31,7 +37,6 @@ public class PreferencesSelfFragment extends Fragment implements PreferencesCont
     private RadioGroup radioGroupPersonalQuestionSeven;
     private RadioGroup radioGroupPersonalQuestionEight;
     private Button personalSaveButton;
-    private Button personalNextButton;
     private int indicatorYes = 1;
     private int indicatorSometimes = 0;
     private int indicatorNo = -1;

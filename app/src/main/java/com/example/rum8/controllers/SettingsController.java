@@ -17,6 +17,10 @@ import java.util.Map;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
+/**
+ * Class that contains the controller that serves as a communication
+ * between Settings Activity and the database model.
+ */
 public class SettingsController {
 
     private static final double ONE_HUNDRED_PERCENT = 100.0;

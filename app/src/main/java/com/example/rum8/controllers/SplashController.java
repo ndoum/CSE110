@@ -8,8 +8,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Map;
 
+/**
+ * Class that contains the controller that serves as a communication
+ * between Splash Activity and the database model.
+ */
 public class SplashController {
 
+    // Initialization of class variable
     private SplashControllerListener controllerListener;
     private FirebaseAuth auth;
     private FirebaseFirestore db;
@@ -34,22 +39,22 @@ public class SplashController {
 
     private void goToMainOrPro(final FirebaseUser user) {
         Db.fetchUserInfo(db, auth.getCurrentUser())
-            .addOnSuccessListener(documentSnapshot -> {
-                final Map<String, Object> data = documentSnapshot.getData();
-                final String firstName = (String) data.get(Db.Keys.FIRST_NAME);
-                final String lastName = (String) data.get(Db.Keys.LAST_NAME);
+                .addOnSuccessListener(documentSnapshot -> {
+                    final Map<String, Object> data = documentSnapshot.getData();
+                    final String firstName = (String) data.get(Db.Keys.FIRST_NAME);
+                    final String lastName = (String) data.get(Db.Keys.LAST_NAME);
 
-                // If name has not been entered, go to preferences
-                if (!isPresent(firstName)||!isPresent(lastName)) {
-                    controllerListener.goToProfileSettings();
-                } else {
-                    controllerListener.goToMain();
-                }
-            })
-            .addOnFailureListener(e -> {
-                final String message = "Network error";
-                controllerListener.showToast(message);
-            });
+                    // If name has not been entered, go to preferences
+                    if (!isPresent(firstName) || !isPresent(lastName)) {
+                        controllerListener.goToProfileSettings();
+                    } else {
+                        controllerListener.goToMain();
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    final String message = "Network error";
+                    controllerListener.showToast(message);
+                });
     }
 
     // helper method to check if user input is present

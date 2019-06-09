@@ -8,8 +8,12 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.example.rum8.fragments.PreferencesSelfFragment;
 import com.example.rum8.fragments.PreferencesRoommateFragment;
 
+/**
+ * Class that contains view pager adapter for preferences fragment
+ */
 public class PreferencesViewPagerAdapter extends FragmentPagerAdapter {
 
+    //Initialize Class Variable
     private final Fragment[] fragments = {
             new PreferencesSelfFragment(),
             new PreferencesRoommateFragment()

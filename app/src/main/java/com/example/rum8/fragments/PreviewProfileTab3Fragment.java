@@ -19,8 +19,13 @@ import com.example.rum8.listeners.PreviewProfileControllerListener;
 
 import java.util.Map;
 
+/**
+ * Class that contains the preview profile tab three for preview
+ * profile activity.
+ */
 public class PreviewProfileTab3Fragment extends Fragment implements PreviewProfileControllerListener {
 
+    // Initialize class variable
     private View view;
     private PreviewProfileController controller;
 

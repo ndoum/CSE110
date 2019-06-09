@@ -15,8 +15,13 @@ import com.example.rum8.listeners.PreviewProfileControllerListener;
 
 import java.util.Map;
 
+/**
+ * Class that contains preview profile for user to preview how
+ * his/her profile will look for other people.
+ */
 public class PreviewProfileActivity extends AppCompatActivity implements PreviewProfileControllerListener {
 
+    // Initialize class variable
     private PreviewProfileController controller;
 
     @Override

@@ -2,7 +2,13 @@ package com.example.rum8.dataModels;
 
 import android.graphics.Bitmap;
 
+/**
+ * Class that create a single link that contains a matched user
+ * of the current user
+ */
 public class LinkListSingleLink {
+
+    // Initialize class variable
     private String firstName;
     private String lastName;
     private String major;

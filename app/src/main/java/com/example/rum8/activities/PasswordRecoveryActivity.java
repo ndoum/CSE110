@@ -12,7 +12,10 @@ import com.example.rum8.controllers.PasswordRecoveryController;
 import com.example.rum8.listeners.PasswordRecoveryControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
 
-
+/**
+ * Class that handles password recovery through fire base by
+ * sending email to the user.
+ */
 public class PasswordRecoveryActivity extends AppCompatActivity implements PasswordRecoveryControllerListener {
 
     private PasswordRecoveryController controller;
@@ -30,7 +33,6 @@ public class PasswordRecoveryActivity extends AppCompatActivity implements Passw
     private void initViews() {
         emailField = findViewById(R.id.user_email);
         button_resetPassword = findViewById(R.id.button_reset_password);
-
         button_resetPassword.setOnClickListener(v -> {
             final String email = emailField.getText().toString();
             controller.onSubmit(email);

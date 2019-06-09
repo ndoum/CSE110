@@ -15,6 +15,7 @@ import java.util.List;
  */
 public class PotentialRoommateProfileAltAdapter extends FragmentPagerAdapter {
 
+
     private final List<Fragment> fragmentList = new ArrayList<>();
     private final List<String> FragmentListTitles = new ArrayList<>();
 

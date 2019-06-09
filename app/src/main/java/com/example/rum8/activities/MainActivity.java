@@ -28,10 +28,12 @@ import com.example.rum8.listeners.MainControllerListener;
 import java.util.Map;
 
 /**
- * Class that implements the home page of application.
+ * Class that implements the home page of application. Contains the display of
+ * potential roommate in home page.
  */
 public class MainActivity extends AppCompatActivity implements MainControllerListener {
 
+    // Initialize class variable
     private MainController controller;
     private Button gotit;
     private ImageView closePopup;
@@ -41,10 +43,8 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         initController();
         final ActionBar actionBar = getSupportActionBar();
-
         actionBar.setCustomView(R.layout.actionbar_cusom_view_home);
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setDisplayShowCustomEnabled(true);
@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         dia.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dia.show();
 
-        // when user click on got it button,go to profilesetting
+        // when user click on got it button,go to profile setting
         gotit.setOnClickListener(v -> {
             goToProfileSettings();
         });
@@ -189,8 +189,6 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     }
 
     @Override
-    public void showDefaultImage() {
-
-    }
+    public void showDefaultImage() { }
 
 }

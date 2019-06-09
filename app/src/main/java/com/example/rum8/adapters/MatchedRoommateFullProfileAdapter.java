@@ -10,10 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class that manages the tabs for user info view page
+ * Class that manages the tabs for match user profile view page
  */
 public class MatchedRoommateFullProfileAdapter extends FragmentPagerAdapter {
 
+    // Initialization for class variable
     private final List<Fragment> fragmentList = new ArrayList<>();
     private final List<String> FragmentListTitles = new ArrayList<>();
 
