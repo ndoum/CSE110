@@ -18,6 +18,25 @@
 ### Introduction
 UCSD students can forgo the unknowns of randomly assigned roommates and difficult to navigate websites and take matters into their own hands with rüm8: an android app for UCSD students to find the perfect roommate. Users are guided in the profile setup process to make sure vital information is provided, and a series of lifestyle and preference questions are asked in order to only show users compatible potential roommates. When browsing through profiles, users can "link" with a user if they like their profile. If there is a mutual "link," then rüm8 sends a notification to both users (if they are logged in). From there, users can view all their mutual links in their "link list" as well as review their profile again and view previously hidden contact information. Using rüm8, students can find and reach out to their ideal roommate and make their housing experience the best it can be.
 
+### Login credentials
+Email: ndoumbalska@ucsd.edu </br>
+Password: cse110isgr8
+
+### Requirements
+A Pixel 2 or 3 emulator or hardware Pixel 2 or 3 device running at an API level of 26 or higher.
+
+### Installation instructions
+1. Clone this repository.
+2. Run a Pixel 2 or 3 emulator or connect a hardware Pixel 2 or 3 device.
+3. Navigate to the top-level directory of the cloned repository.
+3. Install the app on the emulator or device using ADB: `adb install app-debug.apk`.
+
+### How to run
+Launch the app and log in using a registered UCSD email account and password.
+
+### Software Desgin (MVC)
+In this poject, we followed the Model View Controller design pattern to enforce modular code that is maintainable and readable. For each activity in our app, the acitivity itself represents the view and we defined a controller for each activity to handle the logic and serves as the communicator between each activity and the database model. By follwing this pattern of putting all the logic of an app page in a controller, we can separate the user interface implementation and the logic. If all the logic code is in the controller, then we can easily test the controller.
+
 ### Code samples
 This is an example of LoginActivity View, having no logic, that passes
 informations to the controller so that it can make decisions.
@@ -67,26 +86,6 @@ public void onSubmit(final String email, final String password) {
     }
 }
 ```
-
-### Login credentials
-Email: ndoumbalska@ucsd.edu </br>
-Password: cse110isgr8
-
-### Requirements
-A Pixel 2 or 3 emulator or hardware Pixel 2 or 3 device running at an API level of 26 or higher.
-
-### Installation instructions
-1. Clone this repository.
-2. Run a Pixel 2 or 3 emulator or connect a hardware Pixel 2 or 3 device.
-3. Navigate to the top-level directory of the cloned repository.
-3. Install the app on the emulator or device using ADB: `adb install app-debug.apk`.
-
-### How to run
-Launch the app and log in using a registered UCSD email account and password.
-
-### Software Desgin (MVC)
-In this poject, we followed the Model View Controller design pattern to enforce modular code that is maintainable and readable. For each activity in our app, the acitivity itself represents the view and we defined a controller for each activity to handle the logic and serves as the communicator between each activity and the database model. By follwing this pattern of putting all the logic of an app page in a controller, we can separate the user interface implementation and the logic. If all the logic code is in the controller, then we can easily test the controller.
-
 
 ### Known bugs
 - User can only change their picture ("choose image") once per visit to the settings page. Subsequent attempts to change their picture will not update the image displayed.
