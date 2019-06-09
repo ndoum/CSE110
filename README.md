@@ -1,4 +1,35 @@
-# Rüm8
+# Rüm8 - created by roommate Matching Experts (rME)
+
+![rum8 logo](https://github.com/ndoum/CSE110/blob/master/app/src/main/ic_launcher-web.png)
+
+| Contributor                                                   | Role                      |
+| ---                                                           | ---                       |
+| [Nia Doumbalska](https://github.com/ndoum)                    | Senior System Analyst     |
+| [Tina Hsieh](https://github.com/aiiitingx)                    | Business Analyst          |
+| [Alvin Li](https://github.com/alvinli222)                     | Software Architect        |
+| [Hao Luo](https://github.com/hl219)                           | Software Development Lead |
+| [Dorian Maldonado](https://github.com/dorianm7)               | User Interface Specialist |
+| [Iris Nayki](https://github.com/inayki)                       | Project Manager           |
+| [Shayan Raisi](https://github.com/shayan900)                  | Quality Assurance Lead    |
+| [Chase Sriprajittichai](https://github.com/cksriprajittichai) | Algorithm Specialist      |
+| [Ethan Yuan](https://github.com/Ethan-Yuan-ZY)                | Database Specialist       |
+| [Cassie Yu](https://github.com/CassieYud)                     | Software Development Lead |
+
+### Introduction
+
+### Login credentials
+
+### Requirements
+
+### Installation instructions
+
+### How to run
+
+### Known bugs
+
+---------------------------------------------------------------------------------------------------------
+
+# Developer guide
 
 ### Things to remember:
 - __Never create a branch off of `dev`!__ <br/>
@@ -80,27 +111,27 @@
 ---------------------------------------------------------------------------------------------------------
 
 ### Git commands:
-| Command | Description |
-| ------- | ----------- |
-| `git status` | Check status |
-| `git add [file-name.txt]` | Add a file to the staging area |
-| `git add -A` | Add all new and changed files to the staging area |
-| `git commit` | Commit changes - must enter message in prompt |
-| `git commit -m "[commit message]"` | Commit changes with inline message |
-| `git rm -r [file-name.txt]` | Remove a file (or folder) |
-| `git branch` | List branches (the asterisk denotes the current branch) |
-| `git branch -a` | List all branches (local and remote) |
-| `git branch [branch name]` | Create a new branch |
-| `git branch -d [branch name]` | Delete a branch |
-| `git checkout -b [branch name]` | Create a new branch and switch to it |
-| `git checkout [branch name]` | Checkout a branch (local or remote branch) |
-| `git checkout -b [branch name] origin/[branch name]` | Clone a remote branch and switch to it |
-| `git checkout [branch name]` | Switch to a branch |
-| `git merge [branch name]` | Merge a branch into the active branch |
-| `git merge [source branch] [target branch]` | Merge a branch into a target branch |
-| `git stash` | Stash changes in a dirty working directory |
-| `git push` | Push changes to remote repository |
-| `git pull` | Update local repository to the newest commit |
-| `git log` | View commit history |
-| `git log --summary` | View detailed commit history |
-| `git diff [source branch] [target branch]` | Show diff of two branches |
+| Command                                              | Description                                             |
+| ---                                                  | ---                                                     |
+| `git status`                                         | Check status                                            |
+| `git add [file-name.txt]`                            | Add a file to the staging area                          |
+| `git add -A`                                         | Add all new and changed files to the staging area       |
+| `git commit`                                         | Commit changes - must enter message in prompt           |
+| `git commit -m "[commit message]"`                   | Commit changes with inline message                      |
+| `git rm -r [file-name.txt]`                          | Remove a file (or folder)                               |
+| `git branch`                                         | List branches (the asterisk denotes the current branch) |
+| `git branch -a`                                      | List all branches (local and remote)                    |
+| `git branch [branch name]`                           | Create a new branch                                     |
+| `git branch -d [branch name]`                        | Delete a branch                                         |
+| `git checkout -b [branch name]`                      | Create a new branch and switch to it                    |
+| `git checkout [branch name]`                         | Checkout a branch (local or remote branch)              |
+| `git checkout -b [branch name] origin/[branch name]` | Clone a remote branch and switch to it                  |
+| `git checkout [branch name]`                         | Switch to a branch                                      |
+| `git merge [branch name]`                            | Merge a branch into the active branch                   |
+| `git merge [source branch] [target branch]`          | Merge a branch into a target branch                     |
+| `git stash`                                          | Stash changes in a dirty working directory              |
+| `git push`                                           | Push changes to remote repository                       |
+| `git pull`                                           | Update local repository to the newest commit            |
+| `git log`                                            | View commit history                                     |
+| `git log --summary`                                  | View detailed commit history                            |
+| `git diff [source branch] [target branch]`           | Show diff of two branches                               |
