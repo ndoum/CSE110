@@ -40,9 +40,8 @@ public class PhoneContactDialog extends AppCompatDialogFragment implements Match
     private TextView phoneNumberTextView;
 
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState){
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
 
 
         LayoutInflater inflator = getActivity().getLayoutInflater();
@@ -58,38 +57,33 @@ public class PhoneContactDialog extends AppCompatDialogFragment implements Match
                 .setTitle("Text Message");
 
 
-        closePopupButton.setOnClickListener(v -> {
-            dismiss();
-        });
+        closePopupButton.setOnClickListener(v -> dismiss());
 
         sendMsgButton.setEnabled(false);
-        if (checkPermission(Manifest.permission.SEND_SMS)){
+        if (checkPermission(Manifest.permission.SEND_SMS)) {
             sendMsgButton.setEnabled(true);
-        }
-        else{
-            ActivityCompat.requestPermissions(getActivity(), new String[] {Manifest.permission.SEND_SMS}, SEND_SMS_PERMISSION_REQUEST_CODE);
+        } else {
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.SEND_SMS}, SEND_SMS_PERMISSION_REQUEST_CODE);
 
         }
 
         sendMsgButton.setOnClickListener(v -> {
             String smsMessage = messageContent.getText().toString();
             String phoneNumber = phoneNumberTextView.getText().toString();
-            if (!TextUtils.isEmpty(smsMessage) && !TextUtils.isEmpty(phoneNumber)){
-                if (checkPermission(Manifest.permission.SEND_SMS)){
+            if (!TextUtils.isEmpty(smsMessage) && !TextUtils.isEmpty(phoneNumber)) {
+                if (checkPermission(Manifest.permission.SEND_SMS)) {
                     String SENT = "Message Sent";
                     String DELIVERED = "Message Delivered";
-                    PendingIntent sentPI = PendingIntent.getBroadcast(getContext(),0, new Intent(SENT),0);
-                    PendingIntent deliveredPI = PendingIntent.getBroadcast(getContext(),0, new Intent(DELIVERED),0);
+                    PendingIntent sentPI = PendingIntent.getBroadcast(getContext(), 0, new Intent(SENT), 0);
+                    PendingIntent deliveredPI = PendingIntent.getBroadcast(getContext(), 0, new Intent(DELIVERED), 0);
                     SmsManager smsManager = SmsManager.getDefault();
-                    smsManager.sendTextMessage("+1"+phoneNumber, null, smsMessage,sentPI,deliveredPI);
+                    smsManager.sendTextMessage("+1" + phoneNumber, null, smsMessage, sentPI, deliveredPI);
                     showToast("Text message sent");
                     dismiss();
-                }
-                else{
+                } else {
                     showToast("Failed Permission denied");
                 }
-            }
-            else{
+            } else {
                 showToast("Eneter a valid message");
             }
 
@@ -97,14 +91,12 @@ public class PhoneContactDialog extends AppCompatDialogFragment implements Match
         });
 
 
-
-
         return builder.create();
 
     }
 
-    private boolean checkPermission(String permission){
-        int checkPermission = ContextCompat.checkSelfPermission(( getActivity()), permission);
+    private boolean checkPermission(String permission) {
+        int checkPermission = ContextCompat.checkSelfPermission((getActivity()), permission);
         return checkPermission == PackageManager.PERMISSION_GRANTED;
 
     }
@@ -112,9 +104,9 @@ public class PhoneContactDialog extends AppCompatDialogFragment implements Match
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch(requestCode){
+        switch (requestCode) {
             case SEND_SMS_PERMISSION_REQUEST_CODE:
-                if(grantResults.length > 0 && (grantResults[0] == PackageManager.PERMISSION_GRANTED)){
+                if (grantResults.length > 0 && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                     sendMsgButton.setEnabled(true);
 
                 }
