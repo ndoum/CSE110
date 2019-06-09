@@ -28,7 +28,7 @@ public class PreviewProfileTab1Fragment extends Fragment implements PreviewProfi
     private TextView otherThingsField;
     private TextView roomTypeField;
 
-    public PreviewProfileTab1Fragment(){
+    public PreviewProfileTab1Fragment() {
     }
 
     @Nullable

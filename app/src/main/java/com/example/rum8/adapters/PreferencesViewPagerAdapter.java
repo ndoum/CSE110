@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.rum8.fragments.PreferencesSelfFragment;
 import com.example.rum8.fragments.PreferencesRoommateFragment;
+import com.example.rum8.fragments.PreferencesSelfFragment;
 
 public class PreferencesViewPagerAdapter extends FragmentPagerAdapter {
 

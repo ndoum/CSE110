@@ -3,7 +3,6 @@ package com.example.rum8.activities;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -80,7 +79,7 @@ public class MatchedRoommateProfileActivity extends AppCompatActivity implements
         firstName = findViewById(R.id.matched_roommate_first_name);
         firstName.setText((String) data.get(Db.Keys.FIRST_NAME));
         academicYear = findViewById(R.id.matched_roommate_year);
-        academicYear.setText((String) data.get(Db.Keys.ACADEMIC_YEAR) + "Year");
+        academicYear.setText(data.get(Db.Keys.ACADEMIC_YEAR) + "Year");
     }
 
     @Override

@@ -67,9 +67,7 @@ public class SettingsContactFragment extends Fragment implements SettingsControl
             controller.onSaveButtonClicked(userHash);
         });
 
-        goToMainButton.setOnClickListener(v -> {
-            controller.onGoToMainClicked();
-        });
+        goToMainButton.setOnClickListener(v -> controller.onGoToMainClicked());
 
     }
 

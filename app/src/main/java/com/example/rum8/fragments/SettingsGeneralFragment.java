@@ -198,14 +198,17 @@ public class SettingsGeneralFragment extends Fragment implements SettingsControl
             controller.generalSaveButtonClicked(userInfo);
         });
     }
+
     private void initController() {
         controller = new SettingsController(this);
         controller.usernameEntered = firstNameField.getText().toString();
         controller.usernameEntered_lastName = lastNameField.getText().toString();
     }
+
     @Override
     public void goToMain() {
     }
+
     @Override
     public void showToast(final String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();

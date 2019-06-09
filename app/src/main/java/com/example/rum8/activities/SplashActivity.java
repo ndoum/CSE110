@@ -50,6 +50,7 @@ public class SplashActivity extends AppCompatActivity implements SplashControlle
         final Intent intent = new Intent(SplashActivity.this, SettingsActivity.class);
         startActivity(intent);
     }
+
     private void initController() {
         controller = new SplashController(this);
     }

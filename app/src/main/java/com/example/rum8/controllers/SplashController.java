@@ -34,22 +34,22 @@ public class SplashController {
 
     private void goToMainOrPro(final FirebaseUser user) {
         Db.fetchUserInfo(db, auth.getCurrentUser())
-            .addOnSuccessListener(documentSnapshot -> {
-                final Map<String, Object> data = documentSnapshot.getData();
-                final String firstName = (String) data.get(Db.Keys.FIRST_NAME);
-                final String lastName = (String) data.get(Db.Keys.LAST_NAME);
+                .addOnSuccessListener(documentSnapshot -> {
+                    final Map<String, Object> data = documentSnapshot.getData();
+                    final String firstName = (String) data.get(Db.Keys.FIRST_NAME);
+                    final String lastName = (String) data.get(Db.Keys.LAST_NAME);
 
-                // If name has not been entered, go to preferences
-                if (!isPresent(firstName)||!isPresent(lastName)) {
-                    controllerListener.goToProfileSettings();
-                } else {
-                    controllerListener.goToMain();
-                }
-            })
-            .addOnFailureListener(e -> {
-                final String message = "Network error";
-                controllerListener.showToast(message);
-            });
+                    // If name has not been entered, go to preferences
+                    if (!isPresent(firstName) || !isPresent(lastName)) {
+                        controllerListener.goToProfileSettings();
+                    } else {
+                        controllerListener.goToMain();
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    final String message = "Network error";
+                    controllerListener.showToast(message);
+                });
     }
 
     // helper method to check if user input is present
