@@ -19,21 +19,24 @@
 UCSD students can forgo the unknowns of randomly assinged roommates and difficult to navigate websites and take matters into their own hands with rüm8: an android app for UCSD students to find the perfect roommate. Users are guided in the profile setup process to make sure vital information is provided, and a series of lifestyle and preference questions are asked in order to only show users compatible potential roommates. When browsing through profiles, users can "link" with a user if they like their profile. If there is a mutual "link," then rüm8 sends a notification to both users (if they are logged in). From there, users can view all their mutual links in their "link list" as well as review their profile again and view previously hidden contact information. Using rüm8, students can find and reach out to their ideal roommate and make their housing experience the best it can be.
 
 ### Login credentials
-1. Username: ndoumbalska@ucsd.edu
-    Password: cse110isgr8
+Email: ndoumbalska@ucsd.edu </br>
+Password: cse110isgr8
 
 ### Requirements
-You should have Java 8 running in an updated Android Studio. Level 26 or higher Emulator API.
+A Pixel 2 or 3 emulator or hardware Pixel 2 or 3 device running at an API level of 26 or higher.
 
 ### Installation instructions
-Clone this repository in Android Studio and build the application on your device or emulator in order to run the app. 
+1. Clone this repository.
+2. Run a Pixel 2 or 3 emulator or connect a hardware Pixel 2 or 3 device.
+3. Navigate to the top-level directory of the cloned repository.
+3. Install the app on the emulator or device using ADB: `adb install app-debug.apk`.
 
 ### How to run
-Log in using a registered ucsd email account and corresponding password.
+Launch the app and log in using a registered UCSD email account and password.
 
 ### Known bugs
-1. User can't change their picture more than once on the Settings Page. 
-    Workaround: leave the settings page and try again.
+- User can only change their picture ("choose image") once per visit to the settings page. Subsequent attempts to change their picture will not update the image displayed.
+    - Workaround: leave the settings page and reopen it if you want to choose an image more than once.
 
 ---------------------------------------------------------------------------------------------------------
 
