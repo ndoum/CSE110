@@ -9,7 +9,7 @@ import java.util.Map;
  */
 public interface MainControllerListener {
 
-    void goToProfileSettings();
+    void goToPreferencesSetting();
 
     void goToLogin();
 

@@ -60,28 +60,28 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
-        case R.id.main_activity_go_to_preferences:
-            controller.onProfileSettingsButtonClicked();
-            return true;
-        case R.id.main_activity_log_out:
-            controller.onLogOutButtonClicked();
-            return true;
-        case R.id.main_activity_go_to_view_link_list:
-            controller.onGoToLinkListButtonClicked();
-            return true;
-        case R.id.main_activity_go_to_settings:
-            controller.onSettingsButtonClicked();
-            return true;
-        case R.id.main_activity_go_to_preview_profile:
-            controller.onPreviewProfileButtonClicked();
-            return true;
-        default:
-            return super.onOptionsItemSelected(item);
+            case R.id.main_activity_go_to_preferences:
+                controller.onPreferencesButtonClicked();
+                return true;
+            case R.id.main_activity_log_out:
+                controller.onLogOutButtonClicked();
+                return true;
+            case R.id.main_activity_go_to_view_link_list:
+                controller.onGoToLinkListButtonClicked();
+                return true;
+            case R.id.main_activity_go_to_settings:
+                controller.onSettingsButtonClicked();
+                return true;
+            case R.id.main_activity_go_to_preview_profile:
+                controller.onPreviewProfileButtonClicked();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
     @Override
-    public void goToProfileSettings() {
+    public void goToPreferencesSetting() {
         final Intent intent = new Intent(MainActivity.this, PreferencesActivity.class);
         startActivity(intent);
     }
@@ -178,7 +178,9 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         dia.show();
 
         // when user click on got it button,go to profilesetting
-        gotit.setOnClickListener(v -> goToProfileSettings());
+        gotit.setOnClickListener(v -> {
+            goToPreferencesSetting();
+        });
 
         closePopup.setOnClickListener(v -> dia.dismiss());
     }

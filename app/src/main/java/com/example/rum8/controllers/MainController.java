@@ -35,8 +35,8 @@ public class MainController {
         updateInstanceIdToken();
     }
 
-    public void onProfileSettingsButtonClicked() {
-        controllerListener.goToProfileSettings();
+    public void onPreferencesButtonClicked() {
+        controllerListener.goToPreferencesSetting();
     }
 
     public void onSettingsButtonClicked() {
