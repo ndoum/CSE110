@@ -1,6 +1,5 @@
 package com.example.rum8.activities;
 
-
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -28,10 +27,12 @@ import com.example.rum8.listeners.MainControllerListener;
 import java.util.Map;
 
 /**
- * Class that implements the home page of application.
+ * Class that implements the home page of application. Contains the display of
+ * potential roommate in home page.
  */
 public class MainActivity extends AppCompatActivity implements MainControllerListener {
 
+    // Initialize class variable
     private MainController controller;
     private Button gotit;
     private ImageView closePopup;
@@ -41,10 +42,8 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         initController();
         final ActionBar actionBar = getSupportActionBar();
-
         actionBar.setCustomView(R.layout.actionbar_cusom_view_home);
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setDisplayShowCustomEnabled(true);
@@ -62,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
             case R.id.main_activity_go_to_preferences:
-                controller.onProfileSettingsButtonClicked();
+                controller.onPreferencesButtonClicked();
                 return true;
             case R.id.main_activity_log_out:
                 controller.onLogOutButtonClicked();
@@ -82,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     }
 
     @Override
-    public void goToProfileSettings() {
+    public void goToPreferencesSetting() {
         final Intent intent = new Intent(MainActivity.this, PreferencesActivity.class);
         startActivity(intent);
     }
@@ -166,10 +165,6 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     }
 
     @Override
-    public void showDefaultImage() {
-    }
-
-    @Override
     public void showToast(final String message) {
         Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
     }
@@ -183,9 +178,15 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
         dia.show();
 
         // when user click on got it button,go to profilesetting
-        gotit.setOnClickListener(v -> goToProfileSettings());
+        gotit.setOnClickListener(v -> {
+            goToPreferencesSetting();
+        });
 
         closePopup.setOnClickListener(v -> dia.dismiss());
+    }
+
+    @Override
+    public void showDefaultImage() {
     }
 
 }

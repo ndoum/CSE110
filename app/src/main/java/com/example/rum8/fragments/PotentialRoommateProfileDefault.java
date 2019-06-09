@@ -22,8 +22,13 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.Map;
 
+/**
+ * Class that shows the display of potential roommate profile
+ * of each potential roommate.
+ */
 public class PotentialRoommateProfileDefault extends Fragment implements MainControllerListener {
 
+    // Initialize Class Variable
     private TabLayout tablayout;
     private AppBarLayout appBarLayout;
     private ViewPager viewPager;
@@ -77,7 +82,7 @@ public class PotentialRoommateProfileDefault extends Fragment implements MainCon
     }
 
     @Override
-    public void goToProfileSettings() {
+    public void goToPreferencesSetting() {
     }
 
     @Override

@@ -9,6 +9,10 @@ import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
 
+/**
+ * Class that shows the display of potential roommate profile
+ * when run out of potential roommate.
+ */
 public class PotentialRoommateProfileAlt extends Fragment {
 
     @Override

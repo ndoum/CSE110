@@ -16,8 +16,13 @@ import java.util.Map;
 
 import javax.annotation.Nonnull;
 
+/**
+ * Class that serves as an interface for call to
+ * fire base operations for current user and other user.
+ */
 public class Db {
 
+    // Initialize class variable
     private static final String USERS_COLLECTION_NAME = "users";
     private static final String PROFILE_PIC_PATH = "profile_pictures/";
     private static final String DEFAULT_PROFILE_PIC_PATH = "profile_picture_default/default_profile_pic.png";

@@ -19,8 +19,13 @@ import com.example.rum8.listeners.MainControllerListener;
 
 import java.util.Map;
 
+/**
+ * Class that contains the user tab two fragment for Main
+ * Activity
+ */
 public class UserTab2Fragment extends Fragment implements MainControllerListener {
 
+    // Initialize class variable
     private View view;
     private MainController controller;
     private TextView aboutMeField;
@@ -68,7 +73,7 @@ public class UserTab2Fragment extends Fragment implements MainControllerListener
 
 
     @Override
-    public void goToProfileSettings() {
+    public void goToPreferencesSetting() {
     }
 
     @Override

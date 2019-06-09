@@ -10,6 +10,10 @@ import com.example.rum8.fragments.SettingsContactFragment;
 import com.example.rum8.fragments.SettingsGeneralFragment;
 import com.example.rum8.fragments.SettingsHousingFragment;
 
+/**
+ * Class that contain settings view pager adapter that manges
+ * fragment in settings activity.
+ */
 public class SettingsViewPagerAdapter extends FragmentPagerAdapter {
 
     private final Fragment[] fragments = {

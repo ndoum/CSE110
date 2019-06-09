@@ -4,6 +4,9 @@ import com.example.rum8.dataModels.LinkListSingleLink;
 
 import java.util.ArrayList;
 
+/**
+ * Interface for view link list controller
+ */
 public interface ViewLinkListControllerListener {
     void goToProfileSettings();
 

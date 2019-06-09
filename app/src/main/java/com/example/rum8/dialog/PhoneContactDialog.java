@@ -30,8 +30,12 @@ import com.example.rum8.listeners.MatchedRoommateProfileControllerListener;
 
 import java.util.Map;
 
+/**
+ * Class that create a popUp view for user to send message to matched user.
+ */
 public class PhoneContactDialog extends AppCompatDialogFragment implements MatchedRoommateProfileControllerListener {
 
+    // Initialize class variable
     private final static int SEND_SMS_PERMISSION_REQUEST_CODE = 111;
     private Button sendMsgButton;
     private Button closePopupButton;
@@ -43,7 +47,6 @@ public class PhoneContactDialog extends AppCompatDialogFragment implements Match
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-
         LayoutInflater inflator = getActivity().getLayoutInflater();
         View view = inflator.inflate(R.layout.text_message_pop_up, null);
         messageContent = view.findViewById(R.id.pop_up_message_content);
@@ -53,9 +56,7 @@ public class PhoneContactDialog extends AppCompatDialogFragment implements Match
         controller = new MatchedRoommateProfileController(this);
         controller.loadMatchUserContactInfo(((MatchedRoommateProfileActivity) getActivity()).getMatchedUserId());
 
-        builder.setView(view)
-                .setTitle("Text Message");
-
+        builder.setView(view).setTitle("Text Message");
 
         closePopupButton.setOnClickListener(v -> dismiss());
 
@@ -63,7 +64,8 @@ public class PhoneContactDialog extends AppCompatDialogFragment implements Match
         if (checkPermission(Manifest.permission.SEND_SMS)) {
             sendMsgButton.setEnabled(true);
         } else {
-            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.SEND_SMS}, SEND_SMS_PERMISSION_REQUEST_CODE);
+            ActivityCompat.requestPermissions(getActivity(), new String[] { Manifest.permission.SEND_SMS },
+                    SEND_SMS_PERMISSION_REQUEST_CODE);
 
         }
 
@@ -87,9 +89,7 @@ public class PhoneContactDialog extends AppCompatDialogFragment implements Match
                 showToast("Eneter a valid message");
             }
 
-
         });
-
 
         return builder.create();
 
@@ -101,15 +101,14 @@ public class PhoneContactDialog extends AppCompatDialogFragment implements Match
 
     }
 
-
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+            @NonNull int[] grantResults) {
         switch (requestCode) {
-            case SEND_SMS_PERMISSION_REQUEST_CODE:
-                if (grantResults.length > 0 && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-                    sendMsgButton.setEnabled(true);
-
-                }
+        case SEND_SMS_PERMISSION_REQUEST_CODE:
+            if (grantResults.length > 0 && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                sendMsgButton.setEnabled(true);
+            }
         }
     }
 

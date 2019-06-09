@@ -8,8 +8,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Map;
 
+/**
+ * Class that contains the controller that serves as a communication
+ * between Splash Activity and the database model.
+ */
 public class SplashController {
 
+    // Initialization of class variable
     private SplashControllerListener controllerListener;
     private FirebaseAuth auth;
     private FirebaseFirestore db;

@@ -12,7 +12,13 @@ import com.google.firebase.storage.StorageException;
 
 import java.util.Map;
 
+/**
+ * Class that contains the controller that serves as a communication
+ * between Preview Profile Activity and the database model.
+ */
 public class PreviewProfileController {
+
+    // Initialize class variable
     private PreviewProfileControllerListener controllerListener;
     private FirebaseFirestore db;
     private FirebaseAuth auth;

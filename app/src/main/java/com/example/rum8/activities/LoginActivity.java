@@ -12,8 +12,13 @@ import com.example.rum8.controllers.LoginController;
 import com.example.rum8.listeners.LoginControllerListener;
 import com.google.android.material.textfield.TextInputEditText;
 
+/**
+ * Class for logging in the user to the application. It contains checking user input and
+ * authentication in the fire base.
+ */
 public class LoginActivity extends AppCompatActivity implements LoginControllerListener {
 
+    // Initialize class variable
     private LoginController controller;
     private TextInputEditText emailField;
     private TextInputEditText passwordField;

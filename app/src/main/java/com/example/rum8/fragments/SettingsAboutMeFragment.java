@@ -21,8 +21,13 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
+/**
+ * Class that contains the fragment that display the about me tab
+ * for setting activity.
+ */
 public class SettingsAboutMeFragment extends Fragment implements SettingsControllerListener {
 
+    // Initialize class variable
     private SettingsController controller;
     private TextInputEditText majorField;
     private TextInputEditText aboutMeField;
