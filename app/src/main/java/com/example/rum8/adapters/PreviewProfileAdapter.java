@@ -9,6 +9,10 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class that contain preview profile adapter to manage preview profile
+ * fragment
+ */
 public class PreviewProfileAdapter extends FragmentPagerAdapter {
 
     private final List<Fragment> fragmentList = new ArrayList<>();

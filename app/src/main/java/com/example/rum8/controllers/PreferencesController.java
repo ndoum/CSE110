@@ -14,8 +14,8 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 
 /**
  * Class that implements the controller for preferences activity.
- * It serves as a communication between the view and the model in profile
- * settings activities.
+ * It serves as a communication between the view and the model in preference
+ * activities.
  */
 public class PreferencesController {
 

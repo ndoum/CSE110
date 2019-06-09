@@ -21,7 +21,13 @@ import com.example.rum8.listeners.MatchedRoommateProfileControllerListener;
 
 import java.util.Map;
 
+/**
+ * Class that create fragment that display the content of
+ * matched full view tab two.
+ */
 public class MatchedFullViewTabTwoFragment extends Fragment implements MatchedRoommateProfileControllerListener {
+
+    // Initialize class variable
     private View view;
     private MatchedRoommateProfileController matchedController;
     private TextView aboutMeField;

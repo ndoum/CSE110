@@ -1,5 +1,8 @@
 package com.example.rum8.listeners;
 
+/**
+ * Interface for login controller
+ */
 public interface LoginControllerListener {
 
     void goToPasswordRecovery();

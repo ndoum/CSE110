@@ -1,6 +1,5 @@
 package com.example.rum8.controllers;
 
-
 import android.util.Log;
 
 import com.example.rum8.database.Db;
@@ -12,8 +11,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Map;
 
+/**
+ * Class that contains the controller that serves as a communication
+ * between Login Activity and the database model.
+ */
 public class LoginController {
 
+    // Initialize class variable
     private LoginControllerListener controllerListener;
     private FirebaseAuth auth;
     private FirebaseFirestore db;

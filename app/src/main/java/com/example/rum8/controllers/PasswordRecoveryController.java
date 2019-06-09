@@ -6,8 +6,13 @@ import com.example.rum8.listeners.PasswordRecoveryControllerListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 
+/**
+ * Class that contains the controller that serves as a communication
+ * between Password Recovery Activity and the database model.
+ */
 public class PasswordRecoveryController {
 
+    // Initialize class variable
     private PasswordRecoveryControllerListener controllerListener;
     private FirebaseAuth auth;
 

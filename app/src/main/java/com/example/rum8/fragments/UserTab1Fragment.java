@@ -19,8 +19,13 @@ import com.example.rum8.listeners.MainControllerListener;
 
 import java.util.Map;
 
+/**
+ * Class that contains the user tab one fragment for Main
+ * Activity
+ */
 public class UserTab1Fragment extends Fragment implements MainControllerListener {
 
+    // Initialize class variable
     private View view;
     private MainController controller;
     private TextView budgetField;

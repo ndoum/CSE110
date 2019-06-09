@@ -4,6 +4,9 @@ import android.graphics.Bitmap;
 
 import java.util.Map;
 
+/**
+ * Interface for settings controller
+ */
 public interface SettingsControllerListener {
 
     void showCurrentUserInfo(final Map<String, Object> data);

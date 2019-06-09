@@ -1,6 +1,5 @@
 package com.example.rum8.activities;
 
-
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -28,10 +27,12 @@ import com.example.rum8.listeners.MainControllerListener;
 import java.util.Map;
 
 /**
- * Class that implements the home page of application.
+ * Class that implements the home page of application. Contains the display of
+ * potential roommate in home page.
  */
 public class MainActivity extends AppCompatActivity implements MainControllerListener {
 
+    // Initialize class variable
     private MainController controller;
     private Button gotit;
     private ImageView closePopup;
@@ -41,10 +42,8 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         initController();
         final ActionBar actionBar = getSupportActionBar();
-
         actionBar.setCustomView(R.layout.actionbar_cusom_view_home);
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setDisplayShowCustomEnabled(true);
@@ -61,23 +60,23 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.main_activity_go_to_preferences:
-                controller.onProfileSettingsButtonClicked();
-                return true;
-            case R.id.main_activity_log_out:
-                controller.onLogOutButtonClicked();
-                return true;
-            case R.id.main_activity_go_to_view_link_list:
-                controller.onGoToLinkListButtonClicked();
-                return true;
-            case R.id.main_activity_go_to_settings:
-                controller.onSettingsButtonClicked();
-                return true;
-            case R.id.main_activity_go_to_preview_profile:
-                controller.onPreviewProfileButtonClicked();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        case R.id.main_activity_go_to_preferences:
+            controller.onProfileSettingsButtonClicked();
+            return true;
+        case R.id.main_activity_log_out:
+            controller.onLogOutButtonClicked();
+            return true;
+        case R.id.main_activity_go_to_view_link_list:
+            controller.onGoToLinkListButtonClicked();
+            return true;
+        case R.id.main_activity_go_to_settings:
+            controller.onSettingsButtonClicked();
+            return true;
+        case R.id.main_activity_go_to_preview_profile:
+            controller.onPreviewProfileButtonClicked();
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
         }
     }
 
@@ -186,7 +185,6 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
 
     @Override
     public void showDefaultImage() {
-
     }
 
 }

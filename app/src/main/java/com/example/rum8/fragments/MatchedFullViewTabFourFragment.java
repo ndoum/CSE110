@@ -28,10 +28,15 @@ import com.example.rum8.listeners.MatchedRoommateProfileControllerListener;
 
 import java.util.Map;
 
+/**
+ * Class that create fragment that display the content of
+ * matched full view tab four.
+ */
 public class MatchedFullViewTabFourFragment extends Fragment implements MatchedRoommateProfileControllerListener {
+
+    // Initialize class variable
     View view;
     private MatchedRoommateProfileController controller;
-
     private LinearLayout facebookLinearLayout;
     private LinearLayout phoneNumberLinearLayout;
     private LinearLayout snapchatLinearLayout;

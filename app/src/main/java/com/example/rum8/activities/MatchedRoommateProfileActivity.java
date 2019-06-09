@@ -25,9 +25,13 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.Map;
 
-
+/**
+ * Class that show matched roommate profile after user and potential
+ * roommate linked with one another.
+ */
 public class MatchedRoommateProfileActivity extends AppCompatActivity implements MatchedRoommateProfileControllerListener {
 
+    // Initialize class variable
     private TabLayout tablayout;
     private AppBarLayout appBarLayout;
     private ViewPager viewPager;

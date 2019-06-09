@@ -23,8 +23,13 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.Map;
 
+/**
+ * Class that contains the preview profile page for preview
+ * profile activity
+ */
 public class PreviewProfileFragment extends Fragment implements PreviewProfileControllerListener {
 
+    // Initialization of class variable
     private TabLayout tablayout;
     private AppBarLayout appBarLayout;
     private ViewPager viewPager;
