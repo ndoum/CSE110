@@ -17,7 +17,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import androidx.fragment.app.Fragment;
 
 import com.example.rum8.R;
@@ -76,7 +75,7 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
         facebookLinearLayout.setClickable(true);
         facebookLinearLayout.setOnClickListener(v -> {
             String text = facebookTextView.getText().toString();
-            ClipData clipData = ClipData.newPlainText("text", text );
+            ClipData clipData = ClipData.newPlainText("text", text);
             clipboardManager.setPrimaryClip(clipData);
             showToast("Facebook link: " + text + " copied to clipboard");
 
@@ -85,16 +84,14 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
         snapchatLinearLayout.setClickable(true);
         snapchatLinearLayout.setOnClickListener(v -> {
             String text = snapchatTextView.getText().toString();
-            ClipData clipData = ClipData.newPlainText("text", text );
+            ClipData clipData = ClipData.newPlainText("text", text);
             clipboardManager.setPrimaryClip(clipData);
             showToast("Snapchat username: " + text + " copied to clipboard");
 
         });
 
         phoneNumberLinearLayout.setClickable(true);
-        phoneNumberLinearLayout.setOnClickListener(v -> {
-            openDialog();
-        });
+        phoneNumberLinearLayout.setOnClickListener(v -> openDialog());
         emailLinearLayout.setClickable(true);
 
 
@@ -108,7 +105,7 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
     }
 
 
-    public void openDialog(){
+    public void openDialog() {
         PhoneContactDialog phoneContactDialog = new PhoneContactDialog();
         phoneContactDialog.show(getFragmentManager(), "pop up");
 
@@ -132,24 +129,21 @@ public class MatchedFullViewTabFourFragment extends Fragment implements MatchedR
         emailTextView.setText(email);
 
 
-        if (facebook.equals("") && facebook.length() <= 0){
+        if (facebook.equals("") && facebook.length() <= 0) {
             facebookLinearLayout.setVisibility(View.GONE);
-        }
-        else{
+        } else {
             facebookTextView.setText(facebook);
         }
 
-        if (phoneNumber.equals("") && phoneNumber.length() <= 0){
+        if (phoneNumber.equals("") && phoneNumber.length() <= 0) {
             phoneNumberLinearLayout.setVisibility(View.GONE);
-        }
-        else{
+        } else {
             phoneNumberTextView.setText(phoneNumber);
         }
 
-        if (snapchat.equals("") && snapchat.length() <= 0){
+        if (snapchat.equals("") && snapchat.length() <= 0) {
             snapchatLinearLayout.setVisibility(View.GONE);
-        }
-        else{
+        } else {
             snapchatTextView.setText(snapchat);
         }
 

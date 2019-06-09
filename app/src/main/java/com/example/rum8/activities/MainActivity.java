@@ -1,6 +1,5 @@
 package com.example.rum8.activities;
 
-
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -61,23 +60,23 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.main_activity_go_to_preferences:
-                controller.onProfileSettingsButtonClicked();
-                return true;
-            case R.id.main_activity_log_out:
-                controller.onLogOutButtonClicked();
-                return true;
-            case R.id.main_activity_go_to_view_link_list:
-                controller.onGoToLinkListButtonClicked();
-                return true;
-            case R.id.main_activity_go_to_settings:
-                controller.onSettingsButtonClicked();
-                return true;
-            case R.id.main_activity_go_to_preview_profile:
-                controller.onPreviewProfileButtonClicked();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        case R.id.main_activity_go_to_preferences:
+            controller.onProfileSettingsButtonClicked();
+            return true;
+        case R.id.main_activity_log_out:
+            controller.onLogOutButtonClicked();
+            return true;
+        case R.id.main_activity_go_to_view_link_list:
+            controller.onGoToLinkListButtonClicked();
+            return true;
+        case R.id.main_activity_go_to_settings:
+            controller.onSettingsButtonClicked();
+            return true;
+        case R.id.main_activity_go_to_preview_profile:
+            controller.onPreviewProfileButtonClicked();
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
         }
     }
 
@@ -173,22 +172,19 @@ public class MainActivity extends AppCompatActivity implements MainControllerLis
     @Override
     public void showPopup() {
         dia.setContentView(R.layout.popup_no_more_profile);
-        closePopup = (ImageView) dia.findViewById(R.id.close_popup);
-        gotit = (Button) dia.findViewById(R.id.close_popup_button);
+        closePopup = dia.findViewById(R.id.close_popup);
+        gotit = dia.findViewById(R.id.close_popup_button);
         dia.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dia.show();
 
-        // when user click on got it button,go to profile setting
-        gotit.setOnClickListener(v -> {
-            goToProfileSettings();
-        });
+        // when user click on got it button,go to profilesetting
+        gotit.setOnClickListener(v -> goToProfileSettings());
 
-        closePopup.setOnClickListener(v -> {
-            dia.dismiss();
-        });
+        closePopup.setOnClickListener(v -> dia.dismiss());
     }
 
     @Override
-    public void showDefaultImage() { }
+    public void showDefaultImage() {
+    }
 
 }
